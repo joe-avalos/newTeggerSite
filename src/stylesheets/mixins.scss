@@ -1,0 +1,12 @@
+@import "variables";
+
+@mixin gradient($level){
+  $gradientFrom: $gradientPrimaryFrom;
+  $gradientTo: $gradientPrimaryTo;
+  @if($level == 'secondary') {
+    $gradientFrom: $gradientSecondaryFrom;
+    $gradientTo: $gradientSecondaryTo;
+  }
+  background-color: $gradientFrom;
+  background-color: linear-gradient(180deg, $gradientFrom, $gradientTo);
+}
