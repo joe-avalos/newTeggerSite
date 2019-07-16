@@ -34,7 +34,11 @@ const theme = createMuiTheme({
   },
   breakpoints: {
     values:{
-      lg: 1200
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1200,
+      xl: 1920
     }
   },
   typography:{
@@ -51,17 +55,31 @@ const theme = createMuiTheme({
         "Encode Sans Semi Expanded",
         "sans-serif"
       ].join(','),
-      fontSize: 75,
-      color: $secondaryOrange
+      fontSize: "4.687rem",
+      color: $secondaryOrange,
+      marginBottom: 10,
+      [defaultTheme.breakpoints.down('sm')]: {
+        fontSize: '3.4rem',
+      },
     },
     subtitle1:{
-      fontSize: 30,
+      fontSize: "1.875rem",
       color: $primaryGray,
-      fontWeight: "lighter"
+      fontWeight: "lighter",
+      lineHeight: 1.3,
+      [defaultTheme.breakpoints.down('sm')]: {
+        fontSize: '1.5rem',
+      },
     },
     h2:{
-      fontSize: 20,
-      color: $primaryBlack
+      fontSize: "2rem",
+      color: $primaryBlack,
+      fontWeight: 300,
+      lineHeight: 1.2,
+      marginBottom: defaultTheme.spacing(1),
+      [defaultTheme.breakpoints.down('sm')]: {
+        fontSize: '1.5rem',
+      },
     },
     h3:{
       fontFamily:[
@@ -69,11 +87,24 @@ const theme = createMuiTheme({
         "Encode Sans Semi Expanded",
         "sans-serif"
       ].join(','),
-      fontSize: 20,
-      color: $iconPrimary
+      fontSize: "1.25rem",
+      color: $iconPrimary,
+      lineHeight: 2,
+      textTransform: 'uppercase'
     },
     body1:{
-      fontWeight: "lighter"
+      fontWeight: "lighter",
+      color: $primaryGray,
+      fontSize: "1.25rem",
+      lineHeight: 1.25,
+      [defaultTheme.breakpoints.down('sm')]: {
+        fontSize: '1rem',
+      },
+    },
+    body2:{
+      fontWeight: "lighter",
+      fontSize: "1rem",
+      lineHeight: 1,
     }
   },
   overrides:{
@@ -96,24 +127,43 @@ const theme = createMuiTheme({
         padding: "14px 37px",
       },
       contained:{
-        backgroundColor: $white,
+        backgroundColor: 'transparent',
         color: $primaryOrange,
         textTransform: "none",
         fontWeight: "normal",
         padding: 0,
         boxShadow: "initial",
+        textAlign: 'left',
+        maxWidth: 330,
+        justifyContent: 'flex-start',
         marginLeft: defaultTheme.spacing(2),
         marginRight: defaultTheme.spacing(2),
         paddingLeft: defaultTheme.spacing(1),
         paddingRight: defaultTheme.spacing(1),
         "&:hover":{
           fontWeight: "bolder",
-          backgroundColor: $white,
+          backgroundColor: 'transparent',
         },
         "&:active":{
           boxShadow: "initial"
+        },
+        "&.doubleSVG .MuiButton-label":{
+          marginLeft: 23,
+        },
+        "& .MuiButton-label svg:first-of-type":{
+          left: -20,
+          position: 'absolute'
+        },
+        "& .MuiButton-label svg:nth-of-type(2)":{
+          marginLeft: 'auto'
         }
       },
+      fullWidth:{
+        marginLeft: 0,
+        marginRight: 0,
+        paddingLeft: 0,
+        paddingRight: 0,
+      }
     },
     MuiOutlinedInput:{
       root:{
@@ -150,8 +200,8 @@ const theme = createMuiTheme({
     },
     MuiContainer:{
       root:{
-        paddingLeft: 26,
-        paddingRight: 0
+        paddingLeft: defaultTheme.spacing(3.25),
+        paddingRight: defaultTheme.spacing(3.25)
       }
     },
     MuiAppBar:{
@@ -174,6 +224,9 @@ const theme = createMuiTheme({
         height: 38,
         fontWeight: "bold",
         fontSize: "0.7rem",
+        [defaultTheme.breakpoints.up('sm')]: {
+          minWidth: 125,
+        },
         "&:hover":{
           color: $primaryGray
         },
@@ -181,10 +234,31 @@ const theme = createMuiTheme({
           color: $primaryOrange
         },
         "&:first-of-type":{
-          width: 128,
-          marginRight: 85,
-          padding: "6px 0",
+          width: 150,
+          marginRight: defaultTheme.spacing(9),
         }
+      }
+    },
+    MuiTypography:{
+      root:{
+        wordWrap: "break-word"
+      }
+    },
+    MuiPaper:{
+      rounded:{
+        borderRadius: 6
+      },
+      elevation0:{
+        backgroundColor: 'transparent'
+      },
+      elevation4:{
+        padding: defaultTheme.spacing(4,5,5),
+        boxShadow: "0px 1px 40px 0px rgba(0, 0, 0, 0.08)"
+      }
+    },
+    MuiExpansionPanelDetails:{
+      root:{
+        padding: defaultTheme.spacing(0,2,2)
       }
     }
   }

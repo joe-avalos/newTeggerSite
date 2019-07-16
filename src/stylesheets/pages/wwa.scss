@@ -1,0 +1,61 @@
+@import "../variables";
+@import "../mixins";
+
+.background{
+  &.wwaOrangeBG{
+    @include gradient('','');
+    left: 0;
+    width: 100%;
+    height: 320px;
+  }
+}
+.wwaTitle{
+  height: 750px;
+  @media screen and (max-width: $smWidth){
+    height: 230px;
+  }
+}
+.wwaOrange{
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wwaFunctions{
+  height: 690px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (max-width: $smWidth){
+    height: 1260px;
+    margin-bottom: -10px !important;
+  }
+  .MuiGrid-container{
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    height: calc(100% + 12px);
+  }
+  .MuiGrid-item{
+    @media screen and (max-width: $smWidth){
+      margin-top: 24px;
+    }
+    &:not(:first-of-type){
+      max-width: calc(50% - 12px);
+      @media screen and (max-width: $smWidth){
+        max-width: initial;
+      }
+    }
+    &:last-of-type, &:nth-last-of-type(2){
+      margin-top: 24px;
+    }
+    & .MuiPaper-root{
+      height: 280px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

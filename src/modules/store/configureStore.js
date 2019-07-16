@@ -14,6 +14,7 @@ export default function configureStore(initialState = {}) {
   if (process.env.NODE_ENV === 'development'){
     return createStore(
       rootReducer(history),
+      initialState,
       composeEnhancers(applyMiddleware(routerMiddleware(history), thunk))
     )
   }else{

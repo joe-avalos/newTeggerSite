@@ -1,0 +1,57 @@
+@import "../variables";
+
+.background{
+  &.footerBG{
+    background-color: $iconHover;
+    background-image:
+      url("https://files.tegger.io/assets/tegger/images/reactHome/tegger-data-footer.svg"),
+      url("https://files.tegger.io/assets/tegger/images/reactHome/tegger-settings-footer.svg");
+    background-size: 220px, 380px;
+    background-position: -5% 56%, 110% 3%;
+    height: 600px;
+    width: 100%;
+    left: 0;
+    @media screen and (max-width: $smWidth){
+      background-image: initial;
+      height: 500px;
+    }
+  }
+}
+.footerContent{
+  height: 555px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (max-width: $smWidth){
+    height: 202px;
+    text-align: center;
+  }
+}
+.tggLogo{
+  width: 32%;
+  margin-bottom: 10px;
+}
+.footerNav{
+  padding: 10px;
+  border-top: 1px solid $iconPrimary;
+  .MuiBreadcrumbs-li{
+    cursor: pointer;
+  }
+  @media screen and (max-width: $smWidth){
+    text-align: center;
+  }
+}
+.socials{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  a{
+    display: inline-flex;
+  }
+}
+.copyright{
+  text-align: right;
+  @media screen and (max-width: $smWidth){
+    padding-top: 10px;
+  }
+}

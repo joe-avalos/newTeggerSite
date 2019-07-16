@@ -1,0 +1,12 @@
+@import "../variables";
+
+.wwdTitle{
+  height: 600px;
+  @media screen and (max-width: $smWidth) {
+    height: 370px;
+  }
+}
+
+.background.wwTitleBG.wwd{
+  z-index: -3;
+}

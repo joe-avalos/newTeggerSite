@@ -1,0 +1,24 @@
+@import "../variables";
+
+.paperAlignSB{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  padding: 8px 0 20px;
+}
+.whyAnimate{
+  position: absolute;
+  background-size: cover;
+  top: 40px;
+  width: 440px;
+  height: 521px;
+  background-image: url("https://files.tegger.io/assets/tegger/images/reactHome/animation.png");
+  box-shadow: 0 1px 40px 0 rgba(0, 0, 0, 0.08);
+}
+.whyContent{
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

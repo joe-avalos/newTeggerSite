@@ -1,6 +1,6 @@
 import React from 'react'
 import {ThemeProvider} from "@material-ui/styles"
-import {CssBaseline} from "@material-ui/core"
+import CssBaseline from "@material-ui/core/CssBaseline"
 import theme from './stylesheets/theme'
 import configureStore, {history} from './modules/store/configureStore'
 import {Provider} from 'react-redux'
