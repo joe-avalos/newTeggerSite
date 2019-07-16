@@ -1,0 +1,59 @@
+@import "../variables";
+
+.background{
+  &.homeBG{
+    height: 800px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url("https://files.tegger.io/assets/tegger/images/reactHome/tegger-main-img@2x.svg");
+    @media screen and (max-width: $smWidth) {
+      height: 620px;
+    }
+  }
+  &.solutionBG{
+    height: 69.5%;
+    width: 100%;
+    right: -50%;
+    background-image: url("https://files.tegger.io/assets/tegger/images/reactHome/tegger-solution.svg");
+  }
+}
+.homeTitle{
+  height: 509px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (max-width: $smWidth) {
+    height: 430px;
+  }
+}
+.solutionTitle{
+  height: 690px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (max-width: $smWidth) {
+    height: 600px;
+  }
+  .MuiGrid-item{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &:hover{
+      .MuiTypography-body2{
+        transform: scale(1.02);
+      }
+    }
+    @media screen and (max-width: $smWidth) {
+      flex-direction: row;
+      text-align: left;
+      position: relative;
+      p{
+        margin-left: 9px;
+      }
+    }
+  }
+}

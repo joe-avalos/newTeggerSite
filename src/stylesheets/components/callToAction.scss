@@ -1,0 +1,22 @@
+@import "../variables";
+@import "../mixins";
+
+.background{
+  &.CTABG{
+    @include gradient('secondary','https://files.tegger.io/assets/tegger/images/reactHome/tegger-bg.svg');
+    left: 0;
+    height: 650px;
+    width: 100%;
+    @media screen and (max-width: $smWidth) {
+      height: 450px;
+    }
+  }
+}
+.CTAContent{
+  .MuiGrid-item{
+    padding: 167px 0;
+    @media screen and (max-width: $smWidth) {
+      padding: 48px 0;
+    }
+  }
+}

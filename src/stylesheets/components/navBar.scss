@@ -1,0 +1,23 @@
+@import "../variables";
+
+.notElevated{
+  .MuiContainer-root{
+    border-bottom: 1px solid #C0C0C0;
+  }
+}
+.elevated{
+  .MuiContainer-root{
+    border-bottom: 0;
+  }
+}
+.appBarContainer{
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.MuiTab-wrapper img{
+  width: 100%;
+}
+.responsiveLogo{
+  max-width: 35%;
+}

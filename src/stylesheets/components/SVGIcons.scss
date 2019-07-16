@@ -1,0 +1,413 @@
+@import "../variables";
+
+.TGGScroll, .TGGShare, .TGGPlay, .TGGStar, .TGGSecurity{
+  max-width: 90px;
+  height: 75px;
+  margin-bottom: 15px;
+  display: inline-flex;
+  @media screen and (max-width: $smWidth) {
+    margin-bottom: initial;
+    height: 60px;
+    max-width: 60px;
+  }
+}
+.FBLogo, .TGGMailIcon, .TWLogo{
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.TGGProfile, .TGGShop, .TGGWallet{
+  min-width: 40px;
+}
+.TGGStarClick, .TGGCloudLock, .TGGHeart, .TGGShield, .TGGCrown{
+  width: 74px;
+  height: 74px;
+  min-width: 74px;
+  margin-bottom: 15px;
+}
+.MuiButton-label {
+  .TGGScroll, .TGGShare, .TGGPlay, .TGGStar, .TGGSecurity {
+    max-width: 45px;
+    height: 60px;
+    margin-bottom: initial;
+  }
+
+  .TGGPlay {
+    margin-left: 7px;
+  }
+}
+.doubleSVG:hover {
+  svg:nth-of-type(2) {
+    transform: scale(1.05);
+  }
+}
+.doubleSVG:hover, .solutionTitle .MuiGrid-item:hover{
+  .TGGScroll{
+    .cls-1, .cls-4, .cls-2 {
+      fill: $primaryOrange;
+      stroke: $primaryOrange;
+    }
+
+    .cls-3 {
+      clip-path: url(#clip-path);
+    }
+
+    .cls-4 {
+      stroke: white;
+    }
+  }
+  .TGGShare{
+    .cls-1 {
+      fill: $primaryOrange;
+      stroke: $primaryOrange;
+    }
+    .cls-2 {
+      fill: white;
+    }
+    .cls-4{
+      stroke: white;
+    }
+    .cls-3 {
+      fill: white;
+    }
+  }
+  .TGGStar{
+    .cls-1 {
+      fill: $primaryOrange;
+    }
+
+    .cls-2 {
+      fill: white;
+    }
+    .cls-1, .cls-2 {
+      stroke: $primaryOrange;
+    }
+  }
+  .TGGPlay{
+    .cls-1, .cls-3 {
+      fill: $primaryOrange;
+    }
+
+    .cls-1, .cls-2, .cls-3 {
+      stroke: $primaryOrange;
+    }
+
+    .cls-2 {
+      fill: white;
+    }
+
+    .cls-3 {
+      stroke: $primaryOrange;
+      stroke-width: 2px;
+    }
+
+    .cls-4 {
+      fill: $primaryOrange;
+      stroke: $primaryOrange;
+    }
+  }
+  .TGGSecurity{
+    .cls-1 {
+      fill: $primaryOrange;
+    }
+
+    .cls-2 {
+      fill: white;
+    }
+    .cls-1, .cls-2, .cls-3 {
+      stroke: $primaryOrange;
+    }
+  }
+}
+.TGGScroll {
+  .cls-1 {
+    fill: $iconPrimary;
+  }
+
+  .cls-2 {
+    fill: $iconHover;
+  }
+
+  .cls-3 {
+    fill: white;
+  }
+
+  .cls-4 {
+    clip-path: url(#clip-path);
+  }
+  &:hover {
+    .cls-1, .cls-4, .cls-2 {
+      fill: $primaryOrange;
+    }
+
+    .cls-3 {
+      clip-path: url(#clip-path);
+    }
+
+    .cls-4 {
+      stroke: white;
+    }
+  }
+}
+
+.TGGShare {
+  .cls-1 {
+    fill: $iconHover;
+  }
+
+  .cls-1, .cls-4 {
+    stroke: $iconPrimary;
+    stroke-width: 3px;
+  }
+  .cls-2, .cls-4 {
+    fill: white;
+  }
+  .cls-3 {
+    fill: $iconPrimary;
+  }
+  &:hover{
+    .cls-1 {
+      fill: $primaryOrange;
+    }
+
+    .cls-2 {
+      fill: white;
+    }
+  }
+}
+
+.TGGStar {
+  .cls-1 {
+    fill: $iconHover;
+  }
+
+  .cls-1, .cls-2 {
+    stroke: $iconPrimary;
+    stroke-width: 3px;
+  }
+
+  .cls-2 {
+    fill: white;
+  }
+  &:hover{
+    .cls-1 {
+      fill: $primaryOrange;
+    }
+
+    .cls-2 {
+      fill: white;
+    }
+  }
+}
+
+.TGGPlay {
+  .cls-1 {
+    fill: white;
+  }
+
+  .cls-1, .cls-2, .cls-3 {
+    stroke: $iconPrimary;
+  }
+
+  .cls-1, .cls-2 {
+    stroke-width: 3px;
+  }
+
+  .cls-2 {
+    fill: $iconHover;
+  }
+
+  .cls-3 {
+    fill: $iconPrimary;
+  }
+  &:hover{
+    .cls-1, .cls-3 {
+      fill: $primaryOrange;
+    }
+
+    .cls-2 {
+      fill: white;
+    }
+
+    .cls-3 {
+      stroke: $primaryOrange;
+      stroke-width: 2px;
+    }
+
+    .cls-4 {
+      fill: $primaryOrange;
+      stroke: $primaryOrange;
+    }
+  }
+}
+
+.TGGSecurity {
+  .cls-1 {
+    fill: $iconHover;
+  }
+
+  .cls-1, .cls-2, .cls-3 {
+    stroke: $iconPrimary;
+    stroke-width: 2px;
+  }
+
+  .cls-2, .cls-3 {
+    fill: white;
+  }
+
+  .cls-3 {
+    stroke-miterlimit: 10;
+  }
+  &:hover{
+    .cls-1 {
+      fill: $primaryOrange;
+    }
+
+    .cls-2 {
+      fill: white;
+    }
+  }
+}
+.TGGInputMailIcon{
+  width: 32px;
+  height: 20px;
+  .cls-1 {
+    fill: $iconHover;
+  }
+
+  .cls-2 {
+    fill: white;
+  }
+
+  .cls-3 {
+    fill: $iconPrimary;
+  }
+}
+.FBLogo {
+  .cls-1 {
+    fill: $iconHover;
+    stroke: $iconPrimary;
+    stroke-width: 2px;
+  }
+  .cls-2 {
+    clip-path: url(#clip-path);
+  }
+  &:hover{
+    .cls-1 {
+      fill: $primaryOrange;
+      stroke: $primaryOrange;
+    }
+  }
+}
+.TGGMailIcon{
+  .cls-1 {
+    fill: $iconHover;
+  }
+  .cls-2 {
+    fill: $iconPrimary;
+  }
+  &:hover{
+    .cls-1 {
+      fill: $primaryOrange;
+    }
+    .cls-2 {
+      fill: white;
+    }
+  }
+}
+
+.TWLogo{
+  .cls-1 {
+    fill: $iconPrimary;
+  }
+  .cls-2 {
+    fill: $iconHover;
+  }
+  &:hover{
+    .cls-1, .cls-2 {
+      fill: $primaryOrange;
+    }
+  }
+}
+.TGGCloudLock{
+  .cls-1 {
+    fill: white;
+  }
+  .cls-1, .cls-2 {
+    stroke: silver;
+    stroke-width: 3px;
+  }
+  .cls-2 {
+    fill: $iconHover;
+  }
+}
+.TGGStarClick{
+  .cls-1 {
+    fill: $iconHover;
+  }
+  .cls-1, .cls-2 {
+    stroke: $iconPrimary;
+    stroke-width: 3px;
+  }
+  .cls-2 {
+    fill: white;
+  }
+}
+
+.TGGCrown{
+  .cls-1 {
+    fill: $iconPrimary;
+  }
+  .cls-2, .cls-3 {
+    fill: $iconHover;
+  }
+  .cls-3 {
+    stroke: $iconPrimary;
+    stroke-linejoin: round;
+    stroke-width: 1.8px;
+  }
+}
+
+.TGGShield{
+  .cls-1 {
+    fill: url(#linear-gradient);
+  }
+  .cls-2 {
+    fill: white;
+  }
+}
+.TGGHeart{
+  .cls-1 {
+    fill: white;
+  }
+  .cls-1, .cls-2 {
+    stroke: $iconPrimary;
+    stroke-width: 3px;
+  }
+  .cls-2 {
+    fill: $iconHover;
+  }
+  .cls-3 {
+    fill: $iconPrimary;
+  }
+}
+.TGGProfile{
+  .cls-1 {
+    fill: $iconPrimary;
+  }
+}
+.TGGShop{
+  .cls-1 {
+    fill: white;
+  }
+  .cls-2 {
+    fill: $iconPrimary;
+    stroke: $iconPrimary;
+    stroke-width: 0.5px;
+  }
+}
+.TGGWallet{
+  .cls-1 {
+    fill: $iconPrimary;
+  }
+}

@@ -1,0 +1,51 @@
+@import "../variables";
+
+.background{
+  &.whyBG.benefits{
+    height: 600px;
+    z-index: -1;
+  }
+}
+.wwbTitle{
+  height: 600px;
+  @media screen and (max-width: $smWidth) {
+    height: 260px;
+  }
+}
+.benefitPaper{
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.benefitRow{
+  margin: 15px 0;
+  display: flex;
+  flex-direction: row;
+  svg{
+    margin-right: 15px;
+  }
+}
+.benefitPhone{
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  &:first-of-type{
+    background-image: url("https://files.tegger.io/assets/tegger/images/reactHome/phone.svg");
+    background-position: center bottom;
+    background-size: 335px;
+    background-repeat: no-repeat;
+  }
+}
+.benefitsSwipeableSteps{
+  img {
+    max-width: 263px;
+    max-height: 470px;
+    display: block;
+    margin: 0 auto;
+  }
+  & > div > div > div{
+    overflow-y: hidden !important;
+  }
+}

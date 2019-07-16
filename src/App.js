@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {ThemeProvider} from "@material-ui/styles"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import theme from './stylesheets/theme'
+import configureStore, {history} from './modules/store/configureStore'
+import {Provider} from 'react-redux'
+import {ConnectedRouter} from "connected-react-router";
+
+import NavBar from './components/navBar'
+import Content from './components/content'
+
+require('dotenv').config()
+
+const store = configureStore()
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <ConnectedRouter history={history}>
+            <NavBar />
+            <Content />
+          </ConnectedRouter>
+        </ThemeProvider>
+      </Provider>
   );
 }
 
