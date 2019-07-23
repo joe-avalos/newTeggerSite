@@ -1,4 +1,4 @@
-import {NAV_ACTIONS} from '../actions/navs'
+import {NAV_ACTIONS} from '../actions/navsActions'
 
 const defaultState = {
   activeNav: '/',

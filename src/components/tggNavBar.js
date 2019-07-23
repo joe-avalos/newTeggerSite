@@ -14,7 +14,7 @@ import ListItemText from "@material-ui/core/ListItemText"
 import MenuIcon from '@material-ui/icons/Menu'
 import {connect} from "react-redux"
 import {push} from 'connected-react-router'
-import {navTabClicked, navExpandClick} from "../modules/actions/navs"
+import {navTabClicked, navExpandClick} from "../modules/actions/navsActions"
 import '../stylesheets/components/navBar.scss'
 
 function ElevationScroll(props) {
@@ -33,7 +33,7 @@ function ElevationScroll(props) {
   })
 }
 
-class navBar extends Component{
+class tggNavBar extends Component{
   constructor(props){
     super(props)
     this.handleTabClick = this.handleTabClick.bind(this)
@@ -143,4 +143,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(navBar)
+export default connect(mapStateToProps, mapDispatchToProps)(tggNavBar)

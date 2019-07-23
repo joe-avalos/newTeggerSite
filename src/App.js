@@ -4,25 +4,30 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import theme from './stylesheets/theme'
 import configureStore, {history} from './modules/store/configureStore'
 import {Provider} from 'react-redux'
-import {ConnectedRouter} from "connected-react-router";
+import {ConnectedRouter} from "connected-react-router"
+import persistStore from 'redux-persist/lib/persistStore'
+import {PersistGate} from 'redux-persist/integration/react'
 
-import NavBar from './components/navBar'
-import Content from './components/content'
+import NavBar from './components/tggNavBar'
+import TggContent from './components/tggContent'
 
 require('dotenv').config()
 
 const store = configureStore()
+const persistor = persistStore(store)
 
 function App() {
   return (
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <ConnectedRouter history={history}>
-            <NavBar />
-            <Content />
-          </ConnectedRouter>
-        </ThemeProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <ConnectedRouter history={history}>
+              <NavBar />
+              <TggContent />
+            </ConnectedRouter>
+          </ThemeProvider>
+        </PersistGate>
       </Provider>
   );
 }
