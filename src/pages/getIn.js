@@ -47,7 +47,7 @@ export default function GetIn() {
   })
   let userError = useSelector(state => state.user.userError)
   console.log(userLoading)
-  const validate = value => {
+  /*const validate = value => {
     switch (userStatus) {
       case 'userFound':
         return !isEmpty(value.userid) && !isEmpty(value.password)
@@ -61,9 +61,9 @@ export default function GetIn() {
       default:
         return !isEmpty(value.email) && isEmail(value.email)
     }
-  }
+  }*/
   
-  function handleSubmit(e) {
+  /*function handleSubmit(e) {
     e.preventDefault()
     switch (userStatus) {
       case 'userFound':
@@ -92,7 +92,7 @@ export default function GetIn() {
         }
         return
     }
-  }
+  }*/
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Grid container>
@@ -106,16 +106,7 @@ export default function GetIn() {
           <Typography variant={'body1'}>
             Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace.
           </Typography>
-          <form onSubmit={handleSubmit} noValidate autoComplete="off">
-            {userLoading ? (
-              <CircularProgress />
-            ):(
-              userStatus === 'userFound' ? <LoginForm/> :
-              userStatus === 'userSub' ? <RegisterForm /> : <EmailInput/>)
-            }
-              {(userError !== '') && <FormHelperText error={true}>{userError}</FormHelperText>}
-              <Button type="submit">Ir</Button>
-          </form>
+          <RegisterForm />
         </Grid>
         <Hidden mdDown>
           <Grid item md={6}>

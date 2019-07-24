@@ -1,43 +1,65 @@
 import React from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
+
 import FormControl from '@material-ui/core/FormControl'
 import IconButton from '@material-ui/core/IconButton'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
 import Close from '@material-ui/icons/Close'
+import isEmpty from 'validator/lib/isEmpty'
 
 import {userDeleteSubmit} from '../../modules/actions/userActions'
+import {FormHelperText} from '@material-ui/core'
 
-export default function UsernameEmailInputField() {
+const UsernameEmailInputField = ({handleChange, disabled, error, label, name, value}) => {
   const dispatch = useDispatch()
-  const email = useSelector(state => state.user.subEmail )
+  let inputError = !isEmpty(error || '')
   function handleClearInput(){
     dispatch(userDeleteSubmit())
   }
-  return (
-    <FormControl>
-      <TextField
-        variant="outlined"
-        label="Email or Username"
-        value={email}
-        name="emailOrUsername"
-        disabled
-        autoComplete="emailOrUsername"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                edge="end"
-                aria-label="Submit"
-                onClick={handleClearInput}
-                color="primary"
-              >
-                <Close />
-              </IconButton>
-            </InputAdornment>
-          )
-        }}
-      />
-    </FormControl>
-  )
+  if (disabled) {
+    return (
+      <FormControl>
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          label={label}
+          value={value || ''}
+          name={name}
+          disabled={disabled}
+          autoComplete="emailOrUsername"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  edge="end"
+                  aria-label="Submit"
+                  onClick={handleClearInput}
+                  color="primary"
+                >
+                  <Close />
+                </IconButton>
+              </InputAdornment>
+            )
+          }}
+        />
+      </FormControl>
+    )
+  }else{
+    return (
+      <FormControl error={inputError}>
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          label={label}
+          value={value || ''}
+          name={name}
+          autoComplete="emailOrUsername"
+          error={inputError}
+        />
+        {inputError !== '' && <FormHelperText>{error}</FormHelperText>}
+      </FormControl>
+    )
+  }
 }
+export default UsernameEmailInputField

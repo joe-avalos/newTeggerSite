@@ -1,68 +1,43 @@
 import React from 'react'
-import isEmpty from 'validator/lib/isEmpty'
-import matches from 'validator/lib/matches'
 import {FormControl, FormHelperText, IconButton, InputAdornment, TextField} from '@material-ui/core'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
+import isEmpty from 'validator/lib/isEmpty'
 
-const passRegEx = new RegExp(/^(?=.+[a-z])(?=.+[A-Z])(?=.+\d)[A-Za-z\d]\S{7,50}$/g)
-
-const validate = value => {
-  return !isEmpty(value) && matches(value, passRegEx)
-}
-
-export default function ComposedInputField(noValidate) {
-  const [pass, setPass] = React.useState({pass: '', show: false})
-  const [error, setError] = React.useState({error: false, strength: '', required: ''})
-  
-  function handleChange(e) {
-    setPass({...pass, pass: e.target.value})
-  }
-  
-  function handleBlur() {
-    if (validate(pass.pass) || noValidate) {
-      setError({...error, error: false})
-    } else {
-      setError({
-        error: true,
-        required: isEmpty(pass.pass) ? 'Password is required' : '',
-        strength: matches(pass.pass, passRegEx) ? '' : 'Password must have an uppercase, a lowercase, and a numeric character'
-      })
-    }
-  }
-  
+const PasswordInput = ({handleChange, value, name, label, error}) => {
+  const [show, setShow] = React.useState(false)
   function handleShowPass() {
-    setPass({...pass, show: !pass.show})
+    setShow(!show)
   }
-  
+  let inputError = !isEmpty(error || '')
   return (
-    <FormControl error={error.error}>
+    <FormControl error={inputError}>
       <TextField
         variant="outlined"
-        type={pass.show ? 'text' : 'password'}
-        name="password"
-        label="Password"
-        value={pass.pass}
+        type={show ? 'text' : 'password'}
+        name={name}
+        label={label}
+        value={value || ''}
         onChange={handleChange}
-        onBlur={handleBlur}
-        error={error.error}
         autoComplete="current-password"
+        error={inputError}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
               <IconButton
                 edge="end"
-                aria-label="Submit"
+                aria-label="showPass"
                 onClick={handleShowPass}
                 color="primary"
               >
-                {pass.show ? <VisibilityOff/> : <Visibility/>}
+                {show ? <VisibilityOff/> : <Visibility/>}
               </IconButton>
             </InputAdornment>
           )
         }}
       />
-      {error.error && <FormHelperText>{error.required !== '' ? error.required : error.strength}</FormHelperText>}
+      {inputError && <FormHelperText>{error}</FormHelperText> }
     </FormControl>
   )
 }
+export default PasswordInput
