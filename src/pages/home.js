@@ -6,10 +6,10 @@ import Hidden from '@material-ui/core/Hidden'
 import Paper from '@material-ui/core/Paper'
 import Box from '@material-ui/core/Box'
 import withStyles from '@material-ui/styles/withStyles'
-import {TGGScroll, TGGStar, TGGShare} from '../components/Icons'
-import CallToAction from '../components/TGGCallTA'
+import {TGGScroll, TGGStar, TGGShare} from '../components/tggIcons'
+import CallToAction from '../components/tggCallTo'
 import TGGFooter from '../components/tggFooter'
-import WhyUseTegger from '../components/whyUseTegger'
+import WhyUseTegger from '../components/tggWhyUse'
 
 import '../stylesheets/pages/home.scss'
 

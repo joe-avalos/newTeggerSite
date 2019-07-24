@@ -3,10 +3,10 @@ import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Hidden from  '@material-ui/core/Hidden'
 import Typography from  '@material-ui/core/Typography'
-import TggInput from './tggInput'
+import TggEmailInput from './inputs/TggEmailInput'
 import '../stylesheets/components/callToAction.scss'
 
-export default class TGGCallTA extends Component{
+export default class TggCallTo extends Component{
   
   render() {
     return(
@@ -23,7 +23,7 @@ export default class TGGCallTA extends Component{
             <Typography variant={'subtitle1'} style={{color: 'white', fontWeight: 'lighter', marginBottom: 60}}>
               Comienza a recibir recompensas por navegar
             </Typography>
-            <TggInput />
+            <TggEmailInput />
           </Grid>
         </Grid>
       </>

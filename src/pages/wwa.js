@@ -10,10 +10,10 @@ import MuiExpansionPanel from '@material-ui/core/ExpansionPanel'
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import CallToAction from '../components/TGGCallTA'
+import CallToAction from '../components/tggCallTo'
 import TGGFooter from '../components/tggFooter'
 import '../stylesheets/pages/wwa.scss'
-import {TGGCloudLock, TGGHeart, TGGStar, TGGStarClick} from '../components/Icons'
+import {TGGCloudLock, TGGHeart, TGGStar, TGGStarClick} from '../components/tggIcons'
 
 const ExpansionPanel = withStyles({
   root: {

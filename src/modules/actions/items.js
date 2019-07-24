@@ -3,8 +3,7 @@ export const ITEMS_ACTIONS = {
   ITEMS_IS_LOADING: 'ITEMS_IS_LOADING',
   ITEMS_FETCH_DATA_SUCCESS: 'ITEMS_FETCH_DATA_SUCCESS',
   ITEMS_CREATE_ITEM: 'ITEMS_CREATE_ITEM',
-  ITEMS_DELETE_ITEM: 'ITEMS_DELETE_ITEM',
-  ITEMS_INPUT_CHANGE: 'ITEMS_INPUT_CHANGE'
+  ITEMS_DELETE_ITEM: 'ITEMS_DELETE_ITEM'
 }
 
 export function itemsHasErrored(bool) {
@@ -23,12 +22,6 @@ export function itemsFetchDataSuccess(items) {
   return{
     type: ITEMS_ACTIONS.ITEMS_FETCH_DATA_SUCCESS,
     items: items
-  }
-}
-export function itemInputChange(item) {
-  return{
-    type: ITEMS_ACTIONS.ITEMS_INPUT_CHANGE,
-    item: item
   }
 }
 export function itemsCreate(task) {

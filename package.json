@@ -12,6 +12,7 @@
     "history": "^4.9.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.12.0",
+    "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -21,7 +22,9 @@
     "react-swipeable-views": "^0.13.3",
     "react-swipeable-views-utils": "^0.13.3",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0",
+    "validator": "^11.1.0"
   },
   "scripts": {
     "analyze": "npx source-map-explorer 'build/static/js/*.js'",
