@@ -25,7 +25,7 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit} noValidate autoComplete="off">
       <UsernameEmailInput handleChange={handleChange} value={subEmail} name='userid' label='Email' error={''} disabled={true}/>
       <PasswordInput handleChange={handleChange} value={values.password} name='password' label='Password' error={errors.password} />
-      <Button type="submit">Ir</Button>
+      <Button type="submit" className='buttonForm'>LISTO</Button>
     </form>
   )
 }

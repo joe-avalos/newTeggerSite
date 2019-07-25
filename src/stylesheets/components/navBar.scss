@@ -11,9 +11,12 @@
   }
 }
 .appBarContainer{
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
+  @media screen and (max-width: $smWidth) {
+    height: 70px;
+  }
 }
 .MuiTab-wrapper img{
   width: 100%;

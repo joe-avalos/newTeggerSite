@@ -16,6 +16,7 @@ import {
   userNewSignupRequest,
   userReferrerSubmitted
 } from '../modules/actions/userActions'
+import '../stylesheets/pages/getin.scss'
 import RegisterForm from '../components/forms/registerForm'
 import LoginForm from '../components/forms/loginForm'
 import EmailForm from '../components/forms/emailForm'
@@ -32,7 +33,7 @@ export default function GetIn() {
     }
   })
   let userError = useSelector(state => state.user.userError)
-  
+
   const userStatus = useSelector(state => {
     if (state.user.email !== '') {
       return 'userFound'
@@ -43,11 +44,12 @@ export default function GetIn() {
     }
   })
   console.log(userLoading)
-  
+
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Grid container>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} className="getInFormGrid">
+        <div className="textForms">
           <Typography variant={'h3'}>
             ¡Entrar!
           </Typography>
@@ -57,15 +59,18 @@ export default function GetIn() {
           <Typography variant={'body1'}>
             Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace.
           </Typography>
+        </div>
+        <div className="textForms">
           {userLoading ? <CircularProgress /> :
             userStatus === 'noSub' ? <EmailForm/> :
               userStatus === 'userFound' ? <LoginForm /> :
                 <RegisterForm/>
           }
+        </div>
         </Grid>
         <Hidden mdDown>
           <Grid item md={6}>
-          
+            <div className="imgForms teggerMail"></div>
           </Grid>
         </Hidden>
       </Grid>
