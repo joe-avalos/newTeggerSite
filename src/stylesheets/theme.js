@@ -78,7 +78,7 @@ const theme = createMuiTheme({
       lineHeight: 1.2,
       marginBottom: defaultTheme.spacing(1),
       [defaultTheme.breakpoints.down('sm')]: {
-        fontSize: '1.5rem',
+        fontSize: '2rem',
       },
     },
     h3:{
@@ -87,10 +87,14 @@ const theme = createMuiTheme({
         "Encode Sans Semi Expanded",
         "sans-serif"
       ].join(','),
-      fontSize: "1.25rem",
+      fontSize: "1.125rem",
       color: $iconPrimary,
       lineHeight: 2,
-      textTransform: 'uppercase'
+      textTransform: 'uppercase',
+      letterSpacing: '1px',
+      [defaultTheme.breakpoints.down('sm')]: {
+        fontSize: '1.125rem',
+      }
     },
     body1:{
       fontWeight: "lighter",
@@ -98,14 +102,16 @@ const theme = createMuiTheme({
       fontSize: "1.25rem",
       lineHeight: 1.25,
       [defaultTheme.breakpoints.down('sm')]: {
-        fontSize: '1rem',
+        fontSize: '1.25rem',
       },
     },
     body2:{
       fontWeight: "lighter",
       fontSize: "1rem",
       lineHeight: 1,
-    }
+      color: $primaryGray,
+    },
+
   },
   overrides:{
     MuiButton:{
@@ -167,6 +173,9 @@ const theme = createMuiTheme({
     },
     MuiOutlinedInput:{
       root:{
+        borderRadius:'8px',
+        width:'300px',
+        marginBottom: '30px',
         "&$error":{
           borderColor: $errorRed,
           color: $errorRed
@@ -178,7 +187,11 @@ const theme = createMuiTheme({
     },
     MuiFormLabel:{
       root:{
-        fontSize: '0.75rem'
+        fontSize: '0.875rem',
+
+        [defaultTheme.breakpoints.down('sm')]: {
+          fontSize: '0.875rem',
+        },
       }
     },
     MuiInputBase:{

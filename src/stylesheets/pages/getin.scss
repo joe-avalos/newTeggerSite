@@ -1,0 +1,33 @@
+@import '../variables';
+
+.getInFormGrid{
+  padding-top: 50px;
+  padding-left: 100px;
+  @media screen and (max-width: $smWidth) {
+    padding: 0;
+    padding-top: 30px;
+  }
+}
+
+
+.textForms{
+  margin-bottom: 50px;
+  width: 400px;
+  @media screen and (max-width: $smWidth) {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+
+.imgForms{
+  &.teggerMail{
+    height: 800px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 50px;
+    background-image: url("https://files.tegger.io/assets/tegger/images/reactHome/tegger-mail.svg");
+    background-repeat: no-repeat;
+    }
+  }

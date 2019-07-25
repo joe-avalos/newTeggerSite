@@ -24,8 +24,8 @@ const EmailForm = () => {
   }
   return (
     <form onSubmit={handleSubmit} noValidate autoComplete="off">
-      <UsernameEmailInput handleChange={handleChange} value={values.email} name='email' label='Email' error={errors.email} disabled={false}/>
-      <Button type="submit">Ir</Button>
+      <UsernameEmailInput fullWidth handleChange={handleChange} value={values.email} name='email' label='Email' error={errors.email} disabled={false}/>
+      <Button type="submit">listo</Button>
     </form>
   )
 }

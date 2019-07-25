@@ -40,7 +40,8 @@ export default function GetIn() {
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Grid container>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} className="getInFormGrid">
+        <div className="textForms">
           <Typography variant={'h3'}>
             ¡Entrar!
           </Typography>
@@ -50,6 +51,8 @@ export default function GetIn() {
           <Typography variant={'body1'}>
             Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace.
           </Typography>
+        </div>
+        <div className="textForms">
           {userLoading ? <CircularProgress /> :
             userStatus === 'noSub' ? <EmailForm/> :
               userStatus === 'userFound' ? <LoginForm /> :
@@ -59,7 +62,7 @@ export default function GetIn() {
         </Grid>
         <Hidden mdDown>
           <Grid item md={6}>
-          
+            <div className="imgForms teggerMail"></div>
           </Grid>
         </Hidden>
       </Grid>
