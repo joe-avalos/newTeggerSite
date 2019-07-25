@@ -9,7 +9,7 @@ const useForm = (callback, validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback()
     }
-  }, [errors])
+  }, [errors,callback,isSubmitting])
   
   const handleSubmit = e => {
     if (e) {
@@ -21,14 +21,17 @@ const useForm = (callback, validate) => {
   
   const handleChange = e => {
     e.persist()
-    if (e.target.type === 'checkbox') {
-      setValues(v => ({
-        ...v, [e.target.name]: e.target.checked
-      }))
-    }else{
-      setValues(v => ({
-        ...v, [e.target.name]: e.target.value
-      }))
+    console.log(e.target)
+    switch (e.target.type) {
+      case 'checkbox':
+        setValues(v => ({
+          ...v, [e.target.name]: e.target.checked
+        }))
+        return
+      default:
+        setValues(v => ({
+          ...v, [e.target.name]: e.target.value
+        }))
     }
   }
   

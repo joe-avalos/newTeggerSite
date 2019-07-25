@@ -186,11 +186,6 @@ const theme = createMuiTheme({
         fontSize: '0.75rem'
       }
     },
-    MuiSvgIcon:{
-      root:{
-        marginLeft: defaultTheme.spacing(1)
-      }
-    },
     MuiIconButton:{
       label:{
         "& > .MuiSvgIcon-root":{
@@ -205,7 +200,7 @@ const theme = createMuiTheme({
       }
     },
     MuiAppBar:{
-      root:{
+      colorPrimary:{
         backgroundColor: $white
       }
     },
@@ -221,7 +216,6 @@ const theme = createMuiTheme({
     },
     MuiTab:{
       root:{
-        height: 38,
         fontWeight: "bold",
         fontSize: "0.7rem",
         [defaultTheme.breakpoints.up('sm')]: {
@@ -232,10 +226,6 @@ const theme = createMuiTheme({
         },
         "&$selected":{
           color: $primaryOrange
-        },
-        "&:first-of-type":{
-          width: 150,
-          marginRight: defaultTheme.spacing(9),
         }
       }
     },

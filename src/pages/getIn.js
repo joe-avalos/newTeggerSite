@@ -1,7 +1,6 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
 import FormHelperText from '@material-ui/core/FormHelperText'
@@ -10,17 +9,10 @@ import CircularProgress from  '@material-ui/core/CircularProgress'
 import {useDispatch, useSelector} from 'react-redux'
 import queryString from 'query-string'
 
-import {
-  userFetchUserEmail,
-  userLoginRequest,
-  userNewSignupRequest,
-  userReferrerSubmitted
-} from '../modules/actions/userActions'
+import {userReferrerSubmitted} from '../modules/actions/userActions'
 import RegisterForm from '../components/forms/registerForm'
 import LoginForm from '../components/forms/loginForm'
 import EmailForm from '../components/forms/emailForm'
-
-const passRegEx = new RegExp(/^(?=.+[a-z])(?=.+[A-Z])(?=.+\d)[A-Za-z\d]\S{7,50}$/g)
 
 export default function GetIn() {
   const dispatch = useDispatch()
@@ -31,6 +23,7 @@ export default function GetIn() {
       dispatch(userReferrerSubmitted(queryReferrer.ref))
     }
   })
+  
   let userError = useSelector(state => state.user.userError)
   
   const userStatus = useSelector(state => {
@@ -62,6 +55,7 @@ export default function GetIn() {
               userStatus === 'userFound' ? <LoginForm /> :
                 <RegisterForm/>
           }
+          {userError !== '' && <FormHelperText>{userError}</FormHelperText>}
         </Grid>
         <Hidden mdDown>
           <Grid item md={6}>

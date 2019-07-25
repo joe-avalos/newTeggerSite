@@ -16,9 +16,9 @@ const EmailForm = () => {
   function validate() {
     let error = {}
     if (isEmpty(values.email || '')){
-      error.password = 'Email is required'
+      error.email = 'Email is required'
     }else if(!isEmail(values.email)){
-      error.userid = 'Enter a valid email'
+      error.email = 'Enter a valid email'
     }
     return error
   }

@@ -1,7 +1,7 @@
 {
   "selfReportedQuestions": [
     {
-      "level": 0,
+      "level": 1,
       "modules": [
         {
           "name": "Básicos",
@@ -11,7 +11,7 @@
               "order": 0,
               "code": "16ad17ae2cb71ac03040f06aeec347e1",
               "es": "Teléfono",
-              "en": "Phone",
+              "en": "Phone Number",
               "field": "phone",
               "fieldType": "input"
             },
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "level": 1,
+      "level": 2,
       "modules": [
         {
           "name": "intereses",
@@ -53,35 +53,110 @@
             {
               "order": 0,
               "es": "Selecciona todos los temas que te interesan",
-              "en": "Selecciona todos los temas que te interesan",
+              "en": "Select all that you find interesting",
               "field": "intereses",
-              "fieldType": "multiOption",
+              "fieldType": "checkbox",
               "answers": [
-                {"code": "71de4678f6c7e993091013b6133fd77a", "name": "Antigüedades y Coleccionismo"},
-                {"code": "818d2e32f098653f22709eb8a1873f54", "name": "Artes Escénicas"},
-                {"code": "bd212ca49a57b0bddadee19200769529", "name": "Artes Plásticas"},
-                {"code": "35bf1210e6727959a7a88a00462db959", "name": "Ciencias"},
-                {"code": "80662e1f485e79d07ef4973f6b1b9f88", "name": "Cine"},
-                {"code": "88074121ee796fe0c5b40f49f9147192", "name": "Comida y Bebidas"},
-                {"code": "fed561a86e066be5a26232626c4867a2", "name": "Compras"},
-                {"code": "918e180e06b96c76b7193c9fcb1cb312", "name": "Deportes"},
-                {"code": "a3b08c38ce113b0af217f32154c628ea", "name": "Eventos y Festivales"},
-                {"code": "e5348e0c46480066c8c2176421798201", "name": "Filosofía"},
-                {"code": "6490ef9567f6004ac41620d8674d17a7", "name": "Finanzas Personales"},
-                {"code": "5fdc392497df040d7becce28583ce58f", "name": "Fitness"},
-                {"code": "9eed85ad420e3a3c986cdc6d7e77854d", "name": "Gaming"},
-                {"code": "16d2b386b2034b9488996466aaae0b57", "name": "Historia"},
-                {"code": "2e9d6500d9b2a65985a621f0f0afdeb3", "name": "Hogar y Jardín"},
-                {"code": "f1506b6384d089277f61a768904fcaaa", "name": "Literatura"},
-                {"code": "750e92a6a691645ba02c20d6620583e0", "name": "Mascotas"},
-                {"code": "2a51a3d3c816013c3625171e650e643f", "name": "Moda y Estilo"},
-                {"code": "47dcbd834e669233d7eb8a51456ed217", "name": "Música"},
-                {"code": "48f7069945f88b4545a1eb3f63d68ef0", "name": "Negocios y Emprendurismo"},
-                {"code": "9258fc55a4a60795651e90d605ab30b1", "name": "Política"},
-                {"code": "6af3c2c9f11483b2a51818e1f5a23ab0", "name": "Restaurantes y Bares"},
-                {"code": "ef436c63113bf3d7813e7ace518b7580", "name": "Tecnología y Computación"},
-                {"code": "1fb0f99b55e6c2be35aed72ebe38c245", "name": "Viajes"},
-                {"code": "8fa41ff24906427ac5712b2eb6558711", "name": "Wellness"}
+                {
+                  "code": "71de4678f6c7e993091013b6133fd77a",
+                  "name": "Antigüedades y Coleccionismo"
+                },
+                {
+                  "code": "818d2e32f098653f22709eb8a1873f54",
+                  "name": "Artes Escénicas"
+                },
+                {
+                  "code": "bd212ca49a57b0bddadee19200769529",
+                  "name": "Artes Plásticas"
+                },
+                {
+                  "code": "35bf1210e6727959a7a88a00462db959",
+                  "name": "Ciencias"
+                },
+                {
+                  "code": "80662e1f485e79d07ef4973f6b1b9f88",
+                  "name": "Cine"
+                },
+                {
+                  "code": "88074121ee796fe0c5b40f49f9147192",
+                  "name": "Comida y Bebidas"
+                },
+                {
+                  "code": "fed561a86e066be5a26232626c4867a2",
+                  "name": "Compras"
+                },
+                {
+                  "code": "918e180e06b96c76b7193c9fcb1cb312",
+                  "name": "Deportes"
+                },
+                {
+                  "code": "a3b08c38ce113b0af217f32154c628ea",
+                  "name": "Eventos y Festivales"
+                },
+                {
+                  "code": "e5348e0c46480066c8c2176421798201",
+                  "name": "Filosofía"
+                },
+                {
+                  "code": "6490ef9567f6004ac41620d8674d17a7",
+                  "name": "Finanzas Personales"
+                },
+                {
+                  "code": "5fdc392497df040d7becce28583ce58f",
+                  "name": "Fitness"
+                },
+                {
+                  "code": "9eed85ad420e3a3c986cdc6d7e77854d",
+                  "name": "Gaming"
+                },
+                {
+                  "code": "16d2b386b2034b9488996466aaae0b57",
+                  "name": "Historia"
+                },
+                {
+                  "code": "2e9d6500d9b2a65985a621f0f0afdeb3",
+                  "name": "Hogar y Jardín"
+                },
+                {
+                  "code": "f1506b6384d089277f61a768904fcaaa",
+                  "name": "Literatura"
+                },
+                {
+                  "code": "750e92a6a691645ba02c20d6620583e0",
+                  "name": "Mascotas"
+                },
+                {
+                  "code": "2a51a3d3c816013c3625171e650e643f",
+                  "name": "Moda y Estilo"
+                },
+                {
+                  "code": "47dcbd834e669233d7eb8a51456ed217",
+                  "name": "Música"
+                },
+                {
+                  "code": "48f7069945f88b4545a1eb3f63d68ef0",
+                  "name": "Negocios y Emprendurismo"
+                },
+                {
+                  "code": "9258fc55a4a60795651e90d605ab30b1",
+                  "name": "Política"
+                },
+                {
+                  "code": "6af3c2c9f11483b2a51818e1f5a23ab0",
+                  "name": "Restaurantes y Bares"
+                },
+                {
+                  "code": "ef436c63113bf3d7813e7ace518b7580",
+                  "name": "Tecnología y Computación"
+                },
+                {
+                  "code": "1fb0f99b55e6c2be35aed72ebe38c245",
+                  "name": "Viajes"
+                },
+                {
+                  "code": "8fa41ff24906427ac5712b2eb6558711",
+                  "name": "Wellness"
+                }
               ]
             }
           ]
@@ -89,7 +164,7 @@
       ]
     },
     {
-      "level": 2,
+      "level": 3,
       "modules": [
         {
           "name": "intenciones",
@@ -101,8 +176,13 @@
               "es": "Viajes (boletos de transporte y alojamiento)",
               "en": "Travel & Tourism",
               "field": "travelTourism",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 1,
@@ -110,8 +190,13 @@
               "es": "Productos de belleza o cuidado personal",
               "en": "Beauty & Personal Care",
               "field": "beautyPersonalCare",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 2,
@@ -119,8 +204,13 @@
               "es": "Ropa y accesorios",
               "en": "Fashion",
               "field": "fashion",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 3,
@@ -128,8 +218,13 @@
               "es": "Electrónicos personales",
               "en": "Technology",
               "field": "technology",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 4,
@@ -137,8 +232,13 @@
               "es": "Vehículos (autos, motos, etc.)",
               "en": "Vehicles",
               "field": "vehicles",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 5,
@@ -146,8 +246,13 @@
               "es": "Electrodomésticos",
               "en": "Appliances",
               "field": "appliances",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 6,
@@ -155,8 +260,13 @@
               "es": "Boletos para eventos culturales",
               "en": "Culture",
               "field": "culture",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 7,
@@ -164,8 +274,13 @@
               "es": "Cursos educativos",
               "en": "Education",
               "field": "education",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 8,
@@ -173,8 +288,13 @@
               "es": "Boletos para entretenimiento",
               "en": "Entertainment",
               "field": "entertainment",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 9,
@@ -182,8 +302,13 @@
               "es": "Muebles",
               "en": "Furniture",
               "field": "furniture",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 10,
@@ -191,8 +316,13 @@
               "es": "Bienes raíces",
               "en": "Real Estate",
               "field": "realEstate",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             },
             {
               "order": 11,
@@ -200,15 +330,20 @@
               "es": "Decoración y accesorios para el hogar",
               "en": "Decorations",
               "field": "decorations",
-              "fieldType": "option",
-              "answers": ["Próximo mes", "3 a 6 meses", "Posterior a 6 meses", "No en el futuro cercano"]
+              "fieldType": "select",
+              "answers": [
+                "Próximo mes",
+                "3 a 6 meses",
+                "Posterior a 6 meses",
+                "No en el futuro cercano"
+              ]
             }
           ]
         }
       ]
     },
     {
-      "level": 3,
+      "level": 4,
       "modules": [
         {
           "name": "familia",
@@ -220,17 +355,24 @@
               "es": "Estado civil",
               "en": "Estado civil",
               "field": "maritalStatus",
-              "fieldType": "option",
-              "answers": ["Soltero", "Casado", "Unión libre"]
+              "fieldType": "select",
+              "answers": [
+                "Soltero",
+                "Casado",
+                "Unión libre"
+              ]
             },
             {
               "order": 1,
               "code": "6dbe83c23dc7e4415248127868c616a9",
-              "es": "¿Tienes hijos?",
-              "en": "¿Tienes hijos?",
+              "es": "¿Cuantos hijos tienes?",
+              "en": "¿How many children do you have?",
               "field": "children",
-              "fieldType": "optionWithNumericField",
-              "answers": [ "No", "Sí"]
+              "fieldType": "input",
+              "answers": [
+                "No",
+                "Sí"
+              ]
             },
             {
               "order": 2,
@@ -238,8 +380,12 @@
               "es": "¿Eres el principal sustento económico de tu hogar?",
               "en": "¿Eres el principal sustento económico de tu hogar?",
               "field": "mainLivelihood",
-              "fieldType": "option",
-              "answers": ["Soy dependiente económico", "Aporto pero no soy el sustento principal", "Soy el sustento principal"]
+              "fieldType": "select",
+              "answers": [
+                "Soy dependiente económico",
+                "Aporto pero no soy el sustento principal",
+                "Soy el sustento principal"
+              ]
             },
             {
               "order": 3,
@@ -247,8 +393,12 @@
               "es": "¿Eres el principal tomador de decisiones económicas de tu hogar?",
               "en": "¿Eres el principal tomador de decisiones económicas de tu hogar?",
               "field": "mainDecision",
-              "fieldType": "option",
-              "answers": ["Sí", "Tengo un papel en la toma de decisiones económicas pero no soy el principal tomador de las decisiones", "No tengo influencia"]
+              "fieldType": "select",
+              "answers": [
+                "Sí",
+                "Tengo un papel en la toma de decisiones económicas pero no soy el principal tomador de las decisiones",
+                "No tengo influencia"
+              ]
             }
           ]
         },
@@ -262,17 +412,21 @@
               "es": "¿Trabajas?",
               "en": "¿Trabajas?",
               "field": "job",
-              "fieldType": "option",
-              "answers": ["Empleado", "Desempleado", "Auto-empleado", "Soy estudiante y no trabajo"]
+              "fieldType": "select",
+              "answers": [
+                "Empleado",
+                "Desempleado",
+                "Auto-empleado",
+                "Soy estudiante y no trabajo"
+              ]
             },
             {
               "order": 1,
               "code": "689e536d1eaa33690072412a07324caa",
               "es": "¿Cuántos años llevas en tu empleo actual?",
-              "en": "¿Cuántos años llevas en tu empleo actual?",
+              "en": "How many years have you been at your current job?",
               "field": "jobYears",
-              "fieldType": "optionWithNumericField",
-              "answers": ["Menos de un año", "Más de un año"]
+              "fieldType": "input"
             },
             {
               "order": 2,
@@ -280,7 +434,7 @@
               "es": "¿En qué industria trabajas?",
               "en": "¿En qué industria trabajas?",
               "field": "jobPlace",
-              "fieldType": "dropdown",
+              "fieldType": "select",
               "answers": [
                 "Agricultura y Ganadería",
                 "Banca y Servicios Financieros",
@@ -314,137 +468,141 @@
               "es": "¿Qué nivel aproximado tienes en tu trabajo?",
               "en": "¿Qué nivel aproximado tienes en tu trabajo?",
               "field": "jobPosition",
-              "fieldType": "option",
-              "answers": ["Asistente/Auxiliar", "Analista", "Especialista", "Gerente", "Director", "C-Level"]
+              "fieldType": "select",
+              "answers": [
+                "Asistente/Auxiliar",
+                "Analista",
+                "Especialista",
+                "Gerente",
+                "Director",
+                "C-Level"
+              ]
             },
             {
               "order": 4,
               "code": "beccfbf04ace26ff365efb49572b06d8",
               "es": "¿Cuántos años de experiencia laboral tienes?",
-              "en": "¿Cuántos años de experiencia laboral tienes?",
+              "en": "Professional experience?",
               "field": "jobExperience",
-              "fieldType": "option",
-              "answers": ["No tengo experiencia laboral", "Menos de un año", "1-50"]
+              "fieldType": "input"
             }
           ]
         }
       ]
     }
   ],
-  "genreTitles": [
-    {
-      "5be369d3fc8f6b4f67abb71c":[
-        {
-          "level": 0,
-          "titleEn": "Knight",
-          "titleEs": "Caballero",
-          "avatarImg": "KnightSVG"
-        },
-        {
-          "level": 1,
-          "titleEn": "Lord",
-          "titleEs": "Señor",
-          "avatarImg": "LordSVG"
-        },
-        {
-          "level": 2,
-          "titleEn": "Baron",
-          "titleEs": "Barón",
-          "avatarImg": "BaronSVG"
-        },
-        {
-          "level": 3,
-          "titleEn": "Viscount",
-          "titleEs": "Vizconde",
-          "avatarImg": "ViscountSVG"
-        },
-        {
-          "level": 4,
-          "titleEn": "Earl",
-          "titleEs": "Conde",
-          "avatarImg": "EarlSVG"
-        },
-        {
-          "level": 5,
-          "titleEn": "Marquess",
-          "titleEs": "Marqués",
-          "avatarImg": "MarquisSVG"
-        },
-        {
-          "level": 6,
-          "titleEn": "Duke",
-          "titleEs": "Duque",
-          "avatarImg": "DukeSVG"
-        },
-        {
-          "level": 7,
-          "titleEn": "Prince",
-          "titleEs": "Príncipe",
-          "avatarImg": "PrinceSVG"
-        },
-        {
-          "level": 8,
-          "titleEn": "King",
-          "titleEs": "Rey",
-          "avatarImg": "KingSVG"
-        }
-      ],
-      "5be369dbfc8f6b4f67abb71d":[
-        {
-          "level": 0,
-          "titleEn": "Dame",
-          "titleEs": "Dama",
-          "avatarImg": "DameSVG"
-        },
-        {
-          "level": 1,
-          "titleEn": "Lady",
-          "titleEs": "Señora",
-          "avatarImg": "LadySVG"
-        },
-        {
-          "level": 2,
-          "titleEn": "Baroness",
-          "titleEs": "Baronesa",
-          "avatarImg": "BaronessSVG"
-        },
-        {
-          "level": 3,
-          "titleEn": "Viscountess",
-          "titleEs": "Vizcondesa",
-          "avatarImg": "ViscountessSVG"
-        },
-        {
-          "level": 4,
-          "titleEn": "Countess",
-          "titleEs": "Condesa",
-          "avatarImg": "CountessSVG"
-        },
-        {
-          "level": 5,
-          "titleEn": "Marchioness",
-          "titleEs": "Marquesa",
-          "avatarImg": "MarchionessSVG"
-        },
-        {
-          "level": 6,
-          "titleEn": "Duchess",
-          "titleEs": "Duquesa",
-          "avatarImg": "DuchessSVG"
-        },
-        {
-          "level": 7,
-          "titleEn": "Princess",
-          "titleEs": "Princesa",
-          "avatarImg": "PrincessSVG"
-        },
-        {
-          "level": 8,
-          "titleEn": "Queen",
-          "titleEs": "Reina",
-          "avatarImg": "QueenSVG"
-        }
-      ]
-    }
-  ]
+  "genreTitles": {
+    "5be369d3fc8f6b4f67abb71c": [
+      {
+        "level": 1,
+        "titleEn": "Knight",
+        "titleEs": "Caballero",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      },
+      {
+        "level": 2,
+        "titleEn": "Lord",
+        "titleEs": "Señor",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      },
+      {
+        "level": 3,
+        "titleEn": "Baron",
+        "titleEs": "Barón",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      },
+      {
+        "level": 4,
+        "titleEn": "Viscount",
+        "titleEs": "Vizconde",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      },
+      {
+        "level": 5,
+        "titleEn": "Earl",
+        "titleEs": "Conde",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      },
+      {
+        "level": 6,
+        "titleEn": "Marquess",
+        "titleEs": "Marqués",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      },
+      {
+        "level": 7,
+        "titleEn": "Duke",
+        "titleEs": "Duque",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      },
+      {
+        "level": 8,
+        "titleEn": "Prince",
+        "titleEs": "Príncipe",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      },
+      {
+        "level": 9,
+        "titleEn": "King",
+        "titleEs": "Rey",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+      }
+    ],
+    "5be369dbfc8f6b4f67abb71d": [
+      {
+        "level": 1,
+        "titleEn": "Dame",
+        "titleEs": "Dama",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      },
+      {
+        "level": 2,
+        "titleEn": "Lady",
+        "titleEs": "Señora",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      },
+      {
+        "level": 3,
+        "titleEn": "Baroness",
+        "titleEs": "Baronesa",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      },
+      {
+        "level": 4,
+        "titleEn": "Viscountess",
+        "titleEs": "Vizcondesa",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      },
+      {
+        "level": 5,
+        "titleEn": "Countess",
+        "titleEs": "Condesa",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      },
+      {
+        "level": 6,
+        "titleEn": "Marchioness",
+        "titleEs": "Marquesa",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      },
+      {
+        "level": 7,
+        "titleEn": "Duchess",
+        "titleEs": "Duquesa",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      },
+      {
+        "level": 8,
+        "titleEn": "Princess",
+        "titleEs": "Princesa",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      },
+      {
+        "level": 9,
+        "titleEn": "Queen",
+        "titleEs": "Reina",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+      }
+    ]
+  }
 }
