@@ -23,13 +23,11 @@ export default function ({profile}) {
   const SRQuestions = data.selfReportedQuestions
   const dispatch = useDispatch()
   let answers = useSelector(state => state.logged.answers)
-  console.log(answers)
   React.useEffect(() => {
     if (_.isEmpty(answers)){
       dispatch(loggedFetchAnswers(profile.uuid))
     }
   })
-  console.log(SRQuestions)
   function search(nameKey, myArray = answers){
     for (let i = 0; i < myArray.length; i++) {
       if (myArray[i][nameKey]) {

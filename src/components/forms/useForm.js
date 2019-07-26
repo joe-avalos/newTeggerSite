@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 
-const useForm = (callback, validate) => {
-  const [values, setValues] = useState({})
+const useForm = (callback, validate, initValues = {}) => {
+  const [values, setValues] = useState(initValues)
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   
@@ -21,14 +21,11 @@ const useForm = (callback, validate) => {
   
   const handleChange = e => {
     e.persist()
-    console.log(e.target)
-    switch (e.target.type) {
-      case 'checkbox':
-        setValues(v => ({
-          ...v, [e.target.name]: e.target.checked
-        }))
-        return
-      default:
+    if (e.target.type === 'checkbox') {
+      setValues(v => ({
+        ...v, [e.target.name]: e.target.checked
+      }))
+    }else {
         setValues(v => ({
           ...v, [e.target.name]: e.target.value
         }))

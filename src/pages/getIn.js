@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
 import FormHelperText from '@material-ui/core/FormHelperText'
@@ -13,6 +14,7 @@ import {userReferrerSubmitted} from '../modules/actions/userActions'
 import RegisterForm from '../components/forms/registerForm'
 import LoginForm from '../components/forms/loginForm'
 import EmailForm from '../components/forms/emailForm'
+import '../stylesheets/pages/getin.scss'
 
 export default function GetIn() {
   const dispatch = useDispatch()
@@ -35,13 +37,11 @@ export default function GetIn() {
       return 'noSub'
     }
   })
-  console.log(userLoading)
-  
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Grid container>
-        <Grid item xs={12} md={6} className="getInFormGrid">
-        <div className="textForms">
+        <Grid item xs={12} md={6} className="getInFormGrid textForms">
+        <Box className="textForms">
           <Typography variant={'h3'}>
             ¡Entrar!
           </Typography>
@@ -51,18 +51,19 @@ export default function GetIn() {
           <Typography variant={'body1'}>
             Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace.
           </Typography>
-        </div>
-        <div className="textForms">
+        </Box>
+        <Box className="textForms">
           {userLoading ? <CircularProgress /> :
             userStatus === 'noSub' ? <EmailForm/> :
               userStatus === 'userFound' ? <LoginForm /> :
                 <RegisterForm/>
           }
           {userError !== '' && <FormHelperText>{userError}</FormHelperText>}
+        </Box>
         </Grid>
         <Hidden mdDown>
           <Grid item md={6}>
-            <div className="imgForms teggerMail"></div>
+            <Box className="imgForms teggerMail" />
           </Grid>
         </Hidden>
       </Grid>
