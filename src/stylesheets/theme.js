@@ -171,6 +171,13 @@ const theme = createMuiTheme({
         paddingRight: 0,
       }
     },
+    MuiInput:{
+      underline:{
+        "&:after":{
+          borderBottom: "2px solid "+$primaryOrange
+        }
+      }
+    },
     MuiOutlinedInput:{
       root:{
         borderRadius:'8px',

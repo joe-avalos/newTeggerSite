@@ -43,6 +43,9 @@ const RegisterForm = () => {
     } else if (!isLength(values.username, {min: 4})) {
       error.username = 'At least 4 characters'
     }
+    if (!isAlphanumeric(values.referrer)) {
+      error.referrer = 'Only letters or numbers with no spaces.'
+    }
     if (isEmpty(values.password || '')) {
       error.password = 'Password is required'
     } else if (!matches(values.password, /^(?=.+[a-z])(?=.+[A-Z])(?=.+\d)[A-Za-z\d]\S{7,50}$/g)) {

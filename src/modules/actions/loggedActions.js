@@ -78,8 +78,8 @@ export function loggedFetchAnswers(uuid){
     let qURL = process.env.REACT_APP_API_ROOT + 'answers/'+uuid
     fetch(qURL,{
       method: 'GET',
-        credentials: 'include',
-        headers: {
+      credentials: 'include',
+      headers: {
         'Content-Type': 'application/json',
           'Tegger-AuthType': 'session'
       }
@@ -89,8 +89,7 @@ export function loggedFetchAnswers(uuid){
           throw res
         }
         return res
-        }
-      )
+      })
       .then(res => res.json())
       .then(answers => {
         dispatch(loggedFetchAnswersSuccess(answers))
@@ -106,3 +105,32 @@ export function loggedFetchAnswers(uuid){
   }
 }
 
+export function loggedPostAnswers(answers, uuid, mod) {
+  return dispatch => {
+    dispatch(loggedIsLoading(true))
+  
+    let qURL = process.env.REACT_APP_API_ROOT + 'answer/'+uuid+'/'+mod
+    fetch(qURL, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      },
+      body: JSON.stringify(answers)
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw res
+        }
+        
+        dispatch(loggedIsLoading(false))
+      })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(loggedIsLoading(false))
+          dispatch(loggedHasErrored(e.code))
+        })
+      })
+  }
+}
