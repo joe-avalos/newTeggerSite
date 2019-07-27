@@ -25,6 +25,12 @@ const StyledPaper = withStyles({
   }
 })(Paper)
 
+const OtherBody = withStyles({
+  body1:{
+    color: '$primaryBlack',
+  }
+})(Typography)
+
 export default function home() {
   return (
     <Container maxWidth="lg" className="contentContainer">
@@ -46,21 +52,23 @@ export default function home() {
         <Hidden mdDown>
           <Grid item sm={12} md={6}/>
         </Hidden>
+
         <Grid item sm={12} md={6}>
-          <Paper elevation={4}>
+          <Paper elevation={4} className='componenteTexto'>
             <Typography variant={"h3"}>
               ¿Por qué esto importa?
             </Typography>
-            <Typography variant={"body1"}>
+            <OtherBody variant={"body1"}>
               En Tegger sabemos que tú como usuario juegas un papel muy valioso para los sitios y anunciantes.
               Nosotros lo reconocemos ofreciéndote beneficios por navegar.
-            </Typography>
+            </OtherBody>
           </Paper>
         </Grid>
+
       </Grid>
       <Grid container>
         <Grid item sm={12} md={6}>
-          <StyledPaper elevation={0} className="solutionTitle">
+          <StyledPaper elevation={0}>
             <Typography variant={'h3'}>
               La Solución
             </Typography>

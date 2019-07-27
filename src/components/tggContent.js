@@ -8,6 +8,7 @@ import Benefits from '../pages/benefits'
 import GetIn from '../pages/getIn'
 import Confirm from '../pages/confirm'
 import Profile from '../pages/profile'
+import SRQuestion from '../pages/srquestion'
 import ToDo from './todo'
 
 export default function TggContent() {
@@ -22,6 +23,7 @@ export default function TggContent() {
       <Route path="/getin" component={GetIn}/>
       <Route path="/confirm" component={Confirm}/>
       <Route path="/profile" component={Profile}/>
+      <Route path="/question/:questionCode" component={SRQuestion}/>
     </Switch>
   )
 }

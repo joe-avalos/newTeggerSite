@@ -1,15 +1,15 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
+import isEmpty from 'validator/lib/isEmpty'
 
 import FormControl from '@material-ui/core/FormControl'
 import IconButton from '@material-ui/core/IconButton'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
+import FormHelperText from '@material-ui/core/FormHelperText'
 import Close from '@material-ui/icons/Close'
-import isEmpty from 'validator/lib/isEmpty'
 
 import {userDeleteSubmit} from '../../modules/actions/userActions'
-import {FormHelperText} from '@material-ui/core'
 
 const UsernameEmailInputField = ({handleChange, disabled, error, label, name, value}) => {
   const dispatch = useDispatch()

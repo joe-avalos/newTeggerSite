@@ -18,6 +18,13 @@
     background-image: url("https://files.tegger.io/assets/tegger/images/reactHome/tegger-solution.svg");
   }
 }
+.componenteTexto{
+  padding: 40px;
+  @media screen and (max-width: $smWidth) {
+  padding: 20px;
+  }
+}
+
 .homeTitle{
   height: 509px;
   display: flex;
@@ -27,6 +34,7 @@
     height: 430px;
   }
 }
+
 .solutionTitle{
   height: 690px;
   display: flex;

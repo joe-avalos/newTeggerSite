@@ -1,5 +1,5 @@
 import React from 'react'
-import withStyles from '@material-ui/styles/withStyles/index'
+import withStyles from '@material-ui/styles/withStyles'
 import InputBase from '@material-ui/core/InputBase/index'
 import InputAdornment from '@material-ui/core/InputAdornment/index'
 import Button from '@material-ui/core/Button/index'

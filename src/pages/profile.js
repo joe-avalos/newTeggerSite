@@ -1,12 +1,12 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
-import Hidden from '@material-ui/core/Hidden'
-import Typography from '@material-ui/core/Typography'
 import {useDispatch, useSelector} from 'react-redux'
+
 import {loggedFetchProfile} from '../modules/actions/loggedActions'
-import TGGOnboarding from '../components/tggOnboarding'
+import TGGOnBoarding from '../components/tggOnboarding'
+import TGGMainProfile from '../components/tggMainProfile'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 export default function () {
   const dispatch = useDispatch()
@@ -21,7 +21,10 @@ export default function () {
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Box className="background onboardingBG" />
-      <TGGOnboarding />
+      {isLoading ? <CircularProgress /> :
+        !profile.onboarding ? <TGGOnBoarding /> :
+        <TGGMainProfile profile={profile} />
+      }
     </Container>
   )
 }

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 
-const useForm = (callback, validate) => {
-  const [values, setValues] = useState({})
+const useForm = (callback, validate, initValues = {}) => {
+  const [values, setValues] = useState(initValues)
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   
@@ -9,7 +9,7 @@ const useForm = (callback, validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback()
     }
-  }, [errors])
+  }, [errors,callback,isSubmitting])
   
   const handleSubmit = e => {
     if (e) {
@@ -25,10 +25,10 @@ const useForm = (callback, validate) => {
       setValues(v => ({
         ...v, [e.target.name]: e.target.checked
       }))
-    }else{
-      setValues(v => ({
-        ...v, [e.target.name]: e.target.value
-      }))
+    }else {
+        setValues(v => ({
+          ...v, [e.target.name]: e.target.value
+        }))
     }
   }
   

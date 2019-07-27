@@ -4,6 +4,7 @@ import _ from 'lodash'
 const defaultState = {
   'isLoading': true,
   'loggedError': '',
+  'answers': {},
   'profile':{
     'uuid': '',
     'name': '',
@@ -48,6 +49,11 @@ export function loggedReduce(state = defaultState, action) {
       newState.profile.tokenBalance= action.profile.tokenBalance
       newState.profile.gamification= action.profile.gamification
       return newState
+    case LOGGED_ACTIONS.LOGGED_FETCH_ANSWERS_SUCCESS:
+      return {
+        ...state,
+        answers: action.answers
+      }
     default:
       return state
   }
