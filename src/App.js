@@ -6,7 +6,7 @@ import configureStore, {history} from './modules/store/configureStore'
 import {Provider} from 'react-redux'
 import {ConnectedRouter} from "connected-react-router"
 import persistStore from 'redux-persist/lib/persistStore'
-import {PersistGate} from 'redux-persist/integration/react'
+import {PersistGate} from 'redux-persist/es/integration/react'
 
 import NavBar from './components/tggNavBar'
 import TggContent from './components/tggContent'
@@ -17,6 +17,7 @@ const store = configureStore()
 const persistor = persistStore(store)
 
 function App() {
+  
   return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>

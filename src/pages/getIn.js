@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
 import FormHelperText from '@material-ui/core/FormHelperText'
-import CircularProgress from  '@material-ui/core/CircularProgress'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import {useDispatch, useSelector} from 'react-redux'
 import queryString from 'query-string'

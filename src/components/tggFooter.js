@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from '@material-ui/core/Box/index'
+import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs'

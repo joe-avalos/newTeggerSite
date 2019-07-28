@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
-import Hidden from  '@material-ui/core/Hidden'
-import Typography from  '@material-ui/core/Typography'
+import Hidden from '@material-ui/core/Hidden'
+import Typography from '@material-ui/core/Typography'
 import TggEmailInput from './inputs/TggEmailInput'
 import '../stylesheets/components/callToAction.scss'
 
