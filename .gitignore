@@ -27,3 +27,5 @@ yarn-error.log*
 /src/__tests__/
 /src/App.test.js
 babel.config.js
+
+ecosystem.config.js

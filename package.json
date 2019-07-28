@@ -70,6 +70,5 @@
   "bugs": {
     "url": "https://github.com/TeggerDLT/tegger-newFront/issues"
   },
-  "homepage": "https://localhost:3000",
-  "proxy": "https://localhost:3000"
+  "homepage": "https://localhost:3000"
 }
