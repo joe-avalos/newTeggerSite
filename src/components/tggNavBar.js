@@ -27,7 +27,7 @@ function ElevationScroll(props) {
   return React.cloneElement(children, {
     elevation: trigger ? 1 : 0,
     style: {
-      backgroundColor: (trigger ? "white" : "transparent")
+      backgroundColor: (trigger ? "white" : "white")
     },
     className: (trigger ? "elevated" : "notElevated" )
   })
@@ -47,17 +47,17 @@ export default function (props) {
   const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false)
   const [activeNav, setActiveNav] = React.useState('/')
-  
+
   function handleTabClick(e,v){
     setActiveNav(v)
     dispatch(push(v))
     setOpen(false)
   }
-  
+
   function handleExpandToggle(){
     setOpen(!open)
   }
-  
+
   return(
     <ElevationScroll {...props}>
       <AppBar position={"sticky"} style={{backgroundColor: "transparent"}}>

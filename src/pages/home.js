@@ -26,7 +26,7 @@ const StyledPaper = withStyles({
 })(Paper)
 
 const OtherBody = withStyles({
-  body1:{
+  body5:{
     color: '$primaryBlack',
   }
 })(Typography)
@@ -58,10 +58,10 @@ export default function home() {
             <Typography variant={"h3"}>
               ¿Por qué esto importa?
             </Typography>
-            <OtherBody variant={"body1"}>
+            <Typography variant={"body1"}>
               En Tegger sabemos que tú como usuario juegas un papel muy valioso para los sitios y anunciantes.
               Nosotros lo reconocemos ofreciéndote beneficios por navegar.
-            </OtherBody>
+            </Typography>
           </Paper>
         </Grid>
 

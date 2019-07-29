@@ -12,10 +12,40 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import Paper from '@material-ui/core/Paper'
 import {useDispatch, useSelector} from 'react-redux'
 import {push} from 'connected-react-router'
+import withStyles from '@material-ui/styles/withStyles'
 import _ from 'lodash'
 
 import data from './data/selfReportedData'
 import {loggedFetchAnswers} from '../modules/actions/loggedActions'
+
+import '../stylesheets/components/tggMainProfile.scss'
+
+const ImgAvatar = withStyles(() =>({
+  root:{
+ background: '#ededed',
+ border: '5px solid white',
+ width: '150px',
+ height: '150px',
+ borderRadius: '50%',
+ boxShadow: '0px 10px 12px #00000026',
+ margin:'auto',
+ }
+}))(Avatar)
+
+const AvatarTypography = withStyles(() =>({
+  root:{
+    margin: '0 .5em',
+    textTransform: 'uppercase',
+    fontFamily: 'Exo',
+    fontSize: '1.125em',
+    fontWeight: 'bold',
+    color:'#FFFFFF',
+    textAlign:'center',
+    marginTop:'15px'
+ }
+}))(Typography)
+
+
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(profile.gamification)
@@ -36,7 +66,7 @@ export default function ({profile}) {
     }
   }
   function handlePrefChange(){
-  
+
   }
   function handleTabChange(e, v) {
     setTabValue(v)
@@ -81,28 +111,37 @@ export default function ({profile}) {
   return (
     <>
       <Grid container>
+
         <Hidden mdDown>
           <Grid item xs={3}/>
         </Hidden>
-        <Grid item xs={12} md={6}>
-          <Grid container>
+
+        <Grid item xs={12} md={6} className="info">
+
+          <Grid container className="2">
+
             <Grid item xs={12} md={4}>
-              <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg" />
-              {profile.name}
+              <ImgAvatar src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg" />
+              <AvatarTypography> {profile.name} </AvatarTypography>
             </Grid>
-            <Grid item xs={12} md={8}>
+
+            <Grid item xs={12} md={8} className="infoText">
               <Grid container>
                 <Grid item xs={12}>
                   <Grid container>
                     <Grid item xs={12} md={6}>
                       {profile.tokenBalance}
                     </Grid>
+
                     <Grid item xs={12} md={6}>
                       {profile.genre}
                     </Grid>
                   </Grid>
+
                 </Grid>
-                <Grid item xs={12}>
+
+
+                <Grid item xs={12} className="infoTracking">
                   <Grid container>
                     <Grid item xs={12} md={6}>
                       <Typography variant={'body1'}>Location</Typography>
@@ -124,6 +163,8 @@ export default function ({profile}) {
             </Grid>
           </Grid>
         </Grid>
+
+
         <Grid item xs={12}>
           <AppBar position={'static'} style={{borderRadius: '60px'}}>
             <Tabs
@@ -151,9 +192,12 @@ export default function ({profile}) {
             </Tabs>
           </AppBar>
         </Grid>
+
+                                           // Prguntas niveles
+
         <Grid item xs={12}>
-          <Grid container>
-            <Grid item xs={12}>
+          <Grid container className="preguntasNivelesContainer">
+            <Grid item xs={12} className="preguntasNiveles">
               {SRQuestions.map((item, index) => {
                 if (tabValue === index) {
                   return (
@@ -163,6 +207,7 @@ export default function ({profile}) {
                 return null
               })}
             </Grid>
+
             <Hidden mdDown>
               {SRQuestions.map((item, index) => {
                 if (tabValue !== index) {
@@ -175,6 +220,8 @@ export default function ({profile}) {
                 return null
               })}
             </Hidden>
+
+
           </Grid>
         </Grid>
       </Grid>
