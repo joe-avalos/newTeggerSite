@@ -21,7 +21,7 @@ export default function TggContent() {
       <Route path="/getin" component={GetIn}/>
       <Route path="/confirm" component={Confirm}/>
       <Route path="/profile" component={Profile}/>
-      <Route path="/question/:questionCode" component={SRQuestion}/>
+      <Route path="/question/:moduleCode" component={SRQuestion}/>
     </Switch>
   )
 }

@@ -13,20 +13,31 @@ import DateInput from '../components/inputs/DateInput'
 import CheckboxInput from '../components/inputs/CheckboxInput'
 import SelectInput from '../components/inputs/SelectInput'
 import {useDispatch, useSelector} from 'react-redux'
-import {loggedPostAnswers} from '../modules/actions/loggedActions'
+import {
+  loggedFetchModuleAnswers,
+  loggedPostModuleAnswers
+} from '../modules/actions/loggedActions'
+import _ from 'lodash'
 
 export default function ({match}) {
-  const questionCode = match.params.questionCode
+  const moduleCode = match.params.moduleCode
   const SRQuestions = data.selfReportedQuestions
-  let basic = false
-  let select = {}
   const mod = search()
-  console.log(mod)
   const dispatch = useDispatch()
   const userUUID = useSelector(state => state.logged.profile.uuid)
-  console.log(userUUID)
+  const moduleAnswers = useSelector(state => state.logged.moduleAnswers)
+  let basic = false
+  let select = {}
+  const [firstLoad, setFirstLoad] = React.useState(true)
+  React.useEffect(() => {
+    if (_.isEmpty(moduleAnswers) || firstLoad){
+      console.log('firstLoad')
+      dispatch(loggedFetchModuleAnswers(userUUID,moduleCode))
+      setFirstLoad(false)
+    }
+  }, [moduleAnswers,dispatch,firstLoad,userUUID,moduleCode])
   
-  function search(myObject = SRQuestions, code = questionCode){
+  function search(myObject = SRQuestions, code = moduleCode){
     if (myObject['code'] === code) {
       return myObject
     }else{
@@ -39,11 +50,11 @@ export default function ({match}) {
     }
   }
   
-  if (questionCode === 'ad9e768d875ac3d933d68cfe2cb557a3'){
+  if (moduleCode === 'ad9e768d875ac3d933d68cfe2cb557a3'){
     basic = true
   }
   
-  if (questionCode === 'cb3fc762153763392eee3940dc261bb8'){
+  if (moduleCode === 'cb3fc762153763392eee3940dc261bb8'){
     for (let code of Object.values(mod.questions[0].answers)){
       select[code.code] = false
     }
@@ -52,12 +63,12 @@ export default function ({match}) {
   const QuestionForm = () => {
     const {values, errors, handleSubmit, handleChange} = useForm(callback, validate, select)
     function callback() {
-      dispatch(loggedPostAnswers(values,userUUID,mod.code))
+      dispatch(loggedPostModuleAnswers(values,userUUID,mod.code))
     }
     function validate() {
       let error = {}
       console.log(values['16ad17ae2cb71ac03040f06aeec347e1'])
-      if (!isMobile(values['16ad17ae2cb71ac03040f06aeec347e1'])){
+      if (values['16ad17ae2cb71ac03040f06aeec347e1'] && !isMobile(values['16ad17ae2cb71ac03040f06aeec347e1'])){
         error['16ad17ae2cb71ac03040f06aeec347e1'] = 'Ingresa un número de celular válido'
       }
       return error

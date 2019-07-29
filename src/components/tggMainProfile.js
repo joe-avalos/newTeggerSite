@@ -16,7 +16,7 @@ import withStyles from '@material-ui/styles/withStyles'
 import _ from 'lodash'
 
 import data from './data/selfReportedData'
-import {loggedFetchAnswers} from '../modules/actions/loggedActions'
+import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/actions/loggedActions'
 
 import '../stylesheets/components/tggMainProfile.scss'
 
@@ -45,28 +45,63 @@ const AvatarTypography = withStyles(() =>({
  }
 }))(Typography)
 
+const QuestionPaper = withStyles(()=>({
+  root:{
+    width: '23.90625em',
+    height: '18.749375em',
+    borderRadius: 12
+  }
+}))(Paper)
 
+const QuestionGrid = withStyles(() => ({
+  root:{
+    marginBottom: '1.5em',
+    marginTop: 30,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
+  }
+}))(Grid)
+
+const StaticProgress = withStyles(() => ({
+  static:{
+    position: 'absolute'
+  }
+}))(CircularProgress)
+
+const TokenBalanceTypography = withStyles(() => ({
+  body1:{
+    color: 'blue'
+  }
+}))(Typography)
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(profile.gamification)
   const genders = data.genreTitles
   const SRQuestions = data.selfReportedQuestions
   const dispatch = useDispatch()
-  let answers = useSelector(state => state.logged.answers)
+  let answersTotals = useSelector(state => state.logged.answersTotals)
+  let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
+  let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
   React.useEffect(() => {
-    if (_.isEmpty(answers)){
-      dispatch(loggedFetchAnswers(profile.uuid))
+    if (_.isEmpty(answersTotals)){
+      dispatch(loggedFetchTotalAnswers(profile.uuid))
     }
   })
-  function search(nameKey, myArray = answers){
+  function search(nameKey, myArray = answersTotals){
     for (let i = 0; i < myArray.length; i++) {
       if (myArray[i][nameKey]) {
         return parseInt(myArray[i][nameKey])
       }
     }
   }
-  function handlePrefChange(){
-
+  function handlePrefChange(pref){
+    dispatch(loggedPreferenceChange({
+      location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
+      tracking: pref === 'tracking' ? !profile.preferences.tracking : profile.preferences.tracking
+    },
+      profile.uuid
+      ))
   }
   function handleTabChange(e, v) {
     setTabValue(v)
@@ -92,8 +127,9 @@ export default function ({profile}) {
     }
   }
   function srPaper(item, index) {
+    //Paper con elevación para crear los cuadros de las preguntas autoreportadas
     return (
-      <Paper elevation={4} key={index}>
+      <QuestionPaper elevation={4} key={index}>
         <Typography variant={'h3'}>{genders[profile.genre][index].titleEn}</Typography>
         {item.modules.map((modItem, modIndex) => {
           let percentage = getCompletedPercentage(item, index, true)
@@ -101,71 +137,74 @@ export default function ({profile}) {
             <Button variant={'contained'} onClick={() => handleQuestionClick(modItem.code)} key={modIndex}>
               <Avatar src={genders[profile.genre][index].avatarImg} />
               <Typography variant={'body1'}>{modItem.name}</Typography>
-              <CircularProgress variant={'static'} value={percentage} />
+              <StaticProgress variant={'static'} value={percentage} />
             </Button>
           )
         })}
-      </Paper>
+      </QuestionPaper>
     )
   }
   return (
     <>
       <Grid container>
-
         <Hidden mdDown>
           <Grid item xs={3}/>
         </Hidden>
-
         <Grid item xs={12} md={6} className="info">
-
           <Grid container className="2">
-
             <Grid item xs={12} md={4}>
               <ImgAvatar src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg" />
               <AvatarTypography> {profile.name} </AvatarTypography>
             </Grid>
-
             <Grid item xs={12} md={8} className="infoText">
               <Grid container>
                 <Grid item xs={12}>
+                  {/*Profile Header*/}
                   <Grid container>
                     <Grid item xs={12} md={6}>
-                      {profile.tokenBalance}
+                      {/*Profile Token Balnce*/}
+                      <TokenBalanceTypography variant={'body1'}>
+                        {profile.tokenBalance}
+                      </TokenBalanceTypography>
                     </Grid>
-
                     <Grid item xs={12} md={6}>
-                      {profile.genre}
+                      {/*Profile referrals earnings*/}
+                      <Typography variant={'body1'}>
+                        {profile.genre}
+                      </Typography>
                     </Grid>
                   </Grid>
-
                 </Grid>
-
-
-                <Grid item xs={12} className="infoTracking">
+                <Grid item xs={12}>
                   <Grid container>
-                    <Grid item xs={12} md={6}>
-                      <Typography variant={'body1'}>Location</Typography>
-                      <Switch
-                        checked={profile.preferences.location}
-                        onChange={handlePrefChange}
-                        />
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                      <Typography variant={'body1'}>Browsing</Typography>
-                      <Switch
-                        checked={profile.preferences.tracking}
-                        onChange={handlePrefChange}
-                      />
-                    </Grid>
+                    {prefsIsLoading ? <CircularProgress style={{color: 'white'}} /> :
+                      <>
+                        <Grid item xs={12} md={6}>
+                          {/*Profile location switch*/}
+                          <Typography variant={'body1'}>Location</Typography>
+                          <Switch
+                            checked={profile.preferences.location}
+                            onChange={() => handlePrefChange('location')}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                          {/*Profile tracking switch*/}
+                          <Typography variant={'body1'}>Browsing</Typography>
+                          <Switch
+                            checked={profile.preferences.tracking}
+                            onChange={() => handlePrefChange('tracking')}
+                          />
+                        </Grid>
+                      </>
+                      }
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
-
-
         <Grid item xs={12}>
+          {/*Profile gamification bar */}
           <AppBar position={'static'} style={{borderRadius: '60px'}}>
             <Tabs
               value={tabValue}
@@ -181,7 +220,7 @@ export default function ({profile}) {
                       <>
                         <Avatar src={item.avatarImg} />
                         <Typography variant={'body2'}>{item.titleEn}</Typography>
-                        <CircularProgress variant={'static'} value={percentage} />
+                        <StaticProgress variant={'static'} value={percentage} />
                       </>
                     } />
                   )
@@ -192,12 +231,13 @@ export default function ({profile}) {
             </Tabs>
           </AppBar>
         </Grid>
-
-                                           // Prguntas niveles
-
+        {/*Preguntas niveles*/}
         <Grid item xs={12}>
-          <Grid container className="preguntasNivelesContainer">
-            <Grid item xs={12} className="preguntasNiveles">
+          <Grid container>
+            <Hidden mdDown>
+              <Grid item md={4} />
+            </Hidden>
+            <QuestionGrid item xs={12} md={4}>
               {SRQuestions.map((item, index) => {
                 if (tabValue === index) {
                   return (
@@ -206,22 +246,22 @@ export default function ({profile}) {
                 }
                 return null
               })}
-            </Grid>
-
+            </QuestionGrid>
+            <Hidden mdDown>
+              <Grid item md={4} />
+            </Hidden>
             <Hidden mdDown>
               {SRQuestions.map((item, index) => {
                 if (tabValue !== index) {
                   return (
-                    <Grid item xs={6} key={index}>
+                    <QuestionGrid item xs={6} key={index}>
                       {srPaper(item, index)}
-                    </Grid>
+                    </QuestionGrid>
                   )
                 }
                 return null
               })}
             </Hidden>
-
-
           </Grid>
         </Grid>
       </Grid>

@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import TextField from '@material-ui/core/TextField'
 
-const DateInput = ({birthday, handleChange, error, label, name, value}) => {
+const DateInput = ({birthday = false, handleChange, error, label, name, value}) => {
   let inputError = !isEmpty(error || '')
   let today = new Date()
   let defaultValue = birthday ?
@@ -14,7 +14,7 @@ const DateInput = ({birthday, handleChange, error, label, name, value}) => {
     new Date(today)
   let dateString = defaultValue.getFullYear() + '-' +
     ((defaultValue.getMonth() + 1) + '').padStart(2,'0') + '-' +
-    (defaultValue.getDay()+'').padStart(2,'0')
+    ((defaultValue.getDay() + 1) + '').padStart(2,'0')
   return (
     <FormControl error={inputError}>
       <Typography variant={'h3'}>{label}</Typography>

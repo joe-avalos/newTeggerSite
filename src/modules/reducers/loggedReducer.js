@@ -3,8 +3,11 @@ import _ from 'lodash'
 
 const defaultState = {
   'isLoading': true,
+  'answersIsLoading': false,
+  'prefsIsLoading': false,
   'loggedError': '',
-  'answers': {},
+  'answersTotals': {},
+  'moduleAnswers': {},
   'profile':{
     'uuid': '',
     'name': '',
@@ -30,6 +33,16 @@ export function loggedReduce(state = defaultState, action) {
         ...state,
         isLoading: action.isLoading
       }
+    case LOGGED_ACTIONS.LOGGED_ANSWERS_IS_LOADING:
+      return {
+        ...state,
+        answersIsLoading: action.isLoading
+      }
+    case LOGGED_ACTIONS.LOGGED_PREFS_IS_LOADING:
+      return {
+        ...state,
+        prefsIsLoading: action.isLoading
+      }
     case LOGGED_ACTIONS.LOGGED_HAS_ERRORED:
       return {
         ...state,
@@ -49,10 +62,20 @@ export function loggedReduce(state = defaultState, action) {
       newState.profile.tokenBalance= action.profile.tokenBalance
       newState.profile.gamification= action.profile.gamification
       return newState
-    case LOGGED_ACTIONS.LOGGED_FETCH_ANSWERS_SUCCESS:
+    case LOGGED_ACTIONS.LOGGED_TOTAL_ANSWERS_SUCCESS:
       return {
         ...state,
-        answers: action.answers
+        answersTotals: action.answersTotals
+      }
+    case LOGGED_ACTIONS.LOGGED_PREFERENCE_CHANGE_SUCCESS:
+      newState = _.cloneDeep(state)
+      newState.profile.preferences.location= action.prefs.location
+      newState.profile.preferences.tracking= action.prefs.tracking
+      return newState
+    case LOGGED_ACTIONS.LOGGED_MODULE_ANSWERS_SUCCESS:
+      return {
+        ...state,
+        moduleAnswers: action.moduleAnswers
       }
     default:
       return state

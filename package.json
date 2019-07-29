@@ -36,7 +36,6 @@
     "test:update": "react-scripts test --updateSnapshot",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://localhost:3000/",
   "eslintConfig": {
     "extends": "react-app"
   },
