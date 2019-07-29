@@ -111,6 +111,15 @@ const theme = createMuiTheme({
       lineHeight: 1,
       color: $primaryGray,
     },
+    body3:{
+      fontWeight: "lighter",
+      color: $primaryBlack,
+      fontSize: "1.25rem",
+      lineHeight: 1.25,
+      [defaultTheme.breakpoints.down('sm')]: {
+        fontSize: '1.25rem',
+      },
+    },
 
   },
   overrides:{

@@ -8,11 +8,14 @@ import TGGOnBoarding from '../components/tggOnboarding'
 import TGGMainProfile from '../components/tggMainProfile'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
+import '../stylesheets/pages/profile.scss'
+
 export default function () {
   const dispatch = useDispatch()
   const isLoading = useSelector(state => state.logged.isLoading)
   const loggedError = useSelector(state => state.logged.loggedError)
   const profile = useSelector(state => state.logged.profile)
+
   React.useEffect(() => {
     if (profile.uuid === '' && loggedError === ''){
       dispatch(loggedFetchProfile())
@@ -20,7 +23,7 @@ export default function () {
   })
   return (
     <Container maxWidth="lg" className="contentContainer">
-      <Box className="background onboardingBG" />
+      <Box className="background profileBG" />
       {isLoading ? <CircularProgress /> :
         !profile.onboarding ? <TGGOnBoarding /> :
         <TGGMainProfile profile={profile} />
