@@ -2,7 +2,6 @@
 
 .info{
   width: 792px;
-  height: 285px;
 }
 
 .infoAvatar{
@@ -23,13 +22,23 @@
 
 .preguntasNiveles{
   border-radius: 12px;
-box-shadow: 0px 0px 40px #e8e8e8;
-width: 23.90625em;
-height: 18.749375em;
-margin-bottom: 1.5em;
-margin-top: 30px;
+  box-shadow: 0px 0px 40px #e8e8e8;
+  width: 23.90625em;
+  height: 18.749375em;
+  margin-bottom: 1.5em;
+  margin-top: 30px;
 }
 
 .preguntasNivelesContainer{
   width: 800px;
+}
+
+.TokenImg{
+  background-color: #ffffff;
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+  margin-top: 5px;
+  display: flex;
+
 }

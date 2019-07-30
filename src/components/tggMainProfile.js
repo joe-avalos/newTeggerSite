@@ -21,7 +21,7 @@ import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/action
 import '../stylesheets/components/tggMainProfile.scss'
 
 
-const AvatarImg = withStyles(() =>({
+const AvatarImg = withStyles({
   root:{
  background: '#ededed',
  border: '5px solid white',
@@ -76,9 +76,9 @@ const TokenBalanceTypography = withStyles({
     fontSize: '2.25rem',
     fontWeight:'900'
   }
-}))(Typography)
+})(Typography)
 
-const PanelTypography = withStyles(() => ({
+const PanelTypography = withStyles({
   h3:{
     color: 'white',
     fontSize:'1.125rem'
@@ -87,23 +87,27 @@ const PanelTypography = withStyles(() => ({
 
 const GamificationTabs = withStyles({
   indicator:{
-    display: 'none'
+    display: 'none',
+    width:'400px'
+
   }
 })(Tabs)
 
-const UserNameTypography = withStyles(() => ({
+const UserNameTypography = withStyles({
   body1:{
     color: 'white',
     fontFamily:'Encode Sans Semi Expanded',
     fontSize:'1.5rem',
   }
-}))(Typography)
+})(Typography)
 
-const AvatarGamification = withStyles(() => ({
+const AvatarGamification = withStyles({
   root:{
     width:'95px',
   }
-}))(Avatar)
+})(Avatar)
+
+
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(profile.gamification)
@@ -182,7 +186,7 @@ export default function ({profile}) {
         </Hidden>
         <Grid item xs={12} md={6} className="info">
           {/*Profile Header*/}
-          <Grid container className="2">
+          <Grid container style={{marginTop: '10px', marginBottom: '30px'}}>
             <Grid item xs={12} md={4}>
               <AvatarImg src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg" />
               <AvatarTypography><span>-</span>{profile.name}<span>-</span> </AvatarTypography>
@@ -191,13 +195,17 @@ export default function ({profile}) {
               <Grid container>
                 <Grid item xs={12}>
                   <Grid container>
-                    <Grid item xs={12} md={6} style={{marginTop: '10px', marginBottom: '20px'}}>
+                    <Grid item xs={12} md={6} style={{marginTop: '10px', marginBottom: '30px'}}>
                       {/*UserName*/}
                       <UserNameTypography> {profile.name} </UserNameTypography>
                       {/*Profile Token Balnce*/}
-                      <TokenBalanceTypography variant={'body1'}>
+                      <Grid item  style={{marginTop: '0', display:'flex'}}>
+                        <Grid className="TokenImg"/>
+                        <TokenBalanceTypography variant={'body1'}>
                         {profile.tokenBalance}
-                      </TokenBalanceTypography>
+                        </TokenBalanceTypography>
+                      </Grid>
+
                     </Grid>
                     <Grid item xs={12} md={6}>
                       {/*Profile referrals earnings*/}
@@ -237,7 +245,7 @@ export default function ({profile}) {
         </Grid>
         <Grid item xs={12}>
           {/*Profile gamification bar */}
-          <AppBar position={'static'} style={{borderRadius: '60px'}}>
+          <AppBar position={'static'} style={{borderRadius: '70px'}}>
             <GamificationTabs
               value={tabValue}
               onChange={handleTabChange}
