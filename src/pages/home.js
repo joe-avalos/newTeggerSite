@@ -25,12 +25,6 @@ const StyledPaper = withStyles({
   }
 })(Paper)
 
-const OtherBody = withStyles({
-  body5:{
-    color: '$primaryBlack',
-  }
-})(Typography)
-
 export default function home() {
   return (
     <Container maxWidth="lg" className="contentContainer">

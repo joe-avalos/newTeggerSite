@@ -64,7 +64,7 @@ const OnboardingForm = () => {
             control={
               <>
                 <TGGGenderRadio value={'5be369dbfc8f6b4f67abb71d'} disableRipple/>
-                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"/>
+                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeya.svg"/>
               </>
             }
             label={'Dame'}
@@ -74,7 +74,7 @@ const OnboardingForm = () => {
             control={
               <>
                 <TGGGenderRadio value={'5be369d3fc8f6b4f67abb71c'} disableRipple/>
-                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"/>
+                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeyo.svg"/>
               </>
             }
             label={'Knight'}

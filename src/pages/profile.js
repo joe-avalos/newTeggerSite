@@ -1,12 +1,13 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
+import CircularProgress from '@material-ui/core/CircularProgress'
+
 import {useDispatch, useSelector} from 'react-redux'
 
 import {loggedFetchProfile} from '../modules/actions/loggedActions'
 import TGGOnBoarding from '../components/tggOnboarding'
 import TGGMainProfile from '../components/tggMainProfile'
-import CircularProgress from '@material-ui/core/CircularProgress'
 
 import '../stylesheets/pages/profile.scss'
 
@@ -17,7 +18,7 @@ export default function () {
   const profile = useSelector(state => state.logged.profile)
 
   React.useEffect(() => {
-    if (profile.uuid === '' && loggedError === ''){
+    if (profile.uuid === ''){
       dispatch(loggedFetchProfile())
     }
   })
