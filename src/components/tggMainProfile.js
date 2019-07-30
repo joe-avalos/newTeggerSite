@@ -20,7 +20,8 @@ import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/action
 
 import '../stylesheets/components/tggMainProfile.scss'
 
-const ImgAvatar = withStyles(() =>({
+
+const AvatarImg = withStyles(() =>({
   root:{
  background: '#ededed',
  border: '5px solid white',
@@ -71,9 +72,32 @@ const StaticProgress = withStyles(() => ({
 
 const TokenBalanceTypography = withStyles(() => ({
   body1:{
-    color: 'blue'
+    color: 'white',
+    fontSize: '2.25rem',
+    fontWeight:'900'
   }
 }))(Typography)
+
+const PanelTypography = withStyles(() => ({
+  h3:{
+    color: 'white',
+    fontSize:'1.125rem'
+  }
+}))(Typography)
+
+const UserNameTypography = withStyles(() => ({
+  body1:{
+    color: 'white',
+    fontFamily:'Encode Sans Semi Expanded',
+    fontSize:'1.5rem',
+  }
+}))(Typography)
+
+const AvatarGamification = withStyles(() => ({
+  root:{
+    width:'95px',
+  }
+}))(Avatar)
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(profile.gamification)
@@ -153,15 +177,17 @@ export default function ({profile}) {
         <Grid item xs={12} md={6} className="info">
           <Grid container className="2">
             <Grid item xs={12} md={4}>
-              <ImgAvatar src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg" />
-              <AvatarTypography> {profile.name} </AvatarTypography>
+              <AvatarImg src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg" />
+              <AvatarTypography><span>-</span>{profile.name}<span>-</span> </AvatarTypography>
             </Grid>
             <Grid item xs={12} md={8} className="infoText">
               <Grid container>
                 <Grid item xs={12}>
                   {/*Profile Header*/}
                   <Grid container>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6} style={{marginTop: '10px', marginBottom: '20px'}}>
+                      {/*UserName*/}
+                      <UserNameTypography> {profile.name} </UserNameTypography>
                       {/*Profile Token Balnce*/}
                       <TokenBalanceTypography variant={'body1'}>
                         {profile.tokenBalance}
@@ -181,7 +207,7 @@ export default function ({profile}) {
                       <>
                         <Grid item xs={12} md={6}>
                           {/*Profile location switch*/}
-                          <Typography variant={'body1'}>Location</Typography>
+                          <PanelTypography variant={'h3'}>Localización</PanelTypography>
                           <Switch
                             checked={profile.preferences.location}
                             onChange={() => handlePrefChange('location')}
@@ -189,7 +215,7 @@ export default function ({profile}) {
                         </Grid>
                         <Grid item xs={12} md={6}>
                           {/*Profile tracking switch*/}
-                          <Typography variant={'body1'}>Browsing</Typography>
+                          <PanelTypography variant={'h3'}>Navegación</PanelTypography>
                           <Switch
                             checked={profile.preferences.tracking}
                             onChange={() => handlePrefChange('tracking')}
@@ -218,7 +244,7 @@ export default function ({profile}) {
                   return (
                     <Tab key={index} label={
                       <>
-                        <Avatar src={item.avatarImg} />
+                        <AvatarGamification src={item.avatarImg} />
                         <Typography variant={'body2'}>{item.titleEn}</Typography>
                         <StaticProgress variant={'static'} value={percentage} />
                       </>
