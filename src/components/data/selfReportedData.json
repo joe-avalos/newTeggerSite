@@ -497,55 +497,55 @@
         "level": 1,
         "titleEn": "Knight",
         "titleEs": "Caballero",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/01_caballero.svg"
       },
       {
         "level": 2,
         "titleEn": "Lord",
         "titleEs": "Señor",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/02_senor.svg"
       },
       {
         "level": 3,
         "titleEn": "Baron",
         "titleEs": "Barón",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/03_baron.svg"
       },
       {
         "level": 4,
         "titleEn": "Viscount",
         "titleEs": "Vizconde",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/04_vizconde.svg"
       },
       {
         "level": 5,
         "titleEn": "Earl",
         "titleEs": "Conde",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/05_conde.svg"
       },
       {
         "level": 6,
         "titleEn": "Marquess",
         "titleEs": "Marqués",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/06_marques.svg"
       },
       {
         "level": 7,
         "titleEn": "Duke",
         "titleEs": "Duque",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/07_duque.svg"
       },
       {
         "level": 8,
         "titleEn": "Prince",
         "titleEs": "Príncipe",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/08_principe.svg"
       },
       {
         "level": 9,
         "titleEn": "King",
         "titleEs": "Rey",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/09_rey.svg"
       }
     ],
     "5be369dbfc8f6b4f67abb71d": [
@@ -553,55 +553,55 @@
         "level": 1,
         "titleEn": "Dame",
         "titleEs": "Dama",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/01_dama.svg"
       },
       {
         "level": 2,
         "titleEn": "Lady",
         "titleEs": "Señora",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/02_senora.svg"
       },
       {
         "level": 3,
         "titleEn": "Baroness",
         "titleEs": "Baronesa",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/03_baronesa.svg"
       },
       {
         "level": 4,
         "titleEn": "Viscountess",
         "titleEs": "Vizcondesa",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/04_vizcondesa.svg"
       },
       {
         "level": 5,
         "titleEn": "Countess",
         "titleEs": "Condesa",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/05_condesa.svg"
       },
       {
         "level": 6,
         "titleEn": "Marchioness",
         "titleEs": "Marquesa",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/06_marquesa.svg"
       },
       {
         "level": 7,
         "titleEn": "Duchess",
         "titleEs": "Duquesa",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/07_duquesa.svg"
       },
       {
         "level": 8,
         "titleEn": "Princess",
         "titleEs": "Princesa",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/08_princesa.svg"
       },
       {
         "level": 9,
         "titleEn": "Queen",
         "titleEs": "Reina",
-        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/09_reina.svg"
       }
     ]
   }

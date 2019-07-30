@@ -43,6 +43,12 @@ const NavBarTab = withStyles( (theme) => ({
   }
 }))(Tab)
 
+const NavBarTabs = withStyles({
+  indicator:{
+    display: 'none'
+  }
+})(Tabs)
+
 export default function (props) {
   const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false)
@@ -63,7 +69,7 @@ export default function (props) {
       <AppBar position={"sticky"} style={{backgroundColor: "transparent"}}>
           <Hidden mdDown>
         <Container maxWidth="lg" className="appBarContainer">
-            <Tabs value={activeNav} onChange={handleTabClick}>
+            <NavBarTabs value={activeNav} onChange={handleTabClick}>
               <NavBarTab
                 value="/"
                 label={<img src="https://files.tegger.io/assets/tegger/images/tegger-logo.svg" alt="Tegger Logo"/>}
@@ -72,7 +78,7 @@ export default function (props) {
               <NavBarTab label="Qué Hacemos" value="/wwd" />
               <NavBarTab label="Beneficios" value="/benefits" />
               <NavBarTab label="Blog" value="/blog"/>
-            </Tabs>
+            </NavBarTabs>
         </Container>
           </Hidden>
           <Hidden lgUp>

@@ -20,7 +20,7 @@ import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/action
 
 import '../stylesheets/components/tggMainProfile.scss'
 
-const ImgAvatar = withStyles(() =>({
+const ImgAvatar = withStyles({
   root:{
  background: '#ededed',
  border: '5px solid white',
@@ -30,9 +30,9 @@ const ImgAvatar = withStyles(() =>({
  boxShadow: '0px 10px 12px #00000026',
  margin:'auto',
  }
-}))(Avatar)
+})(Avatar)
 
-const AvatarTypography = withStyles(() =>({
+const AvatarTypography = withStyles({
   root:{
     margin: '0 .5em',
     textTransform: 'uppercase',
@@ -43,17 +43,17 @@ const AvatarTypography = withStyles(() =>({
     textAlign:'center',
     marginTop:'15px'
  }
-}))(Typography)
+})(Typography)
 
-const QuestionPaper = withStyles(()=>({
+const QuestionPaper = withStyles({
   root:{
     width: '23.90625em',
     height: '18.749375em',
     borderRadius: 12
   }
-}))(Paper)
+})(Paper)
 
-const QuestionGrid = withStyles(() => ({
+const QuestionGrid = withStyles({
   root:{
     marginBottom: '1.5em',
     marginTop: 30,
@@ -61,19 +61,25 @@ const QuestionGrid = withStyles(() => ({
     flexDirection: 'row',
     justifyContent: 'center'
   }
-}))(Grid)
+})(Grid)
 
-const StaticProgress = withStyles(() => ({
+const StaticProgress = withStyles({
   static:{
     position: 'absolute'
   }
-}))(CircularProgress)
+})(CircularProgress)
 
-const TokenBalanceTypography = withStyles(() => ({
+const TokenBalanceTypography = withStyles({
   body1:{
     color: 'blue'
   }
-}))(Typography)
+})(Typography)
+
+const GamificationTabs = withStyles({
+  indicator:{
+    display: 'none'
+  }
+})(Tabs)
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(profile.gamification)
@@ -151,6 +157,7 @@ export default function ({profile}) {
           <Grid item xs={3}/>
         </Hidden>
         <Grid item xs={12} md={6} className="info">
+          {/*Profile Header*/}
           <Grid container className="2">
             <Grid item xs={12} md={4}>
               <ImgAvatar src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg" />
@@ -159,7 +166,6 @@ export default function ({profile}) {
             <Grid item xs={12} md={8} className="infoText">
               <Grid container>
                 <Grid item xs={12}>
-                  {/*Profile Header*/}
                   <Grid container>
                     <Grid item xs={12} md={6}>
                       {/*Profile Token Balnce*/}
@@ -206,7 +212,7 @@ export default function ({profile}) {
         <Grid item xs={12}>
           {/*Profile gamification bar */}
           <AppBar position={'static'} style={{borderRadius: '60px'}}>
-            <Tabs
+            <GamificationTabs
               value={tabValue}
               onChange={handleTabChange}
               variant={'scrollable'}
@@ -228,7 +234,7 @@ export default function ({profile}) {
                 return null
               })
               }
-            </Tabs>
+            </GamificationTabs>
           </AppBar>
         </Grid>
         {/*Preguntas niveles*/}

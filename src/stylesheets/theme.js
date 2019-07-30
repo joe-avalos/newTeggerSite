@@ -238,9 +238,6 @@ const theme = createMuiTheme({
         color: $primaryBlack,
         textDecoration: "none",
         cursor: "initial"
-      },
-      indicator:{
-        display: "none"
       }
     },
     MuiTab:{

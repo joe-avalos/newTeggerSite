@@ -140,6 +140,7 @@ export function loggedFetchTotalAnswers(uuid){
 export function loggedPostModuleAnswers(answers, uuid, mod) {
   return dispatch => {
     dispatch(loggedAnswersIsLoading(true))
+    let answerString = {answers: answers}
   
     let qURL = process.env.REACT_APP_API_ROOT + 'answer/'+uuid+'/'+mod
     fetch(qURL, {
@@ -149,7 +150,7 @@ export function loggedPostModuleAnswers(answers, uuid, mod) {
         'Content-Type': 'application/json',
         'Tegger-AuthType': 'session'
       },
-      body: JSON.stringify(answers)
+      body: JSON.stringify(answerString)
     })
       .then(res => {
         if (!res.ok) {
