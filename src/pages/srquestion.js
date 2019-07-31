@@ -19,14 +19,7 @@ import _ from 'lodash'
 
 const BoxQuestionHeader = withStyles({
   root:{
-    background: '#ededed',
-    width: '100%',
-    position: 'absolute',
-    left: '0',
-    display: 'block',
     height: '240px',
-    top: '70px',
-    padding: '50px 250px',
  }
 })(Box)
 
@@ -147,6 +140,7 @@ export default function ({match}) {
 
   return (
     <Container maxWidth="lg" className="contentContainer">
+      <Box className="background questionBG" />
       <BoxQuestionHeader>
           <Typography variant={'h3'}>
           {mod.name}

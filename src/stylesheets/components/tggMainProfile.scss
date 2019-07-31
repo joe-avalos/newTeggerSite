@@ -1,38 +1,3 @@
-@import "../variables";
-
-.info{
-  width: 792px;
-}
-
-.infoAvatar{
-  background: #ededed;
-  border: 5px solid white;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px grey;
-}
-
-
-.infoTracking{
-  font-size: 2em;
-    font-weight: 600;
-    margin-left: .2em;
-    font-family: 'Encode Sans Semi Expanded';
-    color: #FFFFFF;
-}
-
-.preguntasNiveles{
-  border-radius: 12px;
-  box-shadow: 0px 0px 40px #e8e8e8;
-  width: 23.90625em;
-  height: 18.749375em;
-  margin-bottom: 1.5em;
-  margin-top: 30px;
-}
-
-.preguntasNivelesContainer{
-  width: 800px;
-}
-
 .TokenImg{
   background-image: url("https://tegger.io/images/3369e516414cf4501343b02927e5d781-logoTegger.png");
   width: 32px;

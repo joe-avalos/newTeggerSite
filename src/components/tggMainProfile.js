@@ -21,42 +21,30 @@ import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/action
 
 import '../stylesheets/components/tggMainProfile.scss'
 
-
-const AvatarImg = withStyles({
-  root:{
- background: '#ededed',
- border: '5px solid white',
- width: '150px',
- height: '150px',
- borderRadius: '50%',
- boxShadow: '0px 10px 12px #00000026',
- margin:'auto',
- }
+const HeaderAvatar = withStyles({
+  root: {
+    background: '#ededed',
+    border: '5px solid white',
+    width: '150px',
+    height: '150px',
+    borderRadius: '50%',
+    boxShadow: '0px 10px 12px #00000026',
+    margin: 'auto',
+    '& + .MuiTypography-root':{
+      margin: '0 .5em',
+      textTransform: 'uppercase',
+      fontFamily: 'Exo',
+      fontSize: '1.125em',
+      fontWeight: 'bold',
+      color: '#FFFFFF',
+      textAlign: 'center',
+      marginTop: '15px'
+    }
+  }
 })(Avatar)
 
-const AvatarTypography = withStyles({
-  root:{
-    margin: '0 .5em',
-    textTransform: 'uppercase',
-    fontFamily: 'Exo',
-    fontSize: '1.125em',
-    fontWeight: 'bold',
-    color:'#FFFFFF',
-    textAlign:'center',
-    marginTop:'15px'
- }
-})(Typography)
-
-const QuestionPaper = withStyles({
-  root:{
-    width: '23.90625em',
-    height: '18.749375em',
-    borderRadius: 12
-  }
-})(Paper)
-
 const QuestionGrid = withStyles({
-  root:{
+  root: {
     marginBottom: '1.5em',
     marginTop: 30,
     display: 'flex',
@@ -65,82 +53,122 @@ const QuestionGrid = withStyles({
   }
 })(Grid)
 
+const QuestionPaper = withStyles({
+  root: {
+    borderRadius: 12,
+    width: 382,
+    height: 290,
+    position: 'relative',
+    '& .MuiBox-root': {
+      width: '100%',
+      backgroundColor: '#F7F7F7',
+      height: '44px',
+      position: 'absolute',
+      bottom: '0', right: '0',
+      borderRadius: '0 0 8px 8px'
+    },
+    '& .MuiTypography-h3': {
+      textAlign: 'center',
+      fontSize: 24,
+      color: '#707070'
+    }
+  }
+})(Paper)
+
+const QuestionButton = withStyles({
+  contained: {
+    display: 'block',
+    margin: 'auto',
+    '& .MuiAvatar-root': {
+      width: 85,
+      height: 85,
+      backgroundColor: '#F4F4F4',
+      border: '1px solid #C3C3C3',
+      margin: '14px 20px 10px'
+    },
+    '& .MuiTypography-body1': {
+      textAlign: 'center',
+      color: '#B8B8B8'
+    }
+  }
+})(Button)
+
 const StaticProgress = withStyles({
-  static:{
+  static: {
     position: 'absolute',
-    top:30,
-    width:90
+    top: 1,
+    color: '#BFBFBF'
   }
 })(CircularProgress)
 
 const TokenBalanceTypography = withStyles({
-  body1:{
+  body1: {
     color: 'white',
     fontSize: '2.25rem',
-    fontWeight:'600'
+    fontWeight: '600'
   }
 })(Typography)
 
 const PanelTypography = withStyles({
-  h3:{
+  h3: {
     color: 'white',
-    fontSize:'1.125rem'
+    fontSize: '1.125rem'
   }
 })(Typography)
-
-const GamificationTabs = withStyles({
-  indicator:{
-    display: 'none',
-    width:'400px'
-
-  }
-})(Tabs)
 
 const UserNameTypography = withStyles({
-  body1:{
+  body1: {
     color: 'white',
-    fontFamily:'Encode Sans Semi Expanded',
-    fontSize:'1.5rem',
-    fontWeight:'400'
+    fontFamily: 'Encode Sans Semi Expanded',
+    fontSize: '1.5rem',
+    fontWeight: '400'
   }
 })(Typography)
 
-const AvatarGamification = withStyles({
+const GamificationAppBar = withStyles({
   root:{
-    width:60,
-    height:60,
-    backgroundColor: '#F4F4F4',
-    border: '1px solid #C3C3C3',
-
+    borderRadius: '70px',
+    height: '140px',
+    margin: 'auto',
+    width: '755px',
+    padding: '20px',
+    position: 'relative',
+    '& .MuiBox-root':{
+      width: '80%',
+      height: 6,
+      position: 'absolute',
+      border: '1px solid #dadada',
+      top: '42%',
+      left: '9%'
+    },
+    '& .MuiTabs-indicator':{
+      display: 'none'
+    },
+    '& .MuiAvatar-root':{
+      width: 60,
+      height: 60,
+      backgroundColor: '#F4F4F4',
+      border: '1px solid #C3C3C3',
+    },
+    '& .MuiTypography-body2':{
+      marginTop: 4,
+      fontSize: '0.875rem',
+      textTransform: 'capitalize',
+      fontFamily: 'Exo',
+    },
+    '& .Mui-selected':{
+      '& .MuiTypography-body2': {
+        textTransform: 'uppercase',
+        marginTop: 10,
+        fontSize: '1.125rem',
+        color: '#5F5F5F',
+      },
+      '& .MuiAvatar-root': {
+        transform: 'scale(1.1)'
+      }
+    }
   }
-})(Avatar)
-
-const GamificationTypography = withStyles({
-  body2:{
-    marginTop:4,
-    fontSize:'0.875rem',
-    textTransform:'capitalize',
-    fontFamily:'Exo',
-  }
-})(Typography)
-
-const GamificationTab = withStyles({
- selected:{
-   '& .MuiTypography-body2':{
-     textTransform: 'uppercase',
-     marginTop: 10,
-     fontSize:'1.125rem',
-     color:'#5F5F5F',
-   },
-   '& .MuiAvatar-root':{
-     transform: 'scale(1.1)'
-   }
- }
-})(Tab)
-
-
-
-
+})(AppBar)
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(profile.gamification)
@@ -151,31 +179,36 @@ export default function ({profile}) {
   let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
   let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
   React.useEffect(() => {
-    if (_.isEmpty(answersTotals)){
+    if (_.isEmpty(answersTotals)) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
     }
   })
-  function search(nameKey, myArray = answersTotals){
+  
+  function search(nameKey, myArray = answersTotals) {
     for (let i = 0; i < myArray.length; i++) {
       if (myArray[i][nameKey]) {
         return parseInt(myArray[i][nameKey])
       }
     }
   }
-  function handlePrefChange(pref){
+  
+  function handlePrefChange(pref) {
     dispatch(loggedPreferenceChange({
-      location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
-      tracking: pref === 'tracking' ? !profile.preferences.tracking : profile.preferences.tracking
-    },
+        location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
+        tracking: pref === 'tracking' ? !profile.preferences.tracking : profile.preferences.tracking
+      },
       profile.uuid
-      ))
+    ))
   }
+  
   function handleTabChange(e, v) {
     setTabValue(v)
   }
+  
   function handleQuestionClick(qCode) {
-    dispatch(push('/question/'+qCode))
+    dispatch(push('/question/' + qCode))
   }
+  
   function getCompletedPercentage(item, index, mod = false) {
     if (SRQuestions[index]) {
       let qLength = SRQuestions[index].modules.length
@@ -193,37 +226,45 @@ export default function ({profile}) {
       return (answered / totalQuestions) * 100
     }
   }
+  
   function srPaper(item, index) {
     //Paper con elevación para crear los cuadros de las preguntas autoreportadas
     return (
-      <QuestionPaper elevation={4} key={index} style={{width: 382, height:290, position:'relative'}}>
-        <Typography style={{textAlign: 'center', fontSize:'24px', color:'#707070'}}variant={'h3'}><span>-</span>{genders[profile.genre][index].titleEn}<span>-</span></Typography>
+      <QuestionPaper elevation={4} key={index}>
+        <Typography variant={'h3'}>
+          <span>-</span>{genders[profile.genre][index].titleEn}<span>-</span>
+        </Typography>
         {item.modules.map((modItem, modIndex) => {
           let percentage = getCompletedPercentage(item, index, true)
           return (
-            <Button variant={'contained'} onClick={() => handleQuestionClick(modItem.code)} key={modIndex} style={{display: 'block', margin:'auto'}}>
-              <Avatar src={genders[profile.genre][index].avatarImg} style={{width: '85px', height: '85px', backgroundColor:'#F4F4F4', border: '1px solid #C3C3C3', margin:'14px 20px 10px'}}/>
-              <Typography variant={'body1'} style={{textAlign:'center', color:'#B8B8B8'}}>{modItem.name}</Typography>
-              <StaticProgress variant={'static'} value={percentage} />
-            </Button>
+            <QuestionButton variant={'contained'} onClick={() => handleQuestionClick(modItem.code)} key={modIndex}>
+              <Avatar src={genders[profile.genre][index].avatarImg}/>
+              <Typography variant={'body1'}>{modItem.name}</Typography>
+              <StaticProgress
+                variant={'static'}
+                value={percentage}
+                style={{width: '70px', height: '70px'}}
+              />
+            </QuestionButton>
           )
         })}
-        <Box style={{width: '100%', backgroundColor:'#F7F7F7', height:'44px', position:'absolute', bottom:'0', right:'0', borderRadius:'0 0 8px 8px'}}></Box>
+        <Box/>
       </QuestionPaper>
     )
   }
+  
   return (
     <>
       <Grid container>
         <Hidden mdDown>
-          <Grid item xs={3}/>
+          <Grid item md={3}/>
         </Hidden>
-        <Grid item xs={12} md={6} className="info">
+        <Grid item xs={12} md={6} style={{width: 792}}>
           {/*Profile Header*/}
           <Grid container style={{marginTop: '10px', marginBottom: '20px'}}>
             <Grid item xs={12} md={4}>
-              <AvatarImg src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeya.svg" />
-              <AvatarTypography><span>-</span>{profile.name}<span>-</span> </AvatarTypography>
+              <HeaderAvatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeya.svg"/>
+              <Typography><span>-</span>{profile.name}<span>-</span></Typography>
             </Grid>
             <Grid item xs={12} md={8} className="infoText">
               <Grid container>
@@ -231,15 +272,14 @@ export default function ({profile}) {
                   <Grid container>
                     <Grid item xs={12} md={6} style={{marginTop: '10px', marginBottom: '30px'}}>
                       {/*UserName*/}
-                      <UserNameTypography> {profile.name} </UserNameTypography>
+                      <UserNameTypography>{profile.name}</UserNameTypography>
                       {/*Profile Token Balnce*/}
-                      <Grid item  style={{marginTop: '0', display:'flex'}}>
-                        <Grid className="TokenImg"/>
+                      <Grid item style={{marginTop: '0', display: 'flex'}}>
+                        <Box className="TokenImg"/>
                         <TokenBalanceTypography variant={'body1'}>
-                        {profile.tokenBalance}
+                          {profile.tokenBalance}
                         </TokenBalanceTypography>
                       </Grid>
-
                     </Grid>
                     <Grid item xs={12} md={6}>
                       {/*Profile referrals earnings*/}
@@ -251,17 +291,15 @@ export default function ({profile}) {
                 </Grid>
                 <Grid item xs={12}>
                   <Grid container>
-                    {prefsIsLoading ? <CircularProgress style={{color: 'white'}} /> :
+                    {prefsIsLoading ? <CircularProgress style={{color: 'white'}}/> :
                       <>
                         <Grid item xs={12} md={6}>
                           {/*Profile location switch*/}
                           <PanelTypography variant={'h3'}>Localización</PanelTypography>
-
-
                           <Switch
                             checked={profile.preferences.location}
                             onChange={() => handlePrefChange('location')}
-                            />
+                          />
                         </Grid>
                         <Grid item xs={12} md={6}>
                           {/*Profile tracking switch*/}
@@ -272,7 +310,7 @@ export default function ({profile}) {
                           />
                         </Grid>
                       </>
-                      }
+                    }
                   </Grid>
                 </Grid>
               </Grid>
@@ -281,51 +319,54 @@ export default function ({profile}) {
         </Grid>
         <Grid item xs={12}>
           {/*Profile gamification bar */}
-          <AppBar position={'static'} style={{borderRadius:'70px', height:'140px', margin:'auto', width:'755px', padding:'20px', position:'relative'}}>
-          <Box style={{width: '660px', height:'6px', position:'absolute', border: '1px solid #dadada', top:'42%', right:'7%'}}></Box>
-            <GamificationTabs
+          <GamificationAppBar position={'static'}>
+            <Box />
+            <Tabs
               value={tabValue}
               onChange={handleTabChange}
               variant={'scrollable'}
               scrollButtons={'auto'}
-              >
+            >
               {genders[profile.genre].map((item, index) => {
                 let percentage = getCompletedPercentage(item, index)
                 if (item.level !== 0) {
                   return (
-                    <GamificationTab  key={index} label={
+                    <Tab key={index} label={
                       <>
-                        <AvatarGamification src={item.avatarImg} />
-                        <GamificationTypography variant={'body2'}>{item.titleEn}</GamificationTypography>
-                        <StaticProgress variant={'static'} value={percentage} style={{width:'70px', height:'70px', top:'1px', color:'#BFBFBF'}}/>
+                        <Avatar src={item.avatarImg}/>
+                        <Typography variant={'body2'}>{item.titleEn}</Typography>
+                        <StaticProgress
+                          variant={'static'}
+                          value={percentage}
+                          style={{width: '70px', height: '70px'}}/>
                       </>
-                    } />
+                    }/>
                   )
                 }
                 return null
               })
               }
-            </GamificationTabs>
-          </AppBar>
+            </Tabs>
+          </GamificationAppBar>
         </Grid>
         {/*Preguntas niveles*/}
         <Grid item xs={12}>
           <Grid container>
             <Hidden mdDown>
-              <Grid item md={4} />
+              <Grid item md={4}/>
             </Hidden>
             <QuestionGrid item xs={12} md={4}>
               {SRQuestions.map((item, index) => {
                 if (tabValue === index) {
                   return (
-                    srPaper(item,index)
+                    srPaper(item, index)
                   )
                 }
                 return null
               })}
             </QuestionGrid>
             <Hidden mdDown>
-              <Grid item md={4} />
+              <Grid item md={4}/>
             </Hidden>
             <Hidden mdDown>
               {SRQuestions.map((item, index) => {

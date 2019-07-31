@@ -81,6 +81,12 @@ const MenuButton = withStyles({
   }
 })(Button)
 
+const MobileNavList = withStyles({
+  root:{
+    width: '100%'
+  }
+})(List)
+
 export default function (props) {
   const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false)
@@ -143,10 +149,11 @@ export default function (props) {
               <Menu
                 anchorEl={anchorEl}
                 keepMounted
-                transformOrigin={{
-                vertical: 'bottom',
-                horizontal: 'center',
-              }}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left'
+                }}
+                getContentAnchorEl={null}
                 open={MenuOpen}
                 onClose={handleClose}
                 >
