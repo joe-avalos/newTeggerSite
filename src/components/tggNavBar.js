@@ -81,11 +81,19 @@ const MenuButton = withStyles({
   }
 })(Button)
 
+<<<<<<< HEAD
 const MenuRight = withStyles({
   contained:{
     width:'200px',
   }
 })(Menu)
+=======
+const MobileNavList = withStyles({
+  root:{
+    width: '100%'
+  }
+})(List)
+>>>>>>> 079ff7113e486a330d00525b61fb5e42f61769a1
 
 export default function (props) {
   const dispatch = useDispatch()
@@ -149,10 +157,11 @@ export default function (props) {
               <MenuRight
                 anchorEl={anchorEl}
                 keepMounted
-                transformOrigin={{
-                vertical: 'bottom',
-                horizontal: 'center',
-              }}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left'
+                }}
+                getContentAnchorEl={null}
                 open={MenuOpen}
                 onClose={handleClose}
                 >
