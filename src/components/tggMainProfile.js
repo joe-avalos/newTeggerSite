@@ -10,6 +10,7 @@ import Tab from '@material-ui/core/Tab'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Paper from '@material-ui/core/Paper'
+import Box from '@material-ui/core/Box'
 import {useDispatch, useSelector} from 'react-redux'
 import {push} from 'connected-react-router'
 import withStyles from '@material-ui/styles/withStyles'
@@ -20,7 +21,8 @@ import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/action
 
 import '../stylesheets/components/tggMainProfile.scss'
 
-const ImgAvatar = withStyles({
+
+const AvatarImg = withStyles({
   root:{
  background: '#ededed',
  border: '5px solid white',
@@ -65,21 +67,80 @@ const QuestionGrid = withStyles({
 
 const StaticProgress = withStyles({
   static:{
-    position: 'absolute'
+    position: 'absolute',
+    top:30,
+    width:90
   }
 })(CircularProgress)
 
 const TokenBalanceTypography = withStyles({
   body1:{
-    color: 'blue'
+    color: 'white',
+    fontSize: '2.25rem',
+    fontWeight:'600'
+  }
+})(Typography)
+
+const PanelTypography = withStyles({
+  h3:{
+    color: 'white',
+    fontSize:'1.125rem'
   }
 })(Typography)
 
 const GamificationTabs = withStyles({
   indicator:{
-    display: 'none'
+    display: 'none',
+    width:'400px'
+
   }
 })(Tabs)
+
+const UserNameTypography = withStyles({
+  body1:{
+    color: 'white',
+    fontFamily:'Encode Sans Semi Expanded',
+    fontSize:'1.5rem',
+    fontWeight:'400'
+  }
+})(Typography)
+
+const AvatarGamification = withStyles({
+  root:{
+    width:60,
+    height:60,
+    backgroundColor: '#F4F4F4',
+    border: '1px solid #C3C3C3',
+
+  }
+})(Avatar)
+
+const GamificationTypography = withStyles({
+  body2:{
+    marginTop:4,
+    fontSize:'0.875rem',
+    textTransform:'capitalize',
+    fontFamily:'Exo',
+  }
+})(Typography)
+
+const GamificationTab = withStyles({
+ selected:{
+   '& .MuiTypography-body2':{
+     textTransform: 'uppercase',
+     marginTop: 10,
+     fontSize:'1.125rem',
+     color:'#5F5F5F',
+   },
+   '& .MuiAvatar-root':{
+     transform: 'scale(1.1)'
+   }
+ }
+})(Tab)
+
+
+
+
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(profile.gamification)
@@ -135,18 +196,19 @@ export default function ({profile}) {
   function srPaper(item, index) {
     //Paper con elevación para crear los cuadros de las preguntas autoreportadas
     return (
-      <QuestionPaper elevation={4} key={index}>
-        <Typography variant={'h3'}>{genders[profile.genre][index].titleEn}</Typography>
+      <QuestionPaper elevation={4} key={index} style={{width: 382, height:290, position:'relative'}}>
+        <Typography style={{textAlign: 'center', fontSize:'24px', color:'#707070'}}variant={'h3'}><span>-</span>{genders[profile.genre][index].titleEn}<span>-</span></Typography>
         {item.modules.map((modItem, modIndex) => {
           let percentage = getCompletedPercentage(item, index, true)
           return (
-            <Button variant={'contained'} onClick={() => handleQuestionClick(modItem.code)} key={modIndex}>
-              <Avatar src={genders[profile.genre][index].avatarImg} />
-              <Typography variant={'body1'}>{modItem.name}</Typography>
+            <Button variant={'contained'} onClick={() => handleQuestionClick(modItem.code)} key={modIndex} style={{display: 'block', margin:'auto'}}>
+              <Avatar src={genders[profile.genre][index].avatarImg} style={{width: '85px', height: '85px', backgroundColor:'#F4F4F4', border: '1px solid #C3C3C3', margin:'14px 20px 10px'}}/>
+              <Typography variant={'body1'} style={{textAlign:'center', color:'#B8B8B8'}}>{modItem.name}</Typography>
               <StaticProgress variant={'static'} value={percentage} />
             </Button>
           )
         })}
+        <Box style={{width: '100%', backgroundColor:'#F7F7F7', height:'44px', position:'absolute', bottom:'0', right:'0', borderRadius:'0 0 8px 8px'}}></Box>
       </QuestionPaper>
     )
   }
@@ -158,20 +220,26 @@ export default function ({profile}) {
         </Hidden>
         <Grid item xs={12} md={6} className="info">
           {/*Profile Header*/}
-          <Grid container className="2">
+          <Grid container style={{marginTop: '10px', marginBottom: '20px'}}>
             <Grid item xs={12} md={4}>
-              <ImgAvatar src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg" />
-              <AvatarTypography> {profile.name} </AvatarTypography>
+              <AvatarImg src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeya.svg" />
+              <AvatarTypography><span>-</span>{profile.name}<span>-</span> </AvatarTypography>
             </Grid>
             <Grid item xs={12} md={8} className="infoText">
               <Grid container>
                 <Grid item xs={12}>
                   <Grid container>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6} style={{marginTop: '10px', marginBottom: '30px'}}>
+                      {/*UserName*/}
+                      <UserNameTypography> {profile.name} </UserNameTypography>
                       {/*Profile Token Balnce*/}
-                      <TokenBalanceTypography variant={'body1'}>
+                      <Grid item  style={{marginTop: '0', display:'flex'}}>
+                        <Grid className="TokenImg"/>
+                        <TokenBalanceTypography variant={'body1'}>
                         {profile.tokenBalance}
-                      </TokenBalanceTypography>
+                        </TokenBalanceTypography>
+                      </Grid>
+
                     </Grid>
                     <Grid item xs={12} md={6}>
                       {/*Profile referrals earnings*/}
@@ -187,7 +255,9 @@ export default function ({profile}) {
                       <>
                         <Grid item xs={12} md={6}>
                           {/*Profile location switch*/}
-                          <Typography variant={'body1'}>Location</Typography>
+                          <PanelTypography variant={'h3'}>Localización</PanelTypography>
+
+
                           <Switch
                             checked={profile.preferences.location}
                             onChange={() => handlePrefChange('location')}
@@ -195,7 +265,7 @@ export default function ({profile}) {
                         </Grid>
                         <Grid item xs={12} md={6}>
                           {/*Profile tracking switch*/}
-                          <Typography variant={'body1'}>Browsing</Typography>
+                          <PanelTypography variant={'h3'}>Navegación</PanelTypography>
                           <Switch
                             checked={profile.preferences.tracking}
                             onChange={() => handlePrefChange('tracking')}
@@ -211,7 +281,8 @@ export default function ({profile}) {
         </Grid>
         <Grid item xs={12}>
           {/*Profile gamification bar */}
-          <AppBar position={'static'} style={{borderRadius: '60px'}}>
+          <AppBar position={'static'} style={{borderRadius:'70px', height:'140px', margin:'auto', width:'755px', padding:'20px', position:'relative'}}>
+          <Box style={{width: '660px', height:'6px', position:'absolute', border: '1px solid #dadada', top:'42%', right:'7%'}}></Box>
             <GamificationTabs
               value={tabValue}
               onChange={handleTabChange}
@@ -222,11 +293,11 @@ export default function ({profile}) {
                 let percentage = getCompletedPercentage(item, index)
                 if (item.level !== 0) {
                   return (
-                    <Tab key={index} label={
+                    <GamificationTab  key={index} label={
                       <>
-                        <Avatar src={item.avatarImg} />
-                        <Typography variant={'body2'}>{item.titleEn}</Typography>
-                        <StaticProgress variant={'static'} value={percentage} />
+                        <AvatarGamification src={item.avatarImg} />
+                        <GamificationTypography variant={'body2'}>{item.titleEn}</GamificationTypography>
+                        <StaticProgress variant={'static'} value={percentage} style={{width:'70px', height:'70px', top:'1px', color:'#BFBFBF'}}/>
                       </>
                     } />
                   )

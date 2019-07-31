@@ -74,7 +74,7 @@ const theme = createMuiTheme({
     h2:{
       fontSize: "2rem",
       color: $primaryBlack,
-      fontWeight: 300,
+      fontWeight: 400,
       lineHeight: 1.2,
       marginBottom: defaultTheme.spacing(1),
       [defaultTheme.breakpoints.down('sm')]: {
