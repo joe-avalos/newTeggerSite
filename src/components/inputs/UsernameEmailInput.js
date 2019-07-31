@@ -11,7 +11,7 @@ import Close from '@material-ui/icons/Close'
 
 import {userDeleteSubmit} from '../../modules/actions/userActions'
 
-const UsernameEmailInputField = ({handleChange, disabled, error, label, name, value}) => {
+const UsernameEmailInputField = ({handleChange, disabled = false, error, label, name, readonly = false, value}) => {
   const dispatch = useDispatch()
   let inputError = !isEmpty(error || '')
   function handleClearInput(){
@@ -43,6 +43,22 @@ const UsernameEmailInputField = ({handleChange, disabled, error, label, name, va
             )
           }}
         />
+      </FormControl>
+    )
+  }else if (readonly) {
+    return (
+      <FormControl error={inputError}>
+        <TextField
+          variant="outlined"
+          onChange={handleChange}
+          label={label}
+          value={value || ''}
+          name={name}
+          autoComplete="emailOrUsername"
+          error={inputError}
+          inputProps={{readOnly:true}}
+        />
+        {inputError !== '' && <FormHelperText>{error}</FormHelperText>}
       </FormControl>
     )
   }else{

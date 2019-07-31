@@ -13,10 +13,7 @@ import DateInput from '../components/inputs/DateInput'
 import CheckboxInput from '../components/inputs/CheckboxInput'
 import SelectInput from '../components/inputs/SelectInput'
 import {useDispatch, useSelector} from 'react-redux'
-import {
-  loggedFetchModuleAnswers,
-  loggedPostModuleAnswers
-} from '../modules/actions/loggedActions'
+import {loggedFetchModuleAnswers, loggedFetchProfile, loggedPostModuleAnswers} from '../modules/actions/loggedActions'
 import _ from 'lodash'
 
 export default function ({match}) {
@@ -29,9 +26,12 @@ export default function ({match}) {
   let basic = false
   let select = {}
   const [firstLoad, setFirstLoad] = React.useState(true)
+  
   React.useEffect(() => {
     if (_.isEmpty(moduleAnswers) || firstLoad){
-      console.log('firstLoad')
+      if (userUUID === ''){
+        dispatch(loggedFetchProfile())
+      }
       dispatch(loggedFetchModuleAnswers(userUUID,moduleCode))
       setFirstLoad(false)
     }

@@ -10,6 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import Privacy from '../components/content/privacy'
 import Terms from '../components/content/terms'
 import Help from '../components/content/help'
+import UserProfileForm from '../components/forms/userProfileForm'
 import {useDispatch, useSelector} from 'react-redux'
 import {loggedFetchProfile} from '../modules/actions/loggedActions'
 
@@ -20,7 +21,7 @@ export default function () {
   const profile = useSelector(state => state.logged.profile)
   
   React.useEffect(() => {
-    if (profile.uuid === '' && loggedError === ''){
+    if (profile.uuid === ''){
       dispatch(loggedFetchProfile())
     }
   })
@@ -59,6 +60,7 @@ export default function () {
             : tabValue === 0 ?
               <>
                 <Typography variant={'h3'}>Usuario y Contraseña</Typography>
+                <UserProfileForm profile={profile} />
               </>
             : tabValue === 1 ?
               <>
@@ -72,7 +74,7 @@ export default function () {
               </>
             :
               <>
-                <Typography>Ayuda</Typography>
+                <Typography variant={'h3'}>Ayuda</Typography>
                 <Help/>
               </>
           }

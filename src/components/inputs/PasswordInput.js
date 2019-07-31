@@ -8,30 +8,12 @@ import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import isEmpty from 'validator/lib/isEmpty'
 
-const PasswordInput = ({error, handleChange, label, name, value, onlyPass = false}) => {
+const PasswordInput = ({error, handleChange, label, name, value}) => {
   const [show, setShow] = React.useState(false)
   function handleShowPass() {
     setShow(!show)
   }
   let inputError = !isEmpty(error || '')
-  
-  if (onlyPass) {
-    return (
-      <FormControl error={inputError}>
-        <TextField
-          variant="outlined"
-          type={'password'}
-          name={name}
-          label={label}
-          value={value || ''}
-          onChange={handleChange}
-          autoComplete="current-password"
-          error={inputError}
-        />
-        {inputError && <FormHelperText>{error}</FormHelperText> }
-      </FormControl>
-    )
-  }
   
   return (
     <FormControl error={inputError}>

@@ -16,7 +16,7 @@
   height: 40px;
   cursor: pointer;
 }
-.TGGProfile, .TGGShop, .TGGWallet{
+.TGGProfile, .TGGShop, .TGGWallet, .TGGSettings, .TGGLogout{
   min-width: 40px;
 }
 .TGGStarClick, .TGGCloudLock, .TGGHeart, .TGGShield, .TGGCrown{
@@ -409,5 +409,21 @@
 .TGGWallet{
   .cls-1 {
     fill: $iconPrimary;
+  }
+}
+.TGGSettings{
+  .cls-1 {
+    fill: none;
+    stroke: #b8b8b8;
+    stroke-linejoin: round;
+    stroke-width: 1.5px;
+    fill-rule: evenodd;
+  }
+}
+.TGGLogout{
+  .cls-1 {
+    fill: #b8b8b8;
+    stroke: #b8b8b8;
+    stroke-width: 0.5px;
   }
 }
