@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import CircularProgress from '@material-ui/core/CircularProgress'
-
+import withStyles from '@material-ui/styles/withStyles'
 import Privacy from '../components/content/privacy'
 import Terms from '../components/content/terms'
 import Help from '../components/content/help'
@@ -19,7 +19,7 @@ export default function () {
   const isLoading = useSelector(state => state.logged.isLoading)
   const loggedError = useSelector(state => state.logged.loggedError)
   const profile = useSelector(state => state.logged.profile)
-  
+
   React.useEffect(() => {
     if (profile.uuid === ''){
       dispatch(loggedFetchProfile())
@@ -29,19 +29,32 @@ export default function () {
   function handleTabChange(e, v) {
     setTabValue(v)
   }
+
+  const BoxHeader = withStyles({
+    root:{
+      background: '#ededed',
+      width: '100%',
+      position: 'absolute',
+      left: '0',
+      display: 'block',
+      height: '240px',
+      top: '70px',
+      padding: '50px 250px',
+   }
+  })(Box)
+
   return (
     <Container maxWidth="md" className="contentContainer">
-      <Box className="background profileBG" />
       <Grid container>
-        <Grid item xs={12}>
+        <BoxHeader>
           <Typography variant={'h3'}>
             Configuración
           </Typography>
           <Typography variant={'h2'}>
             Edita tu información
           </Typography>
-        </Grid>
-        <Grid item xs={12}>
+        </BoxHeader>
+        <Grid item xs={12} style={{marginTop:'250px'}}>
           <Tabs
             value={tabValue}
             onChange={handleTabChange}

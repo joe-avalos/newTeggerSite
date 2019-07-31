@@ -81,6 +81,12 @@ const MenuButton = withStyles({
   }
 })(Button)
 
+const MenuRight = withStyles({
+  contained:{
+    width:'200px',
+  }
+})(Menu)
+
 export default function (props) {
   const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false)
@@ -99,11 +105,11 @@ export default function (props) {
   function handleExpandToggle(){
     setOpen(!open)
   }
-  
+
   function handleMenu(e) {
     setAnchorEl(e.currentTarget)
   }
-  
+
   function handleClose() {
     setAnchorEl(null)
   }
@@ -140,7 +146,7 @@ export default function (props) {
                 <Avatar>{profile.name.substr(0,2)}</Avatar>
                 <Typography>{profile.name}</Typography>
               </Button>
-              <Menu
+              <MenuRight
                 anchorEl={anchorEl}
                 keepMounted
                 transformOrigin={{
@@ -169,7 +175,7 @@ export default function (props) {
                   <Typography variant={'body2'}>Logout</Typography>
                   </MenuButton>
                 </MenuItem>
-              </Menu>
+              </MenuRight>
             </NavRight>
           }
         </Container>
