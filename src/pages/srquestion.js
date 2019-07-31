@@ -11,6 +11,7 @@ import useForm from '../components/forms/useForm'
 import TextInputField from '../components/inputs/TextInputField'
 import DateInput from '../components/inputs/DateInput'
 import CheckboxInput from '../components/inputs/CheckboxInput'
+import withStyles from '@material-ui/styles/withStyles'
 import SelectInput from '../components/inputs/SelectInput'
 import {useDispatch, useSelector} from 'react-redux'
 import {
@@ -18,6 +19,19 @@ import {
   loggedPostModuleAnswers
 } from '../modules/actions/loggedActions'
 import _ from 'lodash'
+
+const BoxQuestionHeader = withStyles({
+  root:{
+    background: '#ededed',
+    width: '100%',
+    position: 'absolute',
+    left: '0',
+    display: 'block',
+    height: '240px',
+    top: '70px',
+    padding: '50px 250px',
+ }
+})(Box)
 
 export default function ({match}) {
   const moduleCode = match.params.moduleCode
@@ -36,7 +50,7 @@ export default function ({match}) {
       setFirstLoad(false)
     }
   }, [moduleAnswers,dispatch,firstLoad,userUUID,moduleCode])
-  
+
   function search(myObject = SRQuestions, code = moduleCode){
     if (myObject['code'] === code) {
       return myObject
@@ -49,17 +63,17 @@ export default function ({match}) {
       }
     }
   }
-  
+
   if (moduleCode === 'ad9e768d875ac3d933d68cfe2cb557a3'){
     basic = true
   }
-  
+
   if (moduleCode === 'cb3fc762153763392eee3940dc261bb8'){
     for (let code of Object.values(mod.questions[0].answers)){
       select[code.code] = false
     }
   }
-  
+
   const QuestionForm = () => {
     const {values, errors, handleSubmit, handleChange} = useForm(callback, validate, select)
     function callback() {
@@ -73,8 +87,11 @@ export default function ({match}) {
       }
       return error
     }
+
+    
+
     return (
-      <form onSubmit={handleSubmit} noValidate autoComplete="off">
+      <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{marginTop:300, padding:'0 145px'}}>
         {/*Depende del tipo de preguntas en el módulo regresa uno de los diferentes tipos de input
          **Los diferentes inputs están en sus archivos respectivos
          */}
@@ -127,13 +144,20 @@ export default function ({match}) {
       </form>
     )
   }
-  
+
   return (
     <Container maxWidth="lg" className="contentContainer">
-      <Box className="background onboardingBG" />
-      <Typography variant={'h3'}>
-        {mod.name}
-      </Typography>
+      <BoxQuestionHeader>
+          <Typography variant={'h3'}>
+          {mod.name}
+          </Typography>
+          <Typography variant={'h2'}>
+          Básicos
+          </Typography>
+          <Typography variant={'body1'}>
+          Elige las opciones con las que más te identificas.
+          </Typography>
+      </BoxQuestionHeader>
       <QuestionForm />
     </Container>
   )

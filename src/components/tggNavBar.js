@@ -36,12 +36,14 @@ function ElevationScroll(props) {
 const NavBarTab = withStyles( (theme) => ({
   root:{
     height: 38,
+    fontWeight:'600',
     '&:first-of-type':{
       width: 150,
       marginRight: theme.spacing(9)
     }
   }
 }))(Tab)
+
 
 const NavBarTabs = withStyles({
   indicator:{
