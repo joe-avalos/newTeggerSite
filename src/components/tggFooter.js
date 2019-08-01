@@ -10,7 +10,7 @@ import {FBLogo, TGGMailIcon, TWLogo} from './tggIcons'
 import '../stylesheets/components/tggFooter.scss'
 import TGGDialog from './TGGDialog'
 
-export default function TggFooter() {
+export default function () {
   const [dialog, setDialog] = React.useState({open:false, content:''})
   function handleTerms() {
     setDialog({open: true, content: 'terms'})

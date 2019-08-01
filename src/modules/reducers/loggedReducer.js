@@ -8,7 +8,8 @@ const defaultState = {
   'loggedError': '',
   'answersTotals': {},
   'moduleAnswers': {},
-  'profile':{
+  'wallet': {},
+  'profile': {
     'uuid': '',
     'name': '',
     'email': '',
@@ -76,6 +77,11 @@ export function loggedReduce(state = defaultState, action) {
       return {
         ...state,
         moduleAnswers: action.moduleAnswers
+      }
+    case LOGGED_ACTIONS.LOGGED_WALLET_SUCCESS:
+      return {
+        ...state,
+        wallet: action.wallet
       }
     default:
       return state

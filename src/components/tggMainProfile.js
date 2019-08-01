@@ -1,4 +1,5 @@
 import React from 'react'
+//Material UI Imports
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
@@ -11,16 +12,16 @@ import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Paper from '@material-ui/core/Paper'
 import Box from '@material-ui/core/Box'
+import withStyles from '@material-ui/styles/withStyles'
+//Third party library imports
 import {useDispatch, useSelector} from 'react-redux'
 import {push} from 'connected-react-router'
-import withStyles from '@material-ui/styles/withStyles'
 import _ from 'lodash'
-
+//Tegger app import
 import data from './data/selfReportedData'
 import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/actions/loggedActions'
-
 import '../stylesheets/components/tggMainProfile.scss'
-
+//Material UI Component Overrides
 const HeaderAvatar = withStyles({
   root: {
     background: '#ededed',
@@ -42,6 +43,84 @@ const HeaderAvatar = withStyles({
     }
   }
 })(Avatar)
+
+const StaticProgress = withStyles({
+  static: {
+    position: 'absolute',
+    top: 1,
+    color: '#BFBFBF'
+  }
+})(CircularProgress)
+
+const TokenBalanceTypography = withStyles({
+  body1: {
+    color: 'white',
+    fontSize: '2.25rem',
+    fontWeight: '600'
+  }
+})(Typography)
+
+const PanelTypography = withStyles({
+  h3: {
+    color: 'white',
+    fontSize: '1.125rem'
+  }
+})(Typography)
+
+const UserNameTypography = withStyles({
+  body1: {
+    color: 'white',
+    fontFamily: 'Encode Sans Semi Expanded',
+    fontSize: '1.5rem',
+    fontWeight: '400'
+  }
+})(Typography)
+
+const GamificationAppBar = withStyles({
+  root:{
+    zIndex: 1099,
+    borderRadius: '70px',
+    height: '140px',
+    margin: 'auto',
+    width: '755px',
+    padding: '20px',
+    position: 'relative',
+    '& .MuiBox-root':{
+      width: '80%',
+      height: 6,
+      position: 'absolute',
+      border: '1px solid #dadada',
+      top: '42%',
+      left: '9%'
+    },
+    '& .MuiTabs-indicator':{
+      display: 'none'
+    },
+    '& .MuiAvatar-root':{
+      width: 60,
+      height: 60,
+      backgroundColor: '#F4F4F4',
+      border: '1px solid #C3C3C3',
+    },
+    '& .MuiTypography-body2':{
+      marginTop: 4,
+      fontSize: '0.875rem',
+      textTransform: 'capitalize',
+      fontFamily: 'Exo',
+    },
+    '& .Mui-selected':{
+      '& .MuiTypography-body2': {
+        textTransform: 'uppercase',
+        marginTop: 10,
+        fontSize: '1.125rem',
+        color: '#5F5F5F',
+      },
+      '& .MuiAvatar-root': {
+        transform: 'scale(1.1)'
+      }
+    }
+  }
+})(AppBar)
 
 const QuestionGrid = withStyles({
   root: {
@@ -93,83 +172,6 @@ const QuestionButton = withStyles({
   }
 })(Button)
 
-const StaticProgress = withStyles({
-  static: {
-    position: 'absolute',
-    top: 1,
-    color: '#BFBFBF'
-  }
-})(CircularProgress)
-
-const TokenBalanceTypography = withStyles({
-  body1: {
-    color: 'white',
-    fontSize: '2.25rem',
-    fontWeight: '600'
-  }
-})(Typography)
-
-const PanelTypography = withStyles({
-  h3: {
-    color: 'white',
-    fontSize: '1.125rem'
-  }
-})(Typography)
-
-const UserNameTypography = withStyles({
-  body1: {
-    color: 'white',
-    fontFamily: 'Encode Sans Semi Expanded',
-    fontSize: '1.5rem',
-    fontWeight: '400'
-  }
-})(Typography)
-
-const GamificationAppBar = withStyles({
-  root:{
-    borderRadius: '70px',
-    height: '140px',
-    margin: 'auto',
-    width: '755px',
-    padding: '20px',
-    position: 'relative',
-    '& .MuiBox-root':{
-      width: '80%',
-      height: 6,
-      position: 'absolute',
-      border: '1px solid #dadada',
-      top: '42%',
-      left: '9%'
-    },
-    '& .MuiTabs-indicator':{
-      display: 'none'
-    },
-    '& .MuiAvatar-root':{
-      width: 60,
-      height: 60,
-      backgroundColor: '#F4F4F4',
-      border: '1px solid #C3C3C3',
-    },
-    '& .MuiTypography-body2':{
-      marginTop: 4,
-      fontSize: '0.875rem',
-      textTransform: 'capitalize',
-      fontFamily: 'Exo',
-    },
-    '& .Mui-selected':{
-      '& .MuiTypography-body2': {
-        textTransform: 'uppercase',
-        marginTop: 10,
-        fontSize: '1.125rem',
-        color: '#5F5F5F',
-      },
-      '& .MuiAvatar-root': {
-        transform: 'scale(1.1)'
-      }
-    }
-  }
-})(AppBar)
-
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(profile.gamification)
   const genders = data.genreTitles
@@ -178,6 +180,7 @@ export default function ({profile}) {
   let answersTotals = useSelector(state => state.logged.answersTotals)
   let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
   let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
+  
   React.useEffect(() => {
     if (_.isEmpty(answersTotals)) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
@@ -190,23 +193,6 @@ export default function ({profile}) {
         return parseInt(myArray[i][nameKey])
       }
     }
-  }
-  
-  function handlePrefChange(pref) {
-    dispatch(loggedPreferenceChange({
-        location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
-        tracking: pref === 'tracking' ? !profile.preferences.tracking : profile.preferences.tracking
-      },
-      profile.uuid
-    ))
-  }
-  
-  function handleTabChange(e, v) {
-    setTabValue(v)
-  }
-  
-  function handleQuestionClick(qCode) {
-    dispatch(push('/question/' + qCode))
   }
   
   function getCompletedPercentage(item, index, mod = false) {
@@ -225,6 +211,23 @@ export default function ({profile}) {
       let totalQuestions = mod ? modQuestions : levelQuestions
       return (answered / totalQuestions) * 100
     }
+  }
+  
+  function handlePrefChange(pref) {
+    dispatch(loggedPreferenceChange({
+        location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
+        tracking: pref === 'tracking' ? !profile.preferences.tracking : profile.preferences.tracking
+      },
+      profile.uuid
+    ))
+  }
+  
+  function handleTabChange(e, v) {
+    setTabValue(v)
+  }
+  
+  function handleQuestionClick(qCode) {
+    dispatch(push('/question/' + qCode))
   }
   
   function srPaper(item, index) {

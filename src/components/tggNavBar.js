@@ -36,7 +36,7 @@ function ElevationScroll(props) {
   return React.cloneElement(children, {
     elevation: trigger ? 1 : 0,
     style: {
-      backgroundColor: (trigger ? "white" : "white")
+      backgroundColor: (trigger ? "white" : "transparent")
     },
     className: (trigger ? "elevated" : "notElevated" )
   })
@@ -198,7 +198,7 @@ export default function (props) {
                 />
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
-              <List component="nav">
+              <MobileNavList component="nav">
                 {!loggedIn ?
                   <>
                     <ListItem>
@@ -225,6 +225,9 @@ export default function (props) {
                       <ListItemText
                         onClick={e => handleTabClick(e,'/blog/')}
                         primary="Blog" />
+                    </ListItem>
+                    <ListItem>
+                      <Button href="/getin">Get In!</Button>
                     </ListItem>
                   </>
                   :
@@ -267,7 +270,7 @@ export default function (props) {
                     </ListItem>
                   </>
                 }
-              </List>
+              </MobileNavList>
               </ExpansionPanelDetails>
             </ExpansionPanel>
           </Hidden>
