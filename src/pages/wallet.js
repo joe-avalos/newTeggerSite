@@ -19,11 +19,14 @@ export default function () {
   const profile = useSelector(state => state.logged.profile)
   const wallet = useSelector(state => state.logged.wallet)
   const dispatch = useDispatch()
+  let datesData = {}
+  let chartData = {}
   
   React.useEffect(() => {
     if (profile.uuid === '') {
       dispatch(loggedFetchProfile())
-    } else if (_.isEmpty(wallet)) {
+    }
+    if (_.isEmpty(wallet)) {
       dispatch(loggedFetchWallet(profile.uuid))
     }
   })
@@ -38,11 +41,13 @@ export default function () {
     return reduced
   }
   
-  const datesData = wallet.transactions.sort((a, b) => +a.createdAt < +b.createdAt).reduce(dateReducer, {})
-  const chartData = Object.keys(datesData).map(key => {
-      return {name: key, tokens: datesData[key]}
-    }
-  )
+  if (!_.isEmpty(wallet)) {
+    datesData = wallet.transactions.sort((a, b) => +a.createdAt < +b.createdAt).reduce(dateReducer, {})
+    chartData = Object.keys(datesData).map(key => {
+        return {name: key, tokens: datesData[key]}
+      }
+    )
+  }
   
   return (
     <Container maxWidth="lg" className="contentContainer">

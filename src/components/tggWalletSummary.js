@@ -10,6 +10,8 @@ import TPagination from '@material-ui/core/TablePagination'
 import TR from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 
+import _ from 'lodash'
+
 export default function ({summaryData}) {
   const [page, setPage] = React.useState(0)
   const [rowsPP, serRowsPP] = React.useState(5)
@@ -19,6 +21,12 @@ export default function ({summaryData}) {
   }
   function handleRowsPPChange(e) {
     serRowsPP(+e.target.value)
+  }
+  if (_.isEmpty(summaryData)){
+    return (
+      <>
+      </>
+    )
   }
   return (
     <Paper elevation={4}>
