@@ -9,11 +9,12 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import withStyles from '@material-ui/styles/withStyles'
 import isEmpty from 'validator/lib/isEmpty'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import clsx from 'clsx'
 
 import useForm from './useForm'
 import TextInputField from '../inputs/TextInputField'
+import {loggedPostModuleAnswers} from '../../modules/actions/loggedActions'
 
 
 const TGGGenderRadio = withStyles(() => ({
@@ -27,10 +28,11 @@ const TGGGenderRadio = withStyles(() => ({
 
 const OnboardingForm = () => {
   const {values, errors, handleChange, handleSubmit} = useForm(callback, validate)
+  const userUUID = useSelector(state => state.logged.profile.uuid)
   const dispatch = useDispatch()
   
   function callback() {
-  
+    dispatch(loggedPostModuleAnswers(values,userUUID,'ad9e768d875ac3d933d68cfe2cb557a3'))
   }
   
   function validate() {

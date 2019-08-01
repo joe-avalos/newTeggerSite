@@ -6,6 +6,7 @@ export const LOGGED_ACTIONS = {
   LOGGED_PREFS_IS_LOADING: 'LOGGED_PREFS_IS_LOADING',
   LOGGED_HAS_ERRORED: 'LOGGED_HAS_ERRORED',
   LOGGED_PROFILE_SUCCESS: 'LOGGED_PROFILE_SUCCESS',
+  LOGGED_WALLET_SUCCESS: 'LOGGED_WALLET_SUCCESS',
   LOGGED_LOGOUT_SUCCESS: 'LOGGED_LOGOUT_SUCCESS',
   LOGGED_TOTAL_ANSWERS_SUCCESS: 'LOGGED_TOTAL_ANSWERS_SUCCESS',
   LOGGED_MODULE_ANSWERS_SUCCESS: 'LOGGED_MODULE_ANSWERS_SUCCESS',
@@ -68,6 +69,13 @@ export function loggedPreferenceChangeSuccess(prefs) {
   }
 }
 
+export function loggedWalletFetchSuccess(wallet) {
+  return {
+    type: LOGGED_ACTIONS.LOGGED_WALLET_SUCCESS,
+    wallet: wallet
+  }
+}
+
 export function loggedFetchProfile() {
   return dispatch => {
     dispatch(loggedIsLoading(true))
@@ -103,6 +111,7 @@ export function loggedFetchProfile() {
       })
   }
 }
+
 export function loggedFetchTotalAnswers(uuid){
   return dispatch => {
     dispatch(loggedIsLoading(true))
@@ -156,6 +165,7 @@ export function loggedPostModuleAnswers(answers, uuid, mod) {
         if (!res.ok) {
           throw res
         }
+        dispatch(push('/profile'))
         dispatch(loggedAnswersIsLoading(false))
       })
       .catch(res => {
@@ -222,13 +232,70 @@ export function loggedFetchModuleAnswers(uuid, mod) {
       })
       .then(res => res.json())
       .then(answers => {
-        console.log(answers)
         dispatch(loggedFetchModuleAnswersSuccess(answers))
         dispatch(loggedAnswersIsLoading(false))
       })
       .catch(e => {
         dispatch(loggedHasErrored(e.code))
         dispatch(loggedAnswersIsLoading(false))
+      })
+  }
+}
+
+export function loggedPostPasswordChange(passwords) {
+  return dispatch => {
+    dispatch(loggedPrefsIsLoading(true))
+  
+    let qURL = process.env.REACT_APP_API_ROOT + 'password/change'
+    fetch(qURL, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      },
+      body: JSON.stringify(passwords)
+    })
+      .then(res => {
+        if (!res.ok){
+          throw res
+        }
+        dispatch(loggedPrefsIsLoading(false))
+      })
+      .catch(e => {
+        dispatch(loggedHasErrored(e.code))
+        dispatch(loggedPrefsIsLoading(false))
+      })
+  }
+}
+
+export function loggedFetchWallet(uuid) {
+  return dispatch => {
+    dispatch(loggedIsLoading(true))
+  
+    let qURL = process.env.REACT_APP_API_ROOT + 'wallet/'+uuid
+    fetch(qURL, {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      }
+    })
+      .then(res => {
+        if (!res.ok){
+          throw res
+        }
+        return res
+      })
+      .then(res => res.json())
+      .then(wallet => {
+        dispatch(loggedWalletFetchSuccess(wallet))
+        dispatch(loggedIsLoading(false))
+      })
+      .catch(e => {
+        dispatch(loggedHasErrored(e.code))
+        dispatch(loggedIsLoading(false))
       })
   }
 }

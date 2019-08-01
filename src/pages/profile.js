@@ -22,6 +22,7 @@ export default function () {
       dispatch(loggedFetchProfile())
     }
   })
+  
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Box className="background profileBG" />

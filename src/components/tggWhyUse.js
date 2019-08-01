@@ -7,7 +7,7 @@ import {TGGPlay, TGGScroll, TGGSecurity, TGGStar} from './tggIcons'
 import React from 'react'
 import '../stylesheets/components/whyUseTegger.scss'
 
-export default function tggWhyUse () {
+export default function () {
   return (
     <>
       <Box className="background whyBG"/>

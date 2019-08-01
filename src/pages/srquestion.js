@@ -1,6 +1,6 @@
 import React from 'react'
-import isMobile from 'validator/lib/isMobilePhone'
 
+import isMobile from 'validator/lib/isMobilePhone'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
