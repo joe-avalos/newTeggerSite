@@ -2,11 +2,11 @@
 
 .background {
   &.questionBG {
-    height: 320px;
+    height: 240px;
     top: 70px;
     left: 0;
     width: 100%;
-    background: $primaryGray;
+    background: #ededed;
     @media screen and (max-width: $smWidth) {
       height: 620px;
     }

@@ -10,7 +10,7 @@ let $gradientPrimaryTo = "#FF3E00"
 let $gradientSecondaryFrom = $primaryOrange
 let $gradientSecondaryTo = "#FF8B00"
 /* eslint enable */
-let $primaryBlack = "#040D14"
+let $primaryBlack = "#3B3B3B"
 let $primaryGray = "#848383"
 let $iconPrimary = "#B8B8B8"
 // eslint-disable-next-line
@@ -55,7 +55,7 @@ const theme = createMuiTheme({
         "Encode Sans Semi Expanded",
         "sans-serif"
       ].join(','),
-      fontSize: "4.687rem",
+      fontSize: "4.375rem",
       color: $secondaryOrange,
       marginBottom: 10,
       [defaultTheme.breakpoints.down('sm')]: {
@@ -108,7 +108,7 @@ const theme = createMuiTheme({
     body2:{
       fontWeight: "lighter",
       fontSize: "1rem",
-      lineHeight: 1,
+      lineHeight: 1.4,
       color: $primaryGray,
     },
     body3:{

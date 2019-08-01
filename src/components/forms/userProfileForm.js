@@ -24,6 +24,7 @@ const UserProfileForm = ({profile}) => {
     return error
   }
   return (
+
     <form onSubmit={handleSubmit} noValidate autoComplete="off">
       <UsernameEmailInput
         handleChange={handleChange}
@@ -63,7 +64,7 @@ const UserProfileForm = ({profile}) => {
         error={errors.referrer}
         readonly={true}
       />
-      <Button type="submit" className='buttonForm'>
+      <Button style={{width:'384px', display:'block', margin:'auto'}} type="submit" className='buttonForm'>
         LISTO
       </Button>
     </form>

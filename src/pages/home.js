@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import Paper from '@material-ui/core/Paper'
@@ -10,6 +11,7 @@ import {TGGScroll, TGGStar, TGGShare} from '../components/tggIcons'
 import CallToAction from '../components/tggCallTo'
 import TGGFooter from '../components/tggFooter'
 import WhyUseTegger from '../components/tggWhyUse'
+
 
 import '../stylesheets/pages/home.scss'
 
@@ -25,11 +27,19 @@ const StyledPaper = withStyles({
   }
 })(Paper)
 
+const ButtonUnete = withStyles({
+  root:{
+    width:350,
+    marginTop:60,
+  }
+})(Button)
+
 export default function home() {
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Box className="background homeBG"/>
-      <Grid container>
+
+      <Grid container style={{paddingTop:70}}>
         <Hidden mdDown>
           <Grid item md={1}/>
         </Hidden>
@@ -40,27 +50,30 @@ export default function home() {
           <Typography variant={"subtitle1"}>
             Ten control sobre la información que compartes y recibe recompensas por ella.
           </Typography>
+          <ButtonUnete>¡ÚNETE PARA GANAR!</ButtonUnete>
+          <Button variant={'contained'}>Conoce las recompensas</Button>
         </Grid>
       </Grid>
+
       <Grid container>
         <Hidden mdDown>
-          <Grid item sm={12} md={6}/>
+          <Grid item sm={12} md={5}/>
         </Hidden>
 
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={7}>
           <Paper elevation={4} className='componenteTexto'>
             <Typography variant={"h3"}>
               ¿Por qué esto importa?
             </Typography>
-            <Typography variant={"body1"}>
+            <Typography variant={"body1"} style={{color:'#040D14'}}>
               En Tegger sabemos que tú como usuario juegas un papel muy valioso para los sitios y anunciantes.
               Nosotros lo reconocemos ofreciéndote beneficios por navegar.
             </Typography>
           </Paper>
         </Grid>
-
       </Grid>
-      <Grid container>
+
+      <Grid container style={{marginTop:'40px'}}>
         <Grid item sm={12} md={6}>
           <StyledPaper elevation={0}>
             <Typography variant={'h3'}>
@@ -78,7 +91,7 @@ export default function home() {
               <Grid item xs={12} md={4}>
                 <TGGStar />
                 <Box>
-                  <Typography variant={'body1'}>
+                  <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
                     Recompensas
                   </Typography>
                   <Typography variant={'body2'}>
@@ -89,7 +102,7 @@ export default function home() {
               <Grid item xs={12} md={4}>
                 <TGGScroll />
                 <Box>
-                  <Typography variant={'body1'}>
+                  <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
                     Control
                   </Typography>
                   <Typography variant={'body2'}>
@@ -100,7 +113,7 @@ export default function home() {
               <Grid item xs={12} md={4}>
                 <TGGShare />
                 <Box>
-                  <Typography variant={'body1'}>
+                  <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
                     Seguridad
                   </Typography>
                   <Typography variant={'body2'}>

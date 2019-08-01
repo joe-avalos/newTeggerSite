@@ -81,19 +81,11 @@ const MenuButton = withStyles({
   }
 })(Button)
 
-<<<<<<< HEAD
-const MenuRight = withStyles({
-  contained:{
-    width:'200px',
-  }
-})(Menu)
-=======
 const MobileNavList = withStyles({
   root:{
     width: '100%'
   }
 })(List)
->>>>>>> 079ff7113e486a330d00525b61fb5e42f61769a1
 
 export default function (props) {
   const dispatch = useDispatch()
@@ -154,7 +146,7 @@ export default function (props) {
                 <Avatar>{profile.name.substr(0,2)}</Avatar>
                 <Typography>{profile.name}</Typography>
               </Button>
-              <MenuRight
+              <Menu
                 anchorEl={anchorEl}
                 keepMounted
                 anchorOrigin={{
@@ -184,7 +176,7 @@ export default function (props) {
                   <Typography variant={'body2'}>Logout</Typography>
                   </MenuButton>
                 </MenuItem>
-              </MenuRight>
+              </Menu>
             </NavRight>
           }
         </Container>
