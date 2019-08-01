@@ -6,20 +6,21 @@ import Typography from '@material-ui/core/Typography'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import CircularProgress from '@material-ui/core/CircularProgress'
-
+import withStyles from '@material-ui/styles/withStyles'
 import Privacy from '../components/content/privacy'
 import Terms from '../components/content/terms'
 import Help from '../components/content/help'
 import UserProfileForm from '../components/forms/userProfileForm'
 import {useDispatch, useSelector} from 'react-redux'
 import {loggedFetchProfile} from '../modules/actions/loggedActions'
+import Hidden from '@material-ui/core/Hidden'
 
 export default function () {
   const dispatch = useDispatch()
   const isLoading = useSelector(state => state.logged.isLoading)
   const loggedError = useSelector(state => state.logged.loggedError)
   const profile = useSelector(state => state.logged.profile)
-  
+
   React.useEffect(() => {
     if (profile.uuid === ''){
       dispatch(loggedFetchProfile())
@@ -29,11 +30,39 @@ export default function () {
   function handleTabChange(e, v) {
     setTabValue(v)
   }
+
+  const BoxHeader = withStyles({
+    root:{
+      background: '#ededed',
+      width: '100%',
+      position: 'absolute',
+      left: '0',
+      display: 'block',
+      height: '240px',
+      top: '70px',
+      padding: '50px 250px',
+   }
+  })(Box)
+
+  const TypographySettings = withStyles({
+    root:{
+      color:'#5F5F5F',
+      textTransform: 'none',
+      fontSize:'1.125rem',
+   }
+  })(Typography)
+
+  const TabsSettings = withStyles({
+    root:{
+      borderBottom:'1px solid #b8b8b8'
+   }
+ })(Tabs)
+
   return (
     <Container maxWidth="md" className="contentContainer">
-      <Box className="background profileBG" />
       <Grid container>
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{paddingTop:50}}>
+        <Box className="background questionBG" />
           <Typography variant={'h3'}>
             Configuración
           </Typography>
@@ -41,19 +70,23 @@ export default function () {
             Edita tu información
           </Typography>
         </Grid>
-        <Grid item xs={12}>
-          <Tabs
+        <Grid item xs={12} style={{marginTop:'100px', marginBottom:'30px'}}>
+          <TabsSettings
             value={tabValue}
             onChange={handleTabChange}
             variant={'fullWidth'}
           >
-            <Tab label={<Typography variant={'body1'}>Usuario y Contraseña</Typography>} />
-            <Tab label={<Typography variant={'body1'}>Privacidad</Typography>} />
-            <Tab label={<Typography variant={'body1'}>Términos y condiciones</Typography>} />
-            <Tab label={<Typography variant={'body1'}>Ayuda</Typography>} />
-          </Tabs>
+            <Tab label={<TypographySettings variant={'body1'}>Usuario y Contraseña</TypographySettings>} />
+            <Tab label={<TypographySettings variant={'body1'}>Privacidad</TypographySettings>} />
+            <Tab label={<TypographySettings variant={'body1'}>Términos y condiciones</TypographySettings>} />
+            <Tab label={<TypographySettings variant={'body1'}>Ayuda</TypographySettings>} />
+          </TabsSettings>
         </Grid>
-        <Grid item xs={12}>
+        <Grid container style={{marginTop:40,margin:'auto'}}>
+        <Hidden mdDown>
+          <Grid item md={1}/>
+        </Hidden>
+          <Grid item xs={10} style={{marginBottom:40}} >
           {
             isLoading ?
               <CircularProgress/>
@@ -78,6 +111,7 @@ export default function () {
                 <Help/>
               </>
           }
+          </Grid>
         </Grid>
       </Grid>
     </Container>

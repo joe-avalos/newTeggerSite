@@ -105,11 +105,11 @@ export default function (props) {
   function handleExpandToggle(){
     setOpen(!open)
   }
-  
+
   function handleMenu(e) {
     setAnchorEl(e.currentTarget)
   }
-  
+
   function handleClose() {
     setAnchorEl(null)
   }

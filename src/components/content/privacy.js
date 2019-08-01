@@ -1,10 +1,23 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import Link from '@material-ui/core/Link'
+import withStyles from '@material-ui/styles/withStyles'
+
+const PrivacyBox = withStyles({
+  root:{
+    '& .MuiTypography-h2':{
+        marginTop:'20px',
+        fontWeight:'300'
+    },
+
+  }
+})(Box)
 
 export default function () {
   return (
     <>
+    <PrivacyBox>
       <Typography variant={'h2'}>Responsable del tratamiento</Typography>
       <Typography variant={'body2'} component="p">
         El responsable del tratamiento de tus datos personales es Tegger DLT S.A.P.I. de C.V. (en adelante
@@ -326,6 +339,7 @@ export default function () {
         El presente Aviso de Privacidad corresponde a la versión número 1, y su fecha de emisión es el 21 de
         febrero de 2019.
       </Typography>
+    </PrivacyBox>
     </>
   )
 }

@@ -1,9 +1,28 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
+import Box from '@material-ui/core/Box'
+import withStyles from '@material-ui/styles/withStyles'
+
+const PrivacyBox = withStyles({
+  root:{
+    '& .MuiTypography-h2':{
+        marginTop:20,
+        fontWeight:'300',
+        marginBottom:8,
+    },
+    '& .MuiTypography-body2':{
+        marginTop:8,
+        fontWeight:'300',
+        marginBottom:8,
+    },
+
+  }
+})(Box)
 
 export default function () {
   return (
+    <PrivacyBox>
     <Typography component="ol">
       <Typography variant={'h2'} component="li">
         Responsable del tratamiento
@@ -17,11 +36,11 @@ export default function () {
           comunicación:
         </Typography>
         <Typography variant={'body2'} component="p">
-          <b>Teléfono:</b> <Link href="tel:+52-55-6284-5439">(55) 6284-5439</Link>
-          <b>Correo electrónico:</b>
+          Teléfono: <Link href="tel:+52-55-6284-5439">(55) 6284-5439</Link>
+          Correo electrónico:
           <Link href="mailto:protección.datos@tegger.io">protección.datos@tegger.io</Link>
-          <b>Sitio web:</b> https://tegger.io
-          <b>Redes sociales:</b> <Link href="https://twitter.com/TeggerProject">@teggerProject</Link> en Twitter
+          Sitio web: https://tegger.io
+          Redes sociales: <Link href="https://twitter.com/TeggerProject">@teggerProject</Link> en Twitter
           y <Link href="https://facebook.com/TeggerProject">TeggerProject en Facebook.</Link>
         </Typography>
         <Typography variant={'body2'} component="p">
@@ -57,31 +76,31 @@ export default function () {
           definiciones:
         </Typography>
         <Typography variant={'body2'} component="p">
-          <b>Plataforma:</b> La plataforma de “Tegger” disponible a través de nuestra aplicación, software, sitio
+          Plataforma: La plataforma de “Tegger” disponible a través de nuestra aplicación, software, sitio
           web y/o funcionalidades.
-          <b>Aviso de Privacidad:</b> Es el documento físico, electrónico o en cualquier otro formato generado por
+          Aviso de Privacidad: Es el documento físico, electrónico o en cualquier otro formato generado por
           Tegger y que es puesto a disposición de la persona a la que corresponden los datos personales, previo al
           tratamiento de sus datos personales.
-          <b>Beneficios:</b> Se refiere a los productos y/o servicios que pueden adquirir los Usuarios de Tegger
+          Beneficios: Se refiere a los productos y/o servicios que pueden adquirir los Usuarios de Tegger
           mediante una redención de Tokens.
-          <b>LFPC:</b> Ley Federal de Protección al Consumidor.
-          <b>LFPDPPP:</b> Ley Federal de Protección de Datos Personales en Posesión de los Particulares.
-          <b>Plataforma:</b> Sistema informático implementado por Tegger para que el Usuario pueda consultar
+          LFPC: Ley Federal de Protección al Consumidor.
+          LFPDPPP: Ley Federal de Protección de Datos Personales en Posesión de los Particulares.
+          Plataforma: Sistema informático implementado por Tegger para que el Usuario pueda consultar
           información relativo a los Servicios, solicitar los Servicios y recibir los Beneficios que Tegger ofrece.
-          <b>PROFECO:</b> La Procuraduría Federal de Protección al Consumidor.
-          <b>Tegger:</b> Tegger DLP S.A.P.I. de C.V.
-          <b>Tegger Tokens (UIT):</b> Es la denominación que se da a la unidad de cambio obtenida por los Usuarios a
+          PROFECO: La Procuraduría Federal de Protección al Consumidor.
+          Tegger: Tegger DLP S.A.P.I. de C.V.
+          Tegger Tokens (UIT): Es la denominación que se da a la unidad de cambio obtenida por los Usuarios a
           través de su Perfil, derivado de la información compartida por el Usuario con Tegger a través de la
           Plataforma, así como su interacción con el contenido de las aplicaciones y/o sitios web de nuestros socios
           comerciales. Los Tokens pueden ser intercambiables por los Beneficios que ofrece Tegger en su Marketplace
           y/o en plataformas de terceros que lleguen a tener un acuerdo comercial con Tegger por lo tanto, no son
           intercambiables ni reembolsables en efectivo.
-          <b>Servicios:</b> Aquellos descritos en el numeral 4 de los presente Términos y Condiciones.
-          <b>Sitio web:</b> El sitio www.tegger.io
-          <b>Términos y Condiciones:</b> Se refiere a los presentes Términos y Condiciones.
-          <b>Perfil:</b> Se refiere a la cuenta del Usuario para acceder a la Plataforma y recibir los Servicios y/o
+          Servicios: Aquellos descritos en el numeral 4 de los presente Términos y Condiciones.
+          Sitio web: El sitio www.tegger.io
+          Términos y Condiciones: Se refiere a los presentes Términos y Condiciones.
+          Perfil: Se refiere a la cuenta del Usuario para acceder a la Plataforma y recibir los Servicios y/o
           Beneficios de Tegger.
-          <b>Usuario:</b> Es la persona que se registra y accede a los Servicios.
+          Usuario: Es la persona que se registra y accede a los Servicios.
         </Typography>
       </Typography>
       <Typography variant={'h2'} component="li">
@@ -360,9 +379,10 @@ export default function () {
           través de la página www.tegger.io
         </Typography>
         <Typography variant={'body2'} component="p">
-          <b>Fecha de actualización:</b> 21 de febrero de 2019.
+          Fecha de actualización: 21 de febrero de 2019.
         </Typography>
       </Typography>
     </Typography>
+    </PrivacyBox>
   )
 }

@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
-
+import '../stylesheets/pages/srquestion.scss'
 import data from '../components/data/selfReportedData'
 import useForm from '../components/forms/useForm'
 import TextInputField from '../components/inputs/TextInputField'
@@ -33,7 +33,7 @@ export default function ({match}) {
   let basic = false
   let select = {}
   const [firstLoad, setFirstLoad] = React.useState(true)
-  
+
   React.useEffect(() => {
     if (_.isEmpty(moduleAnswers) || firstLoad){
       if (userUUID === ''){
@@ -81,10 +81,10 @@ export default function ({match}) {
       return error
     }
 
-    
+
 
     return (
-      <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{marginTop:300, padding:'0 145px'}}>
+      <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{marginTop:50, padding:'0 145px'}}>
         {/*Depende del tipo de preguntas en el módulo regresa uno de los diferentes tipos de input
          **Los diferentes inputs están en sus archivos respectivos
          */}
