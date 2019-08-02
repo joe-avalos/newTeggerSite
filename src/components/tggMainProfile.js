@@ -213,10 +213,13 @@ const QuestionPaper = withStyles({
   root: {
     borderRadius: 12,
     width: 382,
+    maxWidth: '100%',
     height: 290,
     position: 'relative',
     '& .MuiBox-root:first-of-type': {
-      display: 'flex'
+      display: 'flex',
+      overflowX: 'scroll',
+      maxWidth: '100%'
     },
     '& .MuiBox-root:last-of-type': {
       width: '100%',
@@ -239,12 +242,13 @@ const QuestionButton = withStyles({
     display: 'block',
     margin: 'auto',
     height: 'initial',
+    minWidth: 140,
     '& .MuiAvatar-root': {
       width: 85,
       height: 85,
       backgroundColor: '#F4F4F4',
       border: '1px solid #C3C3C3',
-      margin: '14px 20px 10px'
+      margin: '14px auto 10px'
     },
     '& .MuiTypography-body1': {
       textAlign: 'center',
@@ -255,7 +259,7 @@ const QuestionButton = withStyles({
       width: '99px !important',
       position: 'absolute',
       top: -13,
-      left: 21,
+      left: 'calc(50% - 50px)',
       color: '#BFBFBF',
     }
   }
@@ -287,6 +291,7 @@ export default function ({profile}) {
   })
   
   function search(nameKey, myArray = answersTotals) {
+    if (!myArray) {return null}
     for (let i = 0; i < myArray.length; i++) {
       if (myArray[i][nameKey]) {
         return parseInt(myArray[i][nameKey])
@@ -399,15 +404,15 @@ export default function ({profile}) {
                         <Grid item xs={6}>
                           {/*Profile location switch*/}
                           <Typography variant={'h3'}>Localización</Typography>
-                          <Button variant={'contained'} onClick={() => handlePrefChange('location')}>
+                          <Button
+                            variant={'contained'}
+                            onClick={() => handlePrefChange('location')}
+                            style={{width: 'initial'}}
+                          >
                             <Navigation style={{color: 'white', transform: 'rotate(45deg)'}}/>
                             <Typography
                               variant={'body1'}>{profile.preferences.location ? 'Activada' : 'Desactivada'}</Typography>
                           </Button>
-                          {/*<Switch
-                            checked={profile.preferences.location}
-                            onChange={() => handlePrefChange('location')}
-                          />*/}
                         </Grid>
                         <Grid item xs={6}>
                           {/*Profile tracking switch*/}

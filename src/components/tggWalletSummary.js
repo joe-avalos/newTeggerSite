@@ -38,8 +38,6 @@ export default function ({summaryData}) {
   }
   return (
     <SummaryPaper elevation={4}>
-      <Typography variant={'h3'}>Transacciones</Typography>
-      <Typography variant={'h2'}>Movimientos</Typography>
       <Table>
         <THead>
           <TR>
