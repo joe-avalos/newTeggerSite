@@ -1,10 +1,14 @@
 import React from 'react'
 
-import isMobile from 'validator/lib/isMobilePhone'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
+
+import isMobile from 'validator/lib/isMobilePhone'
+import {useDispatch, useSelector} from 'react-redux'
+import _ from 'lodash'
+
 import '../stylesheets/pages/srquestion.scss'
 import data from '../components/data/selfReportedData'
 import useForm from '../components/forms/useForm'
@@ -13,9 +17,7 @@ import DateInput from '../components/inputs/DateInput'
 import CheckboxInput from '../components/inputs/CheckboxInput'
 import withStyles from '@material-ui/styles/withStyles'
 import SelectInput from '../components/inputs/SelectInput'
-import {useDispatch, useSelector} from 'react-redux'
 import {loggedFetchModuleAnswers, loggedFetchProfile, loggedPostModuleAnswers} from '../modules/actions/loggedActions'
-import _ from 'lodash'
 
 const BoxQuestionHeader = withStyles({
   root:{
@@ -74,7 +76,6 @@ export default function ({match}) {
     }
     function validate() {
       let error = {}
-      console.log(values['16ad17ae2cb71ac03040f06aeec347e1'])
       if (values['16ad17ae2cb71ac03040f06aeec347e1'] && !isMobile(values['16ad17ae2cb71ac03040f06aeec347e1'])){
         error['16ad17ae2cb71ac03040f06aeec347e1'] = 'Ingresa un número de celular válido'
       }

@@ -188,7 +188,6 @@ export function userFetchUserUsername(username, type = 'user') {
 export function userNewSignupRequest(data) {
   return dispatch =>{
     dispatch(userIsLoading(true))
-    console.log(data)
     let url = process.env.REACT_APP_API_ROOT + 'signup'
     
     fetch(url, {
@@ -207,7 +206,6 @@ export function userNewSignupRequest(data) {
         dispatch(push('/confirm'))
       })
       .catch(res => {
-        console.log(res)
         res.json().then(e => {
           dispatch(userIsLoading(false))
           dispatch(userHasErrored(e.code))

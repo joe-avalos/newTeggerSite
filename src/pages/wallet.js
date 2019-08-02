@@ -26,10 +26,10 @@ export default function () {
     if (profile.uuid === '') {
       dispatch(loggedFetchProfile())
     }
-    if (_.isEmpty(wallet)) {
+    if (_.isEmpty(wallet)){
       dispatch(loggedFetchWallet(profile.uuid))
     }
-  })
+  },[profile,wallet,dispatch])
   
   function dateReducer(reduced, item) {
     let dateKey = item.createdAt.substr(0, 10)
@@ -94,7 +94,7 @@ export default function () {
         <Grid item xs={12}>
           <WalletSummary summaryData={wallet.transactions}/>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Typography variant={'h3'}>¿Qué son los Tegger Tokens?</Typography>
           <Typography variant={'h2'}>
             Publishers are all sites, portals or network of websites who decide to partner with Tegger.
@@ -107,7 +107,7 @@ export default function () {
           <Button variant={'contained'}>Conoce más</Button>
         </Grid>
         <Hidden mdDown>
-          <Grid item xs={6}>
+          <Grid item md={6}>
           
           </Grid>
         </Hidden>

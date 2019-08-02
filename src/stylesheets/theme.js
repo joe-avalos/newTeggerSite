@@ -13,7 +13,6 @@ let $gradientSecondaryTo = "#FF8B00"
 let $primaryBlack = "#3B3B3B"
 let $primaryGray = "#848383"
 let $iconPrimary = "#B8B8B8"
-// eslint-disable-next-line
 let $iconHover = "#F4F4F4"
 let $white = "#FFF"
 let $errorRed = "#FF0000"
@@ -276,6 +275,45 @@ const theme = createMuiTheme({
       root:{
         padding: defaultTheme.spacing(0,2,2)
       }
+    },
+    MuiSwitch:{
+      root: {
+        width: 55,
+        height: 28,
+        padding: 0,
+        display: 'flex',
+        overflow: 'visible'
+      },
+      switchBase: {
+        padding: 2,
+        top: -4,
+        left: -4,
+        color: defaultTheme.palette.common.white,
+        '&$checked': {
+          color: '#EAEAEA !important',
+          left: 'initial',
+          right: 12,
+          '& + $track': {
+            opacity: 1,
+            backgroundColor: defaultTheme.palette.common.white + '!important',
+          },
+        },
+      },
+      thumb: {
+        width: 32,
+        height: 32,
+        boxShadow: '0px 1px 40px 0px rgba(0, 0, 0, 0.08)',
+        backgroundImage: 'url("https://tegger.io/images/3369e516414cf4501343b02927e5d781-logoTegger.png")',
+        backgroundSize: 22,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      },
+      track: {
+        borderRadius: 28 / 2,
+        opacity: 1,
+        backgroundColor: $iconHover,
+      },
+      checked: {}
     }
   }
 })

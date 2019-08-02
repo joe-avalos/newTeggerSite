@@ -9,7 +9,8 @@
     background: #FF9C26;
     background-image: url("");
     @media screen and (max-width: $smWidth) {
-      height: 620px;
+      height: 380px;
+      top: 56px;
     }
   }
 }

@@ -25,10 +25,12 @@ export default function () {
   
   return (
     <Container maxWidth="lg" className="contentContainer">
-      <Box className="background profileBG" />
-      {isLoading ? <CircularProgress /> :
-        !profile.onboarding ? <TGGOnBoarding /> :
-        <TGGMainProfile profile={profile} />
+      {isLoading ? <CircularProgress />
+      : !profile.onboarding ? <TGGOnBoarding />
+      : <>
+          <Box className="background profileBG"/>
+          <TGGMainProfile profile={profile}/>
+        </>
       }
     </Container>
   )

@@ -1,30 +1,33 @@
 import React from 'react'
-import useScrollTrigger from "@material-ui/core/useScrollTrigger"
-import Hidden from "@material-ui/core/Hidden";
-import AppBar from "@material-ui/core/AppBar"
-import Tabs from "@material-ui/core/Tabs"
-import Tab from "@material-ui/core/Tab"
-import Box from "@material-ui/core/Box"
-import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
-import Typography from "@material-ui/core/Typography"
-import Button from "@material-ui/core/Button"
-import Avatar from "@material-ui/core/Avatar"
-import IconButton from "@material-ui/core/IconButton"
-import Divider from "@material-ui/core/Divider"
-import Container from "@material-ui/core/Container"
+
+import AppBar from '@material-ui/core/AppBar'
+import Avatar from '@material-ui/core/Avatar'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import Container from '@material-ui/core/Container'
+import Divider from '@material-ui/core/Divider'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
+import Hidden from '@material-ui/core/Hidden'
+import IconButton from '@material-ui/core/IconButton'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Menu from '@material-ui/core/Menu'
 import MenuIcon from '@material-ui/icons/Menu'
-import {TGGShop, TGGWallet, TGGProfile, TGGSettings, TGGLogout} from './tggIcons'
+import MenuItem from '@material-ui/core/MenuItem'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import Typography from '@material-ui/core/Typography'
+import useScrollTrigger from '@material-ui/core/useScrollTrigger'
+import withStyles from '@material-ui/styles/withStyles'
+
 import {useDispatch, useSelector} from "react-redux"
 import {push} from 'connected-react-router'
+
+import {TGGShop, TGGWallet, TGGProfile, TGGSettings, TGGLogout} from './tggIcons'
 import '../stylesheets/components/navBar.scss'
-import withStyles from '@material-ui/styles/withStyles'
 
 function ElevationScroll(props) {
   const {children} = props
@@ -95,6 +98,10 @@ export default function (props) {
   const [activeNav, setActiveNav] = React.useState(loggedIn ? '/profile':'/')
   const [anchorEl, setAnchorEl] = React.useState(null)
   const MenuOpen = Boolean(anchorEl)
+  const staticPages = window.location.pathname === '/' ||
+    window.location.pathname === '/wwa' ||
+    window.location.pathname === '/wwd' ||
+    window.location.pathname === '/benefits'
 
   function handleTabClick(e,v){
     setActiveNav(v)
@@ -124,10 +131,10 @@ export default function (props) {
               value={loggedIn ? '/profile' : '/'}
               label={<img src="https://files.tegger.io/assets/tegger/images/tegger-logo.svg" alt="Tegger Logo"/>}
             />
-            {!loggedIn && <NavBarTab label="Acerca De" value="/wwa" />}
-            {!loggedIn && <NavBarTab label="Qué Hacemos" value="/wwd" />}
-            {!loggedIn && <NavBarTab label="Beneficios" value="/benefits" />}
-            {!loggedIn && <NavBarTab label="Blog" value="/blog/"/>}
+            {staticPages && <NavBarTab label="Acerca De" value="/wwa" />}
+            {staticPages && <NavBarTab label="Qué Hacemos" value="/wwd" />}
+            {staticPages && <NavBarTab label="Beneficios" value="/benefits" />}
+            {staticPages && <NavBarTab label="Blog" value="/blog/"/>}
           </NavBarTabs>
           {!loggedIn &&
             <NavRight component="div">
@@ -199,7 +206,7 @@ export default function (props) {
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
               <MobileNavList component="nav">
-                {!loggedIn ?
+                {staticPages ?
                   <>
                     <ListItem>
                       <ListItemText
@@ -226,9 +233,11 @@ export default function (props) {
                         onClick={e => handleTabClick(e,'/blog/')}
                         primary="Blog" />
                     </ListItem>
-                    <ListItem>
-                      <Button href="/getin">Get In!</Button>
-                    </ListItem>
+                    {!loggedIn &&
+                      <ListItem>
+                        <Button href="/getin">Get In!</Button>
+                      </ListItem>
+                    }
                   </>
                   :
                   <>
