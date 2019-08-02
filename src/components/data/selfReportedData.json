@@ -1,6 +1,10 @@
 {
   "selfReportedQuestions": [
     {
+      "level": 0,
+      "modules": []
+    },
+    {
       "level": 1,
       "modules": [
         {
@@ -494,6 +498,12 @@
   "genreTitles": {
     "5be369d3fc8f6b4f67abb71c": [
       {
+        "level": 0,
+        "titleEn": "Pleb",
+        "titleEs": "Plebeyo",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeyo.svg"
+      },
+      {
         "level": 1,
         "titleEn": "Knight",
         "titleEs": "Caballero",
@@ -549,6 +559,12 @@
       }
     ],
     "5be369dbfc8f6b4f67abb71d": [
+      {
+        "level": 0,
+        "titleEn": "Pleb",
+        "titleEs": "Plebeya",
+        "avatarImg": "https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeya.svg"
+      },
       {
         "level": 1,
         "titleEn": "Dame",

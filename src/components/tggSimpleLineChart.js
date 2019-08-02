@@ -5,18 +5,22 @@ import Box from '@material-ui/core/Box'
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from "recharts"
 import withStyles from '@material-ui/styles/withStyles'
 
-const ChartBox = withStyles({
+const ChartBox = withStyles(theme => ({
   root: {
     width: 815,
     height: 327,
     margin: '100px auto 0',
     padding: '20px 0',
-    position: 'relative'
+    position: 'relative',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      height: 300,
+      margin: '3em 0'
+    }
   }
-})(Box)
+}))(Box)
 
 export default function ({chartData}) {
-  console.log(chartData)
   return (
     <ChartBox>
       <ResponsiveContainer>

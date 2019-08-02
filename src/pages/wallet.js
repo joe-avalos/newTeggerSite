@@ -28,11 +28,11 @@ export default function () {
     if (profile.uuid === '') {
       dispatch(loggedFetchProfile())
     }
-    if (_.isEmpty(wallet)) {
+    if (_.isEmpty(wallet)){
       dispatch(loggedFetchWallet(profile.uuid))
     }
-  })
-
+  },[profile,wallet,dispatch])
+ 
   function dateReducer(reduced, item) {
     let dateKey = item.createdAt.substr(0, 10)
     if (reduced[dateKey]) {
@@ -134,8 +134,7 @@ export default function () {
         </Grid>
         </Grid>
         <Hidden mdDown>
-          <Grid item xs={6}>
-
+          <Grid item md={6}>
           </Grid>
         </Hidden>
       </Grid>
