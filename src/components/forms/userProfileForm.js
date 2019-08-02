@@ -91,7 +91,7 @@ const UserProfileForm = ({profile}) => {
           />
         </Grid>*/}
       </Grid>
-      <Button style={{width:'384px', display:'block', margin:'auto'}} type="submit" className='buttonForm'>
+      <Button style={{ display:'block', margin:'auto'}} type="submit" className='buttonForm'>
         LISTO
       </Button>
     </form>

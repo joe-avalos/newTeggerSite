@@ -6,9 +6,10 @@
     top: 70px;
     left: 0;
     width: 100%;
-    background: #ededed;
+    background: #F5F5F5;
     @media screen and (max-width: $smWidth) {
-      height: 620px;
+      height: 300px;
+      top: 0;
     }
   }
 }

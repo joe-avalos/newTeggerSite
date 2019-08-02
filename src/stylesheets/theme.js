@@ -135,7 +135,11 @@ const theme = createMuiTheme({
         },
         "&$disabled":{
           backgroundColor: $iconPrimary
-        }
+        },
+        [defaultTheme.breakpoints.down('sm')]: {
+          width: '100%',
+
+     },
       },
       text:{
         padding: "14px 37px",

@@ -74,7 +74,8 @@ export default function () {
           <TabsSettings
             value={tabValue}
             onChange={handleTabChange}
-            variant={'fullWidth'}
+            variant={'scrollable'}
+            scrollButtons={'auto'}
           >
             <Tab label={<TypographySettings variant={'body1'}>Usuario y Contraseña</TypographySettings>} />
             <Tab label={<TypographySettings variant={'body1'}>Privacidad</TypographySettings>} />
@@ -86,7 +87,7 @@ export default function () {
         <Hidden mdDown>
           <Grid item md={1}/>
         </Hidden>
-          <Grid item xs={10} style={{marginBottom:40}} >
+          <Grid item xs={12} style={{marginBottom:40}} >
           {
             isLoading ?
               <CircularProgress/>
