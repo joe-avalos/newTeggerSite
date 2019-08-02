@@ -94,6 +94,8 @@ export function userReduce(state = defaultState, action) {
       newState.referrer = ''
       newState.referrerError = ''
       return newState
+    case USER_ACTIONS.USER_LOGOUT_SUCCESS:
+      return defaultState
     default:
       return state
   }

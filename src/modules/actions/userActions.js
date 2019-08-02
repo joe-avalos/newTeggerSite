@@ -16,6 +16,7 @@ export const USER_ACTIONS = {
   USER_CONFIRM_HAS_ERRORED: 'USER_CONFIRM_HAS_ERRORED',
   USER_CONFIRM_SUBMIT: 'USER_CONFIRM_SUBMIT',
   USER_CONFIRM_SUCCESS: 'USER_CONFIRM_SUCCESS',
+  USER_LOGOUT_SUCCESS: 'USER_LOGOUT_SUCCESS'
 }
 
 export function userIsLoading(bool) {
@@ -114,6 +115,10 @@ export function userDeleteSubmit() {
 
 export function userReferrerDelete() {
   return {type: USER_ACTIONS.USER_REFERRER_DELETE}
+}
+
+export function userLogoutSuccess() {
+  return {type: USER_ACTIONS.USER_LOGOUT_SUCCESS}
 }
 
 export function userFetchUserEmail(email) {

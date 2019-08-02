@@ -28,6 +28,7 @@ import {push} from 'connected-react-router'
 
 import {TGGShop, TGGWallet, TGGProfile, TGGSettings, TGGLogout} from './tggIcons'
 import '../stylesheets/components/navBar.scss'
+import {loggedLogout} from '../modules/actions/loggedActions'
 
 function ElevationScroll(props) {
   const {children} = props
@@ -120,6 +121,11 @@ export default function (props) {
   function handleClose() {
     setAnchorEl(null)
   }
+  
+  function handleLogout() {
+    handleClose()
+    dispatch(loggedLogout())
+  }
 
   return(
     <ElevationScroll {...props}>
@@ -177,8 +183,8 @@ export default function (props) {
                   <Typography variant={'body2'}>Settings</Typography>
                   </MenuButton>
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <MenuButton variant={'contained'} href="/logout">
+                <MenuItem onClick={handleLogout}>
+                  <MenuButton variant={'contained'}>
                   <TGGLogout/>
                   <Typography variant={'body2'}>Logout</Typography>
                   </MenuButton>

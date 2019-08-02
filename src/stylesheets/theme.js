@@ -1,21 +1,21 @@
-import {createMuiTheme} from "@material-ui/core";
+import {createMuiTheme} from '@material-ui/core';
 
-let $primaryOrange = "#FF9C28"
-let $secondaryOrange = "#FF6633"
-let $hoverPrimary = "#DD861F"
+let $primaryOrange = '#FF9C28'
+let $secondaryOrange = '#FF6633'
+let $hoverPrimary = '#DD861F'
 /* eslint-disable */
-let $hoverSecondary = "#DD5228"
+let $hoverSecondary = '#DD5228'
 let $gradientPrimaryFrom = $secondaryOrange
-let $gradientPrimaryTo = "#FF3E00"
+let $gradientPrimaryTo = '#FF3E00'
 let $gradientSecondaryFrom = $primaryOrange
-let $gradientSecondaryTo = "#FF8B00"
+let $gradientSecondaryTo = '#FF8B00'
 /* eslint enable */
-let $primaryBlack = "#3B3B3B"
-let $primaryGray = "#848383"
-let $iconPrimary = "#B8B8B8"
-let $iconHover = "#F4F4F4"
-let $white = "#FFF"
-let $errorRed = "#FF0000"
+let $primaryBlack = '#3B3B3B'
+let $primaryGray = '#848383'
+let $iconPrimary = '#B8B8B8'
+let $iconHover = '#F4F4F4'
+let $white = '#FFF'
+let $errorRed = '#FF0000'
 
 const defaultTheme = createMuiTheme()
 
@@ -42,19 +42,19 @@ const theme = createMuiTheme({
   },
   typography:{
     fontFamily:[
-      "Encode Sans Semi Expanded",
-      "Exo",
-      "sans-serif"
+      'Encode Sans Semi Expanded',
+      'Exo',
+      'sans-serif'
     ].join(','),
     fontSize: 20,
     htmlFontSize: 20,
     h1:{
       fontFamily:[
-        "Exo",
-        "Encode Sans Semi Expanded",
-        "sans-serif"
+        'Exo',
+        'Encode Sans Semi Expanded',
+        'sans-serif'
       ].join(','),
-      fontSize: "4.375rem",
+      fontSize: '4.375rem',
       color: $secondaryOrange,
       marginBottom: 10,
       [defaultTheme.breakpoints.down('sm')]: {
@@ -62,16 +62,16 @@ const theme = createMuiTheme({
       },
     },
     subtitle1:{
-      fontSize: "1.875rem",
+      fontSize: '1.875rem',
       color: $primaryGray,
-      fontWeight: "lighter",
+      fontWeight: 'lighter',
       lineHeight: 1.3,
       [defaultTheme.breakpoints.down('sm')]: {
         fontSize: '1.5rem',
       },
     },
     h2:{
-      fontSize: "2rem",
+      fontSize: '2rem',
       color: $primaryBlack,
       fontWeight: 400,
       lineHeight: 1.2,
@@ -82,11 +82,11 @@ const theme = createMuiTheme({
     },
     h3:{
       fontFamily:[
-        "Exo",
-        "Encode Sans Semi Expanded",
-        "sans-serif"
+        'Exo',
+        'Encode Sans Semi Expanded',
+        'sans-serif'
       ].join(','),
-      fontSize: "1.125rem",
+      fontSize: '1.125rem',
       color: $iconPrimary,
       lineHeight: 2,
       textTransform: 'uppercase',
@@ -96,24 +96,24 @@ const theme = createMuiTheme({
       }
     },
     body1:{
-      fontWeight: "lighter",
+      fontWeight: 'lighter',
       color: $primaryGray,
-      fontSize: "1.25rem",
+      fontSize: '1.25rem',
       lineHeight: 1.25,
       [defaultTheme.breakpoints.down('sm')]: {
         fontSize: '1.25rem',
       },
     },
     body2:{
-      fontWeight: "lighter",
-      fontSize: "1rem",
+      fontWeight: 'lighter',
+      fontSize: '1rem',
       lineHeight: 1.4,
       color: $primaryGray,
     },
     body3:{
-      fontWeight: "lighter",
+      fontWeight: 'lighter',
       color: $primaryBlack,
-      fontSize: "1.25rem",
+      fontSize: '1.25rem',
       lineHeight: 1.25,
       [defaultTheme.breakpoints.down('sm')]: {
         fontSize: '1.25rem',
@@ -128,12 +128,12 @@ const theme = createMuiTheme({
         borderRadius: 6,
         fontWeight: 900,
         color: $white,
-        textTransform: "uppercase",
+        textTransform: 'uppercase',
         height: 52,
-        "&:hover":{
+        '&:hover':{
           backgroundColor: $hoverPrimary
         },
-        "&$disabled":{
+        '&$disabled':{
           backgroundColor: $iconPrimary
         },
         [defaultTheme.breakpoints.down('sm')]: {
@@ -142,15 +142,15 @@ const theme = createMuiTheme({
      },
       },
       text:{
-        padding: "14px 37px",
+        padding: '14px 37px',
       },
       contained:{
         backgroundColor: 'transparent',
         color: $primaryOrange,
-        textTransform: "none",
-        fontWeight: "normal",
+        textTransform: 'none',
+        fontWeight: 'normal',
         padding: 0,
-        boxShadow: "initial",
+        boxShadow: 'initial',
         textAlign: 'left',
         maxWidth: 330,
         justifyContent: 'flex-start',
@@ -158,21 +158,21 @@ const theme = createMuiTheme({
         marginRight: defaultTheme.spacing(2),
         paddingLeft: defaultTheme.spacing(1),
         paddingRight: defaultTheme.spacing(1),
-        "&:hover":{
-          fontWeight: "bolder",
+        '&:hover':{
+          fontWeight: 'bolder',
           backgroundColor: 'transparent',
         },
-        "&:active":{
-          boxShadow: "initial"
+        '&:active':{
+          boxShadow: 'initial'
         },
-        "&.doubleSVG .MuiButton-label":{
+        '&.doubleSVG .MuiButton-label':{
           marginLeft: 23,
         },
-        "& .MuiButton-label svg:first-of-type":{
+        '& .MuiButton-label svg:first-of-type':{
           left: -20,
           position: 'absolute'
         },
-        "& .MuiButton-label svg:nth-of-type(2)":{
+        '& .MuiButton-label svg:nth-of-type(2)':{
           marginLeft: 'auto'
         }
       },
@@ -185,8 +185,8 @@ const theme = createMuiTheme({
     },
     MuiInput:{
       underline:{
-        "&:after":{
-          borderBottom: "2px solid "+$primaryOrange
+        '&:after':{
+          borderBottom: '2px solid '+$primaryOrange
         }
       }
     },
@@ -195,7 +195,7 @@ const theme = createMuiTheme({
         borderRadius:'8px',
         width:'300px',
         marginBottom: '30px',
-        "&$error":{
+        '&$error':{
           borderColor: $errorRed,
           color: $errorRed
         }
@@ -220,8 +220,8 @@ const theme = createMuiTheme({
     },
     MuiIconButton:{
       label:{
-        "& > .MuiSvgIcon-root":{
-          marginLeft: "initial !important"
+        '& > .MuiSvgIcon-root':{
+          marginLeft: 'initial !important'
         }
       }
     },
@@ -239,28 +239,28 @@ const theme = createMuiTheme({
     MuiTabs:{
       root:{
         color: $primaryBlack,
-        textDecoration: "none",
-        cursor: "initial"
+        textDecoration: 'none',
+        cursor: 'initial'
       }
     },
     MuiTab:{
       root:{
-        fontWeight: "bold",
-        fontSize: "0.7rem",
+        fontWeight: 'bold',
+        fontSize: '0.7rem',
         [defaultTheme.breakpoints.up('sm')]: {
           minWidth: 125,
         },
-        "&:hover":{
+        '&:hover':{
           color: $primaryGray
         },
-        "&$selected":{
+        '&$selected':{
           color: $primaryOrange
         }
       }
     },
     MuiTypography:{
       root:{
-        wordWrap: "break-word"
+        wordWrap: 'break-word'
       }
     },
     MuiPaper:{
@@ -272,7 +272,7 @@ const theme = createMuiTheme({
       },
       elevation4:{
         padding: defaultTheme.spacing(4,5,5),
-        boxShadow: "0px 1px 40px 0px rgba(0, 0, 0, 0.08)"
+        boxShadow: '0px 1px 40px 0px rgba(0, 0, 0, 0.08)'
       }
     },
     MuiExpansionPanelDetails:{

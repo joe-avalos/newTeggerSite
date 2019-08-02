@@ -83,6 +83,8 @@ export function loggedReduce(state = defaultState, action) {
         ...state,
         wallet: action.wallet
       }
+    case LOGGED_ACTIONS.LOGGED_LOGOUT_SUCCESS:
+      return defaultState
     default:
       return state
   }

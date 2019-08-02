@@ -12,11 +12,13 @@
       top: 0;
     }
   }
-  &.tokensBG{
+
+  &.tokensBG {
     height: 26%;
-        margin-top: 5%;
-        width: 40%;
-        right: 10%;
+    min-height: 270px;
+    margin-top: 5%;
+    width: 40%;
+    right: 10%;
     background-image: url("https://files.tegger.io/assets/tegger/images/reactHome/tegger-explain.svg");
   }
 }

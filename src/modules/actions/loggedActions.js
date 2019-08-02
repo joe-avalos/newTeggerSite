@@ -1,4 +1,5 @@
 import {push} from 'connected-react-router'
+import {userLogoutSuccess} from './userActions'
 
 export const LOGGED_ACTIONS = {
   LOGGED_IS_LOADING: 'LOGGED_IS_LOADING',
@@ -73,6 +74,12 @@ export function loggedWalletFetchSuccess(wallet) {
   return {
     type: LOGGED_ACTIONS.LOGGED_WALLET_SUCCESS,
     wallet: wallet
+  }
+}
+
+export function loggedLogoutSuccess() {
+  return {
+    type: LOGGED_ACTIONS.LOGGED_LOGOUT_SUCCESS
   }
 }
 
@@ -179,7 +186,7 @@ export function loggedPostModuleAnswers(answers, uuid, mod) {
 
 export function loggedPreferenceChange(prefs, uuid){
   return dispatch => {
-    dispatch(loggedPrefsIsLoading(true))
+    //dispatch(loggedPrefsIsLoading(true))
   
     let qURL = process.env.REACT_APP_API_ROOT + 'preferences/'+uuid
     fetch(qURL, {
@@ -199,6 +206,7 @@ export function loggedPreferenceChange(prefs, uuid){
       })
       .then(res => res.json())
       .then(newPrefs => {
+        console.log(newPrefs)
         dispatch(loggedPreferenceChangeSuccess(newPrefs))
         dispatch(loggedPrefsIsLoading(false))
       })
@@ -275,7 +283,7 @@ export function loggedFetchWallet(uuid) {
   
     let qURL = process.env.REACT_APP_API_ROOT + 'wallet/'+uuid
     fetch(qURL, {
-      method: 'get',
+      method: 'GET',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
@@ -296,6 +304,37 @@ export function loggedFetchWallet(uuid) {
       .catch(e => {
         dispatch(loggedHasErrored(e.code))
         dispatch(loggedIsLoading(false))
+      })
+  }
+}
+
+export function loggedLogout() {
+  return dispatch => {
+    dispatch(loggedIsLoading(true))
+  
+    let qURL = process.env.REACT_APP_API_ROOT + 'logout'
+    fetch(qURL,{
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw res
+        }
+        dispatch(userLogoutSuccess())
+        dispatch(loggedLogoutSuccess())
+        dispatch(push('/'))
+        dispatch(loggedIsLoading(false))
+        })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(loggedIsLoading(false))
+          dispatch(loggedHasErrored(e.code))
+        })
       })
   }
 }

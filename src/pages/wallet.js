@@ -115,11 +115,12 @@ export default function () {
         <Hidden mdDown>
           <Grid item md={2} />
         </Hidden>
-        <Grid item xs={8} style={{marginTop:50}}>
+        <Grid item xs={12} md={8} style={{marginTop:50}}>
+          <Typography variant={'h3'}>Transacciones</Typography>
+          <Typography variant={'h2'}>Movimientos</Typography>
           <WalletSummary summaryData={wallet.transactions}/>
         </Grid>
-        <Grid item xs={6} style={{marginTop:70, marginBottom:70}}>
-        <Box className="background tokensBG"/>
+        <Grid item xs={12} md={6} style={{marginTop:70, marginBottom:70}}>
           <Typography variant={'h3'}>¿Qué son los Tegger Tokens?</Typography>
           <Typography variant={'h2'}>
             Publishers are all sites, portals or network of websites who decide to partner with Tegger.
@@ -128,13 +129,14 @@ export default function () {
             You can use your rewards for exclusive products and experiences. Tegger also distributes the value of the
             information to sites and content creators so they can keep creating the quality content you love.
           </Typography>
-        <Grid item xs={12} style={{marginTop:50}}>
-          <Button>Obtén mas Puntos</Button>
-          <Button variant={'contained'}>Conoce más</Button>
-        </Grid>
+          <Box style={{marginTop:50}}>
+            <Button>Obten mas Puntos</Button>
+            <Button variant={'contained'} href="/">Conoce más</Button>
+          </Box>
         </Grid>
         <Hidden mdDown>
           <Grid item md={6}>
+            <Box className="background tokensBG"/>
           </Grid>
         </Hidden>
       </Grid>
