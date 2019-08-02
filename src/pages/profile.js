@@ -22,11 +22,11 @@ export default function () {
       dispatch(loggedFetchProfile())
     }
   })
-  
+
   return (
     <Container maxWidth="lg" className="contentContainer">
       {isLoading ? <CircularProgress />
-      : !profile.onboarding ? <TGGOnBoarding />
+      : profile.onboarding ? <TGGOnBoarding />
       : <>
           <Box className="background profileBG"/>
           <TGGMainProfile profile={profile}/>

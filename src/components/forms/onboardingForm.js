@@ -30,11 +30,11 @@ const OnboardingForm = () => {
   const {values, errors, handleChange, handleSubmit} = useForm(callback, validate)
   const userUUID = useSelector(state => state.logged.profile.uuid)
   const dispatch = useDispatch()
-  
+
   function callback() {
     dispatch(loggedPostModuleAnswers(values,userUUID,'ad9e768d875ac3d933d68cfe2cb557a3'))
   }
-  
+
   function validate() {
     let error = {}
     if (isEmpty(values['f6039d44b29456b20f8f373155ae4973'] || '')) {
@@ -45,9 +45,9 @@ const OnboardingForm = () => {
     }
     return error
   }
-  
+
   return (
-    <form onSubmit={handleSubmit} noValidate autoComplete="off">
+    <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{width:'100%', display:'flex', flexDirection:'column'}}>
       <TextInputField
         handleChange={handleChange}
         error={errors.fullname}

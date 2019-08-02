@@ -1,0 +1,16 @@
+@import "../variables";
+
+.background {
+  &.onboardingBG {
+    height: 660px;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #FF7825;
+    background-image: url("");
+    @media screen and (max-width: $smWidth) {
+      height: 380px;
+      top: 56px;
+    }
+  }
+}

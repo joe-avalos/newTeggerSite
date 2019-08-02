@@ -32,7 +32,7 @@ export default function () {
       dispatch(loggedFetchWallet(profile.uuid))
     }
   },[profile,wallet,dispatch])
- 
+
   function dateReducer(reduced, item) {
     let dateKey = item.createdAt.substr(0, 10)
     if (reduced[dateKey]) {
