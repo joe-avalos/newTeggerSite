@@ -32,7 +32,7 @@ export default function () {
       dispatch(loggedFetchWallet(profile.uuid))
     }
   },[profile,wallet,dispatch])
- 
+
   function dateReducer(reduced, item) {
     let dateKey = item.createdAt.substr(0, 10)
     if (reduced[dateKey]) {
@@ -129,7 +129,7 @@ export default function () {
             information to sites and content creators so they can keep creating the quality content you love.
           </Typography>
         <Grid item xs={12} style={{marginTop:50}}>
-          <Button>Obten mas Puntos</Button>
+          <Button>Obtén mas Puntos</Button>
           <Button variant={'contained'}>Conoce más</Button>
         </Grid>
         </Grid>
