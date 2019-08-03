@@ -168,7 +168,8 @@ const GamificationAppBar = withStyles(theme => ({
       display: 'none'
     },
     '& .MuiTab-root': {
-      minWidth: 140
+      minWidth: 140,
+      opacity: 1
     },
     '& .MuiAvatar-root': {
       width: 60,

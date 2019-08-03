@@ -144,12 +144,11 @@ export default function ({match}) {
                       />
                     </Grid>
                   case 'checkbox':
-                    return <Grid item xs={12} key={key}>
-                      <CheckboxInput
+                    return <CheckboxInput
+                        key={key}
                         handleChange={handleChange}
                         answers={item.answers}
                       />
-                    </Grid>
                   case 'select':
                     return <Grid item xs={12} key={key}>
                       <SelectInput
@@ -165,9 +164,9 @@ export default function ({match}) {
                 }
               })}
               <Hidden mdDown>
-                <Grid item md={4} />
+                <Grid item md={3} />
               </Hidden>
-              <Grid item xs={12} md={4}>
+              <Grid item xs={12} md={6}>
                 <Button type="submit" fullWidth>
                   Listo
                 </Button>

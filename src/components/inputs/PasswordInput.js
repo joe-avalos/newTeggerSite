@@ -26,6 +26,7 @@ const PasswordInput = ({error, handleChange, label, name, value}) => {
         onChange={handleChange}
         autoComplete="current-password"
         error={inputError}
+        fullWidth
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">

@@ -183,6 +183,11 @@ const theme = createMuiTheme({
         paddingRight: 0,
       }
     },
+    MuiFormControl:{
+      root:{
+        display: 'block'
+      }
+    },
     MuiInput:{
       underline:{
         '&:after':{
