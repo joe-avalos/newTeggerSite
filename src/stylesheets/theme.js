@@ -311,7 +311,7 @@ const theme = createMuiTheme({
         width: 32,
         height: 32,
         boxShadow: '0px 1px 40px 0px rgba(0, 0, 0, 0.08)',
-        backgroundImage: 'url("https://tegger.io/images/3369e516414cf4501343b02927e5d781-logoTegger.png")',
+        //backgroundImage: 'url("https://tegger.io/images/3369e516414cf4501343b02927e5d781-logoTegger.png")',
         backgroundSize: 22,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

@@ -31,11 +31,11 @@ const OnboardingForm = () => {
   const {values, errors, handleChange, handleSubmit} = useForm(callback, validate)
   const userUUID = useSelector(state => state.logged.profile.uuid)
   const dispatch = useDispatch()
-
+  
   function callback() {
-    dispatch(loggedPostModuleAnswers(values,userUUID,'ad9e768d875ac3d933d68cfe2cb557a3'))
+    dispatch(loggedPostModuleAnswers(values, userUUID, 'ad9e768d875ac3d933d68cfe2cb557a3'))
   }
-
+  
   function validate() {
     let error = {}
     if (isEmpty(values['f6039d44b29456b20f8f373155ae4973'] || '')) {
@@ -46,36 +46,40 @@ const OnboardingForm = () => {
     }
     return error
   }
-
+  
   const FormControlGender = withStyles(theme => ({
     root: {
-      marginBottom:'30px',
-      marginTop:'50px',
+      marginBottom: 30,
+      marginTop: 50,
       '& .MuiAvatar-root': {
-        width:'190px',
-        height:'190px',
-        backgroundColor:'#FF7825',
+        width: 190,
+        height: 190,
+        backgroundColor: '#B8B8B8',
         [theme.breakpoints.down('sm')]: {
-        width:'140px',
-        height:'140px',
+          width: 140,
+          height: 140,
         },
+      },
+      '& .Mui-checked + .MuiAvatar-root':{
+        backgroundColor: '#FF7825'
       },
       '& .MuiFormControlLabel-root': {
-        display:'inline-flex',
+        display: 'inline-flex',
       },
       '& .MuiFormGroup-root': {
-        display:'inline',
-        padding:'0 55px',
+        display: 'inline',
+        padding: '0 55px',
         [theme.breakpoints.down('sm')]: {
-          padding:0,
+          padding: 0,
         },
       },
-}
+    }
   }))(FormControl)
-
-
+  
+  
   return (
-    <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{width:'100%', display:'flex', flexDirection:'column'}}>
+    <form onSubmit={handleSubmit} noValidate autoComplete="off"
+          style={{width: '100%', display: 'flex', flexDirection: 'column'}}>
       <TextInputField
         handleChange={handleChange}
         error={errors.fullname}
@@ -88,7 +92,7 @@ const OnboardingForm = () => {
         error={errors.gender}
       >
         <FormLabel component="legend">
-        <Typography variant={'body2'}>Género</Typography>
+          <Typography variant={'body2'}>Género</Typography>
         </FormLabel>
         <RadioGroup
           name='1f7b89b253833a6dd8cd456fb019eb47'

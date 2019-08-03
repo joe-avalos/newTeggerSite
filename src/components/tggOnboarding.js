@@ -36,13 +36,11 @@ const OnboardingGrid = withStyles(theme => ({
 export default function () {
   return (
     <>
-      <Grid container xs={12}>
+      <Grid container>
       <Box className="background onboardingBG"/>
-
         <Hidden mdDown>
           <Grid item md={1}/>
         </Hidden>
-
           <OnboardingGrid item xs={12} md={6} style={{height:'500px'}}>
             <Typography variant={'h1'}>
               ¡Bienvenido al mundo Tegger!
@@ -52,10 +50,9 @@ export default function () {
               adicional. Recibes tokens por tus interacciones con contenido y por compartir información autoinformada que
               puede cambiarse por recompensas.
             </Typography>
-            <Button>EMPEZAR</Button>
+            {/*<Button>EMPEZAR</Button>*/}
           </OnboardingGrid>
-
-        <Grid container xs={12} style={{marginTop:'50px',display:'flex'}}>
+        <Grid container style={{marginTop:'50px',display:'flex'}}>
         <Hidden mdDown>
           <Grid item md={3}/>
         </Hidden>
