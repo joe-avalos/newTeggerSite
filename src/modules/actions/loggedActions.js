@@ -327,8 +327,8 @@ export function loggedLogout() {
         }
         dispatch(userLogoutSuccess())
         dispatch(loggedLogoutSuccess())
-        dispatch(push('/'))
         dispatch(loggedIsLoading(false))
+        dispatch(push('/'))
         })
       .catch(res => {
         res.json().then(e => {

@@ -29,15 +29,15 @@ const BoxQuestionHeader = withStyles({
 
 const QuestionsGrid = withStyles({
   root: {
-    '& .MuiTypography-body2':{
-      fontSize:'1.875rem',
-      marginBottom:20,
-      color:'#5F5F5F',
+    '& .MuiTypography-body2': {
+      fontSize: '1.875rem',
+      marginBottom: 20,
+      color: '#5F5F5F',
     },
-    '& .MuiFormControl-root':{
+    '& .MuiFormControl-root': {
       display: 'block'
     },
-    '& .MuiFormHelperText-root':{
+    '& .MuiFormHelperText-root': {
       display: 'absolute',
       bottom: 10
     }
@@ -107,7 +107,7 @@ export default function ({match}) {
     
     
     return (
-      <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{marginTop: 50, padding: '0 145px'}}>
+      <form onSubmit={handleSubmit} noValidate autoComplete="off">
         {/*Depende del tipo de preguntas en el módulo regresa uno de los diferentes tipos de input
          **Los diferentes inputs están en sus archivos respectivos
          */}
@@ -145,28 +145,27 @@ export default function ({match}) {
                     </Grid>
                   case 'checkbox':
                     return <CheckboxInput
-                        key={key}
-                        handleChange={handleChange}
-                        answers={item.answers}
-                      />
+                      key={key}
+                      handleChange={handleChange}
+                      answers={item.answers}
+                    />
                   case 'select':
-                    return <Grid item xs={12} key={key}>
-                      <SelectInput
-                        handleChange={handleChange}
-                        value={values[item.code]}
-                        label={item.en}
-                        name={item.code}
-                        answers={item.answers}
-                      />
-                    </Grid>
+                    return <SelectInput
+                      key={key}
+                      handleChange={handleChange}
+                      value={values[item.code]}
+                      label={item.en}
+                      name={item.code}
+                      answers={item.answers}
+                    />
                   default:
                     return null
                 }
               })}
               <Hidden mdDown>
-                <Grid item md={3} />
+                <Grid item md={3}/>
               </Hidden>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} style={{margin: '20px 0'}}>
                 <Button type="submit" fullWidth>
                   Listo
                 </Button>

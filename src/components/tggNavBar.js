@@ -88,7 +88,11 @@ const MenuButton = withStyles({
 
 const MobileNavList = withStyles({
   root: {
-    width: '100%'
+    width: '100%',
+    '& .MuiListItem-root':{
+      paddingTop: 0,
+      paddingBottom: 0
+    }
   }
 })(List)
 
@@ -217,40 +221,7 @@ export default function (props) {
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <MobileNavList component="nav">
-                {staticPages ?
-                  <>
-                    <ListItem>
-                      <ListItemText
-                        onClick={e => handleTabClick(e, '/')}
-                        primary={'Inicio'}/>
-                    </ListItem>
-                    <ListItem>
-                      <ListItemText
-                        onClick={e => handleTabClick(e, '/wwa')}
-                        primary="Acerca De"/>
-                    </ListItem>
-                    <ListItem>
-                      <ListItemText
-                        onClick={e => handleTabClick(e, '/wwd')}
-                        primary="Qué Hacemos"/>
-                    </ListItem>
-                    <ListItem>
-                      <ListItemText
-                        onClick={e => handleTabClick(e, '/benefits')}
-                        primary="Beneficios"/>
-                    </ListItem>
-                    <ListItem>
-                      <ListItemText
-                        onClick={e => handleTabClick(e, '/blog/')}
-                        primary="Blog"/>
-                    </ListItem>
-                    {!loggedIn &&
-                    <ListItem>
-                      <Button href="/getin">Get In!</Button>
-                    </ListItem>
-                    }
-                  </>
-                  :
+                {(staticPages && loggedIn) ?
                   <>
                     <ListItem>
                       <Avatar>{profile.name.substr(0, 2)}</Avatar>
@@ -288,7 +259,104 @@ export default function (props) {
                         <Typography variant={'body2'}>Logout</Typography>
                       </MenuButton>
                     </ListItem>
+                    <Divider/>
+                    <ListItem>
+                      <ListItemText
+                        onClick={e => handleTabClick(e, '/')}
+                        primary={'Inicio'}/>
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText
+                        onClick={e => handleTabClick(e, '/wwa')}
+                        primary="Acerca De"/>
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText
+                        onClick={e => handleTabClick(e, '/wwd')}
+                        primary="Qué Hacemos"/>
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText
+                        onClick={e => handleTabClick(e, '/benefits')}
+                        primary="Beneficios"/>
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText
+                        onClick={e => handleTabClick(e, '/blog/')}
+                        primary="Blog"/>
+                    </ListItem>
                   </>
+                  : loggedIn ?
+                    <>
+                      <ListItem>
+                        <Avatar>{profile.name.substr(0, 2)}</Avatar>
+                        <Typography>{profile.name}</Typography>
+                      </ListItem>
+                      <Divider/>
+                      <ListItem>
+                        <MenuButton fullWidth href="/profile" variant={'contained'} onClick={handleExpandToggle}>
+                          <TGGProfile/>
+                          <Typography variant={'body2'}>Profile</Typography>
+                        </MenuButton>
+                      </ListItem>
+                      <ListItem>
+                        <MenuButton fullWidth href="/wallet" variant={'contained'} onClick={handleExpandToggle}>
+                          <TGGWallet/>
+                          <Typography variant={'body2'}>Wallet</Typography>
+                        </MenuButton>
+                      </ListItem>
+                      <ListItem>
+                        <MenuButton fullWidth href="/marketplace" variant={'contained'} onClick={handleExpandToggle}>
+                          <TGGWallet/>
+                          <Typography variant={'body2'}>Marketplace</Typography>
+                        </MenuButton>
+                      </ListItem>
+                      <Divider/>
+                      <ListItem>
+                        <MenuButton fullWidth href="/settings" variant={'contained'} onClick={handleExpandToggle}>
+                          <TGGSettings/>
+                          <Typography variant={'body2'}>Settings</Typography>
+                        </MenuButton>
+                      </ListItem>
+                      <ListItem>
+                        <MenuButton fullWidth href="/logout" variant={'contained'} onClick={handleExpandToggle}>
+                          <TGGLogout/>
+                          <Typography variant={'body2'}>Logout</Typography>
+                        </MenuButton>
+                      </ListItem>
+                    </>
+                    : <>
+                      <ListItem>
+                        <ListItemText
+                          onClick={e => handleTabClick(e, '/')}
+                          primary={'Inicio'}/>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          onClick={e => handleTabClick(e, '/wwa')}
+                          primary="Acerca De"/>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          onClick={e => handleTabClick(e, '/wwd')}
+                          primary="Qué Hacemos"/>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          onClick={e => handleTabClick(e, '/benefits')}
+                          primary="Beneficios"/>
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          onClick={e => handleTabClick(e, '/blog/')}
+                          primary="Blog"/>
+                      </ListItem>
+                      {!loggedIn &&
+                      <ListItem>
+                        <Button href="/getin">Get In!</Button>
+                      </ListItem>
+                      }
+                    </>
                 }
               </MobileNavList>
             </ExpansionPanelDetails>
