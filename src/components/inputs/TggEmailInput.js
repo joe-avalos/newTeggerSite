@@ -34,7 +34,7 @@ const TGGInputStyle = withStyles(theme => ({
     width: 218,
     padding: '10px 12px',
     [theme.breakpoints.down('sm')]: {
-      width: 'auto',
+      width: '100%',
     },
   }
 }))(InputBase)

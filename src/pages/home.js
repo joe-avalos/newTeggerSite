@@ -27,14 +27,15 @@ const StyledPaper = withStyles({
   }
 })(Paper)
 
-const ButtonUnete = withStyles({
+const ButtonUnete = withStyles(theme => ({
   root:{
     width:350,
     marginTop:60,
-
-  }
-
-})(Button)
+    [theme.breakpoints.down('sm')]: {
+      width:'100%',
+    },
+  },
+}))(Button)
 
 export default function home() {
   return (
