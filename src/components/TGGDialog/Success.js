@@ -1,4 +1,3 @@
-Navigation.js
 
 import React from 'react'
 import DialogTitle from '@material-ui/core/DialogTitle'
@@ -73,17 +72,12 @@ export default function () {
       <GridDialog container xs={12}>
         <Grid item xs={12}>
           <DialogTitle>
-            <Typography variant={'h3'}>Mi navegación</Typography>
+            <Typography variant={'h3'}>Misión completada</Typography>
           </DialogTitle>
 
           <DialogContent>
-            <Typography variant={'body2'}>Para obtener más puntos y subir de nivel quiero navegar en:</Typography>
-              <ButtonNavigation>
-                <Button href="https://culturacolectiva.com/" >
-                </Button>
-                <Button href="https://news.culturacolectiva.com/"></Button>
-              </ButtonNavigation>
-            <Typography variant={'body3'}>*Recuerda iniciar sesión en el sitio.</Typography>
+            <Typography variant={'body2'}>¡Acabas de ganar 35 tokens! Para subir al siguiente nivel, navega en sitios afiliados.</Typography>
+
           </DialogContent>
         </Grid>
       </GridDialog>

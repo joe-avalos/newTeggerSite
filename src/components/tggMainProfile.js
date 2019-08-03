@@ -291,6 +291,9 @@ const NavigationProgress = withStyles({
       width: '70%',
       margin: 'auto',
       top: 22,
+    },
+    '& .MuiTypography-h3': {
+      fontSize: '10px',
     }
   }
 })(Box)

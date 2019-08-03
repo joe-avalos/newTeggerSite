@@ -33,7 +33,7 @@ const ButtonUnete = withStyles({
     marginTop:60,
 
   }
-  
+
 })(Button)
 
 export default function home() {
@@ -52,8 +52,8 @@ export default function home() {
           <Typography variant={"subtitle1"}>
             Ten control sobre la información que compartes y recibe recompensas por ella.
           </Typography>
-          <ButtonUnete>¡ÚNETE PARA GANAR!</ButtonUnete>
-          <Button variant={'contained'}>Conoce las recompensas</Button>
+          <ButtonUnete href="/getin">¡ÚNETE PARA GANAR!</ButtonUnete>
+          <Button href="/marketplace" variant={'contained'}>Conoce las recompensas</Button>
         </Grid>
       </Grid>
 
