@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControl from '@material-ui/core/FormControl'
+import Typography from '@material-ui/core/Typography'
 import FormLabel from '@material-ui/core/FormLabel'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormHelperText from '@material-ui/core/FormHelperText'
@@ -46,6 +47,33 @@ const OnboardingForm = () => {
     return error
   }
 
+  const FormControlGender = withStyles(theme => ({
+    root: {
+      marginBottom:'30px',
+      marginTop:'50px',
+      '& .MuiAvatar-root': {
+        width:'190px',
+        height:'190px',
+        backgroundColor:'#FF7825',
+        [theme.breakpoints.down('sm')]: {
+        width:'140px',
+        height:'140px',
+        },
+      },
+      '& .MuiFormControlLabel-root': {
+        display:'inline-flex',
+      },
+      '& .MuiFormGroup-root': {
+        display:'inline',
+        padding:'0 55px',
+        [theme.breakpoints.down('sm')]: {
+          padding:0,
+        },
+      },
+}
+  }))(FormControl)
+
+
   return (
     <form onSubmit={handleSubmit} noValidate autoComplete="off" style={{width:'100%', display:'flex', flexDirection:'column'}}>
       <TextInputField
@@ -55,11 +83,13 @@ const OnboardingForm = () => {
         name={'f6039d44b29456b20f8f373155ae4973'}
         value={values['f6039d44b29456b20f8f373155ae4973']}
       />
-      <FormControl
+      <FormControlGender
         component="fieldset"
         error={errors.gender}
       >
-        <FormLabel component="legend">Género</FormLabel>
+        <FormLabel component="legend">
+        <Typography variant={'body2'}>Género</Typography>
+        </FormLabel>
         <RadioGroup
           name='1f7b89b253833a6dd8cd456fb019eb47'
           value={values['1f7b89b253833a6dd8cd456fb019eb47'] || ''}
@@ -69,7 +99,7 @@ const OnboardingForm = () => {
             control={
               <>
                 <TGGGenderRadio value={'5be369dbfc8f6b4f67abb71d'} disableRipple/>
-                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeya.svg"/>
+                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeya.png"/>
               </>
             }
             label={'Dame'}
@@ -79,7 +109,7 @@ const OnboardingForm = () => {
             control={
               <>
                 <TGGGenderRadio value={'5be369d3fc8f6b4f67abb71c'} disableRipple/>
-                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeyo.svg"/>
+                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeyo.png"/>
               </>
             }
             label={'Knight'}
@@ -87,7 +117,7 @@ const OnboardingForm = () => {
           />
         </RadioGroup>
         {errors.gender && <FormHelperText>{errors.gender}</FormHelperText>}
-      </FormControl>
+      </FormControlGender>
       <Button type="submit">Ir</Button>
     </form>
   )

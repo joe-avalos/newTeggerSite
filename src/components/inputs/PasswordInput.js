@@ -14,7 +14,7 @@ const PasswordInput = ({error, handleChange, label, name, value}) => {
     setShow(!show)
   }
   let inputError = !isEmpty(error || '')
-  
+
   return (
     <FormControl error={inputError}>
       <TextField
