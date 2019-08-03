@@ -9,6 +9,7 @@
       "modules": [
         {
           "name": "Básicos",
+          "level": 1,
           "code": "ad9e768d875ac3d933d68cfe2cb557a3",
           "questions": [
             {
@@ -51,7 +52,8 @@
       "level": 2,
       "modules": [
         {
-          "name": "intereses",
+          "name": "Intereses",
+          "level": 2,
           "code": "cb3fc762153763392eee3940dc261bb8",
           "questions": [
             {
@@ -171,7 +173,8 @@
       "level": 3,
       "modules": [
         {
-          "name": "intenciones",
+          "name": "Intenciones",
+          "level": 3,
           "code": "4a0a2d480f36040641f4e6051e458e10",
           "questions": [
             {
@@ -350,7 +353,8 @@
       "level": 4,
       "modules": [
         {
-          "name": "familia",
+          "name": "Familia",
+          "level": 4,
           "code": "ab2d6a890ddc1e81ca653c4cb78c5aa8",
           "questions": [
             {
@@ -400,14 +404,15 @@
               "fieldType": "select",
               "answers": [
                 "Sí",
-                "Tengo un papel en la toma de decisiones económicas pero no soy el principal tomador de las decisiones",
+                "No tomo decisiones pero influyo",
                 "No tengo influencia"
               ]
             }
           ]
         },
         {
-          "name": "trabajo",
+          "name": "Trabajo",
+          "level": 4,
           "code": "071c6bf64f7e492308f70ef426135627",
           "questions": [
             {
@@ -440,6 +445,7 @@
               "field": "jobPlace",
               "fieldType": "select",
               "answers": [
+                "No Aplica",
                 "Agricultura y Ganadería",
                 "Banca y Servicios Financieros",
                 "Bienes Raíces",
@@ -474,6 +480,7 @@
               "field": "jobPosition",
               "fieldType": "select",
               "answers": [
+                "No Aplica",
                 "Asistente/Auxiliar",
                 "Analista",
                 "Especialista",
@@ -495,7 +502,7 @@
       ]
     }
   ],
-  "genreTitles": {
+  "genderTitles": {
     "5be369d3fc8f6b4f67abb71c": [
       {
         "level": 0,

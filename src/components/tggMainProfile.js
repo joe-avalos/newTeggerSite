@@ -23,6 +23,7 @@ import _ from 'lodash'
 import data from './data/selfReportedData'
 import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/actions/loggedActions'
 import '../stylesheets/components/tggMainProfile.scss'
+import TGGDialog from './TGGDialog'
 //Material UI Component Overrides
 const MobileProfileBG = withStyles(theme => ({
   root: {
@@ -238,7 +239,6 @@ const QuestionPaper = withStyles({
     position: 'relative',
     '& .MuiBox-root:first-of-type': {
       display: 'flex',
-      overflowX: 'scroll',
       maxWidth: '100%'
     },
     '& .MuiBox-root:last-of-type': {
@@ -287,6 +287,7 @@ const QuestionButton = withStyles({
 
 const NavigationProgress = withStyles({
   root: {
+    cursor: 'pointer',
     '& .MuiLinearProgress-root': {
       width: '70%',
       margin: 'auto',
@@ -298,9 +299,36 @@ const NavigationProgress = withStyles({
   }
 })(Box)
 
+const ButtonNavigation = withStyles(theme => ({
+  root:{
+    alignItems:'center',
+    '& .MuiButton-root': {
+      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png")',
+      width:120,
+      height:120,
+      borderRadius:'50%',
+      //backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundSize:'60%',
+      margin:'20px 10px',
+      backgroundColor: 'transparent',
+      border: '1px solid black',
+      [theme.breakpoints.down('sm')]: {
+        width:95,
+        height:95,
+      },
+    },
+    '& .MuiButton-root:last-of-type': {
+      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
+    }
+  }
+}))(Box)
+
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(1)
-  const genders = data.genreTitles
+  const [dialog, setDialog] = React.useState({open:false, content:''})
+  const genders = data.genderTitles
   const SRQuestions = data.selfReportedQuestions
   const dispatch = useDispatch()
   let answersTotals = useSelector(state => state.logged.answersTotals)
@@ -312,6 +340,14 @@ export default function ({profile}) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
     }
   })
+  
+  function handleNavigationDialog() {
+    setDialog({open:true, content:'navigation'})
+  }
+  
+  function handleClose() {
+    setDialog({open: false, content: ''})
+  }
 
   function search(nameKey, myArray = answersTotals) {
     if (!myArray) {
@@ -381,7 +417,7 @@ export default function ({profile}) {
             )
           })}
         </Box>
-        <NavigationProgress>
+        <NavigationProgress onClick={handleNavigationDialog}>
           <LinearProgress variant={'determinate'} value={45}/>
         </NavigationProgress>
       </QuestionPaper>
@@ -486,6 +522,18 @@ export default function ({profile}) {
             </Tabs>
           </GamificationAppBar>
         </Grid>
+        <Hidden>
+          <Grid item md={5} />
+        </Hidden>
+          <Grid item xs={12} md={2}>
+            <ButtonNavigation>
+              <Button href="https://culturacolectiva.com/" />
+              <Button href="https://news.culturacolectiva.com/" />
+            </ButtonNavigation>
+          </Grid>
+        <Hidden>
+          <Grid item md={5} />
+        </Hidden>
         {/*Preguntas niveles*/}
         <Grid item xs={12}>
           <Grid container>
@@ -526,6 +574,7 @@ export default function ({profile}) {
           </Grid>
         </Grid>
       </Grid>
+      <TGGDialog open={dialog.open} content={dialog.content} handleClose={handleClose} />
     </>
   )
 }

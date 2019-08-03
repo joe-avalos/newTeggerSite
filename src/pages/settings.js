@@ -57,7 +57,7 @@ export default function () {
       borderBottom:'1px solid #b8b8b8'
    }
  })(Tabs)
-
+//TODO tabs fullwidth scroll
   return (
     <Container maxWidth="md" className="contentContainer">
       <Grid container>
