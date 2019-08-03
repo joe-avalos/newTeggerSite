@@ -18,6 +18,9 @@ export default function () {
   function handlePrivacy() {
     setDialog({open:true, content:'privacy'})
   }
+  function handleNavigation() {
+    setDialog({open:true, content:'navigation'})
+  }
   function handleClose() {
     setDialog({open: false, content: ''})
   }
@@ -52,7 +55,7 @@ export default function () {
           <Grid container  className="footerNav">
             <Grid item xs={12} md={9}>
               <Breadcrumbs separator="|" component="nav">
-                <Typography variant={'body2'}>
+                <Typography variant={'body2'} onClick={handleNavigation}>
                   Contactar
                 </Typography>
                 <Typography variant={'body2'} onClick={handlePrivacy}>

@@ -14,6 +14,9 @@ const OnboardingGrid = withStyles(theme => ({
     marginTop: 70,
     marginBottom: 30,
     overflowX: 'visible',
+    [theme.breakpoints.down('sm')]: {
+      marginTop:10,
+    },
     '& .MuiTypography-h1': {
       color: 'white',
     },
