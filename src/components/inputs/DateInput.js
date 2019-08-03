@@ -17,7 +17,7 @@ const DateInput = ({birthday = false, handleChange, error, label, name, value}) 
     ((defaultValue.getDay() + 1) + '').padStart(2,'0')
   return (
     <FormControl error={inputError}>
-      <Typography variant={'h3'}>{label}</Typography>
+      <Typography variant={'body2'}>{label}</Typography>
       <TextField
         type="date"
         name={name}
@@ -25,6 +25,8 @@ const DateInput = ({birthday = false, handleChange, error, label, name, value}) 
         onChange={handleChange}
         defaultValue={dateString}
         InputProps={{inputProps:{max:dateString}}}
+        variant={'outlined'}
+        fullWidth
       />
       {inputError && <FormHelperText>{error}</FormHelperText>}
     </FormControl>

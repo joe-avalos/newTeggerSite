@@ -25,8 +25,9 @@ export default function () {
 
   return (
     <Container maxWidth="lg" className="contentContainer">
+      {/* TODO */}
       {isLoading ? <CircularProgress />
-      : profile.onboarding ? <TGGOnBoarding />
+      : !profile.onboarding ? <TGGOnBoarding />
       : <>
           <Box className="background profileBG"/>
           <TGGMainProfile profile={profile}/>
