@@ -25,6 +25,7 @@ export default function () {
 
   return (
     <Container maxWidth="lg" className="contentContainer">
+      {/* TODO */}
       {isLoading ? <CircularProgress />
       : !profile.onboarding ? <TGGOnBoarding />
       : <>

@@ -55,9 +55,10 @@ const OnboardingForm = () => {
         name={'f6039d44b29456b20f8f373155ae4973'}
         value={values['f6039d44b29456b20f8f373155ae4973']}
       />
-
-
-      <FormControl component="fieldset" error={errors.gender}>
+      <FormControl
+        component="fieldset"
+        error={errors.gender}
+      >
         <FormLabel component="legend">Género</FormLabel>
         <RadioGroup
           name='1f7b89b253833a6dd8cd456fb019eb47'

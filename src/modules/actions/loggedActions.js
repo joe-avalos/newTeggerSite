@@ -314,7 +314,7 @@ export function loggedLogout() {
   
     let qURL = process.env.REACT_APP_API_ROOT + 'logout'
     fetch(qURL,{
-      method: 'POST',
+      method: 'GET',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',

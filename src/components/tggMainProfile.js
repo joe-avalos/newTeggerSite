@@ -24,6 +24,18 @@ import data from './data/selfReportedData'
 import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/actions/loggedActions'
 import '../stylesheets/components/tggMainProfile.scss'
 //Material UI Component Overrides
+const MobileProfileBG = withStyles(theme => ({
+  root: {
+    [theme.breakpoints.down('sm')]: {
+      width: '100vw',
+      margin: -26,
+      paddingLeft: 26,
+      backgroundColor: theme.palette.primary.main,
+      maxWidth: 'initial'
+    }
+  }
+}))(Grid)
+
 const ProfileGrid = withStyles(theme => ({
   root: {
     marginTop: 10,
@@ -34,7 +46,7 @@ const ProfileGrid = withStyles(theme => ({
         flexDirection: 'column-reverse'
       },
       '& .MuiAvatar-root': {
-        background: '#ededed',
+        background: '#B8B8B8',
         border: '5px solid white',
         width: 150,
         height: 150,
@@ -94,9 +106,8 @@ const PrefGrid = withStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       width: '100vw',
       marginLeft: -26,
-      backgroundColor: '#FF8A26',
-      minHeight: 88,
-      padding: '15px 0'
+      backgroundColor: theme.palette.secondary.main,
+      minHeight: 100
     },
     '& > .MuiGrid-item': {
       display: 'flex',
@@ -111,11 +122,12 @@ const PrefGrid = withStyles(theme => ({
       fontSize: '1.125rem'
     },
     '& .MuiTypography-body1': {
-      color: 'white',
+      color: 'white'
     },
-    '& .MuiButton-contained': {
-      marginTop:'-6%',
-      fontSize:'30px'
+    '& .MuiButton-contained':{
+      width: 'initial',
+      marginRight: 0,
+      paddingRight: 0
     }
 
   }
@@ -161,7 +173,7 @@ const GamificationAppBar = withStyles(theme => ({
     '& .MuiAvatar-root': {
       width: 60,
       height: 60,
-      backgroundColor: '#F4F4F4',
+      backgroundColor: '#B8B8B8',
       border: '1px solid #C3C3C3',
       transition: 'scale 300ms ease-in-out'
     },
@@ -189,7 +201,8 @@ const GamificationAppBar = withStyles(theme => ({
       },
       '& .MuiAvatar-root': {
         transform: 'scale(1.1) translateY(6px)',
-        transition: 'scale 300ms ease-in-out'
+        transition: 'scale 300ms ease-in-out',
+        backgroundColor: theme.palette.secondary.main
       },
       '& .MuiCircularProgress-static[style]': {
         transform: 'scale(1.1) rotate(-90deg) !important',
@@ -207,8 +220,8 @@ const QuestionGrid = withStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    '&.SRSelected':{
-      '& .MuiCircularProgress-static[style]':{
+    '&.SRSelected': {
+      '& .MuiCircularProgress-static[style]': {
         color: theme.palette.primary.main
       }
     }
@@ -252,7 +265,7 @@ const QuestionButton = withStyles({
     '& .MuiAvatar-root': {
       width: 85,
       height: 85,
-      backgroundColor: '#F4F4F4',
+      backgroundColor: '#B8B8B8',
       border: '1px solid #C3C3C3',
       margin: '14px auto 10px'
     },
@@ -260,7 +273,7 @@ const QuestionButton = withStyles({
       textAlign: 'center',
       color: '#B8B8B8'
     },
-    '& .MuiCircularProgress-static[style]':{
+    '& .MuiCircularProgress-static[style]': {
       height: '99px !important',
       width: '99px !important',
       position: 'absolute',
@@ -272,8 +285,8 @@ const QuestionButton = withStyles({
 })(Button)
 
 const NavigationProgress = withStyles({
-  root:{
-    '& .MuiLinearProgress-root':{
+  root: {
+    '& .MuiLinearProgress-root': {
       width: '70%',
       margin: 'auto',
       top: 22,
@@ -297,7 +310,9 @@ export default function ({profile}) {
   })
 
   function search(nameKey, myArray = answersTotals) {
-    if (!myArray) {return null}
+    if (!myArray) {
+      return null
+    }
     for (let i = 0; i < myArray.length; i++) {
       if (myArray[i][nameKey]) {
         return parseInt(myArray[i][nameKey])
@@ -348,19 +363,19 @@ export default function ({profile}) {
           <span>-</span>{genders[profile.genre][index].titleEn}<span>-</span>
         </Typography>
         <Box>
-        {item.modules.map((modItem, modIndex) => {
-          let percentage = getCompletedPercentage(item, index, true)
-          return (
-            <QuestionButton variant={'contained'} onClick={() => handleQuestionClick(modItem.code)} key={modIndex}>
-              <Avatar src={genders[profile.genre][index].avatarImg}/>
-              <Typography variant={'body1'}>{modItem.name}</Typography>
-              <CircularProgress
-                variant={'static'}
-                value={percentage}
-              />
-            </QuestionButton>
-          )
-        })}
+          {item.modules.map((modItem, modIndex) => {
+            let percentage = getCompletedPercentage(item, index, true)
+            return (
+              <QuestionButton variant={'contained'} onClick={() => handleQuestionClick(modItem.code)} key={modIndex}>
+                <Avatar src={genders[profile.genre][index].avatarImg}/>
+                <Typography variant={'body1'}>{modItem.name}</Typography>
+                <CircularProgress
+                  variant={'static'}
+                  value={percentage}
+                />
+              </QuestionButton>
+            )
+          })}
         </Box>
         <NavigationProgress>
           <LinearProgress variant={'determinate'} value={45}/>
@@ -375,7 +390,7 @@ export default function ({profile}) {
         <Hidden mdDown>
           <Grid item md={3}/>
         </Hidden>
-        <Grid item xs={12} md={6}>
+        <MobileProfileBG item xs={12} md={6}>
           {/*Profile Header*/}
           <ProfileGrid container>
             <Grid item xs={12} md={4}>
@@ -413,7 +428,6 @@ export default function ({profile}) {
                           <Button
                             variant={'contained'}
                             onClick={() => handlePrefChange('location')}
-                            style={{width: 'initial'}}
                           >
                             <Navigation style={{color: 'white', transform: 'rotate(45deg)'}}/>
                             <Typography
@@ -435,7 +449,7 @@ export default function ({profile}) {
               </Grid>
             </Grid>
           </ProfileGrid>
-        </Grid>
+        </MobileProfileBG>
         <Grid item xs={12}>
           {/*Profile gamification bar */}
           <GamificationAppBar position={'static'}>

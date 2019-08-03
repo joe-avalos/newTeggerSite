@@ -193,7 +193,6 @@ const theme = createMuiTheme({
     MuiOutlinedInput:{
       root:{
         borderRadius:'8px',
-        width:'300px',
         marginBottom: '30px',
         '&$error':{
           borderColor: $errorRed,

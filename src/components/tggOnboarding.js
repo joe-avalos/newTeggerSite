@@ -43,7 +43,7 @@ export default function () {
           <Grid item md={1}/>
         </Hidden>
 
-          <OnboardingGrid item xs={12} md={6} style={{height:'600px'}}>>
+          <OnboardingGrid item xs={12} md={6} style={{height:'600px'}}>
             <Typography variant={'h1'}>
               ¡Bienvenido al mundo Tegger!
             </Typography>
@@ -60,7 +60,7 @@ export default function () {
           <Grid item md={3}/>
         </Hidden>
           <Grid item xs={12} md={6} >
-            <OnBoardingForm/>
+            <OnBoardingForm />
           </Grid>
           <Hidden mdDown>
             <Grid item md={3}/>
