@@ -94,8 +94,9 @@ const PrefGrid = withStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       width: '100vw',
       marginLeft: -26,
-      backgroundColor: theme.palette.secondary.main,
-      minHeight: 88
+      backgroundColor: '#FF8A26',
+      minHeight: 88,
+      padding: '15px 0'
     },
     '& > .MuiGrid-item': {
       display: 'flex',
@@ -110,8 +111,13 @@ const PrefGrid = withStyles(theme => ({
       fontSize: '1.125rem'
     },
     '& .MuiTypography-body1': {
-      color: 'white'
+      color: 'white',
+    },
+    '& .MuiButton-contained': {
+      marginTop:'-6%',
+      fontSize:'30px'
     }
+
   }
 }))(Grid)
 
@@ -283,13 +289,13 @@ export default function ({profile}) {
   let answersTotals = useSelector(state => state.logged.answersTotals)
   let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
   let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
-  
+
   React.useEffect(() => {
     if (_.isEmpty(answersTotals)) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
     }
   })
-  
+
   function search(nameKey, myArray = answersTotals) {
     if (!myArray) {return null}
     for (let i = 0; i < myArray.length; i++) {
@@ -298,7 +304,7 @@ export default function ({profile}) {
       }
     }
   }
-  
+
   function getCompletedPercentage(item, index, mod = false) {
     if (SRQuestions[index]) {
       let qLength = SRQuestions[index].modules.length
@@ -316,7 +322,7 @@ export default function ({profile}) {
       return (answered / totalQuestions) * 100
     }
   }
-  
+
   function handlePrefChange(pref) {
     dispatch(loggedPreferenceChange({
         location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
@@ -325,15 +331,15 @@ export default function ({profile}) {
       profile.uuid
     ))
   }
-  
+
   function handleTabChange(e, v) {
     setTabValue(v)
   }
-  
+
   function handleQuestionClick(qCode) {
     dispatch(push('/question/' + qCode))
   }
-  
+
   function srPaper(item, index) {
     //Paper con elevación para crear los cuadros de las preguntas autoreportadas
     return (
@@ -362,7 +368,7 @@ export default function ({profile}) {
       </QuestionPaper>
     )
   }
-  
+
   return (
     <>
       <Grid container>
