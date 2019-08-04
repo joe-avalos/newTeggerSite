@@ -298,6 +298,33 @@ const NavigationProgress = withStyles({
   }
 })(Box)
 
+const InstructionBox = withStyles({
+  root: {
+    marginTop:'30px',
+    textAlign:'center',
+    maxWidth:'600px',
+    margin:'auto',
+    '& .MuiButton-root': {
+      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png")',
+      width:76,
+      height:76,
+      borderRadius:'50%',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundSize:'60%',
+      margin:'20px 10px',
+      backgroundColor: 'transparent',
+      border: '1px solid black',
+      opacity:'.5',
+
+      },
+      '& .MuiButton-root:last-of-type': {
+        backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
+      }
+    },
+  }) (Box)
+
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(1)
   const genders = data.genreTitles
@@ -486,8 +513,21 @@ export default function ({profile}) {
             </Tabs>
           </GamificationAppBar>
         </Grid>
+
+
+
         {/*Preguntas niveles*/}
         <Grid item xs={12}>
+
+        <InstructionBox>
+          <Typography variant={"body1"}>
+          ¡Sube al siguiente nivel completando las encuestas y navegando en sitios afiliados para obtener más y mejores premios!
+          </Typography>
+            <Button href="https://culturacolectiva.com/" target="_blank"> >
+            </Button>
+            <Button href="https://news.culturacolectiva.com/" target="_blank">></Button>
+        </InstructionBox>
+
           <Grid container>
             <Hidden mdDown>
               <Grid item md={4}/>
