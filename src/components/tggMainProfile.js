@@ -55,8 +55,7 @@ const ProfileGrid = withStyles(theme => ({
         boxShadow: '0px 10px 12px #00000026',
         margin: 'auto',
         [theme.breakpoints.down('sm')]: {
-          width: 200,
-          height: 200
+          marginTop: 12,
         },
         '& + .MuiTypography-root': {
           margin: '0 .5em',
@@ -107,8 +106,9 @@ const PrefGrid = withStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       width: '100vw',
       marginLeft: -26,
-      backgroundColor: theme.palette.secondary.main,
-      minHeight: 100
+      backgroundColor: '#FF8A26',
+      minHeight: 90,
+      padding:'10px 0 15px',
     },
     '& > .MuiGrid-item': {
       display: 'flex',
@@ -120,10 +120,15 @@ const PrefGrid = withStyles(theme => ({
     },
     '& .MuiTypography-h3': {
       color: 'white',
-      fontSize: '1.125rem'
+      fontSize: '1.125rem',
+      [theme.breakpoints.down('sm')]: {
+        fontSize:'1',
+      },
     },
     '& .MuiTypography-body1': {
-      color: 'white'
+      color: 'white',
+      fontSize:16,
+      fontWeight:600,
     },
     '& .MuiButton-contained':{
       width: 'initial',
@@ -170,7 +175,7 @@ const GamificationAppBar = withStyles(theme => ({
     },
     '& .MuiTab-root': {
       minWidth: 140,
-      opacity: 1
+      opacity: 1,
     },
     '& .MuiAvatar-root': {
       width: 60,
@@ -209,7 +214,7 @@ const GamificationAppBar = withStyles(theme => ({
       '& .MuiCircularProgress-static[style]': {
         transform: 'scale(1.1) rotate(-90deg) !important',
         transition: 'scale 300ms ease-in-out',
-        color: theme.palette.primary.main,
+        color: theme.palette.secondary.main,
       }
     }
   }
@@ -299,6 +304,20 @@ const NavigationProgress = withStyles({
   }
 })(Box)
 
+<<<<<<< HEAD
+const InstructionBox = withStyles({
+  root: {
+    marginTop:'30px',
+    textAlign:'center',
+    maxWidth:'600px',
+    margin:'auto',
+    '& .MuiButton-root': {
+      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png")',
+      width:76,
+      height:76,
+      borderRadius:'50%',
+      backgroundSize: 'contain',
+=======
 const ButtonNavigation = withStyles(theme => ({
   root:{
     alignItems:'center',
@@ -308,12 +327,23 @@ const ButtonNavigation = withStyles(theme => ({
       height:120,
       borderRadius:'50%',
       //backgroundSize: 'contain',
+>>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize:'60%',
       margin:'20px 10px',
       backgroundColor: 'transparent',
       border: '1px solid black',
+<<<<<<< HEAD
+      opacity:'.5',
+
+      },
+      '& .MuiButton-root:last-of-type': {
+        backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
+      }
+    },
+  }) (Box)
+=======
       [theme.breakpoints.down('sm')]: {
         width:95,
         height:95,
@@ -324,6 +354,7 @@ const ButtonNavigation = withStyles(theme => ({
     }
   }
 }))(Box)
+>>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(1)
@@ -464,8 +495,9 @@ export default function ({profile}) {
                       <>
                         <Grid item xs={6}>
                           {/*Profile location switch*/}
-                          <Typography variant={'h3'}>Localización</Typography>
-                          <Button
+
+                          <Typography variant={'h3'}>Localización<Box/></Typography>
+                          <Button style={{marginTop:-12}}
                             variant={'contained'}
                             onClick={() => handlePrefChange('location')}
                           >
@@ -493,7 +525,6 @@ export default function ({profile}) {
         <Grid item xs={12}>
           {/*Profile gamification bar */}
           <GamificationAppBar position={'static'}>
-            <Box/>
             <Tabs
               value={tabValue}
               onChange={handleTabChange}
@@ -522,6 +553,11 @@ export default function ({profile}) {
             </Tabs>
           </GamificationAppBar>
         </Grid>
+<<<<<<< HEAD
+
+
+
+=======
         <Hidden>
           <Grid item md={5} />
         </Hidden>
@@ -534,8 +570,19 @@ export default function ({profile}) {
         <Hidden>
           <Grid item md={5} />
         </Hidden>
+>>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
         {/*Preguntas niveles*/}
         <Grid item xs={12}>
+
+        <InstructionBox>
+          <Typography variant={"body1"}>
+          ¡Sube al siguiente nivel completando las encuestas y navegando en sitios afiliados para obtener más y mejores premios!
+          </Typography>
+            <Button href="https://culturacolectiva.com/" target="_blank"> >
+            </Button>
+            <Button href="https://news.culturacolectiva.com/" target="_blank">></Button>
+        </InstructionBox>
+
           <Grid container>
             <Hidden mdDown>
               <Grid item md={4}/>
