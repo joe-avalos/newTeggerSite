@@ -54,7 +54,8 @@ export default function () {
 
   const TabsSettings = withStyles({
     root:{
-      borderBottom:'1px solid #b8b8b8'
+      borderBottom:'1px solid #b8b8b8',
+      marginTop:'auto 60px 0'
    }
  })(Tabs)
 //TODO tabs fullwidth scroll
@@ -71,6 +72,7 @@ export default function () {
           </Typography>
         </Grid>
         <Grid item xs={12} style={{marginTop:'100px', marginBottom:'30px'}}>
+
           <TabsSettings
             value={tabValue}
             onChange={handleTabChange}
@@ -93,7 +95,7 @@ export default function () {
               <CircularProgress/>
             : tabValue === 0 ?
               <>
-                
+
                 <UserProfileForm profile={profile} />
               </>
             : tabValue === 1 ?

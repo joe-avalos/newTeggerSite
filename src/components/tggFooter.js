@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import TggEmailInput from './inputs/TggEmailInput'
 import {FBLogo, TGGMailIcon, TWLogo} from './tggIcons'
+import withStyles from '@material-ui/styles/withStyles'
 import '../stylesheets/components/tggFooter.scss'
 import TGGDialog from './TGGDialog'
 import {useSelector} from 'react-redux'
@@ -14,7 +15,7 @@ import {useSelector} from 'react-redux'
 export default function () {
   const [dialog, setDialog] = React.useState({open:false, content:''})
   const langFoot = useSelector(state => state.language.langJson.footer)
-  
+
   function handleTerms() {
     setDialog({open: true, content: 'terms'})
   }
@@ -27,6 +28,19 @@ export default function () {
   function handleClose() {
     setDialog({open: false, content: ''})
   }
+
+  const GridFooter = withStyles(theme => ({
+    root: {
+      [theme.breakpoints.down('sm')]: {
+        width: '100%',
+        textAlign:'center',
+        '&.MuiBreadcrumbs-ol':{
+          margin: '0 20px 0',
+        }
+      }
+    }
+  }))(Grid)
+
   return(
     <>
       <Box className="background footerBG" />
@@ -56,7 +70,8 @@ export default function () {
         </Grid>
         <Grid item xs={12}>
           <Grid container  className="footerNav">
-            <Grid item xs={12} md={9}>
+
+            <GridFooter item xs={12} md={9}>
               <Breadcrumbs separator="|" component="nav">
                 <Typography variant={'body2'} href="mailto:info@tegger.io">
                   {langFoot.footContact}
@@ -71,7 +86,8 @@ export default function () {
                   {langFoot.footFAQ}
                 </Typography>
               </Breadcrumbs>
-            </Grid>
+            </GridFooter>
+
             <Grid item xs={12} md={2}>
               <Typography className="copyright">
                 &copy; Tegger 2019

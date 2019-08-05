@@ -40,8 +40,10 @@ const ButtonJoinNow = withStyles(theme => ({
 
 const GridSolucion = withStyles(theme => ({
   root:{
-    width:350,
-    marginTop:60,
+    width:'100%',
+    marginTop:30,
+    marginBottom:60,
+    textAlign:'center',
     [theme.breakpoints.down('sm')]: {
       width:'90%',
     },
@@ -113,6 +115,7 @@ export default function () {
               {langHome.solutionParagraph}
             </Typography>
             <GridSolucion container>
+
               <Grid item xs={12} md={4}>
                 <TGGStar />
                 <Box>
@@ -124,6 +127,7 @@ export default function () {
                   </Typography>
                 </Box>
               </Grid>
+
               <Grid item xs={12} md={4}>
                 <TGGScroll />
                 <Box>
@@ -135,6 +139,7 @@ export default function () {
                   </Typography>
                 </Box>
               </Grid>
+
               <Grid item xs={12} md={4}>
                 <TGGShare />
                 <Box>
@@ -147,6 +152,7 @@ export default function () {
                 </Box>
               </Grid>
             </GridSolucion>
+
           </StyledPaper>
         </Grid>
         <Hidden mdDown>

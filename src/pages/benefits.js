@@ -9,9 +9,14 @@ import {autoPlay} from 'react-swipeable-views-utils'
 import {TGGCrown, TGGProfile, TGGShield, TGGShop, TGGStarClick, TGGWallet} from '../components/tggIcons'
 import CallToAction from '../components/tggCallTo'
 import TGGFooter from '../components/tggFooter'
+import Button from '@material-ui/core/Button'
+import Link from '@material-ui/core/Link'
 import '../stylesheets/pages/benefits.scss'
+import withStyles from '@material-ui/styles/withStyles'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+
 
 let imgSteps = [
   {
@@ -30,11 +35,11 @@ let imgSteps = [
 
 function SwipeableStepper(theme) {
   const [activeStep, setActiveStep] = React.useState(0);
-  
+
   function handleStepChange(step) {
     setActiveStep(step);
   }
-  
+
   return (
     <AutoPlaySwipeableViews
       axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -144,20 +149,24 @@ export default function benefits() {
             <Box className="benefitRow">
               <TGGWallet/>
               <Box>
-                <Typography variant={'h3'}>Wallet</Typography>
-                <Typography variant={'body2'}>
-                  Aquí puedes revisar tu balance de tokens, cómo los haz ganado y los rewards por los que los haz
-                  redimido.
-                </Typography>
+                <Link href='/wallet'>
+                  <Typography variant={'h3'}>Wallet</Typography>
+                  <Typography variant={'body2'}>
+                    Aquí puedes revisar tu balance de tokens, cómo los haz ganado y los rewards por los que los haz
+                    redimido.
+                  </Typography>
+                  </Link>
               </Box>
             </Box>
             <Box className="benefitRow">
               <TGGShop/>
-              <Box>
-                <Typography variant={'h3'}>Marketplace</Typography>
-                <Typography variant={'body2'}>
-                  Intercambia tus tokens por beneficios exclusivos en el marketplace
-                </Typography>
+              <Box href="/marketplace">
+                <Link href='/marketplce'>
+                  <Typography variant={'h3'}>Marketplace</Typography>
+                  <Typography variant={'body2'}>
+                    Intercambia tus tokens por beneficios exclusivos en el marketplace
+                  </Typography>
+                </Link>
               </Box>
             </Box>
           </Paper>

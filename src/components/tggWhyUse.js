@@ -53,6 +53,7 @@ export default function () {
             <Box className="whyAnimate"/>
           </Grid>
         </Hidden>
+
         <Grid item xs={12} md={6} className="whyContent">
           <Typography variant={'h3'} color={'primary'}>
             {langWUT.wut}

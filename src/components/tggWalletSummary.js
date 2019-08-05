@@ -14,22 +14,26 @@ import _ from 'lodash'
 
 const SummaryPaper = withStyles({
   root: {
-    overflowX: 'scroll'
+    overflowX: 'scroll',
+    '& .MuiMenuItem-root':{
+      fontSize: 13,
+    }
   }
 })(Paper)
+
 
 export default function ({summaryData}) {
   const [page, setPage] = React.useState(0)
   const [rowsPP, serRowsPP] = React.useState(5)
-  
+
   function handlePageChange(e, v) {
     setPage(v)
   }
-  
+
   function handleRowsPPChange(e) {
     serRowsPP(+e.target.value)
   }
-  
+
   if (_.isEmpty(summaryData)) {
     return (
       <>
