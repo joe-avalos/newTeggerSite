@@ -6,8 +6,18 @@ import Button from '@material-ui/core/Button'
 import {TGGPlay, TGGScroll, TGGSecurity, TGGStar} from './tggIcons'
 import React from 'react'
 import '../stylesheets/components/whyUseTegger.scss'
+import {useSelector} from 'react-redux'
+import TGGDialog from './TGGDialog'
 
 export default function () {
+  const langWUT = useSelector(state => state.language.langJson.whyUseTegger)
+  const [dialog, setDialog] = React.useState({open:false, content:''})
+  function handleBrowse() {
+    setDialog({open:true, content:'navigation'})
+  }
+  function handleClose() {
+    setDialog({open: false, content: ''})
+  }
   return (
     <>
       <Box className="background whyBG"/>
@@ -19,13 +29,13 @@ export default function () {
         </Hidden>
         <Grid item xs={12} md={6} className="whyContent">
           <Typography variant={'h3'} color={'primary'}>
-            ¿Por qué usar Tegger?
+            {langWUT.wut}
           </Typography>
           <Typography variant={'h2'}>
-            Navega o cuéntanos de ti mismo para ganar recompensas.
+            {langWUT.wutTitle}
           </Typography>
           <Typography variant={'body1'}>
-            Tegger te ofrece las herramientas para escoger.
+            {langWUT.wutSubTitle}
           </Typography>
           <Box className="paperAlignSB">
             <Button
@@ -36,7 +46,7 @@ export default function () {
               disableFocusRipple
             >
               <TGGSecurity/>
-              Inicia sesión o registrate
+              {langWUT.wutLogin}
             </Button>
             <Button
               variant={'contained'}
@@ -46,7 +56,7 @@ export default function () {
               disableFocusRipple
             >
               <TGGScroll/>
-              Sube de nivel contestando cuestionarios
+              {langWUT.wutLevel}
             </Button>
             <Button
               variant={'contained'}
@@ -54,9 +64,10 @@ export default function () {
               disableTouchRipple
               disableRipple
               disableFocusRipple
+              onClick={handleBrowse}
             >
               <TGGPlay/>
-              Navega en sitios afiliados
+              {langWUT.wutBrowse}
             </Button>
             <Button
               variant={'contained'}
@@ -66,11 +77,12 @@ export default function () {
               disableFocusRipple
             >
               <TGGStar/>
-              Intercambia tus recompensas en el Marketplace
+              {langWUT.wutMP}
             </Button>
           </Box>
         </Grid>
       </Grid>
+      <TGGDialog open={dialog.open} content={dialog.content} handleClose={handleClose} />
     </>
   )
 }

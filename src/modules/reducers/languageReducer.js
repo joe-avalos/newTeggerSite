@@ -1,5 +1,5 @@
 import {LANGUAGE_OPTIONS} from '../actions/languageActions'
-import Spanish from '../../components/data/'
+import Spanish from '../../components/data/translations/locales/es/translations'
 
 const defaultState = {
   isLoading: false,
@@ -24,5 +24,7 @@ export function languageReduce(state = defaultState, action) {
         ...state,
         langJson: action.langJson
       }
+    default:
+      return state
   }
 }

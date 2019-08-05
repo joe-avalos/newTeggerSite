@@ -1,207 +1,112 @@
 {
-  "menu": {
-    "about": "acerca de",
-    "howItWorks": "que hacemos",
-    "benefits": "beneficios",
-    "news": "news",
-    "publishers": "sitios",
-    "wallet": "wallet",
-    "profile": "perfil"
+  "navBar": {
+    "registerLogin": "Login / Registro",
+    "home": "Inicio",
+    "wwa": "Acerca De",
+    "wwd": "Cómo funciona",
+    "benefits": "Beneficios",
+    "blog": "Blog",
+    "news": "News",
+    "publishers": "Sitios",
+    "wallet": "Wallet",
+    "profile": "Perfil",
+    "marketplace": "Marketplace",
+    "settings": "Ajustes",
+    "logout": "Cerrar sesión"
   },
   "commons": {
-    "registerNow": "¡únete para ganar!",
-    "registerLogin": "Login / Registro",
-    "DownladWPaper": "Conoce las recompensas",
     "startGettingRewards": "¡Obtén tus primeros 50 tokens!",
     "whatTheySay": "LO QUE DICEN",
     "buttonSubmit": "¡IR!",
     "currentLang": "ES"
   },
-  "onboarding": {
-    "header": {
-      "title": "¡Bienvenido al mundo Tegger!",
-      "subtitle": "Tegger usa un login que te permite elegir qué tipos de datos deseas compartir e ingresar información adicional. Recibes tokens por tus interacciones con contenido y por compartir información autoinformada que puede cambiarse por recompensas."
-    }
-  },
   "home": {
-    "header": {
-      "title": "Recibe recompensas por navegar",
-      "subTitle": "Ten control sobre la información que compartes y recibe recompensas por ella."
-    },
-    "wtm": {
-      "question": "POR QUÉ ESTO IMPORTA",
-      "paragraphA": "En Tegger sabemos que",
-      "paragraphB": "tú como usuario juegas un papel muy valioso para los sitios y anunciantes.",
-      "paragraphC": "Nosotros lo reconocemos ofreciéndote beneficios por navegar.",
-      "paragraphD": ""
-    },
-    "wwd": {
-      "question": "LA SOLUCIÓN",
-      "title": "Tegger es una plataforma tecnológica que te ayuda a asumir tu rol clave en la cadena de valor del contenido digital.",
-      "titleMovile": "Plataforma tecnológica revolucionaria, que te permite recuperar el control de la información,",
-      "paragraph": "Compartimos el valor de la navegación con los usuarios y con los creadores de contenido y sitios para que puedan seguir creando contenido de calidad.",
-      "getRewards": "Recibe recompensas por navegar y llenar encuestas",
-      "choose": "Elige qué y cuándo quieres compartir",
-      "reward": "Navega seguro en nuestros sitios afiliados"
-    },
-    "news": {
-      "title": "NEWS",
-      "wts": [
-        "Crypto",
-        "Tegger distributes the value of online data",
-        " You can redeem your tokens for exclusive products. Tegger will also distribute a part of the information´s value to the sites and content creators you read so they can keep creating the quality content you love",
-        "Read more"
-      ]
-    }
+    "title": "Recibe recompensas por navegar",
+    "subTitle": "Ten control sobre la información que compartes y recibe recompensas por ella.",
+    "registerNow": "¡únete para ganar!",
+    "knowOurRewards": "Conoce las recompensas",
+    "wtmQuestion": "POR QUÉ ESTO IMPORTA",
+    "wtmAnswer": "En Tegger sabemos que tú como usuario juegas un papel muy valioso para los sitios y anunciantes. Nosotros lo reconocemos ofreciéndote beneficios por navegar.",
+    "solutionTitle": "La Solución",
+    "solution": "Tegger es una plataforma tecnológica que te ayuda a asumir tu rol clave en la cadena de valor del contenido digital.",
+    "solutionParagraph": "Compartimos el valor de la navegación con los usuarios y con los creadores de contenido y sitios para que puedan seguir creando contenido de calidad.",
+    "rewards": "Recompensas",
+    "rewardsContent": "Recibe recompensas por navegar y llenar encuestas",
+    "control": "Control",
+    "controlContent": "Elige qué y cuándo quieres compartir",
+    "secure": "Seguridad",
+    "secureContent": "Navega seguro en nuestros sitios afiliados"
   },
-  "about": {
-    "header": {
-      "question": "¿QUE HACEMOS?",
-      "title": "Tecnología que ayuda a recompensar a usuarios, sitios web y creadores de contenido por la navegación de los usuarios.",
-      "description": "",
-      "article": {
-        "title": "EL PROBLEMA",
-        "description": "Tegger es una plataforma innovadora diseñada para resolver un problema persistente en el ecosistema digital.",
-        "subTitleA": "Falta de conocimiento",
-        "sectionA": "Los sitios tienen poco conocimiento de su audiencia lo cual hace que no puedan curar correctamente contenido ni vender espacios publicitario de forma óptima.",
-        "subTitleB": "Pocos beneficios",
-        "sectionB": "Los usuarios reciben muy poco a cambio de navegar, aunque le generan un valor importante a los sitios y anunciantes."
-      }
-    },
-    "index": {
-      "article": "Tegger está creando una economía de datos justa que reconoce el rol de los usuarios y sitios web."
-    },
-    "features": {
-      "title": "FUNCIONALIDADES",
-      "sections": [
-        "Escoge cuándo prender y apagar el rastreo.",
-        "Gana recompensas adicionales por llenar misiones.",
-        "Escoge recompensas.",
-        "Recompensa a tus creadores de contenido. (Próximamente)"
-      ]
-    }
+  "whyUseTegger": {
+    "wut": "¿Por qué usar Tegger?",
+    "wutTitle": "Navega o cuéntanos de ti mismo para ganar recompensas.",
+    "wutSubTitle": "Tegger te ofrece las herramientas para escoger.",
+    "wutLogin": "Inicia sesión ó regístrate",
+    "wutLevel": "Sube de nivel con nuestros cuestionarios",
+    "wutBrowse": "Navega en sitios afiliados",
+    "wutMP": "Intercambia tus tokens por recompensas en el Marketplace"
   },
-  "howiw": {
-    "header": {
-      "question": "¿Cómo funciona?",
-      "title": "Tegger recopila la información que decides compartir a través de tus interacciones con sitios de aliados.",
-      "description": "Tegger usa un login para permitirte escoger el tipo de información que deseas compartir. Recibes tokens por interactuar con contenido de nuestros aliados así como compartir información optativa adicional la cual puedes canjear por recompensas.",
-      "article": {
-        "title": [
-          "INFORMACIÓN ADICIONAL OPTATIVA",
-          "MODELO DE RECOMPENSAS"
-        ],
-        "bolds": [
-          "Escoge ",
-          "Recibe tokens "
-        ],
-        "pargs": [
-          "qué tipo de información quieres compartir. Tegger rastreará únicamente los puntos que desees compartir.",
-          "en tiempo real cada vez que compartas tu información completando cuestionarios o navegando en sitios de nuestros aliados. Entre más información compartas, más tokens recibirás."
-        ]
-      }
-    },
-    "whatdyg": {
-      "question": "¿QUÉ RECIBES CON TEGGER?",
-      "content": "Tegger le brinda las herramientas para elegir qué datos compartir y obtener recompensa por ello."
-    },
-    "features": {
-      "dOne": [
-        "Inicia sesión cuando quieras",
-        "Sign up"
-      ],
-      "dTwo": [
-        "Activa",
-        "desactiva"
-      ],
-      "dThree": [
-        "Wallet ",
-        "para saldos y transacciones",
-        "para criptos"
-      ],
-      "dFour": "InteractÚa con el contenido que quieres",
-      "dFive": [
-        "Marketplace recompensas exclusivas"
-      ]
-    }
-  },
-  "wut": {
-    "question": "¿POR QUÉ USAR TEGGER?",
-    "title": "Navega o cuéntanos de ti mismo para ganar recompensas.",
-    "subTitle": "Tegger te ofrece las herramientas para escoger.",
-    "login": "Inicia sesión ó regístrate",
-    "browseContent": "Sube de nivel y navega en sitios afiliados",
-    "useRewards": "Recibe e intercambia tus recompensas en el marketplace",
-    "aboutA": "Aprende más sobre Tegger leyendo nuestro",
-    "aboutB": "white paper",
-    "aboutC": "¿Eres",
-    "aboutD": "inversor",
-    "aboutE": "or",
-    "aboutF": "editor?"
-  },
-  "joinTegger": {
-    "title": "¡Únete a Tegger ahora!",
-    "subTitleA": "Comienza a recibir recompensas por navegar.",
-    "subTitleB": "",
-    "subTitleC": "",
-    "moar": "¡Únete ahora!",
-    "learn": "Leer más:"
+  "callToAction": {
+    "CTATitle": "¡Únete a Tegger ahora!",
+    "CTASubTitle": "Comienza a recibir recompensas por navegar."
   },
   "footer": {
-    "moreAboutA": "Mantente en contacto con nosotros.",
-    "moreAboutB": "",
-    "moreAboutC": "",
-    "advertisersSpace": "Espacio publicitarios",
-    "tokenHolders": "Token holders",
-    "publishersSpace": "Espacio publicadores",
-    "getInTouch": "Contactar",
-    "privacityPolicy": "Política de privacidad",
-    "propertyStatement": "Términos y Condiciones"
+    "footKIT": "Mantente en contacto con nosotros.",
+    "footContact": "Contacto",
+    "footPrivacy": "Política de Privacidad",
+    "footTerms": "Términos y Condiciones",
+    "footFAQ": "FAQ's"
   },
-  "team": {
-    "carrousel": [
-      "Tegger está creando una economía de datos justa, que reconoce y valúa la propiedad de datos del individuo.",
-      "Tegger es punta de lanza en la lucha para proteger información de usuarios y su derecho a la privacidad.",
-      "Tegger generará información certera y confiable para curar mejor contenido y publicidad."
-    ],
-    "header": {
-      "title": "EL EQUIPO",
-      "subtitle": "Conoce al equipo que está haciendo de Tegger una realidad.",
-      "description": "Tegger está siendo construido por un equipo apasionado por crear una economía de datos justa. Nuestro equipo tiene un conocimiento profundo de la tecnología blockchain, así como de desarrollo, media digital y de la industria de datos. Estamos comprometidos a entregar un producto excelente que supere las expectativas de nuestros usuarios."
-    },
-    "infoGrid": {
-      "team": "Equipo",
-      "advisors": "Asesores",
-      "board": "Comité"
-    },
-    "members": {
-      "renato": "Renato Carregha es inversionista y analista del mundo de blockchain, con un enfoque particular en las tecnologías subyacentes. Es CIO de uno de los primeros vehículos de inversión de activos digitales en México que hoy, es el primer fondo abierto funcionando bajo las regulaciones de las leyes mexicanas, con más de 200 inversionistas y rendimientos consistentemente por encima de Bitcoin. Fue el asesor principal en temas de blockchain para el primer ICO mexicano y hoy asesora varios otros proyectos del tema en México y en el extranjero. Estudió Administración y Relaciones Internacionales en el ITAM, una universidad privada en la Ciudad de México. Anteriormente, trabajó para una firma internacional de consultoría en negocios, en la Secretaría de Hacienda y Crédito Público de México y en Procter & Gamble.",
-      "rene": "Rene es un experto en tecnologías de Internet, con amplio reconocimiento en México. Cuenta con más de 20 años de experiencia dirigiendo sitios de Internet con alta disponibilidad y tráfico como El Universal, Televisa y TV Azteca. Es Ingeniero en Electrónica y Comunicaciones y tiene una Maestría en Sistemas de Manufactura e Ingeniería Industrial por la Universidad Iberoamericana, y una especialidad en Desarrollo de Negocios por ITAM.",
-      "fernando": "Con más de 25 años de experiencia en Administración y Finanzas en publicidad, medios y en producción de eventos, Fernando Gómez ha participado en el análisis, desarrollo e implementación de CRM/ERPs en diferentes compañías trasnacionales y familiares. Es altamente comprometido, con la habilidad de agilizar y optimizar procesos para generar beneficios para la organización; apoya a las áreas gerenciales a maximizar y potenciar oportunidades de negocio, promoviendo la gestión del cambio y mejora de la productividad. Es un líder sólido con habilidades de comunicación interpersonales efectivas que conducen a una buena relación con todos los niveles dentro de la organización.",
-      "orlando": "Orlando Uribe tiene más de 9 años trabajando en Marketing Digital, desempeñando diferentes roles en agencias de medios, publicidad, agencias creativas y plataformas ad-tech, siendo también, miembro activo del IAB México como instructor del Digital Day of Programmatic and Media Planning. Su pasión es aprender algo nuevo cada día y esto es algo que puede lograr trabajando en el ecosistema digital. Se unió a Tegger para ayudar a proporcionar información sobre data market, ayudar con la adquisición de nueva audiencia con esfuerzos de medios pagados y generando nuevos productos comerciales.",
-      "abraham": "Abraham Cobos es co-fundador y CCO en Naos Blockchain. Tiene una amplia experiencia en la estructuración e implementación de proyectos de alto impacto para empresas multinacionales. Antes de fundar Naos Blockchain, Abraham desempeñó un papel de consultor en una de las firmas de consultoría de gestión más importantes de América Latina. Esta experiencia lo llevó a comprender las dificultades  de implementar estrategias complejas en el mundo real, buscando siempre la alta calidad y el más alto rendimiento en sus proyectos. Estudió Ingeniería de Desarrollo Sostenible en el ITESM, la universidad privada con mejor clasificación en México. Anteriormente trabajó en The Coca-Cola Company y para la Organización de Alimentos y Agricultura de la Organización de Naciones Unidas.",
-      "maried": "Maried Mena es la Gerente de Marketing de Tegger. Antes de trabajar en Tegger, se desempeñó como Gerente de Marketing para Cultura Colectiva. Supervisó el crecimiento y las mejoras estratégicas del equipo de ventas al proporcionar herramientas y experiencia. Lleva más de 10 años en la industria del marketing con marcas como: Movistar, L´Oréal, General Mills y Digitel. Tiene experiencia en la planificación y ejecución de campañas ATL, BTL y digitales.",
-      "mariana": "Mariana es una profesional impulsada hacia una visión de desarrollo estratégico. Comenzó su carrera en la compañía de cerveza más grande del mundo, Anheuser-Busch InBev, donde comenzó a desarrollar sus propias iniciativas, planificando e implementando una variedad de nuevos proyectos que impulsaron su camino hacia alcanzar una meta más grande; luego pasó a una de las mayores agencias de eventos en México para descubrir su verdadera pasión: crear y estructurar procesos para optimizar el rendimiento y potencializar las ganancias. Hoy en día, es la PMO de Tegger, en la que su enfoque digital ha crecido exponencialmente desde sus primeros días en Cultura Colectiva como gerente de administración financiera en la que estableció departamentos operativos como finanzas y la migración de la plataforma en la nube de Oracle.",
-      "ulises": "Ulises es un apasionado de los lenguajes visuales y nuevas tecnologías. Desarrolló su carrera durante casi 10 años en Grupo Televisa, lo que le permitió, entre otras cosas, crear el primer equipo dedicado a diseñar el user experience en plataformas móviles para esta compañía. Así como sentar las bases de la experiencia del usuario de todo el grupo y posteriormente, dirigió el área de diseño y experiencia del usuario para todas sus plataformas. Llegó a Tegger buscando crear productos digitales que se conviertan en experiencias memorables para sus diferentes usuarios.",
-      "fernanda": "Con más de 5 años de experiencia en el campo del diseño, Fernanda ha colaborado con marcas líderes como Compartamos Banco, OCC, Yogome, etc. Se ha centrado y se ha especializado en la usabilidad y la experiencia del usuario. A Fernanda le apasiona diseñar y optimizar el desarrollo de productos utilizando principios de funcionalidad, facilidad de uso e interacción para transformar las ideas de negocios en grandes experiencias de usuario.",
-      "alexis": "Alexis es un inversionista entusiasta de la tecnología blockchain. Ha estado desarrollando aplicaciones de software desde 2013, y desde mediados de 2017 ha estado involucrado en el ecosistema de la tecnología blockchain en México. Como líder en la iniciativa “Electchain“, un proyecto nacido en julio de 2018 cuyo objetivo es integrar la tecnología blockchain a los sistemas de votación digital, pudo atraer suficiente atención de los medios nacionales y también servir como referencia para personas de otros países interesados. en la implementación de estas tecnologías. Se unió a Cultura Colectiva con el objetivo principal de integrar técnicamente la tecnología blockchain para sus proyectos futuros. En la actualidad, todavía está realizando sus estudios de ingeniería en IPN - ESCOM, también desempeña el papel de cofundador y CTO en “Itzamna“, una startup que se enfoca principalmente en proyectos de software basados en blockchain e inteligencia artificial.",
-      "oscar": "Oscar Oceguera es ingeniero en sistemas computacionales con mas de 8 años de experiencia en el desarrollo e implementación de tecnologías web en diferentes compañías en el sector de inocuidad alimentaria, consultoría, creación de productos web a medida. Es un apasionado del lenguaje JavaScript. Es uno de los organizadores del eventloopmx meetup de javascript mas grande de Latinoamérica el cual  se realiza cada mes en la Ciudad de México. Actualmente se desempeña como full-stack developer para el proyecto de Tegger, buscando crear productos para personas no para usuarios.",
-      "joe": "José es un desarrollador apasionado con más de 6 años de experiencia en desarrollo web. Previamente trabajó en finanzas buscando siempre implementar automatización a los procesos de análisis financiero. Ha desarrollado aplicaciones a la medida para muchos clientes enfocándose en lenguajes back-end como PHP. Siempre está en búsqueda de ampliar su vocabulario tecnológico, cuando está aprendiendo nuevas tecnologías es cuando más feliz se le ve.",
-      "jorge": "Jorge  Villalobos es un entusiasta inversionista en Tecnología Blockchain, actualmente trabaja como analista en el primer en el primer fondo de inversión abierta que solo invierte en cripto-activos regulados por las autoridades mexicanas. Como analista, está desarrollando nuevas metodologías de valoración para el espacio criptográfico con un enfoque particular en los tokens de utilidad y la creación de valor en ecosistemas exitosos.Como miembro de Tegger, él está a cargo del análisis que respalda la economía del ecosistema.",
-      "joselu": "José Luis tiene más de 15 años de experiencia en desarrollo e implementación de nuevas tecnologías en diferentes tipos de compañías. Estuve a cargo del equipo de desarrollo en el periódico “El Universal” en dónde era responsable de la creación de plataformas web y aplicaciones móviles. El año pasado llegó a Cultura Colectiva con el objetivo de apoyar a la compañía para obtener una plataforma digital robusta para hacer crecer el negocio. Actualmente lidera el desarrollo de la plataforma basada en blockchain."
-    },
-    "advisors": {
-      "daniel": "Daniel tiene más de 9 años de experiencia en el sector tecnológico. Es el co-fundador y CEO de Bitso, la casa de cambio de criptomonedas y activos digitales líder en Latino América. Antes de Bitso, Daniel trabajó como Product Manager y programador en Quantcast. Posee una licenciatura en tecnologías de la información y una maestría en economía de la Universidad de Stanford. Posee también un MBA de la Harvard Business School.",
-      "javier": "Javier es la cabeza de GBM Digital, el ramo digital del banco mexicano GBM. Es el co-fundador de Polymath Capital, un sindicato líder en inversión y consejería en el ecosistema Blockchain. Javier ha fungido como consejero líder para varios proyectos relacionados con cripto-monedas.",
-      "andres": "Andrés es el co-fundador y jefe del consejo de Capitel, banca de inversión con experiencia global en ejecutar fusiones y adquisiciones así como otros tratos empresariales.",
-      "joseba": "José fue presidente de Grupo Televisa Internacional - la rama internacional de la compañía de medios y contenido de habla hispana líder en el mundo. Fungió como miembro del consejo en compañías de medios y como consejero en varios proyectos start-up.",
-      "charles": "Charles es el co-fundador y CEO de Docademic, una compañía global de telemedicina la cual lanzó con éxito el primer ICO en México. Regularmente participa como ponente en diferentes foros Blockchain en diversos eventos en el mundo."
-    },
-    "board": {
-      "luisen": "Luis es graduado del ITAM en las carreras de Matemáticas Aplicadas y Economía. Es CEO y co-fundador de Cultura Colectiva, la cuál, bajo su supervisión y administración, se ha convertido en la plataforma creadora de contenido más importante de Latinoamérica  y una de las 25 empresas de medios más importantes del mundo. Cultura Colectiva debe su crecimiento exponencial al análisis de datos que asegura la creación de contenido de calidad que acerca a sus audiencias entre sí. A finales de 2017 Cultura Colectiva abrió oficinas en Nueva York.",
-      "adolfo": "Adolfo es un joven empresario con una visión clara de inspirar a las personas a accionar y cambiar el mundo. Adolfo Cano es uno de los cofundadores de Cultura Colectiva, uno de los medios digitales generadores de contenido, más relevantes de su generación. Con 17 años de experiencia, ha jugado un papel clave al desarrollar y ayudar al proyecto a convertirse en una compañía internacional de medios y tecnología que vendió 10 millones de dólares en solo 3 años. Su pasión, liderazgo, capacidad para identificar las áreas de oportunidad del mercado y el aporte de su visión estratégica, son un factor invaluable para que Tegger llegue al siguiente nivel.",
-      "allan": "Allan tiene más de 9 años de experiencia en el sector financiero así como invirtiendo activamente el tecnologías basadas en Blockchain. Es el fundador y CEO de Lvna Capital, un fondo de inversión especializado en activos digitales nativos del blockchain. Antes de iniciar Lvna Allan fue socio de BPBI, un family office en la Ciudad de México y trabajó en banca de inversión en Lazard, ADR y Rothschild. Posee una licenciatura en matemáticas aplicadas por la Universidad de Columbia y un MBA de la Harvard Business School."
+  "news": {
+    "title": "NEWS",
+    "wts": [
+      "Crypto",
+      "Tegger distributes the value of online data",
+      " You can redeem your tokens for exclusive products. Tegger will also distribute a part of the information´s value to the sites and content creators you read so they can keep creating the quality content you love",
+      "Read more"
+    ]
+  },
+  "wwa": {
+    "wwaTitle": "¿QUE HACEMOS?",
+    "wwaSubTitle": "Tecnología que ayuda a recompensar a usuarios, sitios web y creadores de contenido por la navegación de los usuarios.",
+    "wwaEPTitle": "EL PROBLEMA",
+    "wwaEPSubTitle": "Tegger es una plataforma innovadora diseñada para resolver un problema persistente en el ecosistema digital.",
+    "wwaEPTitleA": "Falta de conocimiento",
+    "wwaEPSectionA": "Los sitios tienen poco conocimiento de su audiencia lo cual hace que no puedan curar correctamente contenido ni vender espacios publicitario de forma óptima.",
+    "wwaEPTitleB": "Pocos beneficios",
+    "wwaEPSectionB": "Los usuarios reciben muy poco a cambio de navegar, aunque le generan un valor importante a los sitios y anunciantes.",
+    "wwaArticle": "Tegger está creando una economía de datos justa que reconoce el rol de los usuarios y sitios web.",
+    "features": {
+      "title": "FUNCIONALIDADES",
+      "sectionA": "Escoge cuándo prender y apagar el rastreo.",
+      "sectionB": "Gana recompensas adicionales por llenar misiones.",
+      "sectionC": "Escoge recompensas.",
+      "sectionD": "Recompensa a tus creadores de contenido. (Próximamente)",
+      "comingSoon": "(Próximente)"
     }
+  },
+  "HIW": {
+    "hiwTitle": "¿Cómo funciona?",
+    "hiwSubTitle": "Tegger recopila la información que decides compartir a través de tus interacciones con sitios de aliados.",
+    "hiwDescription": "Tegger usa un login para permitirte escoger el tipo de información que deseas compartir. Recibes tokens por interactuar con contenido de nuestros aliados así como compartir información optativa adicional la cual puedes canjear por recompensas.",
+    "hiwArticle": {
+      "title": [
+        "INFORMACIÓN ADICIONAL OPTATIVA",
+        "MODELO DE RECOMPENSAS"
+      ],
+      "bolds": [
+        "Escoge",
+        "Recibe tokens"
+      ],
+      "args": [
+        " qué tipo de información quieres compartir. Tegger rastreará únicamente los puntos que desees compartir.",
+        " en tiempo real cada vez que compartas tu información completando cuestionarios o navegando en sitios de nuestros aliados. Entre más información compartas, más tokens recibirás."
+      ]
+    }
+  },
+  "onboarding": {
+    "OBTitle": "¡Bienvenido al mundo Tegger!",
+    "OBSubTitle": "Tegger usa un login que te permite elegir qué tipos de datos deseas compartir e ingresar información adicional. Recibes tokens por tus interacciones con contenido y por compartir información autoinformada que puede cambiarse por recompensas."
   },
   "modal": {
     "title": "ÚNETE A TEGGER",

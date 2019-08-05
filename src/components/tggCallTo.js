@@ -5,8 +5,10 @@ import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
 import TggEmailInput from './inputs/TggEmailInput'
 import '../stylesheets/components/callToAction.scss'
+import {useSelector} from 'react-redux'
 
 export default function () {
+  const CTALang = useSelector(state => state.language.langJson.callToAction)
   return (
     <>
       <Box className="background CTABG"/>
@@ -14,12 +16,12 @@ export default function () {
         <Hidden mdDown>
           <Grid item md={4}/>
         </Hidden>
-        <Grid item xs={12} md={8} style={{}}>
+        <Grid item xs={12} md={8}>
           <Typography variant={'h1'} style={{color: 'white'}}>
-            ¡Únete a Tegger ahora!
+            {CTALang.CTATitle}
           </Typography>
           <Typography variant={'subtitle1'} style={{color: 'white', fontWeight: 'lighter', marginBottom: 60}}>
-            Comienza a recibir recompensas por navegar
+            {CTALang.CTASubTitle}
           </Typography>
           <TggEmailInput/>
         </Grid>

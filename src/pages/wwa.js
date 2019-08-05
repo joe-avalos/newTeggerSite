@@ -14,6 +14,7 @@ import CallToAction from '../components/tggCallTo'
 import TGGFooter from '../components/tggFooter'
 import '../stylesheets/pages/wwa.scss'
 import {TGGCloudLock, TGGHeart, TGGStar, TGGStarClick} from '../components/tggIcons'
+import {useSelector} from 'react-redux'
 
 const ExpansionPanel = withStyles({
   root: {
@@ -56,7 +57,7 @@ const ExpansionPanelDetails = withStyles(theme => ({
   }
 }))(MuiExpansionPanelDetails)
 
-function ControlledExpansionPanels() {
+function ControlledExpansionPanels({langWWA}) {
   const [expanded, setExpanded] = React.useState('panel1');
   
   const handleChange = panel => (event, isExpanded) => {
@@ -71,12 +72,11 @@ function ControlledExpansionPanels() {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography variant={'body1'}>Falta de conocimiento</Typography>
+          <Typography variant={'body1'}>{langWWA.wwaEPTitleA}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography variant={'body1'}>
-            Los sitios tienen poco conocimiento de su audiencia lo cual hace que no puedan curar correctamente contenido
-            ni vender espacios publicitario de forma óptima.
+            {langWWA.wwaEPSectionA}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -86,12 +86,11 @@ function ControlledExpansionPanels() {
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography variant={'body1'}>Pocos Beneficios</Typography>
+          <Typography variant={'body1'}>{langWWA.wwaEPTitleB}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography variant={'body1'}>
-            Los usuarios reciben muy poco a cambio de navegar, aunque le generan un valor importante a los sitios y
-            anunciantes.
+            {langWWA.wwaEPSectionB}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -99,30 +98,29 @@ function ControlledExpansionPanels() {
   );
 }
 
-export default function wwa() {
+export default function() {
+  const langWWA = useSelector(state => state.language.langJson.wwa)
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Box className="background wwTitleBG"/>
       <Grid container>
         <Grid item xs={12} md={6} className="wwTitle wwaTitle">
           <Typography variant={'h3'}>
-            ¿Qué hacemos?
+            {langWWA.wwaTitle}
           </Typography>
           <Typography variant={'h2'}>
-            Tecnología que ayuda a recompensar a usuarios, sitios web y creadores de contenido por la navegación de los
-            usuarios.
+            {langWWA.wwaSubTitle}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6} className="wwTitle wwaTitle relPos">
           <Paper elevation={4}>
             <Typography variant={'h3'}>
-              El Problema
+              {langWWA.wwaEPTitle}
             </Typography>
             <Typography variant={'h2'} style={{marginBottom: 10}}>
-              Tegger es una plataforma innovadora diseñada para resolver un problema persistente en el ecosistema
-              digital.
+              {langWWA.wwaEPSubTitle}
             </Typography>
-            <ControlledExpansionPanels/>
+            <ControlledExpansionPanels langWWA={langWWA} />
           </Paper>
         </Grid>
       </Grid>
@@ -133,7 +131,7 @@ export default function wwa() {
         </Hidden>
         <Grid item xs={12} md={5} className="wwaOrange">
           <Typography variant={'h2'} style={{color: 'white'}}>
-            <i>Tegger está creando una economía de datos justa que reconoce el rol de los usuarios y sitios web.</i>
+            <i>{langWWA.wwaArticle}</i>
           </Typography>
         </Grid>
       </Grid>
@@ -144,13 +142,13 @@ export default function wwa() {
         <Grid item xs={12} md={8} className="wwaFunctions">
           <Grid container>
             <Grid item xs={12}>
-              <Typography variant={'h3'}>Funcionalidades</Typography>
+              <Typography variant={'h3'}>{langWWA.features.title}</Typography>
             </Grid>
             <Grid item xs={12} md={6}>
               <Paper elevation={4}>
                 <TGGCloudLock/>
                 <Typography variant={'body2'}>
-                  Escoge cuando prender y apagar el rastreo.
+                  {langWWA.features.sectionA}
                 </Typography>
               </Paper>
             </Grid>
@@ -158,7 +156,7 @@ export default function wwa() {
               <Paper elevation={4}>
                 <TGGStar />
                 <Typography variant={'body2'}>
-                  Gana recompensas adicionales por llenar misiones.
+                  {langWWA.features.sectionB}
                 </Typography>
               </Paper>
             </Grid>
@@ -166,7 +164,7 @@ export default function wwa() {
               <Paper elevation={4}>
                 <TGGHeart/>
                 <Typography variant={'body2'}>
-                  Escoge recompensas.
+                  {langWWA.features.sectionC}
                 </Typography>
               </Paper>
             </Grid>
@@ -174,7 +172,7 @@ export default function wwa() {
               <Paper elevation={4}>
                 <TGGStarClick/>
                 <Typography variant={'body2'}>
-                  Recompensa a tus creadores de contenido.<br/>(Próximamente)
+                  {langWWA.features.sectionD}<br/>{langWWA.features.comingSoon}
                 </Typography>
               </Paper>
             </Grid>
