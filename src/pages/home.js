@@ -37,6 +37,31 @@ const ButtonUnete = withStyles(theme => ({
   },
 }))(Button)
 
+const GridSolucion = withStyles(theme => ({
+  root:{
+    width:350,
+    marginTop:60,
+    [theme.breakpoints.down('sm')]: {
+      width:'90%',
+    },
+  },
+}))(Grid)
+
+const GridTitle = withStyles(theme => ({
+  root:{
+    width:'100%',
+    [theme.breakpoints.down('sm')]: {
+      '&.MuiTypography-h1':{
+        fontSize:'3.1rem'
+      }
+
+    },
+  },
+}))(Grid)
+
+
+
+
 export default function home() {
   return (
     <Container maxWidth="lg" className="contentContainer">
@@ -46,7 +71,7 @@ export default function home() {
         <Hidden mdDown>
           <Grid item md={1}/>
         </Hidden>
-        <Grid item sm={12} md={5} className="homeTitle">
+        <GridTitle item sm={12} md={5} className="homeTitle">
           <Typography variant={"h1"}>
             Recibe recompensas por navegar
           </Typography>
@@ -55,7 +80,7 @@ export default function home() {
           </Typography>
           <ButtonUnete href="/getin">¡ÚNETE PARA GANAR!</ButtonUnete>
           <Button href="/marketplace" variant={'contained'}>Conoce las recompensas</Button>
-        </Grid>
+        </GridTitle>
       </Grid>
 
       <Grid container>
@@ -90,7 +115,7 @@ export default function home() {
               Nosotros distribuimos el valor de la navegación a los sitios creadores de contenido para que puedan seguir
               creando contenido de calidad.
             </Typography>
-            <Grid container>
+            <GridSolucion container>
               <Grid item xs={12} md={4}>
                 <TGGStar />
                 <Box>
@@ -124,7 +149,7 @@ export default function home() {
                   </Typography>
                 </Box>
               </Grid>
-            </Grid>
+            </GridSolucion>
           </StyledPaper>
         </Grid>
         <Hidden mdDown>

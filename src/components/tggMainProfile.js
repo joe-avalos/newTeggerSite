@@ -103,6 +103,7 @@ const UserGrid = withStyles(theme => ({
 
 const PrefGrid = withStyles(theme => ({
   root: {
+    marginLeft:'-25px',
     [theme.breakpoints.down('sm')]: {
       width: '100vw',
       marginLeft: -26,
@@ -304,7 +305,6 @@ const NavigationProgress = withStyles({
   }
 })(Box)
 
-<<<<<<< HEAD
 const InstructionBox = withStyles({
   root: {
     marginTop:'30px',
@@ -317,24 +317,12 @@ const InstructionBox = withStyles({
       height:76,
       borderRadius:'50%',
       backgroundSize: 'contain',
-=======
-const ButtonNavigation = withStyles(theme => ({
-  root:{
-    alignItems:'center',
-    '& .MuiButton-root': {
-      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png")',
-      width:120,
-      height:120,
-      borderRadius:'50%',
-      //backgroundSize: 'contain',
->>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize:'60%',
       margin:'20px 10px',
       backgroundColor: 'transparent',
       border: '1px solid black',
-<<<<<<< HEAD
       opacity:'.5',
 
       },
@@ -343,18 +331,6 @@ const ButtonNavigation = withStyles(theme => ({
       }
     },
   }) (Box)
-=======
-      [theme.breakpoints.down('sm')]: {
-        width:95,
-        height:95,
-      },
-    },
-    '& .MuiButton-root:last-of-type': {
-      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
-    }
-  }
-}))(Box)
->>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(1)
@@ -371,11 +347,11 @@ export default function ({profile}) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
     }
   })
-  
+
   function handleNavigationDialog() {
     setDialog({open:true, content:'navigation'})
   }
-  
+
   function handleClose() {
     setDialog({open: false, content: ''})
   }
@@ -553,24 +529,9 @@ export default function ({profile}) {
             </Tabs>
           </GamificationAppBar>
         </Grid>
-<<<<<<< HEAD
 
 
 
-=======
-        <Hidden>
-          <Grid item md={5} />
-        </Hidden>
-          <Grid item xs={12} md={2}>
-            <ButtonNavigation>
-              <Button href="https://culturacolectiva.com/" />
-              <Button href="https://news.culturacolectiva.com/" />
-            </ButtonNavigation>
-          </Grid>
-        <Hidden>
-          <Grid item md={5} />
-        </Hidden>
->>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
         {/*Preguntas niveles*/}
         <Grid item xs={12}>
 
