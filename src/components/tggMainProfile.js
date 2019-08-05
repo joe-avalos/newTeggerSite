@@ -103,7 +103,7 @@ const UserGrid = withStyles(theme => ({
 
 const PrefGrid = withStyles(theme => ({
   root: {
-    marginLeft:'-25px',
+    marginLeft: '-25px',
     [theme.breakpoints.down('sm')]: {
       width: '100vw',
       marginLeft: -26,
@@ -316,41 +316,43 @@ const InstructionBox = withStyles({
       width: 76,
       height: 76,
       borderRadius: '50%',
-      //backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize: '60%',
       margin: '20px 10px',
       backgroundColor: 'transparent',
       border: '1px solid black',
-      opacity:'.5',
-      },
-      '& .MuiButton-root:last-of-type': {
-        backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
-      }
+      opacity: '.5',
     },
-  }) (Box)
+    '& .MuiButton-root:last-of-type': {
+      backgroundImage: 'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
+    }
+  }
+})(Box)
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(1)
   const [dialog, setDialog] = React.useState({open: false, content: ''})
   const genders = data.genderTitles
   const SRQuestions = data.selfReportedQuestions
+  
   const dispatch = useDispatch()
   let answersTotals = useSelector(state => state.logged.answersTotals)
   let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
   let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
+  let currentLang = useSelector(state => state.language.lang)
+  let langProfile = useSelector(state => state.language.langJson.profile)
   
   React.useEffect(() => {
     if (_.isEmpty(answersTotals)) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
     }
   })
-
+  
   function handleNavigationDialog() {
     setDialog({open: true, content: 'navigation'})
   }
-
+  
   function handleClose() {
     setDialog({open: false, content: ''})
   }
@@ -406,7 +408,11 @@ export default function ({profile}) {
     return (
       <QuestionPaper elevation={4} key={index}>
         <Typography variant={'h3'}>
-          <span>-</span>{genders[profile.genre][index].titleEn}<span>-</span>
+          <span>-</span>{
+          currentLang === 'ES'
+            ? genders[profile.genre][index].titleEs
+            : genders[profile.genre][index].titleEn
+        }<span>-</span>
         </Typography>
         <Box>
           {item.modules.map((modItem, modIndex) => {
@@ -441,7 +447,14 @@ export default function ({profile}) {
           <ProfileGrid container>
             <Grid item xs={12} md={4}>
               <Avatar src={genders[profile.genre][profile.gamification].avatarImg}/>
-              <Typography><span>-</span>{genders[profile.genre][profile.gamification].titleEn}<span>-</span></Typography>
+              <Typography>
+                <span>-</span>
+                {
+                  currentLang === 'ES'
+                    ? genders[profile.genre][profile.gamification].titleEs
+                    : genders[profile.genre][profile.gamification].titleEn
+                }
+                <span>-</span></Typography>
             </Grid>
             <Grid item xs={12} md={8}>
               <Grid container>
@@ -470,20 +483,24 @@ export default function ({profile}) {
                       <>
                         <Grid item xs={6}>
                           {/*Profile location switch*/}
-                          
-                          <Typography variant={'h3'}>Localización<Box/></Typography>
+                          <Typography variant={'h3'}>{langProfile.location.title}<Box/></Typography>
                           <Button style={{marginTop: -12}}
                                   variant={'contained'}
                                   onClick={() => handlePrefChange('location')}
                           >
                             <Navigation style={{color: 'white', transform: 'rotate(45deg)'}}/>
                             <Typography
-                              variant={'body1'}>{profile.preferences.location ? 'Activada' : 'Desactivada'}</Typography>
+                              variant={'body1'}>
+                              {profile.preferences.location
+                                ? langProfile.location.active
+                                : langProfile.location.inactive
+                              }
+                            </Typography>
                           </Button>
                         </Grid>
                         <Grid item xs={6}>
                           {/*Profile tracking switch*/}
-                          <Typography variant={'h3'}>Navegación</Typography>
+                          <Typography variant={'h3'}>{langProfile.tracking}</Typography>
                           <Switch
                             checked={profile.preferences.tracking}
                             onChange={() => handlePrefChange('tracking')}
@@ -515,7 +532,13 @@ export default function ({profile}) {
                   <Tab key={index} value={index} label={
                     <>
                       <Avatar src={item.avatarImg}/>
-                      <Typography variant={'body2'}>{item.titleEn}</Typography>
+                      <Typography variant={'body2'}>
+                        {
+                          currentLang === 'ES'
+                            ? item.titleEs
+                            : item.titleEn
+                        }
+                      </Typography>
                       <CircularProgress
                         variant={'static'}
                         value={percentage}
@@ -532,50 +555,46 @@ export default function ({profile}) {
         <Grid item xs={12}>
           <InstructionBox>
             <Typography variant={"body1"}>
-              ¡Sube al siguiente nivel completando las encuestas y navegando en sitios afiliados para obtener más y
-              mejores premios!
+              {langProfile.CTA}
             </Typography>
-            <Button href="https://culturacolectiva.com/" target="_blank"> >
-            </Button>
-            <Button href="https://news.culturacolectiva.com/" target="_blank">></Button>
+            <Button href="https://culturacolectiva.com" target="_blank"/>
+            <Button href="https://news.culturacolectiva.com" target="_blank"/>
           </InstructionBox>
-          <Grid container>
-            <Hidden mdDown>
-              <Grid item md={4}/>
-            </Hidden>
-            <QuestionGrid item xs={12} md={4} className="SRSelected">
-              {SRQuestions.map((item, index) => {
-                if (index === 0) {
-                  return null
-                }
-                if (tabValue === index) {
-                  return (
-                    srPaper(item, index)
-                  )
-                }
-                return null
-              })}
-            </QuestionGrid>
-            <Hidden mdDown>
-              <Grid item md={4}/>
-            </Hidden>
-            <Hidden mdDown>
-              {SRQuestions.map((item, index) => {
-                if (index === 0) {
-                  return null
-                }
-                if (tabValue !== index) {
-                  return (
-                    <QuestionGrid item xs={6} key={index}>
-                      {srPaper(item, index)}
-                    </QuestionGrid>
-                  )
-                }
-                return null
-              })}
-            </Hidden>
-          </Grid>
         </Grid>
+        <Hidden mdDown>
+          <Grid item md={4}/>
+        </Hidden>
+        <QuestionGrid item xs={12} md={4} className="SRSelected">
+          {SRQuestions.map((item, index) => {
+            if (index === 0) {
+              return null
+            }
+            if (tabValue === index) {
+              return (
+                srPaper(item, index)
+              )
+            }
+            return null
+          })}
+        </QuestionGrid>
+        <Hidden mdDown>
+          <Grid item md={4}/>
+        </Hidden>
+        <Hidden mdDown>
+          {SRQuestions.map((item, index) => {
+            if (index === 0) {
+              return null
+            }
+            if (tabValue !== index) {
+              return (
+                <QuestionGrid item md={6} key={index}>
+                  {srPaper(item, index)}
+                </QuestionGrid>
+              )
+            }
+            return null
+          })}
+        </Hidden>
       </Grid>
       <TGGDialog open={dialog.open} content={dialog.content} handleClose={handleClose}/>
     </>

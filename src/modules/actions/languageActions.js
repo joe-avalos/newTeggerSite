@@ -21,9 +21,10 @@ export function langauageHasErrored(error) {
   }
 }
 
-export function languageChangeSuccess(langJson) {
+export function languageChangeSuccess(lang, langJson) {
   return {
     type: LANGUAGE_OPTIONS.LANGUAGE_CHANGE_SUCCESS,
+    lang: lang,
     langJson: langJson
   }
 }
@@ -33,14 +34,14 @@ export function languageChange(newLang) {
     dispatch(languageIsLoading(true))
     
     switch (newLang) {
-      case 'en':
-        dispatch(languageChangeSuccess(English))
+      case 'EN':
+        dispatch(languageChangeSuccess('EN', English))
         return
-      case 'es':
-        dispatch(languageChangeSuccess(Spanish))
+      case 'ES':
+        dispatch(languageChangeSuccess('ES', Spanish))
         return
       default:
-        dispatch(languageChangeSuccess(Spanish))
+        dispatch(languageChangeSuccess('ES', Spanish))
     }
     dispatch(languageIsLoading(false))
   }

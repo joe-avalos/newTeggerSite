@@ -12,7 +12,8 @@
     "profile": "Profile",
     "marketplace": "Marketplace",
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "language": "Change Language"
   },
   "commons": {
     "startGettingRewards": "Start getting rewards!",
@@ -111,6 +112,20 @@
     "OBTitle": "Wellcome to Tegger!",
     "OBSubTitle": "Tegger uses a login to let you choose what types of data you want to share and input additional information. You receive tokens for your interactions with partner content and for sharing self-reported information. You can trade the tokens for rewards on our marketplace."
   },
+  "profile": {
+    "location": {
+      "title":"Location",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "tracking": "Tracking",
+    "CTA": "Level up by filling out surveys telling us more about yourself, and browsing on partner sites."
+  },
+  "getIn": {
+    "title": "JOIN NOW!",
+    "subTitle": "Enter your email to begin.",
+    "msg": "Get your first tokens and exchange them for products in our marketplace."
+  },
   "modal": {
     "title": "JOIN TEGGER",
     "bigText": "Get your first 50 tokens",
@@ -121,11 +136,7 @@
   "input": {
     "placeholder": "Enter your email"
   },
-  "getIn": {
-    "title": "JOIN NOW!",
-    "subtitle": "Enter your email to begin.",
-    "msg": "Get your first tokens and exchange them for products in our marketplace."
-  },
+
   "signup": {
     "title": "SIGN UP!",
     "subtitle": "Create a free account",

@@ -58,7 +58,7 @@ export function loggedFetchTotalAnswersSuccess(answersTotals) {
 
 export function loggedFetchModuleAnswersSuccess(moduleAnswers) {
   return {
-    type: LOGGED_ACTIONS.LOGGED_TOTAL_ANSWERS_SUCCESS,
+    type: LOGGED_ACTIONS.LOGGED_MODULE_ANSWERS_SUCCESS,
     moduleAnswers: moduleAnswers
   }
 }

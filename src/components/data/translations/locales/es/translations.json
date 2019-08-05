@@ -12,7 +12,8 @@
     "profile": "Perfil",
     "marketplace": "Marketplace",
     "settings": "Ajustes",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "language": "Cambiar Idioma"
   },
   "commons": {
     "startGettingRewards": "¡Obtén tus primeros 50 tokens!",
@@ -108,6 +109,20 @@
     "OBTitle": "¡Bienvenido al mundo Tegger!",
     "OBSubTitle": "Tegger usa un login que te permite elegir qué tipos de datos deseas compartir e ingresar información adicional. Recibes tokens por tus interacciones con contenido y por compartir información autoinformada que puede cambiarse por recompensas."
   },
+  "profile": {
+    "location": {
+      "title":"Ubicación",
+      "active": "Activada",
+      "inactive": "Desactivada"
+    },
+    "tracking": "Navegación",
+    "CTA": "¡Sube al siguiente nivel completando las encuestas y navegando en sitios afiliados para obtener más y mejores premios!"
+  },
+  "getIn": {
+    "title": "¡Entrar!",
+    "subTitle": "Ingresa tu correo para comenzar.",
+    "msg": "Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace."
+  },
   "modal": {
     "title": "ÚNETE A TEGGER",
     "bigText": "¡Recibe tus primeros 50 tokens!",
@@ -118,11 +133,7 @@
   "input": {
     "placeholder": "Ingresa tu correo"
   },
-  "getIn": {
-    "title": "¡Entrar!",
-    "subtitle": "Ingresa tu correo para comenzar.",
-    "msg": "Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace."
-  },
+
   "signup": {
     "title": "¡REGISTRATE!",
     "subtitle": "Crea una cuenta nueva",
