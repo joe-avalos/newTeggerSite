@@ -4,11 +4,13 @@
 .background{
   &.CTABG{
     @include gradient('secondary','https://files.tegger.io/assets/tegger/images/reactHome/tegger-bg.svg');
+    background-size: 50%, cover;
     left: 0;
     height: 650px;
     width: 100%;
     @media screen and (max-width: $smWidth) {
       height: 450px;
+      background-size: 200%, cover;
     }
   }
 }

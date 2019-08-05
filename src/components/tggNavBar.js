@@ -88,6 +88,16 @@ const MenuButton = withStyles({
   }
 })(Button)
 
+const ButtonGetin = withStyles({
+  root: {
+    padding:'5px 23px',
+    backgroundColor:'#ff6633',
+    height:41,
+    fontSize:'0.8125rem'
+
+  }
+})(Button)
+
 const MobileNavList = withStyles({
   root: {
     width: '100%',
@@ -110,7 +120,7 @@ export default function (props) {
     window.location.pathname === '/wwa' ||
     window.location.pathname === '/wwd' ||
     window.location.pathname === '/benefits'
-  
+
   const langNavBar = useSelector(state => state.language.langJson.navBar)
 
   function handleTabClick(e, v) {
@@ -153,7 +163,7 @@ export default function (props) {
             </NavBarTabs>
             {!loggedIn &&
             <NavRight component="div">
-              <Button href="/getin">{langNavBar.registerLogin}</Button>
+              <ButtonGetin href="/getin">{langNavBar.registerLogin}</ButtonGetin>
             </NavRight>
             }
             {loggedIn &&

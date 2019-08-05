@@ -38,7 +38,7 @@
     cursor: pointer;
   }
   @media screen and (max-width: $smWidth){
-    text-align: center;
+    margin: auto;
   }
 }
 .socials{
@@ -51,7 +51,10 @@
 }
 .copyright{
   text-align: right;
+  font-size: 0.9375rem;
   @media screen and (max-width: $smWidth){
     padding-top: 10px;
+    text-align: center;
+    font-size: 0.9375rem;
   }
 }

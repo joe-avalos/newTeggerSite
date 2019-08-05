@@ -27,12 +27,17 @@ import TGGDialog from './TGGDialog'
 //Material UI Component Overrides
 const MobileProfileBG = withStyles(theme => ({
   root: {
+    backgroundImage: 'url("")',
+    backgroundPosition: 'right',
+    backgroundSize: '49%',
+    backgroundRepeat: 'no-repeat',
     [theme.breakpoints.down('sm')]: {
       width: '100vw',
       margin: -26,
       paddingLeft: 26,
       backgroundColor: theme.palette.primary.main,
-      maxWidth: 'initial'
+      maxWidth: 'initial',
+
     }
   }
 }))(Grid)
@@ -136,7 +141,7 @@ const PrefGrid = withStyles(theme => ({
       marginRight: 0,
       paddingRight: 0
     }
-    
+
   }
 }))(Grid)
 
@@ -340,7 +345,7 @@ export default function ({profile}) {
   let answersTotals = useSelector(state => state.logged.answersTotals)
   let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
   let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
-  
+
   React.useEffect(() => {
     if (_.isEmpty(answersTotals)) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
@@ -354,7 +359,7 @@ export default function ({profile}) {
   function handleClose() {
     setDialog({open: false, content: ''})
   }
-  
+
   function search(nameKey, myArray = answersTotals) {
     if (!myArray) {
       return null
@@ -365,7 +370,7 @@ export default function ({profile}) {
       }
     }
   }
-  
+
   function getCompletedPercentage(item, index, mod = false) {
     if (SRQuestions[index]) {
       let qLength = SRQuestions[index].modules.length
@@ -383,7 +388,7 @@ export default function ({profile}) {
       return (answered / totalQuestions) * 100
     }
   }
-  
+
   function handlePrefChange(pref) {
     dispatch(loggedPreferenceChange({
         location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
@@ -392,15 +397,15 @@ export default function ({profile}) {
       profile.uuid
     ))
   }
-  
+
   function handleTabChange(e, v) {
     setTabValue(v)
   }
-  
+
   function handleQuestionClick(qCode) {
     dispatch(push('/question/' + qCode))
   }
-  
+
   function srPaper(item, index) {
     //Paper con elevación para crear los cuadros de las preguntas autoreportadas
     return (
@@ -429,7 +434,7 @@ export default function ({profile}) {
       </QuestionPaper>
     )
   }
-  
+
   return (
     <>
       <Grid container>
@@ -470,7 +475,7 @@ export default function ({profile}) {
                       <>
                         <Grid item xs={6}>
                           {/*Profile location switch*/}
-                          
+
                           <Typography variant={'h3'}>Localización<Box/></Typography>
                           <Button style={{marginTop: -12}}
                                   variant={'contained'}
