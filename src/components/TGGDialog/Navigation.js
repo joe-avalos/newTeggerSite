@@ -1,6 +1,5 @@
-Navigation.js
-
 import React from 'react'
+
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
@@ -8,8 +7,6 @@ import Grid from '@material-ui/core/Grid'
 import DialogContent from '@material-ui/core/DialogContent'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/styles/withStyles'
-
-import Privacy from '../content/privacy'
 
 const GridDialog = withStyles(theme => ({
   root:{
@@ -48,7 +45,7 @@ const ButtonNavigation = withStyles(theme => ({
       width:120,
       height:120,
       borderRadius:'50%',
-      backgroundSize: 'contain',
+      //backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize:'60%',
@@ -69,25 +66,21 @@ const ButtonNavigation = withStyles(theme => ({
 export default function () {
   return (
     <>
-
       <GridDialog container xs={12}>
         <Grid item xs={12}>
           <DialogTitle>
             <Typography variant={'h3'}>Mi navegación</Typography>
           </DialogTitle>
-
           <DialogContent>
             <Typography variant={'body2'}>Para obtener más puntos y subir de nivel quiero navegar en:</Typography>
               <ButtonNavigation>
-                <Button href="https://culturacolectiva.com/" >
-                </Button>
-                <Button href="https://news.culturacolectiva.com/"></Button>
+                <Button href="https://culturacolectiva.com/" />
+                <Button href="https://news.culturacolectiva.com/" />
               </ButtonNavigation>
             <Typography variant={'body3'}>*Recuerda iniciar sesión en el sitio.</Typography>
           </DialogContent>
         </Grid>
       </GridDialog>
-
     </>
   )
 }

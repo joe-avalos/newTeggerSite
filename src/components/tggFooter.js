@@ -21,6 +21,9 @@ export default function () {
   function handleNavigation() {
     setDialog({open:true, content:'navigation'})
   }
+  function handleHelp() {
+    setDialog({open:true, content:'help'})
+  }
   function handleClose() {
     setDialog({open: false, content: ''})
   }
@@ -64,7 +67,7 @@ export default function () {
                 <Typography variant={'body2'} onClick={handleTerms}>
                   Términos y Condiciones
                 </Typography>
-                <Typography variant={'body2'}>
+                <Typography variant={'body2'} onClick={handleHelp}>
                   FAQ's
                 </Typography>
               </Breadcrumbs>

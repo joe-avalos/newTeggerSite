@@ -8,6 +8,7 @@ import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
 
 import isMobile from 'validator/lib/isMobilePhone'
+import isInt from 'validator/lib/isInt'
 import {useDispatch, useSelector} from 'react-redux'
 import _ from 'lodash'
 
@@ -50,6 +51,7 @@ export default function ({match}) {
   const mod = search()
   const dispatch = useDispatch()
   const userUUID = useSelector(state => state.logged.profile.uuid)
+  const userGender = useSelector(state => state.logged.profile.genre)
   const moduleAnswers = useSelector(state => state.logged.moduleAnswers)
   let basic = false
   let select = {}
@@ -101,6 +103,12 @@ export default function ({match}) {
       let error = {}
       if (values['16ad17ae2cb71ac03040f06aeec347e1'] && !isMobile(values['16ad17ae2cb71ac03040f06aeec347e1'])) {
         error['16ad17ae2cb71ac03040f06aeec347e1'] = 'Ingresa un número de celular válido'
+      }
+      if (values['689e536d1eaa33690072412a07324caa'] && !isInt(values['689e536d1eaa33690072412a07324caa'],{min:0,max:99})) {
+        error['689e536d1eaa33690072412a07324caa'] = 'Ingresa un número positivo'
+      }
+      if (values['beccfbf04ace26ff365efb49572b06d8'] && !isInt(values['beccfbf04ace26ff365efb49572b06d8'],{min:0,max:99})) {
+        error['beccfbf04ace26ff365efb49572b06d8'] = 'Ingresa un número positivo'
       }
       return error
     }
@@ -185,10 +193,10 @@ export default function ({match}) {
           {mod.name}
         </Typography>
         <Typography variant={'h2'}>
-          Básicos
+          {data.genderTitles[userGender][mod.level].titleEn}
         </Typography>
         <Typography variant={'body1'}>
-          Elige las opciones con las que más te identificas.
+          {mod.level === 3 ? 'En los próximos meses cuales de estas categorías tienes pensado comprar' : 'Cuéntanos un poco de ti'}
         </Typography>
       </BoxQuestionHeader>
       <QuestionForm/>

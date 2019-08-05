@@ -23,6 +23,7 @@ import _ from 'lodash'
 import data from './data/selfReportedData'
 import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/actions/loggedActions'
 import '../stylesheets/components/tggMainProfile.scss'
+import TGGDialog from './TGGDialog'
 //Material UI Component Overrides
 const MobileProfileBG = withStyles(theme => ({
   root: {
@@ -243,7 +244,6 @@ const QuestionPaper = withStyles({
     position: 'relative',
     '& .MuiBox-root:first-of-type': {
       display: 'flex',
-      overflowX: 'scroll',
       maxWidth: '100%'
     },
     '& .MuiBox-root:last-of-type': {
@@ -292,6 +292,7 @@ const QuestionButton = withStyles({
 
 const NavigationProgress = withStyles({
   root: {
+    cursor: 'pointer',
     '& .MuiLinearProgress-root': {
       width: '70%',
       margin: 'auto',
@@ -303,6 +304,7 @@ const NavigationProgress = withStyles({
   }
 })(Box)
 
+<<<<<<< HEAD
 const InstructionBox = withStyles({
   root: {
     marginTop:'30px',
@@ -315,12 +317,24 @@ const InstructionBox = withStyles({
       height:76,
       borderRadius:'50%',
       backgroundSize: 'contain',
+=======
+const ButtonNavigation = withStyles(theme => ({
+  root:{
+    alignItems:'center',
+    '& .MuiButton-root': {
+      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png")',
+      width:120,
+      height:120,
+      borderRadius:'50%',
+      //backgroundSize: 'contain',
+>>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize:'60%',
       margin:'20px 10px',
       backgroundColor: 'transparent',
       border: '1px solid black',
+<<<<<<< HEAD
       opacity:'.5',
 
       },
@@ -329,10 +343,23 @@ const InstructionBox = withStyles({
       }
     },
   }) (Box)
+=======
+      [theme.breakpoints.down('sm')]: {
+        width:95,
+        height:95,
+      },
+    },
+    '& .MuiButton-root:last-of-type': {
+      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
+    }
+  }
+}))(Box)
+>>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(1)
-  const genders = data.genreTitles
+  const [dialog, setDialog] = React.useState({open:false, content:''})
+  const genders = data.genderTitles
   const SRQuestions = data.selfReportedQuestions
   const dispatch = useDispatch()
   let answersTotals = useSelector(state => state.logged.answersTotals)
@@ -344,6 +371,14 @@ export default function ({profile}) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
     }
   })
+  
+  function handleNavigationDialog() {
+    setDialog({open:true, content:'navigation'})
+  }
+  
+  function handleClose() {
+    setDialog({open: false, content: ''})
+  }
 
   function search(nameKey, myArray = answersTotals) {
     if (!myArray) {
@@ -413,7 +448,7 @@ export default function ({profile}) {
             )
           })}
         </Box>
-        <NavigationProgress>
+        <NavigationProgress onClick={handleNavigationDialog}>
           <LinearProgress variant={'determinate'} value={45}/>
         </NavigationProgress>
       </QuestionPaper>
@@ -518,9 +553,24 @@ export default function ({profile}) {
             </Tabs>
           </GamificationAppBar>
         </Grid>
+<<<<<<< HEAD
 
 
 
+=======
+        <Hidden>
+          <Grid item md={5} />
+        </Hidden>
+          <Grid item xs={12} md={2}>
+            <ButtonNavigation>
+              <Button href="https://culturacolectiva.com/" />
+              <Button href="https://news.culturacolectiva.com/" />
+            </ButtonNavigation>
+          </Grid>
+        <Hidden>
+          <Grid item md={5} />
+        </Hidden>
+>>>>>>> cc9d7ad4fd139e26037a6878de804d832b0ce32d
         {/*Preguntas niveles*/}
         <Grid item xs={12}>
 
@@ -571,6 +621,7 @@ export default function ({profile}) {
           </Grid>
         </Grid>
       </Grid>
+      <TGGDialog open={dialog.open} content={dialog.content} handleClose={handleClose} />
     </>
   )
 }

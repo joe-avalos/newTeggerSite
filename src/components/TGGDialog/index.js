@@ -2,18 +2,13 @@ import React from 'react'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import Button from '@material-ui/core/Button'
-import withStyles from '@material-ui/styles/withStyles'
 import Terms from './Terms'
+import Help from './Help'
 import Privacy from './Privacy'
+import Navigation from './Navigation'
+import Success from './Success'
 
 const TGGDialog = ({open, content, handleClose}) => {
-
-  const DialogActionsInfo = withStyles(theme => ({
-    root:{
-
-
-    }
-  }))(DialogActions)
 
   return (
     <Dialog
@@ -23,9 +18,12 @@ const TGGDialog = ({open, content, handleClose}) => {
     >
       {content === 'terms' && <Terms />}
       {content === 'privacy' && <Privacy />}
-      <DialogActionsInfo>
+      {content === 'navigation' && <Navigation />}
+      {content === 'success' && <Success />}
+      {content === 'help' && <Help />}
+      <DialogActions>
         <Button onClick={handleClose} variant={'contained'}>Cerrar</Button>
-      </DialogActionsInfo>
+      </DialogActions>
     </Dialog>
   )
 }
