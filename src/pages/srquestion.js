@@ -52,7 +52,7 @@ export default function ({match}) {
   const dispatch = useDispatch()
   const userUUID = useSelector(state => state.logged.profile.uuid)
   const userGender = useSelector(state => state.logged.profile.genre)
-  const moduleAnswers = useSelector(state => state.logged.moduleAnswers)
+  let moduleAnswers = useSelector(state => state.logged.moduleAnswers)
   let basic = false
   let select = {}
   const [firstLoad, setFirstLoad] = React.useState(true)
@@ -93,7 +93,7 @@ export default function ({match}) {
   }
   
   const QuestionForm = () => {
-    const {values, errors, handleSubmit, handleChange} = useForm(callback, validate, select)
+    const {values, errors, handleSubmit, handleChange} = useForm(callback, validate, moduleAnswers)
     
     function callback() {
       dispatch(loggedPostModuleAnswers(values, userUUID, mod.code))

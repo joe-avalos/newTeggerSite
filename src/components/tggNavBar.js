@@ -1,5 +1,5 @@
 import React from 'react'
-
+// Material UI Core Imports
 import AppBar from '@material-ui/core/AppBar'
 import Avatar from '@material-ui/core/Avatar'
 import Box from '@material-ui/core/Box'
@@ -22,14 +22,18 @@ import Tabs from '@material-ui/core/Tabs'
 import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
+//Material UI Styles Imports
 import withStyles from '@material-ui/styles/withStyles'
-
+//Material UI Icon Imports
+import LangWorld from '@material-ui/icons/Language'
+//Third party imports
 import {useDispatch, useSelector} from "react-redux"
 import {push} from 'connected-react-router'
-
+//App components imports
 import {TGGShop, TGGWallet, TGGProfile, TGGSettings, TGGLogout} from './tggIcons'
 import '../stylesheets/components/navBar.scss'
 import {loggedLogout} from '../modules/actions/loggedActions'
+import {languageChange} from '../modules/actions/languageActions'
 
 function ElevationScroll(props) {
   const {children} = props
@@ -37,7 +41,7 @@ function ElevationScroll(props) {
     disableHysteresis: true,
     threshold: 0,
   })
-
+  
   return React.cloneElement(children, {
     elevation: trigger ? 1 : 0,
     style: {
@@ -51,8 +55,8 @@ const NavBarTab = withStyles((theme) => ({
   root: {
     height: 38,
     fontWeight: '600',
-    fontSize:'13px',
-    color:'black',
+    fontSize: '13px',
+    color: 'black',
     '&:first-of-type': {
       width: 150,
       marginRight: theme.spacing(9)
@@ -101,7 +105,7 @@ const ButtonGetin = withStyles({
 const MobileNavList = withStyles({
   root: {
     width: '100%',
-    '& .MuiListItem-root':{
+    '& .MuiListItem-root': {
       paddingTop: 0,
       paddingBottom: 0
     }
@@ -109,43 +113,51 @@ const MobileNavList = withStyles({
 })(List)
 
 export default function (props) {
-  const dispatch = useDispatch()
+  //Component Hook state constants
   const [open, setOpen] = React.useState(false)
-  const loggedIn = useSelector(state => state.logged.profile.uuid) !== ''
-  const profile = useSelector(state => state.logged.profile)
-  const [activeNav, setActiveNav] = React.useState(loggedIn ? '/profile' : '/')
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const loggedIn = useSelector(state => state.logged.profile.uuid) !== ''
+  const [activeNav, setActiveNav] = React.useState(loggedIn ? '/profile' : '/')
+  //Component Redux state constants
+  const dispatch = useDispatch()
+  const profile = useSelector(state => state.logged.profile)
+  const currentLang = useSelector(state => state.language.lang)
+  const langNavBar = useSelector(state => state.language.langJson.navBar)
   const MenuOpen = Boolean(anchorEl)
+  
   const staticPages = window.location.pathname === '/' ||
     window.location.pathname === '/wwa' ||
     window.location.pathname === '/wwd' ||
     window.location.pathname === '/benefits'
-
-  const langNavBar = useSelector(state => state.language.langJson.navBar)
-
+  
+  //Component functions
   function handleTabClick(e, v) {
     setActiveNav(v)
     dispatch(push(v))
     setOpen(false)
   }
-
+  
+  function handleLangChange() {
+    dispatch(languageChange(currentLang === 'ES' ? 'EN' : 'ES'))
+  }
+  
   function handleExpandToggle() {
     setOpen(!open)
   }
-
+  
   function handleMenu(e) {
     setAnchorEl(e.currentTarget)
   }
-
+  
   function handleClose() {
     setAnchorEl(null)
   }
-
+  
   function handleLogout() {
     handleClose()
     dispatch(loggedLogout())
   }
-
+  
   return (
     <ElevationScroll {...props}>
       <AppBar position={"sticky"} style={{backgroundColor: "transparent"}}>
@@ -163,7 +175,15 @@ export default function (props) {
             </NavBarTabs>
             {!loggedIn &&
             <NavRight component="div">
-              <ButtonGetin href="/getin">{langNavBar.registerLogin}</ButtonGetin>
+              <Button href="/getin">{langNavBar.registerLogin}</Button>
+              <IconButton
+                disableRipple
+                disableTouchRipple
+                disableFocusRipple
+                onClick={handleLangChange}
+              >
+                <LangWorld/>
+              </IconButton>
             </NavRight>
             }
             {loggedIn &&
@@ -194,20 +214,48 @@ export default function (props) {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>
-                  <MenuButton variant={'contained'} href="/profile">
+                  <MenuButton
+                    disableRipple
+                    disableTouchRipple
+                    disableFocusRipple
+                    variant={'contained'}
+                    href="/profile"
+                  >
                     <TGGProfile/>
                     <Typography variant={'body2'}>{langNavBar.profile}</Typography>
                   </MenuButton>
                 </MenuItem>
                 <Divider/>
                 <MenuItem onClick={handleClose}>
-                  <MenuButton variant={'contained'} href="/settings">
+                  <MenuButton
+                    disableRipple
+                    disableTouchRipple
+                    disableFocusRipple
+                    variant={'contained'}
+                    href="/settings"
+                  >
                     <TGGSettings/>
                     <Typography variant={'body2'}>{langNavBar.settings}</Typography>
                   </MenuButton>
                 </MenuItem>
+                <MenuItem onClick={handleLangChange}>
+                  <MenuButton
+                    disableRipple
+                    disableTouchRipple
+                    disableFocusRipple
+                    variant={'contained'}
+                  >
+                    <LangWorld/>
+                    <Typography variant={'body2'}>{currentLang}</Typography>
+                  </MenuButton>
+                </MenuItem>
                 <MenuItem onClick={handleLogout}>
-                  <MenuButton variant={'contained'}>
+                  <MenuButton
+                    disableRipple
+                    disableTouchRipple
+                    disableFocusRipple
+                    variant={'contained'}
+                  >
                     <TGGLogout/>
                     <Typography variant={'body2'}>{langNavBar.logout}</Typography>
                   </MenuButton>
@@ -243,32 +291,84 @@ export default function (props) {
                     </ListItem>
                     <Divider/>
                     <ListItem>
-                      <MenuButton fullWidth href="/profile" variant={'contained'} onClick={handleExpandToggle}>
+                      <MenuButton
+                        disableRipple
+                        disableTouchRipple
+                        disableFocusRipple
+                        fullWidth
+                        href="/profile"
+                        variant={'contained'}
+                        onClick={handleExpandToggle}
+                      >
                         <TGGProfile/>
                         <Typography variant={'body2'}>{langNavBar.profile}</Typography>
                       </MenuButton>
                     </ListItem>
                     <ListItem>
-                      <MenuButton fullWidth href="/wallet" variant={'contained'} onClick={handleExpandToggle}>
+                      <MenuButton
+                        disableRipple
+                        disableTouchRipple
+                        disableFocusRipple
+                        fullWidth
+                        href="/wallet"
+                        variant={'contained'}
+                        onClick={handleExpandToggle}
+                      >
                         <TGGWallet/>
                         <Typography variant={'body2'}>{langNavBar.wallet}</Typography>
                       </MenuButton>
                     </ListItem>
                     <ListItem>
-                      <MenuButton fullWidth href="/marketplace" variant={'contained'} onClick={handleExpandToggle}>
+                      <MenuButton
+                        disableRipple
+                        disableTouchRipple
+                        disableFocusRipple
+                        fullWidth
+                        href="/marketplace"
+                        variant={'contained'}
+                        onClick={handleExpandToggle}
+                      >
                         <TGGWallet/>
                         <Typography variant={'body2'}>{langNavBar.marketplace}</Typography>
                       </MenuButton>
                     </ListItem>
                     <Divider/>
                     <ListItem>
-                      <MenuButton fullWidth href="/settings" variant={'contained'} onClick={handleExpandToggle}>
+                      <MenuButton
+                        disableRipple
+                        disableTouchRipple
+                        disableFocusRipple
+                        fullWidth
+                        href="/settings"
+                        variant={'contained'}
+                        onClick={handleExpandToggle}
+                      >
                         <TGGSettings/>
                         <Typography variant={'body2'}>{langNavBar.settings}</Typography>
                       </MenuButton>
                     </ListItem>
                     <ListItem>
-                      <MenuButton fullWidth href="/logout" variant={'contained'} onClick={handleExpandToggle}>
+                      <MenuButton
+                        disableRipple
+                        disableTouchRipple
+                        disableFocusRipple
+                        fullWidth
+                        variant={'contained'}
+                        onClick={handleLangChange}
+                      >
+                        <LangWorld/>
+                        <Typography variant={'body2'}>{currentLang}</Typography>
+                      </MenuButton>
+                    </ListItem>
+                    <ListItem>
+                      <MenuButton
+                        disableRipple
+                        disableTouchRipple
+                        disableFocusRipple
+                        fullWidth
+                        variant={'contained'}
+                        onClick={handleExpandToggle}
+                      >
                         <TGGLogout/>
                         <Typography variant={'body2'}>{langNavBar.logout}</Typography>
                       </MenuButton>
@@ -282,22 +382,22 @@ export default function (props) {
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/wwa')}
-                        primary={langNavBar.wwa} />
+                        primary={langNavBar.wwa}/>
                     </ListItem>
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/wwd')}
-                        primary={langNavBar.wwd} />
+                        primary={langNavBar.wwd}/>
                     </ListItem>
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/benefits')}
-                        primary={langNavBar.benefits} />
+                        primary={langNavBar.benefits}/>
                     </ListItem>
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/blog/')}
-                        primary={langNavBar.blog} />
+                        primary={langNavBar.blog}/>
                     </ListItem>
                   </>
                   : loggedIn ?
@@ -308,32 +408,85 @@ export default function (props) {
                       </ListItem>
                       <Divider/>
                       <ListItem>
-                        <MenuButton fullWidth href="/profile" variant={'contained'} onClick={handleExpandToggle}>
+                        <MenuButton
+                          disableRipple
+                          disableTouchRipple
+                          disableFocusRipple
+                          fullWidth
+                          href="/profile"
+                          variant={'contained'}
+                          onClick={handleExpandToggle}
+                        >
                           <TGGProfile/>
                           <Typography variant={'body2'}>{langNavBar.profile}</Typography>
                         </MenuButton>
                       </ListItem>
                       <ListItem>
-                        <MenuButton fullWidth href="/wallet" variant={'contained'} onClick={handleExpandToggle}>
+                        <MenuButton
+                          disableRipple
+                          disableTouchRipple
+                          disableFocusRipple
+                          fullWidth
+                          href="/wallet"
+                          variant={'contained'}
+                          onClick={handleExpandToggle}
+                        >
                           <TGGWallet/>
                           <Typography variant={'body2'}>{langNavBar.wallet}</Typography>
                         </MenuButton>
                       </ListItem>
                       <ListItem>
-                        <MenuButton fullWidth href="/marketplace" variant={'contained'} onClick={handleExpandToggle}>
+                        <MenuButton
+                          disableRipple
+                          disableTouchRipple
+                          disableFocusRipple
+                          fullWidth
+                          href="/marketplace"
+                          variant={'contained'}
+                          onClick={handleExpandToggle}
+                        >
                           <TGGWallet/>
                           <Typography variant={'body2'}>{langNavBar.marketplace}</Typography>
                         </MenuButton>
                       </ListItem>
                       <Divider/>
                       <ListItem>
-                        <MenuButton fullWidth href="/settings" variant={'contained'} onClick={handleExpandToggle}>
+                        <MenuButton
+                          disableRipple
+                          disableTouchRipple
+                          disableFocusRipple
+                          fullWidth
+                          href="/settings"
+                          variant={'contained'}
+                          onClick={handleExpandToggle}
+                        >
                           <TGGSettings/>
                           <Typography variant={'body2'}>{langNavBar.settings}</Typography>
                         </MenuButton>
                       </ListItem>
                       <ListItem>
-                        <MenuButton fullWidth href="/logout" variant={'contained'} onClick={handleExpandToggle}>
+                        <MenuButton
+                          disableRipple
+                          disableTouchRipple
+                          disableFocusRipple
+                          fullWidth
+                          variant={'contained'}
+                          onClick={handleLangChange}
+                        >
+                          <LangWorld/>
+                          <Typography variant={'body2'}>{currentLang}</Typography>
+                        </MenuButton>
+                      </ListItem>
+                      <ListItem>
+                        <MenuButton
+                          disableRipple
+                          disableTouchRipple
+                          disableFocusRipple
+                          fullWidth
+                          href="/logout"
+                          variant={'contained'}
+                          onClick={handleExpandToggle}
+                        >
                           <TGGLogout/>
                           <Typography variant={'body2'}>{langNavBar.logout}</Typography>
                         </MenuButton>
@@ -348,26 +501,45 @@ export default function (props) {
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/wwa')}
-                          primary={langNavBar.wwa} />
+                          primary={langNavBar.wwa}/>
                       </ListItem>
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/wwd')}
-                          primary={langNavBar.wwd} />
+                          primary={langNavBar.wwd}/>
                       </ListItem>
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/benefits')}
-                          primary={langNavBar.benefits} />
+                          primary={langNavBar.benefits}/>
                       </ListItem>
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/blog/')}
-                          primary={langNavBar.blog} />
+                          primary={langNavBar.blog}/>
+                      </ListItem>
+                      <ListItem>
+                        <MenuButton
+                          disableRipple
+                          disableTouchRipple
+                          disableFocusRipple
+                          fullWidth
+                          variant={'contained'}
+                          onClick={handleLangChange}
+                        >
+                          <LangWorld/>
+                          <Typography variant={'body2'}>{currentLang}</Typography>
+                        </MenuButton>
                       </ListItem>
                       {!loggedIn &&
                       <ListItem>
-                        <Button href="/getin">{langNavBar.registerLogin}</Button>
+                        <Button
+                          disableRipple
+                          disableTouchRipple
+                          disableFocusRipple
+                          href="/getin">
+                          {langNavBar.registerLogin}
+                        </Button>
                       </ListItem>
                       }
                     </>

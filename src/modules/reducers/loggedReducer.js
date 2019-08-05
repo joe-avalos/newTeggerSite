@@ -52,16 +52,16 @@ export function loggedReduce(state = defaultState, action) {
     case LOGGED_ACTIONS.LOGGED_PROFILE_SUCCESS:
       newState = _.cloneDeep(state)
       newState.profile.uuid = action.profile.uuid
-      newState.profile.name= action.profile.name
-      newState.profile.email= action.profile.email
-      newState.profile.genre= action.profile.genre
-      newState.profile.tour= action.profile.tour
-      newState.profile.gift= action.profile.gift
-      newState.profile.onboarding= action.profile.onboarding
-      newState.profile.preferences.location= action.profile.preferences.location
-      newState.profile.preferences.tracking= action.profile.preferences.tracking
-      newState.profile.tokenBalance= action.profile.tokenBalance
-      newState.profile.gamification= action.profile.gamification
+      newState.profile.name = action.profile.name
+      newState.profile.email = action.profile.email
+      newState.profile.genre = action.profile.genre
+      newState.profile.tour = action.profile.tour
+      newState.profile.gift = action.profile.gift
+      newState.profile.onboarding = action.profile.onboarding
+      newState.profile.preferences.location = action.profile.preferences.location
+      newState.profile.preferences.tracking = action.profile.preferences.tracking
+      newState.profile.tokenBalance = action.profile.tokenBalance
+      newState.profile.gamification = action.profile.gamification
       return newState
     case LOGGED_ACTIONS.LOGGED_TOTAL_ANSWERS_SUCCESS:
       return {
@@ -70,13 +70,17 @@ export function loggedReduce(state = defaultState, action) {
       }
     case LOGGED_ACTIONS.LOGGED_PREFERENCE_CHANGE_SUCCESS:
       newState = _.cloneDeep(state)
-      newState.profile.preferences.location= action.prefs.location
-      newState.profile.preferences.tracking= action.prefs.tracking
+      newState.profile.preferences.location = action.prefs.location
+      newState.profile.preferences.tracking = action.prefs.tracking
       return newState
     case LOGGED_ACTIONS.LOGGED_MODULE_ANSWERS_SUCCESS:
+      let modAns = {}
+      _.forEach(action.moduleAnswers, (value)=>{
+        modAns[Object.keys(value)[0]] = Object.values(value)[0]
+      })
       return {
         ...state,
-        moduleAnswers: action.moduleAnswers
+        moduleAnswers: modAns
       }
     case LOGGED_ACTIONS.LOGGED_WALLET_SUCCESS:
       return {

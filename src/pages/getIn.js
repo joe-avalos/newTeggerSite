@@ -27,6 +27,7 @@ export default function GetIn() {
   })
   
   let userError = useSelector(state => state.user.userError)
+  let langGetIn = useSelector(state => state.language.langJson.getIn)
   
   const userStatus = useSelector(state => {
     if (state.user.email !== '') {
@@ -43,13 +44,13 @@ export default function GetIn() {
         <Grid item xs={12} md={6} className="getInFormGrid textForms">
         <Box className="textForms">
           <Typography variant={'h3'}>
-            ¡Entrar!
+            {langGetIn.title}
           </Typography>
           <Typography variant={'h2'}>
-            Ingresa tu correo para comenzar.
+            {langGetIn.subTitle}
           </Typography>
           <Typography variant={'body1'}>
-            Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace.
+            {langGetIn.msg}
           </Typography>
         </Box>
         <Box className="textForms">

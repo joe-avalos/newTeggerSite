@@ -4,6 +4,7 @@ import Spanish from '../../components/data/translations/locales/es/translations'
 const defaultState = {
   isLoading: false,
   hasErrored: '',
+  lang: 'ES',
   langJson: Spanish
 }
 
@@ -22,6 +23,7 @@ export function languageReduce(state = defaultState, action) {
     case LANGUAGE_OPTIONS.LANGUAGE_CHANGE_SUCCESS:
       return {
         ...state,
+        lang: action.lang,
         langJson: action.langJson
       }
     default:
