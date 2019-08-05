@@ -54,8 +54,7 @@ const ProfileGrid = withStyles(theme => ({
         boxShadow: '0px 10px 12px #00000026',
         margin: 'auto',
         [theme.breakpoints.down('sm')]: {
-          width: 200,
-          height: 200
+          marginTop: 12,
         },
         '& + .MuiTypography-root': {
           margin: '0 .5em',
@@ -106,8 +105,9 @@ const PrefGrid = withStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       width: '100vw',
       marginLeft: -26,
-      backgroundColor: theme.palette.secondary.main,
-      minHeight: 100
+      backgroundColor: '#FF8A26',
+      minHeight: 90,
+      padding:'10px 0 15px',
     },
     '& > .MuiGrid-item': {
       display: 'flex',
@@ -119,10 +119,15 @@ const PrefGrid = withStyles(theme => ({
     },
     '& .MuiTypography-h3': {
       color: 'white',
-      fontSize: '1.125rem'
+      fontSize: '1.125rem',
+      [theme.breakpoints.down('sm')]: {
+        fontSize:'1',
+      },
     },
     '& .MuiTypography-body1': {
-      color: 'white'
+      color: 'white',
+      fontSize:16,
+      fontWeight:600,
     },
     '& .MuiButton-contained':{
       width: 'initial',
@@ -169,7 +174,7 @@ const GamificationAppBar = withStyles(theme => ({
     },
     '& .MuiTab-root': {
       minWidth: 140,
-      opacity: 1
+      opacity: 1,
     },
     '& .MuiAvatar-root': {
       width: 60,
@@ -208,7 +213,7 @@ const GamificationAppBar = withStyles(theme => ({
       '& .MuiCircularProgress-static[style]': {
         transform: 'scale(1.1) rotate(-90deg) !important',
         transition: 'scale 300ms ease-in-out',
-        color: theme.palette.primary.main,
+        color: theme.palette.secondary.main,
       }
     }
   }
@@ -455,8 +460,9 @@ export default function ({profile}) {
                       <>
                         <Grid item xs={6}>
                           {/*Profile location switch*/}
-                          <Typography variant={'h3'}>Localización</Typography>
-                          <Button
+
+                          <Typography variant={'h3'}>Localización<Box/></Typography>
+                          <Button style={{marginTop:-12}}
                             variant={'contained'}
                             onClick={() => handlePrefChange('location')}
                           >
@@ -484,7 +490,6 @@ export default function ({profile}) {
         <Grid item xs={12}>
           {/*Profile gamification bar */}
           <GamificationAppBar position={'static'}>
-            <Box/>
             <Tabs
               value={tabValue}
               onChange={handleTabChange}
