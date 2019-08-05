@@ -296,14 +296,14 @@ const theme = createMuiTheme({
         padding: 2,
         top: -4,
         left: -4,
-        color: defaultTheme.palette.common.white,
+        color: '#FFB474',
         '&$checked': {
-          color: '#EAEAEA !important',
+          color: '#FFFFFF !important',
           left: 'initial',
           right: 12,
           '& + $track': {
             opacity: 1,
-            backgroundColor: defaultTheme.palette.common.white + '!important',
+            backgroundColor: '#D76300 !important',
           },
         },
       },
@@ -319,7 +319,7 @@ const theme = createMuiTheme({
       track: {
         borderRadius: 28 / 2,
         opacity: 1,
-        backgroundColor: $iconHover,
+        backgroundColor: '#D76300',
       },
       checked: {}
     }
