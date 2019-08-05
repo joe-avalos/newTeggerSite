@@ -37,7 +37,7 @@ function ElevationScroll(props) {
     disableHysteresis: true,
     threshold: 0,
   })
-  
+
   return React.cloneElement(children, {
     elevation: trigger ? 1 : 0,
     style: {
@@ -51,6 +51,8 @@ const NavBarTab = withStyles((theme) => ({
   root: {
     height: 38,
     fontWeight: '600',
+    fontSize:'13px',
+    color:'black',
     '&:first-of-type': {
       width: 150,
       marginRight: theme.spacing(9)
@@ -110,30 +112,30 @@ export default function (props) {
     window.location.pathname === '/benefits'
   
   const langNavBar = useSelector(state => state.language.langJson.navBar)
-  
+
   function handleTabClick(e, v) {
     setActiveNav(v)
     dispatch(push(v))
     setOpen(false)
   }
-  
+
   function handleExpandToggle() {
     setOpen(!open)
   }
-  
+
   function handleMenu(e) {
     setAnchorEl(e.currentTarget)
   }
-  
+
   function handleClose() {
     setAnchorEl(null)
   }
-  
+
   function handleLogout() {
     handleClose()
     dispatch(loggedLogout())
   }
-  
+
   return (
     <ElevationScroll {...props}>
       <AppBar position={"sticky"} style={{backgroundColor: "transparent"}}>

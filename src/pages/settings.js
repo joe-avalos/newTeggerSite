@@ -93,7 +93,7 @@ export default function () {
               <CircularProgress/>
             : tabValue === 0 ?
               <>
-                <Typography variant={'h3'}>Usuario y Contraseña</Typography>
+                
                 <UserProfileForm profile={profile} />
               </>
             : tabValue === 1 ?

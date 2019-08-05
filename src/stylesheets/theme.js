@@ -58,7 +58,7 @@ const theme = createMuiTheme({
       color: $secondaryOrange,
       marginBottom: 10,
       [defaultTheme.breakpoints.down('sm')]: {
-        fontSize: '3.4rem',
+        fontSize: '3.1rem',
       },
     },
     subtitle1:{

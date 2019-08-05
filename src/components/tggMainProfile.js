@@ -103,6 +103,7 @@ const UserGrid = withStyles(theme => ({
 
 const PrefGrid = withStyles(theme => ({
   root: {
+    marginLeft:'-25px',
     [theme.breakpoints.down('sm')]: {
       width: '100vw',
       marginLeft: -26,
@@ -322,14 +323,13 @@ const InstructionBox = withStyles({
       margin: '20px 10px',
       backgroundColor: 'transparent',
       border: '1px solid black',
-      opacity: '.5',
-      
+      opacity:'.5',
+      },
+      '& .MuiButton-root:last-of-type': {
+        backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
+      }
     },
-    '& .MuiButton-root:last-of-type': {
-      backgroundImage: 'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
-    }
-  }
-})(Box)
+  }) (Box)
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(1)
@@ -346,11 +346,11 @@ export default function ({profile}) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
     }
   })
-  
+
   function handleNavigationDialog() {
     setDialog({open: true, content: 'navigation'})
   }
-  
+
   function handleClose() {
     setDialog({open: false, content: ''})
   }

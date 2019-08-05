@@ -38,8 +38,31 @@ const ButtonJoinNow = withStyles(theme => ({
   },
 }))(Button)
 
+const GridSolucion = withStyles(theme => ({
+  root:{
+    width:350,
+    marginTop:60,
+    [theme.breakpoints.down('sm')]: {
+      width:'90%',
+    },
+  },
+}))(Grid)
+
+const GridTitle = withStyles(theme => ({
+  root:{
+    width:'100%',
+    [theme.breakpoints.down('sm')]: {
+      '&.MuiTypography-h1':{
+        fontSize:'3.1rem'
+      }
+
+    },
+  },
+}))(Grid)
+
 export default function () {
   const langHome = useSelector(state => state.language.langJson.home)
+
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Box className="background homeBG"/>
@@ -48,7 +71,7 @@ export default function () {
         <Hidden mdDown>
           <Grid item md={1}/>
         </Hidden>
-        <Grid item sm={12} md={5} className="homeTitle">
+        <GridTitle item sm={12} md={5} className="homeTitle">
           <Typography variant={"h1"}>
             {langHome.title}
           </Typography>
@@ -57,7 +80,7 @@ export default function () {
           </Typography>
           <ButtonJoinNow href="/getin">{langHome.registerNow}</ButtonJoinNow>
           <Button href="/marketplace" variant={'contained'}>{langHome.knowOurRewards}</Button>
-        </Grid>
+        </GridTitle>
       </Grid>
 
       <Grid container>
@@ -89,7 +112,7 @@ export default function () {
             <Typography variant={'body1'}>
               {langHome.solutionParagraph}
             </Typography>
-            <Grid container>
+            <GridSolucion container>
               <Grid item xs={12} md={4}>
                 <TGGStar />
                 <Box>
@@ -123,7 +146,7 @@ export default function () {
                   </Typography>
                 </Box>
               </Grid>
-            </Grid>
+            </GridSolucion>
           </StyledPaper>
         </Grid>
         <Hidden mdDown>
