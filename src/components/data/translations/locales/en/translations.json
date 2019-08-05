@@ -1,0 +1,149 @@
+{
+  "navBar": {
+    "registerLogin": "Login / Register",
+    "home": "Home",
+    "wwa": "About",
+    "wwd": "How it works",
+    "benefits": "Benefits",
+    "blog": "Blog",
+    "news": "News",
+    "publishers": "Publishers",
+    "wallet": "Wallet",
+    "profile": "Profile",
+    "marketplace": "Marketplace",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "commons": {
+    "startGettingRewards": "Start getting rewards!",
+    "whatTheySay": "Tegger in the news",
+    "buttonSubmit": "GO!",
+    "currentLang": "EN"
+  },
+  "home": {
+    "title": "Get rewards for browsing",
+    "subTitle": "Control what data you share and get rewarded for it.",
+    "registerNow": "Join now & start wining",
+    "knowOurRewards": "See your rewards",
+    "wtmQuestion": "WHY THIS MATTERS",
+    "wtmAnswer": "Tegger knows that your data is extremely valuable to sites and advertisers. We recognize your role by rewarding you for browsing.",
+    "solutionTitle": "Our Solution",
+    "solution": "Tegger is a revolutionary technological platform that lets you take back control of the data you share.",
+    "solutionParagraph": "Simply browse or complete our surveys to earn products and experiences. Tegger also distributes the value of the information generated to sites and content creators so they can keep creating the quality content you love.",
+    "rewards": "Rewards",
+    "rewardsContent": "Get rewards for viewing the content you love",
+    "control": "Control",
+    "controlContent": "Choose what you want to share",
+    "secure": "Secure",
+    "secureContent": "Browse our partner's websites securely"
+  },
+  "whyUseTegger": {
+    "wut": "Why Use Tegger?",
+    "wutTitle": "Browse online content or tell us about yourself to get rewards.",
+    "wutSubTitle": "Tegger gives you the tools to choose what you share.",
+    "wutLogin": "Login or Register with Tegger",
+    "wutLevel": "Level up by answering questions about yourself",
+    "wutBrowse": "Browse our affiliate's websites",
+    "wutMP": "Exchange tokens for rewards in our Marketplace"
+  },
+  "callToAction": {
+    "CTATitle": "Join Tegger now!",
+    "CTASubTitle": "Start getting rewards for browsing."
+  },
+  "footer": {
+    "footKIT": "Keep in touch",
+    "footContact": "Contact",
+    "footPrivacy": "Privacy Policy",
+    "footTerms": "Terms of Service",
+    "footFAQ": "FAQ's"
+  },
+  "wallet": "Wallet to check balance and transactions",
+  "view": "Browse the content you love",
+  "Marketplace": "Marketplace with exclusive rewards",
+  "news": {
+    "title": "NEWS",
+    "wts": [
+      "Crypto",
+      " Tegger distributes the value of online data",
+      "You can redeem your tokens for exclusive products. Tegger will also distribute a part of the information´s value to the sites and content creators you read so they can keep creating the quality content you love",
+      "Read more"
+    ]
+  },
+  "wwa": {
+    "wwaTitle": "WHAT WE DO",
+    "wwaSubTitle": "Tegger is technological platform that fairly distributes the value of the data generated online by rewarding users, sites, and content creators",
+    "wwaEPTitle": "THE PROBLEM",
+    "wwaEPSubTitle": "Tegger is designed to solve a multi-faceted problem in the digital ecosystem",
+    "wwaEPTitleA": "Lack of information on audiences",
+    "wwaEPSectionA": "Independent sites have little or no knowledge on who their audiences are. This limits their ability to create curated content for readers and sell advertising space accurately.",
+    "wwaEPTitleB": "Few Benefits",
+    "wwaEPSectionB": "Users receive very little in exchange for the information they generate while browsing online. This information is extremely valuable for sites and advertisers, we believe users deserve a piece of the pie.",
+    "wwaArticle": "Tegger is creating a fair data economy, that recognizes and values users’ role in the online data value chain",
+    "features": {
+      "title": "FEATURES",
+      "sectionA": "Turn data sharing on or off with one click",
+      "sectionB": "Choose your rewards",
+      "sectionC": "Get additional rewards for completing surveys",
+      "sectionD": "Reward content creators you love (coming soon)",
+      "comingSoon": "(Coming soon)"
+    }
+  },
+  "HIW": {
+    "hiwTitle": "HOW IT WORKS",
+    "hiwSubTitle": "Tegger tracks the data points you choose to share through your interactions with partner sites",
+    "hiwDescription": "Tegger uses a login to let you choose what types of data you want to share and input additional information. In exchange, you receive tokens which can be traded for rewards.",
+    "hiwArticle": {
+      "title": [
+        "DATA OPT-IN",
+        "REWARDS MODEL"
+      ],
+      "bolds": [
+        "Choose",
+        "Receive Tegger tokens"
+      ],
+      "args": [
+        " what types of data you want to share. Tegger will only track data points you have consented to sharing.",
+        " you earn tokens very time you share data by completing surveys or browsing on partner sites while logged in."
+      ]
+    }
+  },
+  "onboarding": {
+    "OBTitle": "Wellcome to Tegger!",
+    "OBSubTitle": "Tegger uses a login to let you choose what types of data you want to share and input additional information. You receive tokens for your interactions with partner content and for sharing self-reported information. You can trade the tokens for rewards on our marketplace."
+  },
+  "modal": {
+    "title": "JOIN TEGGER",
+    "bigText": "Get your first 50 tokens",
+    "description": "Register your email to start earning rewards.",
+    "welcome": "WELCOME!",
+    "success": "We´ll keep you up to date on our progress, so you can be among the first to join!"
+  },
+  "input": {
+    "placeholder": "Enter your email"
+  },
+  "getIn": {
+    "title": "JOIN NOW!",
+    "subtitle": "Enter your email to begin.",
+    "msg": "Get your first tokens and exchange them for products in our marketplace."
+  },
+  "signup": {
+    "title": "SIGN UP!",
+    "subtitle": "Create a free account",
+    "msg": "start taking back control of your information."
+  },
+  "confirm": {
+    "title": "CHECK YOUR EMAIL",
+    "subtitle": "We sent you an email, click on the link and start getting rewards",
+    "msg": "If the email didn`t work, click here."
+  },
+  "confirmLoad": {
+    "title": "THANK YOU FOR CONFIRMING YOUR EMAIL",
+    "subtitle": "Please wait while we redirect you to the login page.",
+    "msg": "If you are not redirected, please click here: "
+  },
+  "login": {
+    "title": "LOG IN",
+    "subtitle": "Get rewarded for browsing content you love",
+    "msg": "You can use your rewards for exclusive products and experiences."
+  }
+}

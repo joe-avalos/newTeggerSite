@@ -8,6 +8,7 @@ import OnBoardingForm from './forms/onboardingForm'
 import withStyles from '@material-ui/styles/withStyles'
 
 import '../stylesheets/components/tggOnboarding.scss'
+import {useSelector} from 'react-redux'
 
 const OnboardingGrid = withStyles(theme => ({
   root: {
@@ -32,8 +33,8 @@ const OnboardingGrid = withStyles(theme => ({
   }
 }))(Grid)
 
-
 export default function () {
+  const langOnboarding = useSelector(state => state.language.langJson.onboarding)
   return (
     <>
       <Grid container>
@@ -43,14 +44,12 @@ export default function () {
         </Hidden>
           <OnboardingGrid item xs={12} md={6} style={{height:'500px'}}>
             <Typography variant={'h1'}>
-              ¡Bienvenido al mundo Tegger!
+              {langOnboarding.OBTitle}
             </Typography>
             <Typography variant={'body1'}>
-              Tegger usa un login que te permite elegir qué tipos de datos deseas compartir e ingresar información
-              adicional. Recibes tokens por tus interacciones con contenido y por compartir información autoinformada que
-              puede cambiarse por recompensas.
+              {langOnboarding.OBSubTitle}
             </Typography>
-            {/*<Button>EMPEZAR</Button>*/}
+            {/*<Button>EMPEZAR</Button> TODO */}
           </OnboardingGrid>
         <Grid container style={{marginTop:'50px',display:'flex'}}>
         <Hidden mdDown>

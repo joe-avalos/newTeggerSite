@@ -109,7 +109,7 @@ const PrefGrid = withStyles(theme => ({
       marginLeft: -26,
       backgroundColor: '#FF8A26',
       minHeight: 90,
-      padding:'10px 0 15px',
+      padding: '10px 0 15px',
     },
     '& > .MuiGrid-item': {
       display: 'flex',
@@ -123,20 +123,20 @@ const PrefGrid = withStyles(theme => ({
       color: 'white',
       fontSize: '1.125rem',
       [theme.breakpoints.down('sm')]: {
-        fontSize:'1',
+        fontSize: '1',
       },
     },
     '& .MuiTypography-body1': {
       color: 'white',
-      fontSize:16,
-      fontWeight:600,
+      fontSize: 16,
+      fontWeight: 600,
     },
-    '& .MuiButton-contained':{
+    '& .MuiButton-contained': {
       width: 'initial',
       marginRight: 0,
       paddingRight: 0
     }
-
+    
   }
 }))(Grid)
 
@@ -307,24 +307,23 @@ const NavigationProgress = withStyles({
 
 const InstructionBox = withStyles({
   root: {
-    marginTop:'30px',
-    textAlign:'center',
-    maxWidth:'600px',
-    margin:'auto',
+    marginTop: 30,
+    textAlign: 'center',
+    maxWidth: 600,
+    margin: 'auto',
     '& .MuiButton-root': {
-      backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png")',
-      width:76,
-      height:76,
-      borderRadius:'50%',
-      backgroundSize: 'contain',
+      backgroundImage: 'url("https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png")',
+      width: 76,
+      height: 76,
+      borderRadius: '50%',
+      //backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
-      backgroundSize:'60%',
-      margin:'20px 10px',
+      backgroundSize: '60%',
+      margin: '20px 10px',
       backgroundColor: 'transparent',
       border: '1px solid black',
       opacity:'.5',
-
       },
       '& .MuiButton-root:last-of-type': {
         backgroundImage:'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
@@ -334,14 +333,14 @@ const InstructionBox = withStyles({
 
 export default function ({profile}) {
   const [tabValue, setTabValue] = React.useState(1)
-  const [dialog, setDialog] = React.useState({open:false, content:''})
+  const [dialog, setDialog] = React.useState({open: false, content: ''})
   const genders = data.genderTitles
   const SRQuestions = data.selfReportedQuestions
   const dispatch = useDispatch()
   let answersTotals = useSelector(state => state.logged.answersTotals)
   let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
   let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
-
+  
   React.useEffect(() => {
     if (_.isEmpty(answersTotals)) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
@@ -349,13 +348,13 @@ export default function ({profile}) {
   })
 
   function handleNavigationDialog() {
-    setDialog({open:true, content:'navigation'})
+    setDialog({open: true, content: 'navigation'})
   }
 
   function handleClose() {
     setDialog({open: false, content: ''})
   }
-
+  
   function search(nameKey, myArray = answersTotals) {
     if (!myArray) {
       return null
@@ -366,7 +365,7 @@ export default function ({profile}) {
       }
     }
   }
-
+  
   function getCompletedPercentage(item, index, mod = false) {
     if (SRQuestions[index]) {
       let qLength = SRQuestions[index].modules.length
@@ -384,7 +383,7 @@ export default function ({profile}) {
       return (answered / totalQuestions) * 100
     }
   }
-
+  
   function handlePrefChange(pref) {
     dispatch(loggedPreferenceChange({
         location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
@@ -393,15 +392,15 @@ export default function ({profile}) {
       profile.uuid
     ))
   }
-
+  
   function handleTabChange(e, v) {
     setTabValue(v)
   }
-
+  
   function handleQuestionClick(qCode) {
     dispatch(push('/question/' + qCode))
   }
-
+  
   function srPaper(item, index) {
     //Paper con elevación para crear los cuadros de las preguntas autoreportadas
     return (
@@ -430,7 +429,7 @@ export default function ({profile}) {
       </QuestionPaper>
     )
   }
-
+  
   return (
     <>
       <Grid container>
@@ -471,11 +470,11 @@ export default function ({profile}) {
                       <>
                         <Grid item xs={6}>
                           {/*Profile location switch*/}
-
+                          
                           <Typography variant={'h3'}>Localización<Box/></Typography>
-                          <Button style={{marginTop:-12}}
-                            variant={'contained'}
-                            onClick={() => handlePrefChange('location')}
+                          <Button style={{marginTop: -12}}
+                                  variant={'contained'}
+                                  onClick={() => handlePrefChange('location')}
                           >
                             <Navigation style={{color: 'white', transform: 'rotate(45deg)'}}/>
                             <Typography
@@ -529,21 +528,17 @@ export default function ({profile}) {
             </Tabs>
           </GamificationAppBar>
         </Grid>
-
-
-
         {/*Preguntas niveles*/}
         <Grid item xs={12}>
-
-        <InstructionBox>
-          <Typography variant={"body1"}>
-          ¡Sube al siguiente nivel completando las encuestas y navegando en sitios afiliados para obtener más y mejores premios!
-          </Typography>
+          <InstructionBox>
+            <Typography variant={"body1"}>
+              ¡Sube al siguiente nivel completando las encuestas y navegando en sitios afiliados para obtener más y
+              mejores premios!
+            </Typography>
             <Button href="https://culturacolectiva.com/" target="_blank"> >
             </Button>
             <Button href="https://news.culturacolectiva.com/" target="_blank">></Button>
-        </InstructionBox>
-
+          </InstructionBox>
           <Grid container>
             <Hidden mdDown>
               <Grid item md={4}/>
@@ -582,7 +577,7 @@ export default function ({profile}) {
           </Grid>
         </Grid>
       </Grid>
-      <TGGDialog open={dialog.open} content={dialog.content} handleClose={handleClose} />
+      <TGGDialog open={dialog.open} content={dialog.content} handleClose={handleClose}/>
     </>
   )
 }

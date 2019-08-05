@@ -14,6 +14,7 @@ import WhyUseTegger from '../components/tggWhyUse'
 
 
 import '../stylesheets/pages/home.scss'
+import {useSelector} from 'react-redux'
 
 const StyledPaper = withStyles({
   root:{
@@ -27,7 +28,7 @@ const StyledPaper = withStyles({
   }
 })(Paper)
 
-const ButtonUnete = withStyles(theme => ({
+const ButtonJoinNow = withStyles(theme => ({
   root:{
     width:350,
     marginTop:60,
@@ -59,10 +60,9 @@ const GridTitle = withStyles(theme => ({
   },
 }))(Grid)
 
+export default function () {
+  const langHome = useSelector(state => state.language.langJson.home)
 
-
-
-export default function home() {
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Box className="background homeBG"/>
@@ -73,13 +73,13 @@ export default function home() {
         </Hidden>
         <GridTitle item sm={12} md={5} className="homeTitle">
           <Typography variant={"h1"}>
-            Recibe recompensas por navegar
+            {langHome.title}
           </Typography>
           <Typography variant={"subtitle1"}>
-            Ten control sobre la información que compartes y recibe recompensas por ella.
+            {langHome.subTitle}
           </Typography>
-          <ButtonUnete href="/getin">¡ÚNETE PARA GANAR!</ButtonUnete>
-          <Button href="/marketplace" variant={'contained'}>Conoce las recompensas</Button>
+          <ButtonJoinNow href="/getin">{langHome.registerNow}</ButtonJoinNow>
+          <Button href="/marketplace" variant={'contained'}>{langHome.knowOurRewards}</Button>
         </GridTitle>
       </Grid>
 
@@ -91,11 +91,10 @@ export default function home() {
         <Grid item sm={12} md={7}>
           <Paper elevation={4} className='componenteTexto'>
             <Typography variant={"h3"}>
-              ¿Por qué esto importa?
+              {langHome.wtmQuestion}
             </Typography>
             <Typography variant={"body1"} style={{color:'#040D14'}}>
-              En Tegger sabemos que tú como usuario juegas un papel muy valioso para los sitios y anunciantes.
-              Nosotros lo reconocemos ofreciéndote beneficios por navegar.
+              {langHome.wtmAnswer}
             </Typography>
           </Paper>
         </Grid>
@@ -105,25 +104,23 @@ export default function home() {
         <Grid item sm={12} md={6}>
           <StyledPaper elevation={0}>
             <Typography variant={'h3'}>
-              La Solución
+              {langHome.solutionTitle}
             </Typography>
             <Typography variant={'h2'}>
-              Tegger es una plataforma tecnológica que te permite tomar un rol clave en la cadena de valor de los medios
-              digitales.
+              {langHome.solution}
             </Typography>
             <Typography variant={'body1'}>
-              Nosotros distribuimos el valor de la navegación a los sitios creadores de contenido para que puedan seguir
-              creando contenido de calidad.
+              {langHome.solutionParagraph}
             </Typography>
             <GridSolucion container>
               <Grid item xs={12} md={4}>
                 <TGGStar />
                 <Box>
                   <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
-                    Recompensas
+                    {langHome.rewards}
                   </Typography>
                   <Typography variant={'body2'}>
-                    Recibe recompensas por navegar y llenar encuestas
+                    {langHome.rewardsContent}
                   </Typography>
                 </Box>
               </Grid>
@@ -131,10 +128,10 @@ export default function home() {
                 <TGGScroll />
                 <Box>
                   <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
-                    Control
+                    {langHome.control}
                   </Typography>
                   <Typography variant={'body2'}>
-                    Elige qué y cuándo quieres compartir
+                    {langHome.controlContent}
                   </Typography>
                 </Box>
               </Grid>
@@ -142,10 +139,10 @@ export default function home() {
                 <TGGShare />
                 <Box>
                   <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
-                    Seguridad
+                    {langHome.secure}
                   </Typography>
                   <Typography variant={'body2'}>
-                    Navega seguro en nuestros sitios afiliados
+                    {langHome.secureContent}
                   </Typography>
                 </Box>
               </Grid>

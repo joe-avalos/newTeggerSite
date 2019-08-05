@@ -110,6 +110,8 @@ export default function (props) {
     window.location.pathname === '/wwa' ||
     window.location.pathname === '/wwd' ||
     window.location.pathname === '/benefits'
+  
+  const langNavBar = useSelector(state => state.language.langJson.navBar)
 
   function handleTabClick(e, v) {
     setActiveNav(v)
@@ -144,24 +146,24 @@ export default function (props) {
                 value={loggedIn ? '/profile' : '/'}
                 label={<img src="https://files.tegger.io/assets/tegger/images/tegger-logo.svg" alt="Tegger Logo"/>}
               />
-              {staticPages && <NavBarTab label="Acerca De" value="/wwa"/>}
-              {staticPages && <NavBarTab label="Qué Hacemos" value="/wwd"/>}
-              {staticPages && <NavBarTab label="Beneficios" value="/benefits"/>}
-              {staticPages && <NavBarTab label="Blog" value="/blog/"/>}
+              {staticPages && <NavBarTab label={langNavBar.wwa} value="/wwa"/>}
+              {staticPages && <NavBarTab label={langNavBar.wwd} value="/wwd"/>}
+              {staticPages && <NavBarTab label={langNavBar.benefits} value="/benefits"/>}
+              {staticPages && <NavBarTab label={langNavBar.blog} value="/blog/"/>}
             </NavBarTabs>
             {!loggedIn &&
             <NavRight component="div">
-              <Button href="/getin">Get in</Button>
+              <Button href="/getin">{langNavBar.registerLogin}</Button>
             </NavRight>
             }
             {loggedIn &&
             <NavRight component="div">
-              <Tooltip title="Marketplace">
+              <Tooltip title={langNavBar.marketplace}>
                 <IconButton href="/marketplace">
                   <TGGShop/>
                 </IconButton>
               </Tooltip>
-              <Tooltip title="Wallet">
+              <Tooltip title={langNavBar.wallet}>
                 <IconButton href="/wallet">
                   <TGGWallet/>
                 </IconButton>
@@ -184,20 +186,20 @@ export default function (props) {
                 <MenuItem onClick={handleClose}>
                   <MenuButton variant={'contained'} href="/profile">
                     <TGGProfile/>
-                    <Typography variant={'body2'}>Profile</Typography>
+                    <Typography variant={'body2'}>{langNavBar.profile}</Typography>
                   </MenuButton>
                 </MenuItem>
                 <Divider/>
                 <MenuItem onClick={handleClose}>
                   <MenuButton variant={'contained'} href="/settings">
                     <TGGSettings/>
-                    <Typography variant={'body2'}>Settings</Typography>
+                    <Typography variant={'body2'}>{langNavBar.settings}</Typography>
                   </MenuButton>
                 </MenuItem>
                 <MenuItem onClick={handleLogout}>
                   <MenuButton variant={'contained'}>
                     <TGGLogout/>
-                    <Typography variant={'body2'}>Logout</Typography>
+                    <Typography variant={'body2'}>{langNavBar.logout}</Typography>
                   </MenuButton>
                 </MenuItem>
               </Menu>
@@ -233,59 +235,59 @@ export default function (props) {
                     <ListItem>
                       <MenuButton fullWidth href="/profile" variant={'contained'} onClick={handleExpandToggle}>
                         <TGGProfile/>
-                        <Typography variant={'body2'}>Profile</Typography>
+                        <Typography variant={'body2'}>{langNavBar.profile}</Typography>
                       </MenuButton>
                     </ListItem>
                     <ListItem>
                       <MenuButton fullWidth href="/wallet" variant={'contained'} onClick={handleExpandToggle}>
                         <TGGWallet/>
-                        <Typography variant={'body2'}>Wallet</Typography>
+                        <Typography variant={'body2'}>{langNavBar.wallet}</Typography>
                       </MenuButton>
                     </ListItem>
                     <ListItem>
                       <MenuButton fullWidth href="/marketplace" variant={'contained'} onClick={handleExpandToggle}>
                         <TGGWallet/>
-                        <Typography variant={'body2'}>Marketplace</Typography>
+                        <Typography variant={'body2'}>{langNavBar.marketplace}</Typography>
                       </MenuButton>
                     </ListItem>
                     <Divider/>
                     <ListItem>
                       <MenuButton fullWidth href="/settings" variant={'contained'} onClick={handleExpandToggle}>
                         <TGGSettings/>
-                        <Typography variant={'body2'}>Settings</Typography>
+                        <Typography variant={'body2'}>{langNavBar.settings}</Typography>
                       </MenuButton>
                     </ListItem>
                     <ListItem>
                       <MenuButton fullWidth href="/logout" variant={'contained'} onClick={handleExpandToggle}>
                         <TGGLogout/>
-                        <Typography variant={'body2'}>Logout</Typography>
+                        <Typography variant={'body2'}>{langNavBar.logout}</Typography>
                       </MenuButton>
                     </ListItem>
                     <Divider/>
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/')}
-                        primary={'Inicio'}/>
+                        primary={langNavBar.home}/>
                     </ListItem>
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/wwa')}
-                        primary="Acerca De"/>
+                        primary={langNavBar.wwa} />
                     </ListItem>
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/wwd')}
-                        primary="Qué Hacemos"/>
+                        primary={langNavBar.wwd} />
                     </ListItem>
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/benefits')}
-                        primary="Beneficios"/>
+                        primary={langNavBar.benefits} />
                     </ListItem>
                     <ListItem>
                       <ListItemText
                         onClick={e => handleTabClick(e, '/blog/')}
-                        primary="Blog"/>
+                        primary={langNavBar.blog} />
                     </ListItem>
                   </>
                   : loggedIn ?
@@ -298,32 +300,32 @@ export default function (props) {
                       <ListItem>
                         <MenuButton fullWidth href="/profile" variant={'contained'} onClick={handleExpandToggle}>
                           <TGGProfile/>
-                          <Typography variant={'body2'}>Profile</Typography>
+                          <Typography variant={'body2'}>{langNavBar.profile}</Typography>
                         </MenuButton>
                       </ListItem>
                       <ListItem>
                         <MenuButton fullWidth href="/wallet" variant={'contained'} onClick={handleExpandToggle}>
                           <TGGWallet/>
-                          <Typography variant={'body2'}>Wallet</Typography>
+                          <Typography variant={'body2'}>{langNavBar.wallet}</Typography>
                         </MenuButton>
                       </ListItem>
                       <ListItem>
                         <MenuButton fullWidth href="/marketplace" variant={'contained'} onClick={handleExpandToggle}>
                           <TGGWallet/>
-                          <Typography variant={'body2'}>Marketplace</Typography>
+                          <Typography variant={'body2'}>{langNavBar.marketplace}</Typography>
                         </MenuButton>
                       </ListItem>
                       <Divider/>
                       <ListItem>
                         <MenuButton fullWidth href="/settings" variant={'contained'} onClick={handleExpandToggle}>
                           <TGGSettings/>
-                          <Typography variant={'body2'}>Settings</Typography>
+                          <Typography variant={'body2'}>{langNavBar.settings}</Typography>
                         </MenuButton>
                       </ListItem>
                       <ListItem>
                         <MenuButton fullWidth href="/logout" variant={'contained'} onClick={handleExpandToggle}>
                           <TGGLogout/>
-                          <Typography variant={'body2'}>Logout</Typography>
+                          <Typography variant={'body2'}>{langNavBar.logout}</Typography>
                         </MenuButton>
                       </ListItem>
                     </>
@@ -331,31 +333,31 @@ export default function (props) {
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/')}
-                          primary={'Inicio'}/>
+                          primary={langNavBar.home}/>
                       </ListItem>
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/wwa')}
-                          primary="Acerca De"/>
+                          primary={langNavBar.wwa} />
                       </ListItem>
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/wwd')}
-                          primary="Qué Hacemos"/>
+                          primary={langNavBar.wwd} />
                       </ListItem>
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/benefits')}
-                          primary="Beneficios"/>
+                          primary={langNavBar.benefits} />
                       </ListItem>
                       <ListItem>
                         <ListItemText
                           onClick={e => handleTabClick(e, '/blog/')}
-                          primary="Blog"/>
+                          primary={langNavBar.blog} />
                       </ListItem>
                       {!loggedIn &&
                       <ListItem>
-                        <Button href="/getin">Get In!</Button>
+                        <Button href="/getin">{langNavBar.registerLogin}</Button>
                       </ListItem>
                       }
                     </>

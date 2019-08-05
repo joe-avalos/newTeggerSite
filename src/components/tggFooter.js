@@ -9,17 +9,17 @@ import TggEmailInput from './inputs/TggEmailInput'
 import {FBLogo, TGGMailIcon, TWLogo} from './tggIcons'
 import '../stylesheets/components/tggFooter.scss'
 import TGGDialog from './TGGDialog'
+import {useSelector} from 'react-redux'
 
 export default function () {
   const [dialog, setDialog] = React.useState({open:false, content:''})
+  const langFoot = useSelector(state => state.language.langJson.footer)
+  
   function handleTerms() {
     setDialog({open: true, content: 'terms'})
   }
   function handlePrivacy() {
     setDialog({open:true, content:'privacy'})
-  }
-  function handleNavigation() {
-    setDialog({open:true, content:'navigation'})
   }
   function handleHelp() {
     setDialog({open:true, content:'help'})
@@ -51,24 +51,24 @@ export default function () {
             </Link>
           </Box>
           <Typography variant={'body1'} component="p">
-            Mantente en contacto con nosotros.
+            {langFoot.footKIT}
           </Typography>
         </Grid>
         <Grid item xs={12}>
           <Grid container  className="footerNav">
             <Grid item xs={12} md={9}>
               <Breadcrumbs separator="|" component="nav">
-                <Typography variant={'body2'} onClick={handleNavigation}>
-                  Contactar
+                <Typography variant={'body2'} href="mailto:info@tegger.io">
+                  {langFoot.footContact}
                 </Typography>
                 <Typography variant={'body2'} onClick={handlePrivacy}>
-                  Política de Privacidad
+                  {langFoot.footPrivacy}
                 </Typography>
                 <Typography variant={'body2'} onClick={handleTerms}>
-                  Términos y Condiciones
+                  {langFoot.footTerms}
                 </Typography>
                 <Typography variant={'body2'} onClick={handleHelp}>
-                  FAQ's
+                  {langFoot.footFAQ}
                 </Typography>
               </Breadcrumbs>
             </Grid>
