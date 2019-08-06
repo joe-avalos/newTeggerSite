@@ -114,7 +114,7 @@
   },
   "profile": {
     "location": {
-      "title":"Location",
+      "title": "Location",
       "active": "Active",
       "inactive": "Inactive"
     },
@@ -126,6 +126,79 @@
     "subTitle": "Enter your email to begin.",
     "msg": "Get your first tokens and exchange them for products in our marketplace."
   },
+  "benefits": {
+    "title": "Benefits",
+    "subTitle": "Get rewards simply for joining",
+    "msg": "With Tegger you can earn tokens that can be traded for attractive rewards on our marketplace. Get tokens for browsing while logged in, or sharing more about yourself by filling our surveys in your profile.",
+    "article": {
+      "title": [
+        "JOINING BONUS",
+        "REWARDS",
+        "EARN"
+      ],
+      "msg": [
+        " tokens when you join!",
+        ", from cell-phone top offs to movie tickets, credit for food deliveries, e-motorcycle rides, and more",
+        " by browsing or filling out surveys"
+      ],
+      "bolds": [
+        "Get your first 50",
+        "Trade your tokens for exclusive rewards",
+        "Earn tokens"
+      ]
+    },
+    "more": {
+      "title": "LEARN MORE",
+      "subTitle": "Features",
+      "msg": "Tegger gives you the tools to maximize your rewards and use them however you choose",
+      "article": {
+        "title": [
+          "Profile",
+          "Wallet",
+          "Marketplace"
+        ],
+        "msg": [
+          "Use the profile to fill out surveys in order to get more tokens and a higher user level. You can also control privacy and tracking features here.",
+          "View your token balance and transactions",
+          "Trade your tokens for exclusive benefits in our marketplace"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "title": "SETTINGS",
+    "subTitle": "Review your settings and find helpful information",
+    "tabs": [
+      "Username & Password",
+      "Privacy",
+      "Terms & Conditions",
+      "Help"
+    ]
+  },
+  "forms": {
+    "email": "Email",
+    "password": "Password",
+    "oldPassword": "Current Password",
+    "newPassword": "New Password",
+    "ready": "Ready",
+    "fullName": "Full Name",
+    "gender": "Gender",
+    "userName": "Username",
+    "referrer": "Referrer",
+    "checkboxes": {
+      "title": [
+        "I accept with the ",
+        "I agree with the ",
+        "I am at least 18 years old"
+      ],
+      "link": [
+        "terms of service",
+        "privacy policy"
+      ]
+    },
+    "littleMore": "Tell us a little bit about yourself",
+    "interests": "In the coming months, which of these categories are you planning on purchasing"
+  },
   "modal": {
     "title": "JOIN TEGGER",
     "bigText": "Get your first 50 tokens",
@@ -136,7 +209,6 @@
   "input": {
     "placeholder": "Enter your email"
   },
-
   "signup": {
     "title": "SIGN UP!",
     "subtitle": "Create a free account",

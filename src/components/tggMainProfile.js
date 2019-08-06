@@ -343,7 +343,7 @@ export default function ({profile}) {
   
   const dispatch = useDispatch()
   let answersTotals = useSelector(state => state.logged.answersTotals)
-  let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
+  //let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
   let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
   let currentLang = useSelector(state => state.language.lang)
   let langProfile = useSelector(state => state.language.langJson.profile)

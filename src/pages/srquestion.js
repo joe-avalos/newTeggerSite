@@ -53,12 +53,13 @@ export default function ({match}) {
   const userUUID = useSelector(state => state.logged.profile.uuid)
   const userGender = useSelector(state => state.logged.profile.genre)
   let moduleAnswers = useSelector(state => state.logged.moduleAnswers)
+  let currentLang = useSelector(state => state.language.lang)
+  let langForm = useSelector(state => state.language.langJson.forms)
   let basic = false
-  let select = {}
   const [firstLoad, setFirstLoad] = React.useState(true)
   
   React.useEffect(() => {
-    if (_.isEmpty(moduleAnswers) || firstLoad) {
+    if (_.isEmpty(moduleAnswers) && firstLoad) {
       if (userUUID === '') {
         dispatch(loggedFetchProfile())
       }
@@ -66,7 +67,7 @@ export default function ({match}) {
       setFirstLoad(false)
     }
   }, [moduleAnswers, dispatch, firstLoad, userUUID, moduleCode])
-  
+
   function search(myObject = SRQuestions, code = moduleCode) {
     if (myObject['code'] === code) {
       return myObject
@@ -88,13 +89,12 @@ export default function ({match}) {
   
   if (moduleCode === 'cb3fc762153763392eee3940dc261bb8') {
     for (let code of Object.values(mod.questions[0].answers)) {
-      select[code.code] = false
+      moduleAnswers[code.code] = !!moduleAnswers[code.code]
     }
   }
   
   const QuestionForm = () => {
     const {values, errors, handleSubmit, handleChange} = useForm(callback, validate, moduleAnswers)
-    
     function callback() {
       dispatch(loggedPostModuleAnswers(values, userUUID, mod.code))
     }
@@ -134,7 +134,7 @@ export default function ({match}) {
                     return <Grid item xs={12} key={key}>
                       <TextInputField
                         value={values[item.code]}
-                        label={item.en}
+                        label={currentLang === 'ES' ? item.es : item.en}
                         name={item.code}
                         handleChange={handleChange}
                         error={errors[item.code]}
@@ -145,7 +145,7 @@ export default function ({match}) {
                       <DateInput
                         birthday={true}
                         value={values[item.code]}
-                        label={item.en}
+                        label={currentLang === 'ES' ? item.es : item.en}
                         name={item.code}
                         handleChange={handleChange}
                         error={errors[item.code]}
@@ -156,13 +156,14 @@ export default function ({match}) {
                       key={key}
                       handleChange={handleChange}
                       answers={item.answers}
+                      values={values}
                     />
                   case 'select':
                     return <SelectInput
                       key={key}
                       handleChange={handleChange}
                       value={values[item.code]}
-                      label={item.en}
+                      label={currentLang === 'ES' ? item.es : item.en}
                       name={item.code}
                       answers={item.answers}
                     />
@@ -175,7 +176,7 @@ export default function ({match}) {
               </Hidden>
               <Grid item xs={12} md={6} style={{margin: '20px 0'}}>
                 <Button type="submit" fullWidth>
-                  Listo
+                  {langForm.ready}
                 </Button>
               </Grid>
             </QuestionsGrid>
@@ -193,10 +194,14 @@ export default function ({match}) {
           {mod.name}
         </Typography>
         <Typography variant={'h2'}>
-          {data.genderTitles[userGender][mod.level].titleEn}
+          {
+            currentLang === 'ES'
+            ? data.genderTitles[userGender][mod.level].titleEs
+            : data.genderTitles[userGender][mod.level].titleEn
+          }
         </Typography>
         <Typography variant={'body1'}>
-          {mod.level === 3 ? 'En los próximos meses cuales de estas categorías tienes pensado comprar' : 'Cuéntanos un poco de ti'}
+          {mod.level === 3 ? langForm.interests : langForm.littleMore}
         </Typography>
       </BoxQuestionHeader>
       <QuestionForm/>

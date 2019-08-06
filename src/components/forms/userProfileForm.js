@@ -6,12 +6,14 @@ import UsernameEmailInput from '../inputs/UsernameEmailInput'
 import PasswordInput from '../inputs/PasswordInput'
 import useForm from './useForm'
 import isEmpty from 'validator/lib/isEmpty'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {loggedPostPasswordChange} from '../../modules/actions/loggedActions'
 
 const UserProfileForm = ({profile}) => {
   const {values, errors, handleChange, handleSubmit} = useForm(callback, validate)
   const dispatch = useDispatch()
+  const langForm = useSelector(state => state.language.langJson.forms)
+  
   function callback() {
     dispatch(loggedPostPasswordChange(values))
   }
@@ -37,7 +39,7 @@ const UserProfileForm = ({profile}) => {
             handleChange={handleChange}
             value={profile.email}
             name='email'
-            label='Email'
+            label={langForm.email}
             error={''}
             readonly={true}
           />
@@ -50,7 +52,7 @@ const UserProfileForm = ({profile}) => {
             handleChange={handleChange}
             value={profile.name}
             name='username'
-            label='Username'
+            label={langForm.userName}
             error={''}
             readonly={true}
           />
@@ -63,8 +65,8 @@ const UserProfileForm = ({profile}) => {
             <PasswordInput
               handleChange={handleChange}
               value={values.oldPassword}
-              name='oldPassword'
-              label='Current Password'
+              name="oldPassword"
+              label={langForm.oldPassword}
               error={errors.currentPassword}
             />
         </Grid>
@@ -75,8 +77,8 @@ const UserProfileForm = ({profile}) => {
           <PasswordInput
             handleChange={handleChange}
             value={values.newPassword}
-            name='newPassword'
-            label='New Password'
+            name="newPassword"
+            label={langForm.newPassword}
             error={errors.newPassword}
           />
         </Grid>
@@ -84,15 +86,15 @@ const UserProfileForm = ({profile}) => {
           <UsernameEmailInput
             handleChange={handleChange}
             value={values.referrer}
-            name='referrer'
-            label='Referrer'
+            name="referrer"
+            label={langForm.referrer}
             error={errors.referrer}
             readonly={true}
           />
         </Grid>*/}
       </Grid>
       <Button style={{ display:'block', margin:'auto', padding:'0 100px'}} type="submit" className='buttonForm'>
-        LISTO
+        {langForm.ready}
       </Button>
     </form>
   )

@@ -11,7 +11,6 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import withStyles from '@material-ui/styles/withStyles'
 import isEmpty from 'validator/lib/isEmpty'
 import {useDispatch, useSelector} from 'react-redux'
-import clsx from 'clsx'
 
 import useForm from './useForm'
 import TextInputField from '../inputs/TextInputField'
@@ -29,6 +28,7 @@ const TGGGenderRadio = withStyles(() => ({
 
 const OnboardingForm = () => {
   const {values, errors, handleChange, handleSubmit} = useForm(callback, validate)
+  const langForm = useSelector(state => state.language.langJson.forms)
   const userUUID = useSelector(state => state.logged.profile.uuid)
   const dispatch = useDispatch()
   
@@ -83,7 +83,7 @@ const OnboardingForm = () => {
       <TextInputField
         handleChange={handleChange}
         error={errors.fullname}
-        label={'Full Name'}
+        label={langForm.fullName}
         name={'f6039d44b29456b20f8f373155ae4973'}
         value={values['f6039d44b29456b20f8f373155ae4973']}
       />
@@ -92,7 +92,7 @@ const OnboardingForm = () => {
         error={errors.gender}
       >
         <FormLabel component="legend">
-          <Typography variant={'body2'}>Género</Typography>
+          <Typography variant={'body2'}>{langForm.gender}</Typography>
         </FormLabel>
         <RadioGroup
           name='1f7b89b253833a6dd8cd456fb019eb47'
@@ -122,7 +122,7 @@ const OnboardingForm = () => {
         </RadioGroup>
         {errors.gender && <FormHelperText>{errors.gender}</FormHelperText>}
       </FormControlGender>
-      <Button type="submit">Ir</Button>
+      <Button type="submit">{langForm.ready}</Button>
     </form>
   )
 }

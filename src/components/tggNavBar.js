@@ -91,7 +91,7 @@ const MenuButton = withStyles({
     }
   }
 })(Button)
-
+/*
 const ButtonGetin = withStyles({
   root: {
     padding:'5px 23px',
@@ -100,7 +100,7 @@ const ButtonGetin = withStyles({
     fontSize:'0.8125rem'
 
   }
-})(Button)
+})(Button)*/
 
 const MobileNavList = withStyles({
   root: {
@@ -171,7 +171,7 @@ export default function (props) {
               {staticPages && <NavBarTab label={langNavBar.wwa} value="/wwa"/>}
               {staticPages && <NavBarTab label={langNavBar.wwd} value="/wwd"/>}
               {staticPages && <NavBarTab label={langNavBar.benefits} value="/benefits"/>}
-              {staticPages && <NavBarTab label={langNavBar.blog} value="/blog/"/>}
+              {staticPages && <NavBarTab label={langNavBar.blog} href="/blog/" value="/blog/"/>}
             </NavBarTabs>
             {!loggedIn &&
             <NavRight component="div">

@@ -18,6 +18,7 @@ import {userNewSignupRequest} from '../../modules/actions/userActions'
 const RegisterForm = () => {
   const subEmail = useSelector(state => state.user.subEmail)
   const subReferrer = useSelector(state => state.user.subReferrer)
+  const langForm = useSelector(state => state.language.langJson.forms)
   const {values, errors, handleChange, handleSubmit} = useForm(register, validate,
     {
       email: subEmail,
@@ -63,7 +64,7 @@ const RegisterForm = () => {
       <UsernameEmailInput
         value={values.email}
         name='email'
-        label='Email'
+        label={langForm.email}
         error={''}
         disabled={true}
       />
@@ -71,7 +72,7 @@ const RegisterForm = () => {
         handleChange={handleChange}
         value={values.username}
         name='username'
-        label='Username'
+        label={langForm.userName}
         error={errors.username}
         disabled={false}
       />
@@ -79,7 +80,7 @@ const RegisterForm = () => {
         handleChange={handleChange}
         value={values.password}
         name='password'
-        label='Password'
+        label={langForm.password}
         error={errors.password}
       />
       <CheckboxesGroupSignup
@@ -90,11 +91,11 @@ const RegisterForm = () => {
         handleChange={handleChange}
         value={values.referrer}
         name='referrer'
-        label='Referrer'
+        label={langForm.referrer}
         error={errors.referrer}
         disabled={false}
       />
-      <Button type="submit">Ir!</Button>
+      <Button type="submit">{langForm.ready}</Button>
     </form>
   )
 }

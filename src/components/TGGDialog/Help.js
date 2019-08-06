@@ -9,7 +9,7 @@ export default function () {
   return (
     <>
       <DialogTitle>
-        <Typography variant={'h3'}>Aviso de Privacidad</Typography>
+        <Typography variant={'h3'}>FAQ's</Typography>
       </DialogTitle>
       <DialogContent>
         <Help />

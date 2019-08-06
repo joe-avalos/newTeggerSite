@@ -14,7 +14,7 @@ import '../stylesheets/pages/profile.scss'
 export default function () {
   const dispatch = useDispatch()
   const isLoading = useSelector(state => state.logged.isLoading)
-  const loggedError = useSelector(state => state.logged.loggedError)
+  //TODO const loggedError = useSelector(state => state.logged.loggedError)
   const profile = useSelector(state => state.logged.profile)
 
   React.useEffect(() => {

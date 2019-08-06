@@ -123,6 +123,79 @@
     "subTitle": "Ingresa tu correo para comenzar.",
     "msg": "Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace."
   },
+  "benefits": {
+    "title": "Beneficios",
+    "subTitle": "¡Recibe tokens simplemente por unirte a Tegger!",
+    "msg": "Obtén tokens que puedes intercambiar por atractivas recompensas dentro de nuestro marketplace. Cada vez que navegas como miembro de Tegger recibirás tokens adicionales y estos aumentan aún más cuando completes las misiones en tu perfil.",
+    "article": {
+      "title": [
+        "Obtén",
+        "Descubre",
+        "Navega"
+      ],
+      "msg": [
+        "  por inscribirte!",
+        ", desde tiempo aire y boletos de cine, hasta crédito para pedir comida y transporte privado!",
+        " y gana"
+      ],
+      "bolds": [
+        "¡Gana 50 tokens",
+        "¡Beneficios exclusivos",
+        "Navega"
+      ]
+    },
+    "more": {
+      "title": "Descubre más",
+      "subTitle": "Funcionalidades",
+      "msg": "Tegger cuenta con varias herramientas para que puedas maximizar tus beneficios y usuarlos de manera",
+      "article": {
+        "title": [
+          "Perfil",
+          "Wallet",
+          "Marketplace"
+        ],
+        "msg": [
+          "En esta sección puedes llenar misiones de información para subir de nivel y obtener mayores beneficios por navegar. Además puedes controlar el monitoreo de tus datos y ajustar preferencias de privacidad.",
+          "Aquí puedes revisar tu balance de tokens, cómo los haz ganado y los rewards por los que los haz redimido.",
+          "Intercambia tus tokens por beneficios exclusivos en el marketplace"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "title": "AJUSTES Y CONFIGURACIÓN",
+    "subTitle": "Verifica y edita tu información",
+    "tabs": [
+      "Usuario y Contraseña",
+      "Privacidad",
+      "Términos y Condiciones",
+      "Ayuda"
+    ]
+  },
+  "forms": {
+    "email": "Email",
+    "password": "Contraseña",
+    "oldPassword": "Contraseña Actual",
+    "newPassword": "Contraseña Nueva",
+    "ready": "Listo",
+    "fullName": "Nombre Completo",
+    "gender": "Género",
+    "userName": "Usuario",
+    "referrer": "Referente",
+    "checkboxes": {
+      "title": [
+        "Acepto ",
+        "Estoy de acuerdo con el ",
+        "Soy mayor de 18 años"
+      ],
+      "link": [
+        "términos y condiciones",
+        "aviso de privacidad"
+      ]
+    },
+    "littleMore": "Cuéntanos un poco de ti",
+    "interests": "En los próximos meses cuales de estas categorías tienes pensado comprar"
+  },
   "modal": {
     "title": "ÚNETE A TEGGER",
     "bigText": "¡Recibe tus primeros 50 tokens!",

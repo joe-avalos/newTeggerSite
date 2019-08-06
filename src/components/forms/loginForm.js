@@ -9,6 +9,7 @@ import {userLoginRequest} from '../../modules/actions/userActions'
 
 const LoginForm = () => {
   const subEmail = useSelector(state => state.user.subEmail)
+  const langForm = useSelector(state => state.language.langJson.forms)
   const {values, errors, handleChange, handleSubmit} = useForm(callback, validate, {userid:subEmail})
   const dispatch = useDispatch()
   function callback() {
@@ -27,7 +28,7 @@ const LoginForm = () => {
         handleChange={handleChange}
         value={subEmail}
         name='userid'
-        label='Email'
+        label={langForm.email}
         error={''}
         disabled={true}
       />
@@ -35,11 +36,11 @@ const LoginForm = () => {
         handleChange={handleChange}
         value={values.password}
         name='password'
-        label='Password'
+        label={langForm.password}
         error={errors.password}
       />
       <Button type="submit" className='buttonForm'>
-        LISTO
+        {langForm.ready}
       </Button>
     </form>
   )

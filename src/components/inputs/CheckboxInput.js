@@ -7,7 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import Typography from '@material-ui/core/Typography'
 
-const CheckboxInput = ({handleChange, answers}) => {
+const CheckboxInput = ({handleChange, answers, values}) => {
   return (
     <FormControl>
       <FormGroup>
@@ -17,7 +17,7 @@ const CheckboxInput = ({handleChange, answers}) => {
               <Grid item xs={12} md={4} key={key}>
                 <FormControlLabel
                   control={
-                    <Checkbox name={item.code} onChange={handleChange}/>
+                    <Checkbox name={item.code} checked={values[item.code]} onChange={handleChange}/>
                   }
                   label={
                     <Typography variant={'body1'}>{item.name}</Typography>
