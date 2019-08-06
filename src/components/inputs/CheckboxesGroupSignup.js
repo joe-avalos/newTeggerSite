@@ -9,9 +9,11 @@ import Link from '@material-ui/core/Link'
 import isEmpty from 'validator/lib/isEmpty'
 
 import TGGDialog from '../TGGDialog'
+import {useSelector} from 'react-redux'
 
 const CheckboxesGroupSignup = ({handleChange, error}) => {
   let inputError = !isEmpty(error || '')
+  const langForm = useSelector(state => state.language.langJson.forms)
   const [dialog, setDialog] = React.useState({open:false,content:''})
   function handleTerms() {
     setDialog({open: true, content: 'terms'})
@@ -30,7 +32,7 @@ const CheckboxesGroupSignup = ({handleChange, error}) => {
             control={<Checkbox name="acceptTerms" onChange={handleChange} />}
             label={
               <Typography variant={'body2'}>
-                Acepto <Link onClick={handleTerms}>términos y condiciones</Link>
+                {langForm.checkboxes.title[0]}<Link onClick={handleTerms}>{langForm.checkboxes.link[0]}</Link>
               </Typography>
             }
           />
@@ -38,14 +40,14 @@ const CheckboxesGroupSignup = ({handleChange, error}) => {
             control={<Checkbox name="acceptPrivacy" onChange={handleChange} />}
             label={
               <Typography variant={'body2'}>
-                Estoy de acuerdo con el <Link onClick={handlePrivacy}>aviso de privacidad</Link>
+                {langForm.checkboxes.title[1]}<Link onClick={handlePrivacy}>{langForm.checkboxes.link[1]}</Link>
               </Typography>
             }
           />
           <FormControlLabel
             control={<Checkbox name="acceptAge" onChange={handleChange} />}
             label={
-              <Typography variant={'body2'}>Soy mayor de 18 años</Typography>
+              <Typography variant={'body2'}>{langForm.checkboxes.title[2]}</Typography>
             }
           />
         </FormGroup>

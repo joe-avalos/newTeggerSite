@@ -1,0 +1,15 @@
+@import "../variables";
+
+.background {
+  &.questionBG {
+    height: 240px;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #F5F5F5;
+    @media screen and (max-width: $smWidth) {
+      height: 300px;
+      top: 0;
+    }
+  }
+}

@@ -1,14 +1,18 @@
 import React from 'react'
+
 import Button from '@material-ui/core/Button'
-import UsernameEmailInput from '../inputs/UsernameEmailInput'
-import useForm from './useForm'
+
 import isEmpty from 'validator/lib/isEmpty'
 import isEmail from 'validator/lib/isEmail'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+
+import UsernameEmailInput from '../inputs/UsernameEmailInput'
+import useForm from './useForm'
 import {userFetchUserEmail} from '../../modules/actions/userActions'
 
 const EmailForm = () => {
   const {values, errors, handleChange, handleSubmit} = useForm(login, validate)
+  const langForm = useSelector(state => state.language.langJson.forms)
   const dispatch = useDispatch()
   function login() {
     dispatch(userFetchUserEmail(values.email))
@@ -28,12 +32,12 @@ const EmailForm = () => {
         handleChange={handleChange}
         value={values.email}
         name='email'
-        label='Email'
+        label={langForm.email}
         error={errors.email}
         disabled={false}
       />
       <Button type="submit">
-        Listo
+        {langForm.ready}
       </Button>
     </form>
   )

@@ -5,43 +5,75 @@ import PasswordInput from '../inputs/PasswordInput'
 import useForm from './useForm'
 import isEmpty from 'validator/lib/isEmpty'
 import {useDispatch, useSelector} from 'react-redux'
-import {userLoginRequest} from '../../modules/actions/userActions'
+import {userForgotPassword, userLoginRequest} from '../../modules/actions/userActions'
+import {push} from 'connected-react-router'
+import TGGDialog from '../TGGDialog'
 
 const LoginForm = () => {
   const subEmail = useSelector(state => state.user.subEmail)
-  const {values, errors, handleChange, handleSubmit} = useForm(callback, validate, {userid:subEmail})
+  const langForm = useSelector(state => state.language.langJson.forms)
+  const [dialog, setDialog] = React.useState({open:false, content:''})
+  
+  const {values, errors, handleChange, handleSubmit} = useForm(callback, validate, {userid: subEmail})
   const dispatch = useDispatch()
+  
   function callback() {
     dispatch(userLoginRequest(values))
   }
+  
   function validate() {
     let error = {}
-    if (isEmpty(values.password || '')){
+    if (isEmpty(values.password || '')) {
       error.password = 'Password is required'
     }
     return error
   }
+  
+  function handleClose() {
+    setDialog({open: false, content: ''})
+  }
+  
+  function handleRecoverPassword() {
+    setDialog({open: true, content: 'recover'})
+  }
+  
+  function handleAgree() {
+    handleClose()
+    dispatch(userForgotPassword(subEmail))
+  }
+  
   return (
-    <form onSubmit={handleSubmit} noValidate autoComplete="off">
-      <UsernameEmailInput
-        handleChange={handleChange}
-        value={subEmail}
-        name='userid'
-        label='Email'
-        error={''}
-        disabled={true}
+    <>
+      <form onSubmit={handleSubmit} noValidate autoComplete="off">
+        <UsernameEmailInput
+          handleChange={handleChange}
+          value={subEmail}
+          name='userid'
+          label={langForm.email}
+          error={''}
+          disabled={true}
+        />
+        <PasswordInput
+          handleChange={handleChange}
+          value={values.password}
+          name='password'
+          label={langForm.password}
+          error={errors.password}
+        />
+        <Button onClick={handleRecoverPassword} variant={'contained'}>{langForm.recoverPassword}</Button>
+        <Button type="submit" className='buttonForm'>
+          {langForm.ready}
+        </Button>
+      </form>
+      <TGGDialog
+        handleClose={handleClose}
+        open={dialog.open}
+        content={dialog.content}
+        alert={true}
+        handleAgree={handleAgree}
+        userEmail={subEmail}
       />
-      <PasswordInput
-        handleChange={handleChange}
-        value={values.password}
-        name='password'
-        label='Password'
-        error={errors.password}
-      />
-      <Button type="submit" className='buttonForm'>
-        LISTO
-      </Button>
-    </form>
+    </>
   )
 }
 export default LoginForm

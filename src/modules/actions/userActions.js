@@ -16,6 +16,7 @@ export const USER_ACTIONS = {
   USER_CONFIRM_HAS_ERRORED: 'USER_CONFIRM_HAS_ERRORED',
   USER_CONFIRM_SUBMIT: 'USER_CONFIRM_SUBMIT',
   USER_CONFIRM_SUCCESS: 'USER_CONFIRM_SUCCESS',
+  USER_LOGOUT_SUCCESS: 'USER_LOGOUT_SUCCESS'
 }
 
 export function userIsLoading(bool) {
@@ -116,6 +117,10 @@ export function userReferrerDelete() {
   return {type: USER_ACTIONS.USER_REFERRER_DELETE}
 }
 
+export function userLogoutSuccess() {
+  return {type: USER_ACTIONS.USER_LOGOUT_SUCCESS}
+}
+
 export function userFetchUserEmail(email) {
   return dispatch => {
     dispatch(userIsLoading(true))
@@ -188,7 +193,6 @@ export function userFetchUserUsername(username, type = 'user') {
 export function userNewSignupRequest(data) {
   return dispatch =>{
     dispatch(userIsLoading(true))
-    console.log(data)
     let url = process.env.REACT_APP_API_ROOT + 'signup'
     
     fetch(url, {
@@ -207,7 +211,6 @@ export function userNewSignupRequest(data) {
         dispatch(push('/confirm'))
       })
       .catch(res => {
-        console.log(res)
         res.json().then(e => {
           dispatch(userIsLoading(false))
           dispatch(userHasErrored(e.code))
@@ -274,6 +277,62 @@ export function userConfirmRequest(data) {
           dispatch(userConfirmIsLoading(false))
           dispatch(userConfirmSubmitted(data.code, data.username))
           dispatch(userConfirmHasErrored(e.code))
+        })
+      })
+  }
+}
+
+export function userContactFormSubmit(data, uuid) {
+  return dispatch => {
+    dispatch(userIsLoading(true))
+    let url = process.env.REACT_APP_API_ROOT + 'complain/' + uuid
+    fetch(url,{
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw res
+        }
+        dispatch(userIsLoading(false))
+      })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(userIsLoading(false))
+          dispatch(userHasErrored(e.code))
+        })
+      })
+  }
+}
+
+export function userForgotPassword(data) {
+  return dispatch => {
+    dispatch(userIsLoading(true))
+  
+    let url = process.env.REACT_APP_API_ROOT + 'password/recover'
+    fetch(url,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+        if(!res.ok){
+          throw res
+        }
+        dispatch(userIsLoading(false))
+        dispatch(push('/'))
+      })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(userIsLoading(false))
+          dispatch(userHasErrored(e.code))
         })
       })
   }

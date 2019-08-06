@@ -4,16 +4,17 @@ import Avatar from '@material-ui/core/Avatar'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControl from '@material-ui/core/FormControl'
+import Typography from '@material-ui/core/Typography'
 import FormLabel from '@material-ui/core/FormLabel'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import withStyles from '@material-ui/styles/withStyles'
 import isEmpty from 'validator/lib/isEmpty'
-import {useDispatch} from 'react-redux'
-import clsx from 'clsx'
+import {useDispatch, useSelector} from 'react-redux'
 
 import useForm from './useForm'
 import TextInputField from '../inputs/TextInputField'
+import {loggedPostModuleAnswers} from '../../modules/actions/loggedActions'
 
 
 const TGGGenderRadio = withStyles(() => ({
@@ -27,10 +28,12 @@ const TGGGenderRadio = withStyles(() => ({
 
 const OnboardingForm = () => {
   const {values, errors, handleChange, handleSubmit} = useForm(callback, validate)
+  const langForm = useSelector(state => state.language.langJson.forms)
+  const userUUID = useSelector(state => state.logged.profile.uuid)
   const dispatch = useDispatch()
   
   function callback() {
-  
+    dispatch(loggedPostModuleAnswers(values, userUUID, 'ad9e768d875ac3d933d68cfe2cb557a3'))
   }
   
   function validate() {
@@ -44,17 +47,53 @@ const OnboardingForm = () => {
     return error
   }
   
+  const FormControlGender = withStyles(theme => ({
+    root: {
+      marginBottom: 30,
+      marginTop: 50,
+      '& .MuiAvatar-root': {
+        width: 190,
+        height: 190,
+        backgroundColor: '#B8B8B8',
+        [theme.breakpoints.down('sm')]: {
+          width: 140,
+          height: 140,
+        },
+      },
+      '& .Mui-checked + .MuiAvatar-root':{
+        backgroundColor: '#FF7825'
+      },
+      '& .MuiFormControlLabel-root': {
+        display: 'inline-flex',
+      },
+      '& .MuiFormGroup-root': {
+        display: 'inline',
+        padding: '0 55px',
+        [theme.breakpoints.down('sm')]: {
+          padding: 0,
+        },
+      },
+    }
+  }))(FormControl)
+  
+  
   return (
-    <form onSubmit={handleSubmit} noValidate autoComplete="off">
+    <form onSubmit={handleSubmit} noValidate autoComplete="off"
+          style={{width: '100%', display: 'flex', flexDirection: 'column'}}>
       <TextInputField
         handleChange={handleChange}
         error={errors.fullname}
-        label={'Full Name'}
+        label={langForm.fullName}
         name={'f6039d44b29456b20f8f373155ae4973'}
         value={values['f6039d44b29456b20f8f373155ae4973']}
       />
-      <FormControl component="fieldset" error={errors.gender}>
-        <FormLabel component="legend">Género</FormLabel>
+      <FormControlGender
+        component="fieldset"
+        error={errors.gender}
+      >
+        <FormLabel component="legend">
+          <Typography variant={'body2'}>{langForm.gender}</Typography>
+        </FormLabel>
         <RadioGroup
           name='1f7b89b253833a6dd8cd456fb019eb47'
           value={values['1f7b89b253833a6dd8cd456fb019eb47'] || ''}
@@ -64,7 +103,7 @@ const OnboardingForm = () => {
             control={
               <>
                 <TGGGenderRadio value={'5be369dbfc8f6b4f67abb71d'} disableRipple/>
-                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/dame.svg"/>
+                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeya.png"/>
               </>
             }
             label={'Dame'}
@@ -74,7 +113,7 @@ const OnboardingForm = () => {
             control={
               <>
                 <TGGGenderRadio value={'5be369d3fc8f6b4f67abb71c'} disableRipple/>
-                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/knight.svg"/>
+                <Avatar src="https://files.tegger.io/assets/tegger/images/reactProfile/00_plebeyo.png"/>
               </>
             }
             label={'Knight'}
@@ -82,8 +121,8 @@ const OnboardingForm = () => {
           />
         </RadioGroup>
         {errors.gender && <FormHelperText>{errors.gender}</FormHelperText>}
-      </FormControl>
-      <Button type="submit">Ir</Button>
+      </FormControlGender>
+      <Button type="submit">{langForm.ready}</Button>
     </form>
   )
 }

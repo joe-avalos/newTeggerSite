@@ -1,0 +1,261 @@
+{
+  "navBar": {
+    "registerLogin": "Login / Registro",
+    "home": "Inicio",
+    "wwa": "Acerca De",
+    "wwd": "Cómo funciona",
+    "benefits": "Beneficios",
+    "blog": "Blog",
+    "news": "News",
+    "publishers": "Sitios",
+    "wallet": "Wallet",
+    "profile": "Perfil",
+    "marketplace": "Marketplace",
+    "settings": "Ajustes",
+    "logout": "Cerrar sesión",
+    "language": "Cambiar Idioma"
+  },
+  "commons": {
+    "startGettingRewards": "¡Obtén tus primeros 50 tokens!",
+    "whatTheySay": "LO QUE DICEN",
+    "buttonSubmit": "¡IR!",
+    "currentLang": "ES"
+  },
+  "home": {
+    "title": "Recibe recompensas por navegar",
+    "subTitle": "Ten control sobre la información que compartes y recibe recompensas por ella.",
+    "registerNow": "¡únete para ganar!",
+    "knowOurRewards": "Conoce las recompensas",
+    "wtmQuestion": "POR QUÉ ESTO IMPORTA",
+    "wtmAnswer": "En Tegger sabemos que tú como usuario juegas un papel muy valioso para los sitios y anunciantes. Nosotros lo reconocemos ofreciéndote beneficios por navegar.",
+    "solutionTitle": "La Solución",
+    "solution": "Tegger es una plataforma tecnológica que te ayuda a asumir tu rol clave en la cadena de valor del contenido digital.",
+    "solutionParagraph": "Compartimos el valor de la navegación con los usuarios y con los creadores de contenido y sitios para que puedan seguir creando contenido de calidad.",
+    "rewards": "Recompensas",
+    "rewardsContent": "Recibe recompensas por navegar y llenar encuestas",
+    "control": "Control",
+    "controlContent": "Elige qué y cuándo quieres compartir",
+    "secure": "Seguridad",
+    "secureContent": "Navega seguro en nuestros sitios afiliados"
+  },
+  "whyUseTegger": {
+    "wut": "¿Por qué usar Tegger?",
+    "wutTitle": "Navega o cuéntanos de ti mismo para ganar recompensas.",
+    "wutSubTitle": "Tegger te ofrece las herramientas para escoger.",
+    "wutLogin": "Inicia sesión ó regístrate",
+    "wutLevel": "Sube de nivel con nuestros cuestionarios",
+    "wutBrowse": "Navega en sitios afiliados",
+    "wutMP": "Intercambia tus tokens por recompensas en el Marketplace"
+  },
+  "callToAction": {
+    "CTATitle": "¡Únete a Tegger ahora!",
+    "CTASubTitle": "Comienza a recibir recompensas por navegar."
+  },
+  "footer": {
+    "footKIT": "Mantente en contacto con nosotros.",
+    "footContact": "Contacto",
+    "footPrivacy": "Política de Privacidad",
+    "footTerms": "Términos y Condiciones",
+    "footFAQ": "FAQ's"
+  },
+  "news": {
+    "title": "NEWS",
+    "wts": [
+      "Crypto",
+      "Tegger distributes the value of online data",
+      " You can redeem your tokens for exclusive products. Tegger will also distribute a part of the information´s value to the sites and content creators you read so they can keep creating the quality content you love",
+      "Read more"
+    ]
+  },
+  "wwa": {
+    "wwaTitle": "¿QUE HACEMOS?",
+    "wwaSubTitle": "Tecnología que ayuda a recompensar a usuarios, sitios web y creadores de contenido por la navegación de los usuarios.",
+    "wwaEPTitle": "EL PROBLEMA",
+    "wwaEPSubTitle": "Tegger es una plataforma innovadora diseñada para resolver un problema persistente en el ecosistema digital.",
+    "wwaEPTitleA": "Falta de conocimiento",
+    "wwaEPSectionA": "Los sitios tienen poco conocimiento de su audiencia lo cual hace que no puedan curar correctamente contenido ni vender espacios publicitario de forma óptima.",
+    "wwaEPTitleB": "Pocos beneficios",
+    "wwaEPSectionB": "Los usuarios reciben muy poco a cambio de navegar, aunque le generan un valor importante a los sitios y anunciantes.",
+    "wwaArticle": "Tegger está creando una economía de datos justa que reconoce el rol de los usuarios y sitios web.",
+    "features": {
+      "title": "FUNCIONALIDADES",
+      "sectionA": "Escoge cuándo prender y apagar el rastreo.",
+      "sectionB": "Gana recompensas adicionales por llenar misiones.",
+      "sectionC": "Escoge recompensas.",
+      "sectionD": "Recompensa a tus creadores de contenido. (Próximamente)",
+      "comingSoon": "(Próximente)"
+    }
+  },
+  "HIW": {
+    "hiwTitle": "¿Cómo funciona?",
+    "hiwSubTitle": "Tegger recopila la información que decides compartir a través de tus interacciones con sitios de aliados.",
+    "hiwDescription": "Tegger usa un login para permitirte escoger el tipo de información que deseas compartir. Recibes tokens por interactuar con contenido de nuestros aliados así como compartir información optativa adicional la cual puedes canjear por recompensas.",
+    "hiwArticle": {
+      "title": [
+        "INFORMACIÓN ADICIONAL OPTATIVA",
+        "MODELO DE RECOMPENSAS"
+      ],
+      "bolds": [
+        "Escoge",
+        "Recibe tokens"
+      ],
+      "args": [
+        " qué tipo de información quieres compartir. Tegger rastreará únicamente los puntos que desees compartir.",
+        " en tiempo real cada vez que compartas tu información completando cuestionarios o navegando en sitios de nuestros aliados. Entre más información compartas, más tokens recibirás."
+      ]
+    }
+  },
+  "onboarding": {
+    "OBTitle": "¡Bienvenido al mundo Tegger!",
+    "OBSubTitle": "Tegger usa un login que te permite elegir qué tipos de datos deseas compartir e ingresar información adicional. Recibes tokens por tus interacciones con contenido y por compartir información autoinformada que puede cambiarse por recompensas."
+  },
+  "profile": {
+    "location": {
+      "title":"Ubicación",
+      "active": "Activada",
+      "inactive": "Desactivada"
+    },
+    "tracking": "Navegación",
+    "CTA": "¡Sube al siguiente nivel completando las encuestas y navegando en sitios afiliados para obtener más y mejores premios!"
+  },
+  "getIn": {
+    "title": "¡Entrar!",
+    "subTitle": "Ingresa tu correo para comenzar.",
+    "msg": "Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace."
+  },
+  "benefits": {
+    "title": "Beneficios",
+    "subTitle": "¡Recibe tokens simplemente por unirte a Tegger!",
+    "msg": "Obtén tokens que puedes intercambiar por atractivas recompensas dentro de nuestro marketplace. Cada vez que navegas como miembro de Tegger recibirás tokens adicionales y estos aumentan aún más cuando completes las misiones en tu perfil.",
+    "article": {
+      "title": [
+        "Obtén",
+        "Descubre",
+        "Navega"
+      ],
+      "msg": [
+        "  por inscribirte!",
+        ", desde tiempo aire y boletos de cine, hasta crédito para pedir comida y transporte privado!",
+        " y gana"
+      ],
+      "bolds": [
+        "¡Gana 50 tokens",
+        "¡Beneficios exclusivos",
+        "Navega"
+      ]
+    },
+    "more": {
+      "title": "Descubre más",
+      "subTitle": "Funcionalidades",
+      "msg": "Tegger cuenta con varias herramientas para que puedas maximizar tus beneficios y usuarlos de manera",
+      "article": {
+        "title": [
+          "Perfil",
+          "Wallet",
+          "Marketplace"
+        ],
+        "msg": [
+          "En esta sección puedes llenar misiones de información para subir de nivel y obtener mayores beneficios por navegar. Además puedes controlar el monitoreo de tus datos y ajustar preferencias de privacidad.",
+          "Aquí puedes revisar tu balance de tokens, cómo los haz ganado y los rewards por los que los haz redimido.",
+          "Intercambia tus tokens por beneficios exclusivos en el marketplace"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "title": "AJUSTES Y CONFIGURACIÓN",
+    "subTitle": "Verifica y edita tu información",
+    "tabs": [
+      "Usuario y Contraseña",
+      "Privacidad",
+      "Términos y Condiciones",
+      "Ayuda"
+    ],
+    "contact": {
+      "title": "¿Respondimos todas tus dudas?",
+      "msg": "Si tienes alguna pregunta en cuanto a la protección de tu información o te gustaría consultar, rectificar o aclarar tus datos en Tegger, déjanos un mensaje y nos comunicaremos contigo."
+    }
+  },
+  "forms": {
+    "email": "Email",
+    "password": "Contraseña",
+    "oldPassword": "Contraseña Actual",
+    "newPassword": "Contraseña Nueva",
+    "recoverPassword": "Recuperar Contraseña",
+    "recoverDialog": "Un correo con los pasos necesarios para recuperar tu contraseña se enviará a ",
+    "ready": "Listo",
+    "close": "Cerrar",
+    "agree": "Aceptar",
+    "go": "Ir!",
+    "fullName": "Nombre Completo",
+    "gender": "Género",
+    "userName": "Usuario",
+    "referrer": "Referente",
+    "placeholder": "Ingresa tu correo",
+    "checkboxes": {
+      "title": [
+        "Acepto ",
+        "Estoy de acuerdo con el ",
+        "Soy mayor de 18 años"
+      ],
+      "link": [
+        "términos y condiciones",
+        "aviso de privacidad"
+      ]
+    },
+    "littleMore": "Cuéntanos un poco de ti",
+    "interests": "En los próximos meses cuales de estas categorías tienes pensado comprar",
+    "subject": "Asunto",
+    "message": "Mensaje"
+  },
+  "wallet": {
+    "title": "Wallet",
+    "subTitle": "Balance",
+    "totalBalance": "Balance Total",
+    "income": "Total Ingresos",
+    "output": "Total Egresos",
+    "morePoints": "Obtén más Puntos",
+    "learnMore": "Conoce más",
+    "summary": {
+      "title": "Transacciones",
+      "subTitle": "Actividad",
+      "table": [
+        "Cantidad",
+        "Concepto",
+        "Fecha"
+      ]
+    },
+    "article": {
+      "title": "¿Qué SON LOS TEGGER TOKENS?",
+      "subTitle": "Los Tegger Tokens (UIT) son una representación del valor de tus datos.",
+      "msg": "Recíbelos por navegar en sitios afiliados a Tegger y completar las misiones de datos. Entre más misiones completes mayores recompensas recibirás por navegar. Intercambia tus tokens por recompensas exclusivas en nuestro marketplace."
+    }
+  },
+  "modal": {
+    "title": "ÚNETE A TEGGER",
+    "bigText": "¡Recibe tus primeros 50 tokens!",
+    "description": "Regístrate ahora y empieza a ganar.",
+    "welcome": "¡BIENVENIDO!",
+    "success": "Te mantendremos informado de nuestro avance para que puedas estar entre los primeros en unirte."
+  },
+  "signup": {
+    "title": "¡REGISTRATE!",
+    "subtitle": "Crea una cuenta nueva",
+    "msg": "Comienza a recuperar el control de tu información"
+  },
+  "confirm": {
+    "title": "REVISA TU CORREO",
+    "subTitle": "Te enviamos un correo, ingresa al botón y empieza a recibir recompensas",
+    "msg": "De esta manera verificaremos que tu cuenta es correcta."
+  },
+  "confirmLoad": {
+    "title": "GRACIAS POR CONFIRMAR TU CORREO",
+    "subTitle": "Espera un momento en lo que te redirigimos al inicio de sesión.",
+    "msg": "Si no funciona, haz click aqui: "
+  },
+  "login": {
+    "title": "INICIAR SESIÓN",
+    "subTitle": "Obtén recompensas por navegar",
+    "msg": "Puedes usar tus recompensas por productos y experiencias exclusivas."
+  }
+}

@@ -8,9 +8,11 @@ import Benefits from '../pages/benefits'
 import GetIn from '../pages/getIn'
 import Confirm from '../pages/confirm'
 import Profile from '../pages/profile'
+import Wallet from '../pages/wallet'
+import Settings from '../pages/settings'
 import SRQuestion from '../pages/srquestion'
 
-export default function TggContent() {
+export default function () {
   
   return(
     <Switch>
@@ -21,7 +23,9 @@ export default function TggContent() {
       <Route path="/getin" component={GetIn}/>
       <Route path="/confirm" component={Confirm}/>
       <Route path="/profile" component={Profile}/>
-      <Route path="/question/:questionCode" component={SRQuestion}/>
+      <Route path="/wallet" component={Wallet}/>
+      <Route path="/settings" component={Settings}/>
+      <Route path="/question/:moduleCode" component={SRQuestion}/>
     </Switch>
   )
 }

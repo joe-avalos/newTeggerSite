@@ -1,0 +1,24 @@
+@import "../variables";
+
+.background {
+  &.walletBG {
+    height: 240px;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #F5F5F5;
+    @media screen and (max-width: $smWidth) {
+      height: 400px;
+      top: 0;
+    }
+  }
+
+  &.tokensBG {
+    height: 26%;
+    min-height: 270px;
+    margin-top: 5%;
+    width: 40%;
+    right: 10%;
+    background-image: url("https://files.tegger.io/assets/tegger/images/reactHome/tegger-explain.svg");
+  }
+}

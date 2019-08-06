@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import Paper from '@material-ui/core/Paper'
@@ -11,7 +12,9 @@ import CallToAction from '../components/tggCallTo'
 import TGGFooter from '../components/tggFooter'
 import WhyUseTegger from '../components/tggWhyUse'
 
+
 import '../stylesheets/pages/home.scss'
+import {useSelector} from 'react-redux'
 
 const StyledPaper = withStyles({
   root:{
@@ -25,96 +28,131 @@ const StyledPaper = withStyles({
   }
 })(Paper)
 
-const OtherBody = withStyles({
-  body1:{
-    color: '$primaryBlack',
-  }
-})(Typography)
+const ButtonJoinNow = withStyles(theme => ({
+  root:{
+    width:350,
+    marginTop:60,
+    [theme.breakpoints.down('sm')]: {
+      width:'100%',
+    },
+  },
+}))(Button)
 
-export default function home() {
+const GridSolucion = withStyles(theme => ({
+  root:{
+    width:'100%',
+    marginTop:30,
+    marginBottom:60,
+    textAlign:'center',
+    [theme.breakpoints.down('sm')]: {
+      width:'90%',
+    },
+  },
+}))(Grid)
+
+const GridTitle = withStyles(theme => ({
+  root:{
+    width:'100%',
+    [theme.breakpoints.down('sm')]: {
+      '&.MuiTypography-h1':{
+        fontSize:'3.1rem'
+      }
+
+    },
+  },
+}))(Grid)
+
+export default function () {
+  const langHome = useSelector(state => state.language.langJson.home)
+
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Box className="background homeBG"/>
-      <Grid container>
+
+      <Grid container style={{paddingTop:70}}>
         <Hidden mdDown>
           <Grid item md={1}/>
         </Hidden>
-        <Grid item sm={12} md={5} className="homeTitle">
+        <GridTitle item sm={12} md={5} className="homeTitle">
           <Typography variant={"h1"}>
-            Recibe recompensas por navegar
+            {langHome.title}
           </Typography>
           <Typography variant={"subtitle1"}>
-            Ten control sobre la información que compartes y recibe recompensas por ella.
+            {langHome.subTitle}
           </Typography>
-        </Grid>
+          <ButtonJoinNow href="/getin">{langHome.registerNow}</ButtonJoinNow>
+          <Button href="/marketplace" variant={'contained'}>{langHome.knowOurRewards}</Button>
+        </GridTitle>
       </Grid>
+
       <Grid container>
         <Hidden mdDown>
-          <Grid item sm={12} md={6}/>
+          <Grid item sm={12} md={5}/>
         </Hidden>
 
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={7}>
           <Paper elevation={4} className='componenteTexto'>
             <Typography variant={"h3"}>
-              ¿Por qué esto importa?
+              {langHome.wtmQuestion}
             </Typography>
-            <OtherBody variant={"body1"}>
-              En Tegger sabemos que tú como usuario juegas un papel muy valioso para los sitios y anunciantes.
-              Nosotros lo reconocemos ofreciéndote beneficios por navegar.
-            </OtherBody>
+            <Typography variant={"body1"} style={{color:'#040D14'}}>
+              {langHome.wtmAnswer}
+            </Typography>
           </Paper>
         </Grid>
-
       </Grid>
-      <Grid container>
+
+      <Grid container style={{marginTop:'40px'}}>
         <Grid item sm={12} md={6}>
           <StyledPaper elevation={0}>
             <Typography variant={'h3'}>
-              La Solución
+              {langHome.solutionTitle}
             </Typography>
             <Typography variant={'h2'}>
-              Tegger es una plataforma tecnológica que te permite tomar un rol clave en la cadena de valor de los medios
-              digitales.
+              {langHome.solution}
             </Typography>
             <Typography variant={'body1'}>
-              Nosotros distribuimos el valor de la navegación a los sitios creadores de contenido para que puedan seguir
-              creando contenido de calidad.
+              {langHome.solutionParagraph}
             </Typography>
-            <Grid container>
+            <GridSolucion container>
+
               <Grid item xs={12} md={4}>
                 <TGGStar />
                 <Box>
-                  <Typography variant={'body1'}>
-                    Recompensas
+                  <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
+                    {langHome.rewards}
                   </Typography>
                   <Typography variant={'body2'}>
-                    Recibe recompensas por navegar y llenar encuestas
+                    {langHome.rewardsContent}
                   </Typography>
                 </Box>
               </Grid>
+
               <Grid item xs={12} md={4}>
                 <TGGScroll />
                 <Box>
-                  <Typography variant={'body1'}>
-                    Control
+                  <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
+                    {langHome.control}
                   </Typography>
                   <Typography variant={'body2'}>
-                    Elige qué y cuándo quieres compartir
+                    {langHome.controlContent}
                   </Typography>
                 </Box>
               </Grid>
+
               <Grid item xs={12} md={4}>
                 <TGGShare />
                 <Box>
-                  <Typography variant={'body1'}>
-                    Seguridad
+                  <Typography variant={'body1'} style={{color:'#3B3B3B'}}>
+                    {langHome.secure}
                   </Typography>
                   <Typography variant={'body2'}>
-                    Navega seguro en nuestros sitios afiliados
+                    {langHome.secureContent}
                   </Typography>
                 </Box>
               </Grid>
-            </Grid>
+            </GridSolucion>
+
           </StyledPaper>
         </Grid>
         <Hidden mdDown>

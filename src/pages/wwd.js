@@ -1,40 +1,39 @@
 import React from 'react'
-import Container from '@material-ui/core/Container/index'
-import Box from '@material-ui/core/Box/index'
-import Grid from '@material-ui/core/Grid/index'
-import Paper from '@material-ui/core/Paper/index'
+import Container from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import WhyUseTegger from '../components/tggWhyUse'
 import CallToAction from '../components/tggCallTo'
 import TGGFooter from '../components/tggFooter'
 import '../stylesheets/pages/wwd.scss'
+import {useSelector} from 'react-redux'
 
-export default function wwd() {
+export default function() {
+  const langWWD = useSelector(state => state.language.langJson.HIW)
   return (
     <Container maxWidth="lg" className="contentContainer">
       <Box className="background wwTitleBG wwd"/>
       <Grid container>
         <Grid item xs={12} md={6} className="wwTitle wwdTitle">
           <Typography variant={'h3'}>
-            ¿Cómo funciona?
+            {langWWD.hiwTitle}
           </Typography>
           <Typography variant={'h2'}>
-            Tegger recopila la información que decides compartir a través de tus interacciones con sitios de aliados.
+            {langWWD.hiwSubTitle}
           </Typography>
           <Typography variant={'body1'}>
-            Tegger usa un login para permitirte escoger el tipo de información que deseas compartir. Recibes tokens por
-            interactuar con contenido de nuestros aliados así como compartir información optativa adicional la cual
-            puedes canjear por recompensas.
+            {langWWD.hiwDescription}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6} className="wwTitle relPos">
           <Paper elevation={4}>
             <Typography variant={'h3'}>
-              Información adicional optativa
+              {langWWD.hiwArticle.title[0]}
             </Typography>
             <Typography variant={'body1'} style={{marginBottom: 10}}>
-              <b>Escoge</b> qué tipo de información quieres compartir. Tegger rastreará únicamente los puntos que desees
-              compartir.
+              <b>{langWWD.hiwArticle.bolds[0]}</b>{langWWD.hiwArticle.args[0]}
             </Typography>
             <img
               src="https://files.tegger.io/assets/tegger/images/reactHome/tegger-explain.svg"
@@ -42,11 +41,10 @@ export default function wwd() {
               style={{height: 100, display: 'block', margin: '0 auto'}}
             />
             <Typography variant={'h3'}>
-              Modelo de recompensas
+              {langWWD.hiwArticle.title[1]}
             </Typography>
             <Typography variant={'body1'}>
-              <b>Recibe tokens</b> en tiempo real cada vez que compartas tu información completando cuestionarios o
-              navegando en sitios de nuestros aliados. Entre más información recibas, más tokens recibirás.
+              <b>{langWWD.hiwArticle.bolds[1]}</b>{langWWD.hiwArticle.args[1]}
             </Typography>
           </Paper>
         </Grid>

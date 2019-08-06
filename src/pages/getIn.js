@@ -5,10 +5,11 @@ import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import Hidden from '@material-ui/core/Hidden'
 import FormHelperText from '@material-ui/core/FormHelperText'
-import CircularProgress from  '@material-ui/core/CircularProgress'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import {useDispatch, useSelector} from 'react-redux'
 import queryString from 'query-string'
+import _ from 'lodash'
 
 import {userReferrerSubmitted} from '../modules/actions/userActions'
 import RegisterForm from '../components/forms/registerForm'
@@ -21,17 +22,18 @@ export default function GetIn() {
   let userLoading = useSelector(state => state.user.isLoading)
   React.useEffect(() => {
     let queryReferrer = queryString.parse(window.location.search)
-    if (queryReferrer) {
+    if (!_.isEmpty(queryReferrer)) {
       dispatch(userReferrerSubmitted(queryReferrer.ref))
     }
   })
   
   let userError = useSelector(state => state.user.userError)
+  let langGetIn = useSelector(state => state.language.langJson.getIn)
   
   const userStatus = useSelector(state => {
-    if (state.user.email !== '') {
+    if (state.user.email && state.user.email !== '') {
       return 'userFound'
-    } else if (state.user.subEmail !== '') {
+    } else if (state.user.subEmail && state.user.subEmail !== '') {
       return 'userSub'
     } else {
       return 'noSub'
@@ -43,20 +45,23 @@ export default function GetIn() {
         <Grid item xs={12} md={6} className="getInFormGrid textForms">
         <Box className="textForms">
           <Typography variant={'h3'}>
-            ¡Entrar!
+            {langGetIn.title}
           </Typography>
           <Typography variant={'h2'}>
-            Ingresa tu correo para comenzar.
+            {langGetIn.subTitle}
           </Typography>
           <Typography variant={'body1'}>
-            Recibe tus primeros tokens e intercámbialos por productos en nuestro marketplace.
+            {langGetIn.msg}
           </Typography>
         </Box>
         <Box className="textForms">
-          {userLoading ? <CircularProgress /> :
-            userStatus === 'noSub' ? <EmailForm/> :
-              userStatus === 'userFound' ? <LoginForm /> :
-                <RegisterForm/>
+          {userLoading
+            ? <CircularProgress />
+            : userStatus === 'noSub'
+              ? <EmailForm/>
+              : userStatus === 'userFound'
+                ? <LoginForm />
+                : <RegisterForm/>
           }
           {userError !== '' && <FormHelperText>{userError}</FormHelperText>}
         </Box>
