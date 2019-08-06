@@ -10,6 +10,7 @@
         {
           "name": "Básicos",
           "level": 1,
+          "avatarImg":"https://files.tegger.io/assets/tegger/images/reactProfile/00_Basicos.png",
           "code": "ad9e768d875ac3d933d68cfe2cb557a3",
           "questions": [
             {
@@ -54,6 +55,7 @@
         {
           "name": "Intereses",
           "level": 2,
+          "avatarImg":"https://files.tegger.io/assets/tegger/images/reactProfile/01_intereses.png",
           "code": "cb3fc762153763392eee3940dc261bb8",
           "questions": [
             {
@@ -175,6 +177,7 @@
         {
           "name": "Intenciones",
           "level": 3,
+          "avatarImg":"https://files.tegger.io/assets/tegger/images/reactProfile/02_intenciones.png",
           "code": "4a0a2d480f36040641f4e6051e458e10",
           "questions": [
             {
@@ -355,6 +358,7 @@
         {
           "name": "Familia",
           "level": 4,
+          "avatarImg":"https://files.tegger.io/assets/tegger/images/reactProfile/03_familia.png",
           "code": "ab2d6a890ddc1e81ca653c4cb78c5aa8",
           "questions": [
             {
@@ -413,6 +417,7 @@
         {
           "name": "Trabajo",
           "level": 4,
+          "avatarImg":"https://files.tegger.io/assets/tegger/images/reactProfile/04_trabajo.png",
           "code": "071c6bf64f7e492308f70ef426135627",
           "questions": [
             {
