@@ -9,7 +9,7 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 
 import isEmail from 'validator/lib/isEmail'
 import isEmpty from 'validator/lib/isEmpty'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {push} from 'connected-react-router'
 
 import {userFetchUserEmail} from '../../modules/actions/userActions'
@@ -51,6 +51,7 @@ const MailButton = withStyles(theme =>({
  export default function TggEmailInput() {
    const [email, setName] = React.useState('')
    const [error, setError] = React.useState({error: false, email:'',required:''})
+   const langForm = useSelector(state => state.language.langJson.forms)
    const dispatch = useDispatch()
    function handleChange(e){
      setName(e.target.value)
@@ -80,7 +81,7 @@ const MailButton = withStyles(theme =>({
          <TGGInputStyle
            onChange={handleChange}
            name="email"
-           placeholder="Enter your email"
+           placeholder={langForm.placeholder}
            autoComplete="email"
            startAdornment={
              <InputAdornment position={'start'}>
@@ -89,7 +90,7 @@ const MailButton = withStyles(theme =>({
            }
            endAdornment={
              <InputAdornment position={'end'} onClick={handleSubmit}>
-                <MailButton>Go!</MailButton>
+                <MailButton>{langForm.go}</MailButton>
              </InputAdornment>
            }
          />

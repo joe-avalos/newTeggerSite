@@ -243,12 +243,7 @@ const QuestionGrid = withStyles(theme => ({
     marginTop: 30,
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
-    '&.SRSelected': {
-      '& .MuiCircularProgress-static[style]': {
-        color: theme.palette.primary.main
-      }
-    }
+    justifyContent: 'center'
   }
 }))(Grid)
 
@@ -285,6 +280,19 @@ const QuestionButton = withStyles({
     margin: 'auto',
     height: 'initial',
     minWidth: 140,
+    '&.completed':{
+      '& .MuiAvatar-root': {
+        backgroundColor: '#FF6200'
+      },
+      '& .MuiCircularProgress-static[style]': {
+        color: '#E6500B',
+      }
+    },
+    '&.inProgress':{
+      '& .MuiCircularProgress-static[style]': {
+        color: '#FFD7BE',
+      }
+    },
     '& .MuiAvatar-root': {
       width: 85,
       height: 85,
@@ -297,13 +305,13 @@ const QuestionButton = withStyles({
       color: '#B8B8B8'
     },
     '& .MuiCircularProgress-static[style]': {
-      height: '99px !important',
-      width: '99px !important',
+      height: '97px !important',
+      width: '97px !important',
       position: 'absolute',
       top: -13,
-      left: 'calc(50% - 50px)',
+      left: 'calc(50% - 48px)',
       color: '#BFBFBF',
-    }
+    },
   }
 })(Button)
 
@@ -439,7 +447,7 @@ export default function ({profile}) {
                   : 'inProgress'
                 }
               >
-                <Avatar src={genders[profile.genre][index].avatarImg}/>
+                <Avatar src={modItem.avatarImg}/>
                 <Typography variant={'body1'}>{modItem.name}</Typography>
                 <CircularProgress
                   variant={'static'}

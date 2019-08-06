@@ -181,11 +181,17 @@
     "password": "Contraseña",
     "oldPassword": "Contraseña Actual",
     "newPassword": "Contraseña Nueva",
+    "recoverPassword": "Recuperar Contraseña",
+    "recoverDialog": "Un correo con los pasos necesarios para recuperar tu contraseña se enviará a ",
     "ready": "Listo",
+    "close": "Cerrar",
+    "agree": "Aceptar",
+    "go": "Ir!",
     "fullName": "Nombre Completo",
     "gender": "Género",
     "userName": "Usuario",
     "referrer": "Referente",
+    "placeholder": "Ingresa tu correo",
     "checkboxes": {
       "title": [
         "Acepto ",
@@ -232,10 +238,6 @@
     "welcome": "¡BIENVENIDO!",
     "success": "Te mantendremos informado de nuestro avance para que puedas estar entre los primeros en unirte."
   },
-  "input": {
-    "placeholder": "Ingresa tu correo"
-  },
-
   "signup": {
     "title": "¡REGISTRATE!",
     "subtitle": "Crea una cuenta nueva",
@@ -243,17 +245,17 @@
   },
   "confirm": {
     "title": "REVISA TU CORREO",
-    "subtitle": "Te enviamos un correo, ingresa al botón y empieza a recibir recompensas",
+    "subTitle": "Te enviamos un correo, ingresa al botón y empieza a recibir recompensas",
     "msg": "De esta manera verificaremos que tu cuenta es correcta."
   },
   "confirmLoad": {
     "title": "GRACIAS POR CONFIRMAR TU CORREO",
-    "subtitle": "Espera un momento en lo que te redirigimos al inicio de sesión.",
+    "subTitle": "Espera un momento en lo que te redirigimos al inicio de sesión.",
     "msg": "Si no funciona, haz click aqui: "
   },
   "login": {
     "title": "INICIAR SESIÓN",
-    "subtitle": "Obtén recompensas por navegar",
+    "subTitle": "Obtén recompensas por navegar",
     "msg": "Puedes usar tus recompensas por productos y experiencias exclusivas."
   }
 }

@@ -7,9 +7,11 @@ import Help from './Help'
 import Privacy from './Privacy'
 import Navigation from './Navigation'
 import Success from './Success'
+import Recover from './Recover'
+import {useSelector} from 'react-redux'
 
-const TGGDialog = ({open, content, handleClose}) => {
-
+const TGGDialog = ({open, content, handleClose, alert = false, handleAgree = {}, userEmail = ''}) => {
+  const langForm = useSelector(state => state.language.langJson.forms)
   return (
     <Dialog
       open={open}
@@ -21,8 +23,10 @@ const TGGDialog = ({open, content, handleClose}) => {
       {content === 'navigation' && <Navigation />}
       {content === 'success' && <Success />}
       {content === 'help' && <Help />}
+      {content === 'recover' && <Recover userEmail={userEmail} />}
       <DialogActions>
-        <Button onClick={handleClose} variant={'contained'}>Cerrar</Button>
+        {alert && <Button onClick={handleAgree} variant={'contained'}>{langForm.agree}</Button>}
+        <Button onClick={handleClose} variant={'contained'}>{langForm.close}</Button>
       </DialogActions>
     </Dialog>
   )

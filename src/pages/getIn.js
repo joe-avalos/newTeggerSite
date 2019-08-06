@@ -9,6 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 
 import {useDispatch, useSelector} from 'react-redux'
 import queryString from 'query-string'
+import _ from 'lodash'
 
 import {userReferrerSubmitted} from '../modules/actions/userActions'
 import RegisterForm from '../components/forms/registerForm'
@@ -21,7 +22,7 @@ export default function GetIn() {
   let userLoading = useSelector(state => state.user.isLoading)
   React.useEffect(() => {
     let queryReferrer = queryString.parse(window.location.search)
-    if (queryReferrer) {
+    if (!_.isEmpty(queryReferrer)) {
       dispatch(userReferrerSubmitted(queryReferrer.ref))
     }
   })
@@ -30,9 +31,9 @@ export default function GetIn() {
   let langGetIn = useSelector(state => state.language.langJson.getIn)
   
   const userStatus = useSelector(state => {
-    if (state.user.email !== '') {
+    if (state.user.email && state.user.email !== '') {
       return 'userFound'
-    } else if (state.user.subEmail !== '') {
+    } else if (state.user.subEmail && state.user.subEmail !== '') {
       return 'userSub'
     } else {
       return 'noSub'
@@ -54,10 +55,13 @@ export default function GetIn() {
           </Typography>
         </Box>
         <Box className="textForms">
-          {userLoading ? <CircularProgress /> :
-            userStatus === 'noSub' ? <EmailForm/> :
-              userStatus === 'userFound' ? <LoginForm /> :
-                <RegisterForm/>
+          {userLoading
+            ? <CircularProgress />
+            : userStatus === 'noSub'
+              ? <EmailForm/>
+              : userStatus === 'userFound'
+                ? <LoginForm />
+                : <RegisterForm/>
           }
           {userError !== '' && <FormHelperText>{userError}</FormHelperText>}
         </Box>

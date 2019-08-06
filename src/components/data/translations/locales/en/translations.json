@@ -184,11 +184,17 @@
     "password": "Password",
     "oldPassword": "Current Password",
     "newPassword": "New Password",
+    "recoverPassword": "Recover Password",
+    "recoverDialog": "An email with the steps to recover your password will be sent to ",
     "ready": "Ready",
+    "close": "Close",
+    "agree": "Agree",
+    "go": "Go!",
     "fullName": "Full Name",
     "gender": "Gender",
     "userName": "Username",
     "referrer": "Referrer",
+    "placeholder": "Enter your email",
     "checkboxes": {
       "title": [
         "I accept with the ",
@@ -235,9 +241,6 @@
     "welcome": "WELCOME!",
     "success": "We´ll keep you up to date on our progress, so you can be among the first to join!"
   },
-  "input": {
-    "placeholder": "Enter your email"
-  },
   "signup": {
     "title": "SIGN UP!",
     "subtitle": "Create a free account",
@@ -245,17 +248,17 @@
   },
   "confirm": {
     "title": "CHECK YOUR EMAIL",
-    "subtitle": "We sent you an email, click on the link and start getting rewards",
+    "subTitle": "We sent you an email, click on the link and start getting rewards",
     "msg": "If the email didn`t work, click here."
   },
   "confirmLoad": {
     "title": "THANK YOU FOR CONFIRMING YOUR EMAIL",
-    "subtitle": "Please wait while we redirect you to the login page.",
+    "subTitle": "Please wait while we redirect you to the login page.",
     "msg": "If you are not redirected, please click here: "
   },
   "login": {
     "title": "LOG IN",
-    "subtitle": "Get rewarded for browsing content you love",
+    "subTitle": "Get rewarded for browsing content you love",
     "msg": "You can use your rewards for exclusive products and experiences."
   }
 }

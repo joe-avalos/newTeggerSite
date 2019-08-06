@@ -309,3 +309,31 @@ export function userContactFormSubmit(data, uuid) {
       })
   }
 }
+
+export function userForgotPassword(data) {
+  return dispatch => {
+    dispatch(userIsLoading(true))
+  
+    let url = process.env.REACT_APP_API_ROOT + 'password/recover'
+    fetch(url,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+        if(!res.ok){
+          throw res
+        }
+        dispatch(userIsLoading(false))
+        dispatch(push('/'))
+      })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(userIsLoading(false))
+          dispatch(userHasErrored(e.code))
+        })
+      })
+  }
+}
