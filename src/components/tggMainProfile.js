@@ -423,7 +423,18 @@ export default function ({profile}) {
           {item.modules.map((modItem, modIndex) => {
             let percentage = getCompletedPercentage(item, index, true)
             return (
-              <QuestionButton variant={'contained'} onClick={() => handleQuestionClick(modItem.code)} key={modIndex}>
+              <QuestionButton
+                variant={'contained'}
+                onClick={() => handleQuestionClick(modItem.code)}
+                key={modIndex}
+                className={
+                  percentage >= 100
+                  ? 'completed'
+                  : percentage <= 0
+                  ? ''
+                  : 'inProgress'
+                }
+              >
                 <Avatar src={genders[profile.genre][index].avatarImg}/>
                 <Typography variant={'body1'}>{modItem.name}</Typography>
                 <CircularProgress
@@ -435,7 +446,16 @@ export default function ({profile}) {
           })}
         </Box>
         <NavigationProgress onClick={handleNavigationDialog}>
-          <LinearProgress variant={'determinate'} value={45}/>
+          <LinearProgress
+            variant={'determinate'}
+            value={
+              profile.gamification > item.level
+              ? 100
+                : profile.gamification < item.level
+              ? 0
+                : profile.interacts
+            }
+          />
         </NavigationProgress>
       </QuestionPaper>
     )

@@ -196,6 +196,29 @@
     "littleMore": "Cuéntanos un poco de ti",
     "interests": "En los próximos meses cuales de estas categorías tienes pensado comprar"
   },
+  "wallet": {
+    "title": "Wallet",
+    "subTitle": "Balance",
+    "totalBalance": "Balance Total",
+    "income": "Total Ingresos",
+    "output": "Total Egresos",
+    "morePoints": "Obtén más Puntos",
+    "learnMore": "Conoce más",
+    "summary": {
+      "title": "Transacciones",
+      "subTitle": "Actividad",
+      "table": [
+        "Cantidad",
+        "Concepto",
+        "Fecha"
+      ]
+    },
+    "article": {
+      "title": "¿Qué SON LOS TEGGER TOKENS?",
+      "subTitle": "Los Tegger Tokens (UIT) son una representación del valor de tus datos.",
+      "msg": "Recíbelos por navegar en sitios afiliados a Tegger y completar las misiones de datos. Entre más misiones completes mayores recompensas recibirás por navegar. Intercambia tus tokens por recompensas exclusivas en nuestro marketplace."
+    }
+  },
   "modal": {
     "title": "ÚNETE A TEGGER",
     "bigText": "¡Recibe tus primeros 50 tokens!",

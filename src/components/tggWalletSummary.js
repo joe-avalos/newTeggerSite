@@ -10,6 +10,7 @@ import TR from '@material-ui/core/TableRow'
 import withStyles from '@material-ui/styles/withStyles'
 
 import _ from 'lodash'
+import {useSelector} from 'react-redux'
 
 const SummaryPaper = withStyles({
   root: {
@@ -24,6 +25,7 @@ const SummaryPaper = withStyles({
 export default function ({summaryData}) {
   const [page, setPage] = React.useState(0)
   const [rowsPP, serRowsPP] = React.useState(5)
+  const langWallet = useSelector(state => state.language.langJson.wallet)
 
   function handlePageChange(e, v) {
     setPage(v)
@@ -44,7 +46,9 @@ export default function ({summaryData}) {
       <Table>
         <THead>
           <TR>
-            <TD>Cantidad</TD><TD>Concepto</TD><TD>Fecha</TD>
+            <TD>{langWallet.summary.table[0]}</TD>
+            <TD>{langWallet.summary.table[1]}</TD>
+            <TD>{langWallet.summary.table[2]}</TD>
           </TR>
         </THead>
         <TBody>
