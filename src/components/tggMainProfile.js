@@ -204,6 +204,19 @@ const GamificationAppBar = withStyles(theme => ({
       textTransform: 'capitalize',
       fontFamily: 'Exo'
     },
+    '& .gamificationCompleted':{
+      '& .MuiAvatar-root': {
+        backgroundColor: theme.palette.secondary.main
+      },
+      '& .MuiCircularProgress-static[style]': {
+        color: theme.palette.secondary.main,
+      }
+    },
+    '& .gamificationInProgress':{
+      '& .MuiCircularProgress-static[style]': {
+        color: '#B8B8B8',
+      }
+    },
     '& .Mui-selected': {
       '& .MuiTypography-body2': {
         textTransform: 'uppercase',
@@ -214,13 +227,11 @@ const GamificationAppBar = withStyles(theme => ({
       },
       '& .MuiAvatar-root': {
         transform: 'scale(1.1) translateY(6px)',
-        transition: 'scale 300ms ease-in-out',
-        backgroundColor: theme.palette.secondary.main
+        transition: 'scale 300ms ease-in-out'
       },
       '& .MuiCircularProgress-static[style]': {
         transform: 'scale(1.1) rotate(-90deg) !important',
-        transition: 'scale 300ms ease-in-out',
-        color: theme.palette.secondary.main,
+        transition: 'scale 300ms ease-in-out'
       }
     }
   }
@@ -317,20 +328,13 @@ const InstructionBox = withStyles({
     maxWidth: 600,
     margin: 'auto',
     '& .MuiButton-root': {
-      backgroundImage: 'url("https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png")',
       width: 76,
       height: 76,
       borderRadius: '50%',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundSize: '60%',
       margin: '20px 10px',
       backgroundColor: 'transparent',
       border: '1px solid black',
       opacity: '.5',
-    },
-    '& .MuiButton-root:last-of-type': {
-      backgroundImage: 'url("https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png")',
     }
   }
 })(Box)
@@ -554,7 +558,17 @@ export default function ({profile}) {
                   return null
                 }
                 return (
-                  <Tab key={index} value={index} label={
+                  <Tab
+                    key={index}
+                    value={index}
+                    className={
+                      percentage >= 100
+                        ? 'gamificationCompleted'
+                        : percentage <= 0
+                        ? ''
+                        : 'gamificationInProgress'
+                    }
+                    label={
                     <>
                       <Avatar src={item.avatarImg}/>
                       <Typography variant={'body2'}>
@@ -582,8 +596,12 @@ export default function ({profile}) {
             <Typography variant={"body1"}>
               {langProfile.CTA}
             </Typography>
-            <Button href="https://culturacolectiva.com" target="_blank"/>
-            <Button href="https://news.culturacolectiva.com" target="_blank"/>
+            <Button href="https://culturacolectiva.com" target="_blank">
+              <Avatar src="https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png" />
+            </Button>
+            <Button href="https://news.culturacolectiva.com" target="_blank">
+              <Avatar src="https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png" />
+            </Button>
           </InstructionBox>
         </Grid>
         <Hidden mdDown>

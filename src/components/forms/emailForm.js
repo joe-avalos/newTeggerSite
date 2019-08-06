@@ -1,10 +1,13 @@
 import React from 'react'
+
 import Button from '@material-ui/core/Button'
-import UsernameEmailInput from '../inputs/UsernameEmailInput'
-import useForm from './useForm'
+
 import isEmpty from 'validator/lib/isEmpty'
 import isEmail from 'validator/lib/isEmail'
 import {useDispatch, useSelector} from 'react-redux'
+
+import UsernameEmailInput from '../inputs/UsernameEmailInput'
+import useForm from './useForm'
 import {userFetchUserEmail} from '../../modules/actions/userActions'
 
 const EmailForm = () => {

@@ -281,3 +281,31 @@ export function userConfirmRequest(data) {
       })
   }
 }
+
+export function userContactFormSubmit(data, uuid) {
+  return dispatch => {
+    dispatch(userIsLoading(true))
+    let url = process.env.REACT_APP_API_ROOT + 'complain/' + uuid
+    fetch(url,{
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw res
+        }
+        dispatch(userIsLoading(false))
+      })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(userIsLoading(false))
+          dispatch(userHasErrored(e.code))
+        })
+      })
+  }
+}

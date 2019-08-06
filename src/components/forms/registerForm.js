@@ -2,18 +2,17 @@ import React from 'react'
 
 import Button from '@material-ui/core/Button'
 
+import {useDispatch, useSelector} from 'react-redux'
+import isAlphanumeric from 'validator/lib/isAlphanumeric'
+import isEmpty from 'validator/lib/isEmpty'
+import isLength from 'validator/lib/isLength'
+import matches from 'validator/lib/matches'
+
 import PasswordInput from '../inputs/PasswordInput'
 import CheckboxesGroupSignup from '../inputs/CheckboxesGroupSignup'
 import UsernameEmailInput from '../inputs/UsernameEmailInput'
-import useForm from './useForm'
-
-import {useDispatch, useSelector} from 'react-redux'
-
-import isEmpty from 'validator/lib/isEmpty'
-import isAlphanumeric from 'validator/lib/isAlphanumeric'
-import isLength from 'validator/lib/isLength'
-import matches from 'validator/lib/matches'
 import {userNewSignupRequest} from '../../modules/actions/userActions'
+import useForm from './useForm'
 
 const RegisterForm = () => {
   const subEmail = useSelector(state => state.user.subEmail)

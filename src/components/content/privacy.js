@@ -10,7 +10,6 @@ const PrivacyBox = withStyles({
         marginTop:'20px',
         fontWeight:'300'
     },
-
   }
 })(Box)
 

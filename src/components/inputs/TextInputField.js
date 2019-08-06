@@ -6,7 +6,7 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import TextField from '@material-ui/core/TextField'
 import isEmpty from 'validator/lib/isEmpty'
 
-const TextInputField = ({handleChange, error, label, name, value}) => {
+const TextInputField = ({handleChange, error, label, name, value, rows = 1}) => {
   let inputError = !isEmpty(error || '')
   return (
 
@@ -19,6 +19,8 @@ const TextInputField = ({handleChange, error, label, name, value}) => {
         onChange={handleChange}
         error={inputError}
         autoComplete="textInputField"
+        multiline={rows !== 1}
+        rows={rows}
         fullWidth
       />
       {inputError && <FormHelperText>{error}</FormHelperText>}

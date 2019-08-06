@@ -170,7 +170,11 @@
       "Privacidad",
       "Términos y Condiciones",
       "Ayuda"
-    ]
+    ],
+    "contact": {
+      "title": "¿Respondimos todas tus dudas?",
+      "msg": "Si tienes alguna pregunta en cuanto a la protección de tu información o te gustaría consultar, rectificar o aclarar tus datos en Tegger, déjanos un mensaje y nos comunicaremos contigo."
+    }
   },
   "forms": {
     "email": "Email",
@@ -194,7 +198,9 @@
       ]
     },
     "littleMore": "Cuéntanos un poco de ti",
-    "interests": "En los próximos meses cuales de estas categorías tienes pensado comprar"
+    "interests": "En los próximos meses cuales de estas categorías tienes pensado comprar",
+    "subject": "Asunto",
+    "message": "Mensaje"
   },
   "wallet": {
     "title": "Wallet",

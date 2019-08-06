@@ -91,7 +91,7 @@ const MenuButton = withStyles({
     }
   }
 })(Button)
-/*
+
 const ButtonGetin = withStyles({
   root: {
     padding:'5px 23px',
@@ -100,7 +100,7 @@ const ButtonGetin = withStyles({
     fontSize:'0.8125rem'
 
   }
-})(Button)*/
+})(Button)
 
 const MobileNavList = withStyles({
   root: {
@@ -175,7 +175,7 @@ export default function (props) {
             </NavBarTabs>
             {!loggedIn &&
             <NavRight component="div">
-              <Button href="/getin">{langNavBar.registerLogin}</Button>
+              <ButtonGetin href="/getin">{langNavBar.registerLogin}</ButtonGetin>
               <IconButton
                 disableRipple
                 disableTouchRipple
@@ -533,13 +533,13 @@ export default function (props) {
                       </ListItem>
                       {!loggedIn &&
                       <ListItem>
-                        <Button
+                        <ButtonGetin
                           disableRipple
                           disableTouchRipple
                           disableFocusRipple
                           href="/getin">
                           {langNavBar.registerLogin}
-                        </Button>
+                        </ButtonGetin>
                       </ListItem>
                       }
                     </>

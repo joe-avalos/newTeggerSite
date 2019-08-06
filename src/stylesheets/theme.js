@@ -322,6 +322,13 @@ const theme = createMuiTheme({
         backgroundColor: '#D76300',
       },
       checked: {}
+    },
+    MuiLink:{
+      underlineHover:{
+        '&:hover':{
+          textDecoration: 'none'
+        }
+      }
     }
   }
 })

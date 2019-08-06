@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
@@ -73,9 +74,11 @@ export default function () {
 
             <GridFooter item xs={12} md={9}>
               <Breadcrumbs separator="|" component="nav">
-                <Typography variant={'body2'} href="mailto:info@tegger.io">
-                  {langFoot.footContact}
-                </Typography>
+                <Link href="mailto:info@tegger.io">
+                  <Typography variant={'body2'}>
+                    {langFoot.footContact}
+                  </Typography>
+                </Link>
                 <Typography variant={'body2'} onClick={handlePrivacy}>
                   {langFoot.footPrivacy}
                 </Typography>

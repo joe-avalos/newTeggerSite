@@ -1,16 +1,19 @@
 import React from 'react'
-import Container from '@material-ui/core/Container'
+
 import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import CircularProgress from '@material-ui/core/CircularProgress'
+
 import withStyles from '@material-ui/styles/withStyles'
 import Privacy from '../components/content/privacy'
 import Terms from '../components/content/terms'
 import Help from '../components/content/help'
 import UserProfileForm from '../components/forms/userProfileForm'
+import ContactForm from '../components/forms/contactForm'
 import {useDispatch, useSelector} from 'react-redux'
 import {loggedFetchProfile} from '../modules/actions/loggedActions'
 import Hidden from '@material-ui/core/Hidden'
@@ -105,6 +108,13 @@ export default function () {
                 ? <>
                     <Typography variant={'h3'}>{langSettings.tabs[1]}</Typography>
                     <Privacy/>
+                    <Typography variant={'h2'}>
+                      {langSettings.contact.title}
+                    </Typography>
+                    <Typography variant={'body2'}>
+                      {langSettings.contact.msg}
+                    </Typography>
+                    <ContactForm />
                   </>
                 : tabValue === 2
                 ? <>
