@@ -3,6 +3,7 @@ import React from 'react'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
+import FormHelperText from '@material-ui/core/FormHelperText'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
@@ -55,6 +56,7 @@ export default function ({match}) {
   let moduleAnswers = useSelector(state => state.logged.moduleAnswers)
   let currentLang = useSelector(state => state.language.lang)
   let langForm = useSelector(state => state.language.langJson.forms)
+  let langError = useSelector(state => state.language.langJson.errors)
   let basic = false
   const [firstLoad, setFirstLoad] = React.useState(true)
   
@@ -96,23 +98,25 @@ export default function ({match}) {
   const QuestionForm = () => {
     const {values, errors, handleSubmit, handleChange} = useForm(callback, validate, moduleAnswers)
     function callback() {
-      dispatch(loggedPostModuleAnswers(values, userUUID, mod.code))
+      //dispatch(loggedPostModuleAnswers(values, userUUID, mod.code))
     }
     
     function validate() {
       let error = {}
       if (values['16ad17ae2cb71ac03040f06aeec347e1'] && !isMobile(values['16ad17ae2cb71ac03040f06aeec347e1'])) {
-        error['16ad17ae2cb71ac03040f06aeec347e1'] = 'Ingresa un número de celular válido'
+        error['16ad17ae2cb71ac03040f06aeec347e1'] = langError.WrongMobileFormat
       }
       if (values['689e536d1eaa33690072412a07324caa'] && !isInt(values['689e536d1eaa33690072412a07324caa'],{min:0,max:99})) {
-        error['689e536d1eaa33690072412a07324caa'] = 'Ingresa un número positivo'
+        error['689e536d1eaa33690072412a07324caa'] = langError.PositiveInteger
       }
       if (values['beccfbf04ace26ff365efb49572b06d8'] && !isInt(values['beccfbf04ace26ff365efb49572b06d8'],{min:0,max:99})) {
-        error['beccfbf04ace26ff365efb49572b06d8'] = 'Ingresa un número positivo'
+        error['beccfbf04ace26ff365efb49572b06d8'] = langError.PositiveInteger
+      }
+      if (mod.level === 2 && Object.keys(_.pickBy(values)).length < 1) {
+        error.formError = langError.atLeastOne
       }
       return error
     }
-    
     
     return (
       <form onSubmit={handleSubmit} noValidate autoComplete="off">
@@ -175,6 +179,7 @@ export default function ({match}) {
                 <Grid item md={3}/>
               </Hidden>
               <Grid item xs={12} md={6} style={{margin: '20px 0'}}>
+                {errors.formError && <FormHelperText error={true}>{errors.formError}</FormHelperText>}
                 <Button type="submit" fullWidth>
                   {langForm.ready}
                 </Button>
@@ -201,10 +206,10 @@ export default function ({match}) {
           }
         </Typography>
         <Typography variant={'body1'}>
-          {mod.level === 3 ? langForm.interests : langForm.littleMore}
+          {mod.level === 2 ? langForm.interests : langForm.littleMore}
         </Typography>
       </BoxQuestionHeader>
-      <QuestionForm/>
+      <QuestionForm />
     </Container>
   )
 }

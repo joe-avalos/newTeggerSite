@@ -193,6 +193,7 @@ export function userFetchUserUsername(username, type = 'user') {
 export function userNewSignupRequest(data) {
   return dispatch =>{
     dispatch(userIsLoading(true))
+    dispatch(userHasErrored(''))
     let url = process.env.REACT_APP_API_ROOT + 'signup'
     
     fetch(url, {
@@ -221,6 +222,7 @@ export function userNewSignupRequest(data) {
 export function userLoginRequest(data) {
   return dispatch => {
     dispatch(userIsLoading(true))
+    dispatch(userHasErrored(''))
     let url = process.env.REACT_APP_API_ROOT + 'login'
     
     fetch(url, {

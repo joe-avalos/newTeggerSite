@@ -11,6 +11,8 @@ export const LOGGED_ACTIONS = {
   LOGGED_LOGOUT_SUCCESS: 'LOGGED_LOGOUT_SUCCESS',
   LOGGED_TOTAL_ANSWERS_SUCCESS: 'LOGGED_TOTAL_ANSWERS_SUCCESS',
   LOGGED_MODULE_ANSWERS_SUCCESS: 'LOGGED_MODULE_ANSWERS_SUCCESS',
+  LOGGED_POST_ANSWERS_SUCCESS: 'LOGGED_POST_ANSWERS_SUCCESS',
+  LOGGED_CLOSE_SUCCESS_DIALOG: 'LOGGED_CLOSE_SUCCESS_DIALOG',
   LOGGED_PREFERENCE_CHANGE_SUCCESS: 'LOGGED_PREFERENCE_CHANGE_SUCCESS'
 }
 
@@ -36,7 +38,7 @@ export function loggedPrefsIsLoading(bool) {
 }
 
 export function loggedHasErrored(error) {
-  return{
+  return {
     type: LOGGED_ACTIONS.LOGGED_HAS_ERRORED,
     loggedError: error
   }
@@ -60,6 +62,18 @@ export function loggedFetchModuleAnswersSuccess(moduleAnswers) {
   return {
     type: LOGGED_ACTIONS.LOGGED_MODULE_ANSWERS_SUCCESS,
     moduleAnswers: moduleAnswers
+  }
+}
+
+export function loggedPostModuleAnswersSuccess() {
+  return {
+    type: LOGGED_ACTIONS.LOGGED_POST_ANSWERS_SUCCESS
+  }
+}
+
+export function loggedCloseSuccessDialog() {
+  return {
+    type: LOGGED_ACTIONS.LOGGED_CLOSE_SUCCESS_DIALOG
   }
 }
 
@@ -89,7 +103,7 @@ export function loggedFetchProfile() {
     
     let qURL = process.env.REACT_APP_API_ROOT + 'profile'
     
-    fetch(qURL,{
+    fetch(qURL, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -119,17 +133,17 @@ export function loggedFetchProfile() {
   }
 }
 
-export function loggedFetchTotalAnswers(uuid){
+export function loggedFetchTotalAnswers(uuid) {
   return dispatch => {
     dispatch(loggedIsLoading(true))
-  
-    let qURL = process.env.REACT_APP_API_ROOT + 'answers/'+uuid
-    fetch(qURL,{
+    
+    let qURL = process.env.REACT_APP_API_ROOT + 'answers/' + uuid
+    fetch(qURL, {
       method: 'GET',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-          'Tegger-AuthType': 'session'
+        'Tegger-AuthType': 'session'
       }
     })
       .then(res => {
@@ -157,8 +171,8 @@ export function loggedPostModuleAnswers(answers, uuid, mod) {
   return dispatch => {
     dispatch(loggedAnswersIsLoading(true))
     let answerString = {answers: answers}
-  
-    let qURL = process.env.REACT_APP_API_ROOT + 'answer/'+uuid+'/'+mod
+    
+    let qURL = process.env.REACT_APP_API_ROOT + 'answer/' + uuid + '/' + mod
     fetch(qURL, {
       method: 'POST',
       credentials: 'include',
@@ -173,8 +187,10 @@ export function loggedPostModuleAnswers(answers, uuid, mod) {
           throw res
         }
         dispatch(push('/profile'))
+      }).then(() => {
         dispatch(loggedAnswersIsLoading(false))
-      })
+        dispatch(loggedPostModuleAnswersSuccess())
+    })
       .catch(res => {
         res.json().then(e => {
           dispatch(loggedAnswersIsLoading(false))
@@ -184,11 +200,11 @@ export function loggedPostModuleAnswers(answers, uuid, mod) {
   }
 }
 
-export function loggedPreferenceChange(prefs, uuid){
+export function loggedPreferenceChange(prefs, uuid) {
   return dispatch => {
     //dispatch(loggedPrefsIsLoading(true))
-  
-    let qURL = process.env.REACT_APP_API_ROOT + 'preferences/'+uuid
+    
+    let qURL = process.env.REACT_APP_API_ROOT + 'preferences/' + uuid
     fetch(qURL, {
       method: 'POST',
       credentials: 'include',
@@ -199,7 +215,7 @@ export function loggedPreferenceChange(prefs, uuid){
       body: JSON.stringify(prefs)
     })
       .then(res => {
-        if(!res.ok){
+        if (!res.ok) {
           throw res
         }
         return res
@@ -222,98 +238,9 @@ export function loggedPreferenceChange(prefs, uuid){
 export function loggedFetchModuleAnswers(uuid, mod) {
   return dispatch => {
     dispatch(loggedAnswersIsLoading(true))
-  
-    let qURL = process.env.REACT_APP_API_ROOT + 'answers/'+uuid+'/'+mod
+    
+    let qURL = process.env.REACT_APP_API_ROOT + 'answers/' + uuid + '/' + mod
     fetch(qURL, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'Tegger-AuthType': 'session'
-      }
-    })
-      .then(res => {
-        if (!res.ok){
-          throw res
-        }
-        return res
-      })
-      .then(res => res.json())
-      .then(answers => {
-        dispatch(loggedFetchModuleAnswersSuccess(answers))
-        dispatch(loggedAnswersIsLoading(false))
-      })
-      .catch(e => {
-        dispatch(loggedHasErrored(e.code))
-        dispatch(loggedAnswersIsLoading(false))
-      })
-  }
-}
-
-export function loggedPostPasswordChange(passwords) {
-  return dispatch => {
-    dispatch(loggedPrefsIsLoading(true))
-  
-    let qURL = process.env.REACT_APP_API_ROOT + 'password/change'
-    fetch(qURL, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'Tegger-AuthType': 'session'
-      },
-      body: JSON.stringify(passwords)
-    })
-      .then(res => {
-        if (!res.ok){
-          throw res
-        }
-        dispatch(loggedPrefsIsLoading(false))
-      })
-      .catch(e => {
-        dispatch(loggedHasErrored(e.code))
-        dispatch(loggedPrefsIsLoading(false))
-      })
-  }
-}
-
-export function loggedFetchWallet(uuid) {
-  return dispatch => {
-    dispatch(loggedIsLoading(true))
-  
-    let qURL = process.env.REACT_APP_API_ROOT + 'wallet/'+uuid
-    fetch(qURL, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'Tegger-AuthType': 'session'
-      }
-    })
-      .then(res => {
-        if (!res.ok){
-          throw res
-        }
-        return res
-      })
-      .then(res => res.json())
-      .then(wallet => {
-        dispatch(loggedWalletFetchSuccess(wallet))
-        dispatch(loggedIsLoading(false))
-      })
-      .catch(e => {
-        dispatch(loggedHasErrored(e.code))
-        dispatch(loggedIsLoading(false))
-      })
-  }
-}
-
-export function loggedLogout() {
-  return dispatch => {
-    dispatch(loggedIsLoading(true))
-  
-    let qURL = process.env.REACT_APP_API_ROOT + 'logout'
-    fetch(qURL,{
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -325,16 +252,101 @@ export function loggedLogout() {
         if (!res.ok) {
           throw res
         }
+        return res
+      })
+      .then(res => res.json())
+      .then(answers => {
+        dispatch(loggedFetchModuleAnswersSuccess(answers))
+        dispatch(loggedAnswersIsLoading(false))
+      })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(loggedHasErrored(e.code))
+          dispatch(loggedAnswersIsLoading(false))
+        })
+      })
+  }
+}
+
+export function loggedPostPasswordChange(passwords) {
+  return dispatch => {
+    dispatch(loggedPrefsIsLoading(true))
+    
+    let qURL = process.env.REACT_APP_API_ROOT + 'password/change'
+    fetch(qURL, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      },
+      body: JSON.stringify(passwords)
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw res
+        }
+        dispatch(loggedPrefsIsLoading(false))
+      })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(loggedHasErrored(e.code))
+          dispatch(loggedPrefsIsLoading(false))
+        })
+      })
+  }
+}
+
+export function loggedFetchWallet(uuid) {
+  return dispatch => {
+    dispatch(loggedIsLoading(true))
+    
+    let qURL = process.env.REACT_APP_API_ROOT + 'wallet/' + uuid
+    fetch(qURL, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw res
+        }
+        return res
+      })
+      .then(res => res.json())
+      .then(wallet => {
+        dispatch(loggedWalletFetchSuccess(wallet))
+        dispatch(loggedIsLoading(false))
+      })
+      .catch(res => {
+        res.json().then(e => {
+          dispatch(loggedHasErrored(e.code))
+          dispatch(loggedIsLoading(false))
+        })
+      })
+  }
+}
+
+export function loggedLogout() {
+  return dispatch => {
+    dispatch(loggedIsLoading(true))
+    
+    let qURL = process.env.REACT_APP_API_ROOT + 'logout'
+    fetch(qURL, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'Tegger-AuthType': 'session'
+      }
+    })
+      .then(() => {
         dispatch(userLogoutSuccess())
         dispatch(loggedLogoutSuccess())
         dispatch(loggedIsLoading(false))
-        dispatch(push('/'))
-        })
-      .catch(res => {
-        res.json().then(e => {
-          dispatch(loggedIsLoading(false))
-          dispatch(loggedHasErrored(e.code))
-        })
-      })
+      }).then(dispatch(push('/')))
   }
 }

@@ -1,18 +1,20 @@
 import React from 'react'
+
 import Button from '@material-ui/core/Button'
+import Box from '@material-ui/core/Box'
+
 import UsernameEmailInput from '../inputs/UsernameEmailInput'
 import PasswordInput from '../inputs/PasswordInput'
 import useForm from './useForm'
 import isEmpty from 'validator/lib/isEmpty'
 import {useDispatch, useSelector} from 'react-redux'
 import {userForgotPassword, userLoginRequest} from '../../modules/actions/userActions'
-import {push} from 'connected-react-router'
 import TGGDialog from '../TGGDialog'
 
 const LoginForm = () => {
   const subEmail = useSelector(state => state.user.subEmail)
   const langForm = useSelector(state => state.language.langJson.forms)
-  const [dialog, setDialog] = React.useState({open:false, content:''})
+  const [dialog, setDialog] = React.useState({open: false, content: ''})
   
   const {values, errors, handleChange, handleSubmit} = useForm(callback, validate, {userid: subEmail})
   const dispatch = useDispatch()
@@ -60,10 +62,14 @@ const LoginForm = () => {
           label={langForm.password}
           error={errors.password}
         />
-        <Button onClick={handleRecoverPassword} variant={'contained'}>{langForm.recoverPassword}</Button>
-        <Button type="submit" className='buttonForm'>
-          {langForm.ready}
-        </Button>
+        <Box>
+          <Button onClick={handleRecoverPassword} variant={'contained'}>{langForm.recoverPassword}</Button>
+        </Box>
+        <Box>
+          <Button type="submit" className='buttonForm'>
+            {langForm.ready}
+          </Button>
+        </Box>
       </form>
       <TGGDialog
         handleClose={handleClose}

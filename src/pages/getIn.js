@@ -16,6 +16,13 @@ import RegisterForm from '../components/forms/registerForm'
 import LoginForm from '../components/forms/loginForm'
 import EmailForm from '../components/forms/emailForm'
 import '../stylesheets/pages/getin.scss'
+import withStyles from '@material-ui/styles/withStyles'
+
+const FormHelperTxt = withStyles({
+  root:{
+    marginTop: 8
+  }
+})(FormHelperText)
 
 export default function GetIn() {
   const dispatch = useDispatch()
@@ -29,6 +36,7 @@ export default function GetIn() {
   
   let userError = useSelector(state => state.user.userError)
   let langGetIn = useSelector(state => state.language.langJson.getIn)
+  let langErrors = useSelector(state => state.language.langJson.errors)
   
   const userStatus = useSelector(state => {
     if (state.user.email && state.user.email !== '') {
@@ -63,7 +71,7 @@ export default function GetIn() {
                 ? <LoginForm />
                 : <RegisterForm/>
           }
-          {userError !== '' && <FormHelperText>{userError}</FormHelperText>}
+          {userError !== '' && <FormHelperTxt error={true}>{langErrors[userError]}</FormHelperTxt>}
         </Box>
         </Grid>
         <Hidden mdDown>

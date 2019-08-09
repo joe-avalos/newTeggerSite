@@ -23,7 +23,6 @@ const DateInput = ({birthday = false, handleChange, error, label, name, value}) 
         name={name}
         value={value}
         onChange={handleChange}
-        defaultValue={dateString}
         InputProps={{inputProps:{max:dateString}}}
         variant={'outlined'}
         fullWidth

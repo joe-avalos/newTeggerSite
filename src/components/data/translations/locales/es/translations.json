@@ -257,5 +257,22 @@
     "title": "INICIAR SESIÓN",
     "subTitle": "Obtén recompensas por navegar",
     "msg": "Puedes usar tus recompensas por productos y experiencias exclusivas."
+  },
+  "errors": {
+    "InvalidEmail": "Ingresa un email válido",
+    "UserAlreadyExists": "Ese nombre de usuario ya fue registrado.",
+    "InternalError": "Error de servidor interno. Intenta nuevamente más tarde.",
+    "CodeMismatches": "Código inválido. Intenta nuevamente con otro código.",
+    "CodeHasExpired": "Tu código expiró. Intenta nuevamente con otro código",
+    "TooManyAttempts": "Has excedido el número de atentos permitidos.",
+    "UserNotFound": "Usuario no registrado.",
+    "UserNotConfirmed": "No has confirmado tu cuenta.",
+    "InvalidUserOrPassword": "Usuario o contraseña inválido",
+    "PasswordResetRequired": "Necesitas reestablecer tu contraseña.",
+    "MissingSession": "Inicia sesión nuevamente",
+    "SessionNotFound": "Inicia sesión nuevamente",
+    "PositiveInteger": "Ingresa un número entero positivo.",
+    "WrongMobileFormat": "Ingresa un número de celular válido",
+    "atLeastOne": "Selecciona al menos un interés"
   }
 }

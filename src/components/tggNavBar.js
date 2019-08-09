@@ -445,7 +445,7 @@ export default function (props) {
                           variant={'contained'}
                           onClick={handleExpandToggle}
                         >
-                          <TGGWallet/>
+                          <TGGShop/>
                           <Typography variant={'body2'}>{langNavBar.marketplace}</Typography>
                         </MenuButton>
                       </ListItem>
