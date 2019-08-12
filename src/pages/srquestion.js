@@ -59,12 +59,11 @@ export default function ({match}) {
   let langError = useSelector(state => state.language.langJson.errors)
   let basic = false
   const [firstLoad, setFirstLoad] = React.useState(true)
-  
   React.useEffect(() => {
-    if (_.isEmpty(moduleAnswers) && firstLoad) {
-      if (userUUID === '') {
-        dispatch(loggedFetchProfile())
-      }
+    if (userUUID === '') {
+      dispatch(loggedFetchProfile())
+    }
+    if (_.isEmpty(moduleAnswers) || firstLoad) {
       dispatch(loggedFetchModuleAnswers(userUUID, moduleCode))
       setFirstLoad(false)
     }
@@ -98,7 +97,7 @@ export default function ({match}) {
   const QuestionForm = () => {
     const {values, errors, handleSubmit, handleChange} = useForm(callback, validate, moduleAnswers)
     function callback() {
-      //dispatch(loggedPostModuleAnswers(values, userUUID, mod.code))
+      dispatch(loggedPostModuleAnswers(values, userUUID, mod.code))
     }
     
     function validate() {

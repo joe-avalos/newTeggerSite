@@ -65,9 +65,10 @@ export function loggedFetchModuleAnswersSuccess(moduleAnswers) {
   }
 }
 
-export function loggedPostModuleAnswersSuccess() {
+export function loggedPostModuleAnswersSuccess(bool) {
   return {
-    type: LOGGED_ACTIONS.LOGGED_POST_ANSWERS_SUCCESS
+    type: LOGGED_ACTIONS.LOGGED_POST_ANSWERS_SUCCESS,
+    success: bool
   }
 }
 
@@ -124,11 +125,15 @@ export function loggedFetchProfile() {
         dispatch(loggedHasErrored(''))
       })
       .catch(res => {
-        res.json().then(e => {
-          dispatch(loggedIsLoading(false))
-          dispatch(loggedHasErrored(e.code))
-          dispatch(push('/getin'))
-        })
+        if (res.status === 401){
+          dispatch(loggedLogoutRelogin())
+        }else{
+          res.json().then(e => {
+            dispatch(loggedIsLoading(false))
+            dispatch(loggedHasErrored(e.code))
+            dispatch(push('/getin'))
+          })
+        }
       })
   }
 }
@@ -189,7 +194,7 @@ export function loggedPostModuleAnswers(answers, uuid, mod) {
         dispatch(push('/profile'))
       }).then(() => {
         dispatch(loggedAnswersIsLoading(false))
-        dispatch(loggedPostModuleAnswersSuccess())
+        dispatch(loggedPostModuleAnswersSuccess(true))
     })
       .catch(res => {
         res.json().then(e => {
@@ -222,15 +227,18 @@ export function loggedPreferenceChange(prefs, uuid) {
       })
       .then(res => res.json())
       .then(newPrefs => {
-        console.log(newPrefs)
         dispatch(loggedPreferenceChangeSuccess(newPrefs))
         dispatch(loggedPrefsIsLoading(false))
       })
       .catch(res => {
-        res.json().then(e => {
-          dispatch(loggedHasErrored(e.code))
-          dispatch(loggedPrefsIsLoading(false))
-        })
+        if (res.status === 401){
+          dispatch(loggedLogoutRelogin())
+        }else{
+          res.json().then(e => {
+            dispatch(loggedHasErrored(e.code))
+            dispatch(loggedPrefsIsLoading(false))
+          })
+        }
       })
   }
 }
@@ -289,10 +297,14 @@ export function loggedPostPasswordChange(passwords) {
         dispatch(loggedPrefsIsLoading(false))
       })
       .catch(res => {
-        res.json().then(e => {
-          dispatch(loggedHasErrored(e.code))
-          dispatch(loggedPrefsIsLoading(false))
-        })
+        if (res.status === 401){
+          dispatch(loggedLogoutRelogin())
+        }else{
+          res.json().then(e => {
+            dispatch(loggedHasErrored(e.code))
+            dispatch(loggedPrefsIsLoading(false))
+          })
+        }
       })
   }
 }
@@ -322,10 +334,14 @@ export function loggedFetchWallet(uuid) {
         dispatch(loggedIsLoading(false))
       })
       .catch(res => {
-        res.json().then(e => {
-          dispatch(loggedHasErrored(e.code))
-          dispatch(loggedIsLoading(false))
-        })
+        if (res.status === 401){
+          dispatch(loggedLogoutRelogin())
+        }else{
+          res.json().then(e => {
+            dispatch(loggedHasErrored(e.code))
+            dispatch(loggedIsLoading(false))
+          })
+        }
       })
   }
 }
@@ -348,5 +364,15 @@ export function loggedLogout() {
         dispatch(loggedLogoutSuccess())
         dispatch(loggedIsLoading(false))
       }).then(dispatch(push('/')))
+  }
+}
+
+export function loggedLogoutRelogin(){
+  return dispatch => {
+    dispatch(loggedIsLoading(true))
+    dispatch(userLogoutSuccess())
+    dispatch(loggedLogoutSuccess())
+    dispatch(push('/getin'))
+    dispatch(loggedIsLoading(false))
   }
 }

@@ -87,14 +87,22 @@ export function loggedReduce(state = defaultState, action) {
         moduleAnswers: modAns
       }
     case LOGGED_ACTIONS.LOGGED_POST_ANSWERS_SUCCESS:
-      return {
-        ...state,
-        moduleAnswers: {},
-        postAnswersSuccess: {
-          open: true,
-          content: 'success'
+      if (action.success) {
+        newState = {
+          ...state,
+          moduleAnswers: {},
+          postAnswersSuccess: {
+            open: true,
+            content: 'success'
+          }
+        }
+      }else {
+        newState = {
+          ...state,
+          moduleAnswers: {}
         }
       }
+      return newState
     case LOGGED_ACTIONS.LOGGED_CLOSE_SUCCESS_DIALOG:
       return {
         ...state,

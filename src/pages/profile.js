@@ -4,8 +4,9 @@ import Box from '@material-ui/core/Box'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 import {useDispatch, useSelector} from 'react-redux'
+import _ from 'lodash'
 
-import {loggedFetchProfile} from '../modules/actions/loggedActions'
+import {loggedFetchProfile, loggedPostModuleAnswersSuccess} from '../modules/actions/loggedActions'
 import TGGOnBoarding from '../components/tggOnboarding'
 import TGGMainProfile from '../components/tggMainProfile'
 
@@ -16,10 +17,14 @@ export default function () {
   const isLoading = useSelector(state => state.logged.isLoading)
   //TODO const loggedError = useSelector(state => state.logged.loggedError)
   const profile = useSelector(state => state.logged.profile)
+  let moduleAnswers = useSelector(state => state.logged.moduleAnswers)
 
   React.useEffect(() => {
     if (profile.uuid === ''){
       dispatch(loggedFetchProfile())
+    }
+    if (!_.isEmpty(moduleAnswers)) {
+      dispatch(loggedPostModuleAnswersSuccess(false))
     }
   })
 
