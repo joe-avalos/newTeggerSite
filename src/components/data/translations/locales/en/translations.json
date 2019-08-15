@@ -260,5 +260,22 @@
     "title": "LOG IN",
     "subTitle": "Get rewarded for browsing content you love",
     "msg": "You can use your rewards for exclusive products and experiences."
+  },
+  "errors": {
+    "InvalidEmail": "Please enter a valid email.",
+    "UserAlreadyExists": "Username already exists.",
+    "InternalError": "Internal server error please try again later.",
+    "CodeMismatches": "Invalid code, please try again with another code.",
+    "CodeHasExpired": "This code has expired. Please try again with another code.",
+    "TooManyAttempts": "You have exceeded the allowed number of attempts.",
+    "UserNotFound": "User not found.",
+    "UserNotConfirmed": "User has not been confirmed.",
+    "InvalidUserOrPassword": "Invalid user or password.",
+    "PasswordResetRequired": "Password reset is required.",
+    "MissingSession": "Please log in again.",
+    "SessionNotFound": "Please log in again.",
+    "PositiveInteger": "Please enter a positive integer.",
+    "WrongMobileFormat": "Please enter a valid mobile phone number.",
+    "atLeastOne": "Please select at least one interest"
   }
 }

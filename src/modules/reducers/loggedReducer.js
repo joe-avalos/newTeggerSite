@@ -9,6 +9,10 @@ const defaultState = {
   'answersTotals': {},
   'moduleAnswers': {},
   'wallet': {},
+  'postAnswersSuccess': {
+    'open':false,
+    'content': ''
+  },
   'profile': {
     'uuid': '',
     'name': '',
@@ -81,6 +85,31 @@ export function loggedReduce(state = defaultState, action) {
       return {
         ...state,
         moduleAnswers: modAns
+      }
+    case LOGGED_ACTIONS.LOGGED_POST_ANSWERS_SUCCESS:
+      if (action.success) {
+        newState = {
+          ...state,
+          moduleAnswers: {},
+          postAnswersSuccess: {
+            open: true,
+            content: 'success'
+          }
+        }
+      }else {
+        newState = {
+          ...state,
+          moduleAnswers: {}
+        }
+      }
+      return newState
+    case LOGGED_ACTIONS.LOGGED_CLOSE_SUCCESS_DIALOG:
+      return {
+        ...state,
+        postAnswersSuccess: {
+          open: false,
+          content: ''
+        }
       }
     case LOGGED_ACTIONS.LOGGED_WALLET_SUCCESS:
       return {

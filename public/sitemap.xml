@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://tegger.io/</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://tegger.io/about</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tegger.io/howItWorks</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tegger.io/benefits</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tegger.io/blog/</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tegger.io/marketplace/es_MX/</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://tegger.io/getIn</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tegger.io/profile</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://tegger.io/team</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tegger.io/wallet</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://tegger.io/marketplace/es_MX/login</loc>
+  <lastmod>2019-08-12T18:16:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+</urlset>

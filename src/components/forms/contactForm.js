@@ -5,9 +5,8 @@ import Button from '@material-ui/core/Button'
 import isEmpty from 'validator/lib/isEmpty'
 import {useDispatch, useSelector} from 'react-redux'
 
-import UsernameEmailInput from '../inputs/UsernameEmailInput'
 import useForm from './useForm'
-import {userContactFormSubmit, userFetchUserEmail} from '../../modules/actions/userActions'
+import {userContactFormSubmit} from '../../modules/actions/userActions'
 import TextInputField from '../inputs/TextInputField'
 
 const ContactForm = () => {

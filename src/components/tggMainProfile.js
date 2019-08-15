@@ -21,7 +21,11 @@ import {push} from 'connected-react-router'
 import _ from 'lodash'
 //Tegger app import
 import data from './data/selfReportedData'
-import {loggedFetchTotalAnswers, loggedPreferenceChange} from '../modules/actions/loggedActions'
+import {
+  loggedCloseSuccessDialog,
+  loggedFetchTotalAnswers,
+  loggedPreferenceChange
+} from '../modules/actions/loggedActions'
 import '../stylesheets/components/tggMainProfile.scss'
 import TGGDialog from './TGGDialog'
 //Material UI Component Overrides
@@ -37,7 +41,7 @@ const MobileProfileBG = withStyles(theme => ({
       paddingLeft: 26,
       backgroundColor: theme.palette.primary.main,
       maxWidth: 'initial',
-
+      
     }
   }
 }))(Grid)
@@ -141,7 +145,7 @@ const PrefGrid = withStyles(theme => ({
       marginRight: 0,
       paddingRight: 0
     }
-
+    
   }
 }))(Grid)
 
@@ -204,7 +208,7 @@ const GamificationAppBar = withStyles(theme => ({
       textTransform: 'capitalize',
       fontFamily: 'Exo'
     },
-    '& .gamificationCompleted':{
+    '& .gamificationCompleted': {
       '& .MuiAvatar-root': {
         backgroundColor: theme.palette.secondary.main
       },
@@ -212,7 +216,7 @@ const GamificationAppBar = withStyles(theme => ({
         color: theme.palette.secondary.main,
       }
     },
-    '& .gamificationInProgress':{
+    '& .gamificationInProgress': {
       '& .MuiCircularProgress-static[style]': {
         color: '#B8B8B8',
       }
@@ -280,7 +284,7 @@ const QuestionButton = withStyles({
     margin: 'auto',
     height: 'initial',
     minWidth: 140,
-    '&.completed':{
+    '&.completed': {
       '& .MuiAvatar-root': {
         backgroundColor: '#FF6200'
       },
@@ -288,7 +292,7 @@ const QuestionButton = withStyles({
         color: '#E6500B',
       }
     },
-    '&.inProgress':{
+    '&.inProgress': {
       '& .MuiCircularProgress-static[style]': {
         color: '#FFD7BE',
       }
@@ -355,11 +359,12 @@ export default function ({profile}) {
   
   const dispatch = useDispatch()
   let answersTotals = useSelector(state => state.logged.answersTotals)
-  //let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
+  let answersIsLoading = useSelector(state => state.logged.answersIsLoading)
+  let answerPostSuccess = useSelector(state => state.logged.postAnswersSuccess)
   let prefsIsLoading = useSelector(state => state.logged.prefsIsLoading)
   let currentLang = useSelector(state => state.language.lang)
   let langProfile = useSelector(state => state.language.langJson.profile)
-
+  
   React.useEffect(() => {
     if (_.isEmpty(answersTotals)) {
       dispatch(loggedFetchTotalAnswers(profile.uuid))
@@ -372,8 +377,9 @@ export default function ({profile}) {
   
   function handleClose() {
     setDialog({open: false, content: ''})
+    dispatch(loggedCloseSuccessDialog())
   }
-
+  
   function search(nameKey, myArray = answersTotals) {
     if (!myArray) {
       return null
@@ -384,7 +390,7 @@ export default function ({profile}) {
       }
     }
   }
-
+  
   function getCompletedPercentage(item, index, mod = false) {
     if (SRQuestions[index]) {
       let qLength = SRQuestions[index].modules.length
@@ -402,7 +408,7 @@ export default function ({profile}) {
       return (answered / totalQuestions) * 100
     }
   }
-
+  
   function handlePrefChange(pref) {
     dispatch(loggedPreferenceChange({
         location: pref === 'location' ? !profile.preferences.location : profile.preferences.location,
@@ -411,15 +417,15 @@ export default function ({profile}) {
       profile.uuid
     ))
   }
-
+  
   function handleTabChange(e, v) {
     setTabValue(v)
   }
-
+  
   function handleQuestionClick(qCode) {
     dispatch(push('/question/' + qCode))
   }
-
+  
   function srPaper(item, index) {
     //Paper con elevación para crear los cuadros de las preguntas autoreportadas
     return (
@@ -441,10 +447,10 @@ export default function ({profile}) {
                 key={modIndex}
                 className={
                   percentage >= 100
-                  ? 'completed'
-                  : percentage <= 0
-                  ? ''
-                  : 'inProgress'
+                    ? 'completed'
+                    : percentage <= 0
+                    ? ''
+                    : 'inProgress'
                 }
               >
                 <Avatar src={modItem.avatarImg}/>
@@ -462,9 +468,9 @@ export default function ({profile}) {
             variant={'determinate'}
             value={
               profile.gamification > item.level
-              ? 100
+                ? 100
                 : profile.gamification < item.level
-              ? 0
+                ? 0
                 : profile.interacts
             }
           />
@@ -472,7 +478,7 @@ export default function ({profile}) {
       </QuestionPaper>
     )
   }
-
+  
   return (
     <>
       <Grid container>
@@ -503,7 +509,7 @@ export default function ({profile}) {
                       {/*Profile Token Balnce*/}
                       <Typography variant={'body1'}>
                         <Box className="TokenImg" component="span"/>
-                        {profile.tokenBalance}
+                        {Math.round(profile.tokenBalance * 100) / 100}
                       </Typography>
                     </UserGrid>
                     <Grid item xs={12} md={6}>
@@ -577,21 +583,21 @@ export default function ({profile}) {
                         : 'gamificationInProgress'
                     }
                     label={
-                    <>
-                      <Avatar src={item.avatarImg}/>
-                      <Typography variant={'body2'}>
-                        {
-                          currentLang === 'ES'
-                            ? item.titleEs
-                            : item.titleEn
-                        }
-                      </Typography>
-                      <CircularProgress
-                        variant={'static'}
-                        value={percentage}
-                      />
-                    </>
-                  }/>
+                      <>
+                        <Avatar src={item.avatarImg}/>
+                        <Typography variant={'body2'}>
+                          {
+                            currentLang === 'ES'
+                              ? item.titleEs
+                              : item.titleEn
+                          }
+                        </Typography>
+                        <CircularProgress
+                          variant={'static'}
+                          value={percentage}
+                        />
+                      </>
+                    }/>
                 )
               })
               }
@@ -599,55 +605,64 @@ export default function ({profile}) {
           </GamificationAppBar>
         </Grid>
         {/*Preguntas niveles*/}
-        <Grid item xs={12}>
-          <InstructionBox>
-            <Typography variant={"body1"}>
-              {langProfile.CTA}
-            </Typography>
-            <Button href="https://culturacolectiva.com" target="_blank">
-              <Avatar src="https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png" />
-            </Button>
-            <Button href="https://news.culturacolectiva.com" target="_blank">
-              <Avatar src="https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png" />
-            </Button>
-          </InstructionBox>
-        </Grid>
-        <Hidden mdDown>
-          <Grid item md={4}/>
-        </Hidden>
-        <QuestionGrid item xs={12} md={4} className="SRSelected">
-          {SRQuestions.map((item, index) => {
-            if (index === 0) {
-              return null
-            }
-            if (tabValue === index) {
-              return (
-                srPaper(item, index)
-              )
-            }
-            return null
-          })}
-        </QuestionGrid>
-        <Hidden mdDown>
-          <Grid item md={4}/>
-        </Hidden>
-        <Hidden mdDown>
-          {SRQuestions.map((item, index) => {
-            if (index === 0) {
-              return null
-            }
-            if (tabValue !== index) {
-              return (
-                <QuestionGrid item md={6} key={index}>
-                  {srPaper(item, index)}
-                </QuestionGrid>
-              )
-            }
-            return null
-          })}
-        </Hidden>
+        {answersIsLoading ?
+          <CircularProgress/>
+          :
+          <>
+            <Grid item xs={12}>
+              <InstructionBox>
+                <Typography variant={"body1"}>
+                  {langProfile.CTA}
+                </Typography>
+                <Button href="https://culturacolectiva.com" target="_blank">
+                  <Avatar src="https://files.tegger.io/assets/tegger/images/reactHome/CCLogo.png"/>
+                </Button>
+                <Button href="https://news.culturacolectiva.com" target="_blank">
+                  <Avatar src="https://files.tegger.io/assets/tegger/images/reactHome/CCNewsLogo.png"/>
+                </Button>
+              </InstructionBox>
+            </Grid>
+            <Hidden mdDown>
+              <Grid item md={4}/>
+            </Hidden>
+            <QuestionGrid item xs={12} md={4} className="SRSelected">
+              {SRQuestions.map((item, index) => {
+                if (index === 0) {
+                  return null
+                }
+                if (tabValue === index) {
+                  return (
+                    srPaper(item, index)
+                  )
+                }
+                return null
+              })}
+            </QuestionGrid>
+            <Hidden mdDown>
+              <Grid item md={4}/>
+            </Hidden>
+            <Hidden mdDown>
+              {SRQuestions.map((item, index) => {
+                if (index === 0) {
+                  return null
+                }
+                if (tabValue !== index) {
+                  return (
+                    <QuestionGrid item md={6} key={index}>
+                      {srPaper(item, index)}
+                    </QuestionGrid>
+                  )
+                }
+                return null
+              })}
+            </Hidden>
+          </>
+        }
       </Grid>
-      <TGGDialog open={dialog.open} content={dialog.content} handleClose={handleClose}/>
+      <TGGDialog
+        open={dialog.open || answerPostSuccess.open}
+        content={dialog.content !== '' ? dialog.open : answerPostSuccess.content}
+        handleClose={handleClose}/>
     </>
   )
 }

@@ -329,6 +329,12 @@ const theme = createMuiTheme({
           textDecoration: 'none'
         }
       }
+    },
+    MuiFormHelperText:{
+      root:{
+        marginTop: -4,
+        marginBottom: 15
+      }
     }
   }
 })

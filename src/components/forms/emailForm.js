@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button'
 import isEmpty from 'validator/lib/isEmpty'
 import isEmail from 'validator/lib/isEmail'
 import {useDispatch, useSelector} from 'react-redux'
+import _ from 'lodash'
 
 import UsernameEmailInput from '../inputs/UsernameEmailInput'
 import useForm from './useForm'
@@ -15,7 +16,7 @@ const EmailForm = () => {
   const langForm = useSelector(state => state.language.langJson.forms)
   const dispatch = useDispatch()
   function login() {
-    dispatch(userFetchUserEmail(values.email))
+    dispatch(userFetchUserEmail(_.toLower(values.email)))
   }
   function validate() {
     let error = {}
